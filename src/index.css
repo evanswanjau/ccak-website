@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+nav {
+	overflow-x: hidden;
+}
+body {
+	padding: 0 !important;
+	margin: 0 !important;
+	box-sizing: border-box !important;
+}
+
+.page {
+	@apply min-h-screen;
+}
+.page section {
+	@apply px-12;
+}
+.home > section {
+	background-image: url('./assets/home/BG\ ImageHome.png');
+}
+.project {
+	background-color: #0b070672;
+}
+
+.Donate {
+	background-color: rgba(0, 0, 0, 0.445);
+}
+.homeimg {
+	width: 100vw !important ;
+}
+#HomeSection {
+	background-image: url('./assets/home/BG ImageHome.png');
+	background-size: cover;
+}
