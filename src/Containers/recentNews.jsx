@@ -39,7 +39,7 @@ export const RecentNews = () => {
                 <h2 className="w-2/12 text-3xl text-black">Recent News</h2>
                 <div className="w-10/12 border-t border-gray-200 mt-4"></div>
             </div>
-            <div className="grid grid-cols-4 gap-8 px-16 py-10">
+            <div className="grid grid-cols-4 gap-6 px-16 py-10">
                 {data.map((item) => {
                     return <News data={item} />;
                 })}
