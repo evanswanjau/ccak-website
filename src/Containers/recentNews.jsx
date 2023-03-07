@@ -34,7 +34,7 @@ export const RecentNews = () => {
     ];
 
     return (
-        <div>
+        <div className="py-5">
             <div className="flex flex-row px-16">
                 <h2 className="w-2/12 text-3xl text-black">Recent News</h2>
                 <div className="w-10/12 border-t border-gray-200 mt-4"></div>
