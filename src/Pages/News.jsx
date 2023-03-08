@@ -95,9 +95,7 @@ export const NewsPage = () => {
         <div>
             <section className="text-center py-12">
                 <Slide bottom>
-                    <h1 className="text-4xl font-semibold my-5">
-                        News Page
-                    </h1>
+                    <h1 className="text-4xl font-semibold my-5">News Page</h1>
                 </Slide>
                 <Slide bottom>
                     <p className="w-full px-5 md:w-6/12 mx-auto">
@@ -118,7 +116,7 @@ export const NewsPage = () => {
                 </div>
             </div>
             <section>
-                <UpcomingEvents/>
+                <UpcomingEvents />
             </section>
         </div>
     );
