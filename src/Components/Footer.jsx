@@ -42,9 +42,9 @@ function Footer() {
     ];
 
     return (
-        <footer className="px-10 pt-5 text-gray-600">
-            <div className="flex flex-row space-x-8">
-                <div className="w-3/12">
+        <footer className="w-full px-5 lg:px-10 pt-5 text-gray-600">
+            <div className="flex flex-col lg:flex-row lg:space-x-8">
+                <div className="w-full lg:w-3/12">
                     <img
                         className="w-40 mb-5"
                         src="/ccak_side_logo.png"
@@ -65,8 +65,8 @@ function Footer() {
                         <Link to="tel:+254707111669">0707 111 669</Link>
                     </div>
                 </div>
-                <div className="w-6/12 pt-5">
-                    <div className="flex row justify-around">
+                <div className="w-full lg:w-6/12 pt-5">
+                    <div className="flex flex-col lg:flex-row justify-around">
                         {links.map((link) => {
                             return (
                                 <div>
@@ -77,7 +77,7 @@ function Footer() {
                                         {link.links.map((link) => {
                                             return (
                                                 <a href={link.url}>
-                                                    <li className="text-gray-600 hover:text-[#ED7423] my-6">
+                                                    <li className="text-gray-600 hover:text-[#ED7423] my-4">
                                                         {" "}
                                                         {link.name}
                                                     </li>{" "}
@@ -90,7 +90,7 @@ function Footer() {
                         })}
                     </div>
                 </div>
-                <div className="w-3/12 pt-5 font-manjari">
+                <div className="w-full lg:w-3/12 pt-5 font-manjari">
                     <h3 className="text-black font-medium my-5">NEWSLETTER</h3>
                     <p className="py-3">
                         Stay up-to-date with the latest news and updates on
@@ -108,12 +108,12 @@ function Footer() {
                     </button>
                 </div>
             </div>
-            <div className="flex flex-row border-t py-5 mt-12 text-sm">
-                <p className="w-6/12">
+            <div className="flex flex-col lg:flex-row border-t py-5 mt-12 text-sm">
+                <p className="w-full lg:w-6/12">
                     © Clean Cooking Association Kenya 2023 &nbsp;|&nbsp; All
                     rights Reserved
                 </p>
-                <p className="w-6/12 text-right">
+                <p className="w-full lg:w-6/12 lg:text-right">
                     <a
                         href="legal/terms-and-conditions"
                         className="hover:text-[#ED7423]"
