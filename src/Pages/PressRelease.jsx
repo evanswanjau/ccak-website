@@ -3,7 +3,7 @@ import { MediaCentreSideBar } from "../Containers/mediaCentreSideBar";
 import { RecentNews } from "../Containers/recentNews";
 import { Slide } from "react-reveal";
 
-export const PressRelease = () => {
+export const PressReleasePage = () => {
     const data = [
         {
             title: "Don’t destroy greenery and don’t spoil scenery",
@@ -100,7 +100,7 @@ export const PressRelease = () => {
                     </h1>
                 </Slide>
                 <Slide bottom>
-                    <p className="w-full px-5 lg:w-6/12 mx-auto">
+                    <p className="w-full text-gray-600 px-6 md:w-6/12 mx-auto">
                         Here you will find a variety of press releases covering
                         topics such as new product launches, company milestones,
                         industry awards, and more.
@@ -108,7 +108,7 @@ export const PressRelease = () => {
                 </Slide>
             </section>
             <div className="flex flex-row px-6 lg:px-16">
-                <div className="w-full lg:w-9/12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-6 md:gap-6 py-10">
+                <div className="w-full lg:w-9/12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-6 sm:gap-6 py-10">
                     {data.map((item) => {
                         return <News data={item} />;
                     })}
