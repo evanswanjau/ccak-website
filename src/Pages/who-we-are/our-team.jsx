@@ -111,7 +111,7 @@ const data = [
     },
 ];
 
-export const OurTeam = () => {
+export const OurTeamPage = () => {
     const [member, setMember] = useState({ modal: false, member: {} });
 
     return (
