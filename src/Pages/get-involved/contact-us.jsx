@@ -124,7 +124,7 @@ export const ContactUsPage = () => {
                 </div>
             </section>
             <section className="w-full flex py-6 px-6 md:p-16">
-                <div className="mx-auto w-full">
+                <div className="mx-auto w-full lg:w-7/12">
                     <Slide bottom>
                         <h3 className="text-black text-xl mb-5 font-semibold">
                             Send us a message
