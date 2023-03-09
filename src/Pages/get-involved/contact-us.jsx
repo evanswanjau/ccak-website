@@ -124,14 +124,14 @@ export const ContactUsPage = () => {
                 </div>
             </section>
             <section className="w-full flex py-6 px-6 md:p-16">
-                <div className="mx-auto">
+                <div className="mx-auto w-full">
                     <Slide bottom>
                         <h3 className="text-black text-xl mb-5 font-semibold">
                             Send us a message
                         </h3>
                     </Slide>
                     <Fade>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 font-manjari">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 font-manjari">
                             <input
                                 className="w-full border border-1 outline-0 rounded-md pt-3 pb-2 px-3 focus:border-gray-400 focus:border-1"
                                 type="text"
@@ -153,7 +153,7 @@ export const ContactUsPage = () => {
                                 placeholder="Phone Number"
                             />
                         </div>
-                        <div className="my-5 font-manjari">
+                        <div className="my-3 md:my-5 font-manjari">
                             <textarea
                                 rows="4"
                                 placeholder="Enter your message here..."
