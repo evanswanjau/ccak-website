@@ -3,7 +3,7 @@ import { Slide } from "react-reveal";
 export const CallToAction = () => {
     return (
         <Slide bottom>
-            <div className="w-11/12 my-20 mx-auto bg-[url('http://localhost:5173/src/assets/home/BGHomeVid.png')] bg-cover bg-center bg-no-repeat rounded-lg">
+            <div className="w-11/12 my-10 lg:my-20 mx-auto bg-[url('http://localhost:5173/src/assets/home/BGHomeVid.png')] bg-cover bg-center bg-no-repeat rounded-lg">
                 <div className="bg-black/[.3] px-6 md:px-10 py-8 rounded-lg">
                     <h3 className="text-white text-2xl sm:text-4xl text-center my-10 font-semibold leading-snug">
                         You can contribute to make <br /> the environment
