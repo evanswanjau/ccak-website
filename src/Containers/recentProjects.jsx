@@ -7,28 +7,28 @@ const projects = [
         title: "Mission 40K: Tree plantation",
         description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
-        image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+        image: "projects/project_default.jpg",
         link: "mission-40k",
     },
     {
         title: "Mission 40K: Tree plantation",
         description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
-        image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+        image: "projects/project_default.jpg",
         link: "mission-40k",
     },
     {
         title: "Mission 40K: Tree plantation",
         description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
-        image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+        image: "projects/project_default.jpg",
         link: "mission-40k",
     },
     {
         title: "Mission 40K: Tree plantation",
         description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
-        image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+        image: "projects/project_default.jpg",
         link: "mission-40k",
     },
 ];

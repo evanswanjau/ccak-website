@@ -6,25 +6,25 @@ const data = [
     {
         title: "Netherlands Enterprise Agency",
         venue: "KICC",
-        image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+        image: "events/event_default.jpg",
         url: "mission-40k",
     },
     {
         title: "Netherlands Enterprise Agency",
         venue: "KICC",
-        image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+        image: "events/event_default.jpg",
         url: "mission-40k",
     },
     {
         title: "Netherlands Enterprise Agency",
         venue: "KICC",
-        image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+        image: "events/event_default.jpg",
         url: "mission-40k",
     },
     {
         title: "Netherlands Enterprise Agency",
         venue: "KICC",
-        image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+        image: "events/event_default.jpg",
         url: "mission-40k",
     },
 ];

@@ -1,5 +1,5 @@
 import React from "react";
-import { News } from "../Components/News";
+import { News } from "../Components/news";
 import { Fade } from "react-reveal";
 
 export const RecentNews = () => {
@@ -8,28 +8,28 @@ export const RecentNews = () => {
             title: "Don’t destroy greenery and don’t spoil scenery",
             published: "February 20, 2023",
             excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+            image: "news/news_default.jpg",
             url: "url",
         },
         {
             title: "Don’t destroy greenery and don’t spoil scenery",
             published: "February 20, 2023",
             excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+            image: "news/news_default.jpg",
             url: "url",
         },
         {
             title: "Don’t destroy greenery and don’t spoil scenery",
             published: "February 20, 2023",
             excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+            image: "news/news_default.jpg",
             url: "url",
         },
         {
             title: "Don’t destroy greenery and don’t spoil scenery",
             published: "February 20, 2023",
             excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+            image: "news/news_default.jpg",
             url: "url",
         },
     ];
