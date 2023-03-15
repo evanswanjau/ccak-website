@@ -112,16 +112,16 @@ const pillars = [
 
 export const AboutUsPage = () => {
     return (
-        <div>
+        <div className="pt-[4rem] lg:pt-[8.2rem]">
             <section className="flex flex-col md:flex-row w-full pt-6 md:pb-40 md:pt-20 px-6 md:px-16">
                 <div className="hidden w-full lg:block md:w-1/12">
                     <Fade>
-                        <div className="border-t-2 border-black mx-5 my-2"></div>
+                        <div className="border-t-2 border-black mx-5 my-1"></div>
                     </Fade>
                 </div>
                 <div className="w-full lg:w-6/12 md:pr-5">
                     <Fade>
-                        <h6 className="text-black text-sm font-semibold">
+                        <h6 className="text-black text-xs font-bold">
                             ABOUT US
                         </h6>
                     </Fade>
@@ -157,7 +157,15 @@ export const AboutUsPage = () => {
             </section>
             <section className="p-6 md:p-16 bg-[#EFF7F2]">
                 <Slide bottom>
-                    <div className="md:-mt-40 mx-auto flex justify-center w-10/12  bg-[url('http://localhost:5173/src/assets/home/BGHomeVid.png')] p-32 bg-cover bg-center bg-no-repeat rounded-lg group cursor-pointer">
+                    <div
+                        style={{
+                            backgroundImage: `url(${
+                                import.meta.env.VITE_IMAGEKIT +
+                                "about_us_section_2_video_bg.jpg"
+                            })`,
+                        }}
+                        className="md:-mt-40 mx-auto flex justify-center w-10/12 p-32 bg-cover bg-center bg-no-repeat rounded-lg group cursor-pointer"
+                    >
                         <PlayCircleIcon className="w-12 text-white group-hover:scale-[1.15] duration-300 ease-in-out" />
                     </div>
                 </Slide>
@@ -300,27 +308,34 @@ export const AboutUsPage = () => {
                             </p>
                         </Slide>
                         <br />
-                        <Slide botton>
+                        <Slide bottom>
                             <p className="text-gray-400">
                                 They reduce or eliminate these pollutants,
                                 improving indoor air quality and promoting
-                                better health. Additionally, traditional cooking
-                                methods contribute to deforestation and other
-                                environmental problems.
+                                better health.
                             </p>
                         </Slide>
                         <br />
-                        <Slide botton>
+                        <Slide bottom>
                             <p className="text-gray-400">
-                                Clean cooking solutions use renewable energy
-                                sources, produce fewer emissions, and reduce
-                                reliance on biomass fuel.
+                                Additionally, traditional cooking methods
+                                contribute to deforestation and other
+                                environmental problems. Clean cooking solutions
+                                use renewable energy sources, produce fewer
+                                emissions, and reduce reliance on biomass fuel.
                             </p>
                         </Slide>
                     </div>
-                    <div className="mt-10 sm:mt-0 lg:w-6/12">
+                    <div className="mt-10 sm:mt-0 lg:w-6/12 lg:pt-10">
                         <Fade>
-                            <img src="/image_cooking.png" alt="" />
+                            <img
+                                className="rounded-lg"
+                                src={
+                                    import.meta.env.VITE_IMAGEKIT +
+                                    "about_us_section_6_clean_cooking_importance.jpg"
+                                }
+                                alt="Importance of clean cooking"
+                            />
                         </Fade>
                     </div>
                 </div>
