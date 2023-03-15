@@ -8,43 +8,43 @@ export const EventsPage = () => {
         {
             title: "Netherlands Enterprise Agency",
             venue: "KICC",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+            image: "events/event_default.jpg",
             url: "mission-40k",
         },
         {
             title: "Netherlands Enterprise Agency",
             venue: "KICC",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+            image: "events/event_default.jpg",
             url: "mission-40k",
         },
         {
             title: "Netherlands Enterprise Agency",
             venue: "KICC",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+            image: "events/event_default.jpg",
             url: "mission-40k",
         },
         {
             title: "Netherlands Enterprise Agency",
             venue: "KICC",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+            image: "events/event_default.jpg",
             url: "mission-40k",
         },
         {
             title: "Netherlands Enterprise Agency",
             venue: "KICC",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+            image: "events/event_default.jpg",
             url: "mission-40k",
         },
         {
             title: "Netherlands Enterprise Agency",
             venue: "KICC",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+            image: "events/event_default.jpg",
             url: "mission-40k",
         },
     ];
 
     return (
-        <div>
+        <div className="pt-[4rem] lg:pt-[8.2rem]">
             <section className="text-center py-12">
                 <Slide bottom>
                     <h1 className="text-4xl font-semibold my-5">Events</h1>
@@ -64,7 +64,7 @@ export const EventsPage = () => {
                     })}
                 </div>
                 <div className="hidden lg:block w-4/12 pt-10 pl-10">
-                    <MediaCentreSideBar category="press release" />
+                    <MediaCentreSideBar category="events" />
                 </div>
             </div>
             <section>

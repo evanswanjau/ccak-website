@@ -1,4 +1,4 @@
-import { News } from "../../Components/News";
+import { News } from "../../Components/news";
 import { MediaCentreSideBar } from "../../Containers/mediaCentreSideBar";
 import { RecentNews } from "../../Containers/recentNews";
 import { Slide } from "react-reveal";
@@ -9,90 +9,90 @@ export const PressReleasePage = () => {
             title: "Don’t destroy greenery and don’t spoil scenery",
             published: "February 20, 2023",
             excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
-            url: "url",
+            image: "press_release/press_release_default.jpg",
+            url: "#",
         },
         {
             title: "Don’t destroy greenery and don’t spoil scenery",
             published: "February 20, 2023",
             excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
-            url: "url",
+            image: "press_release/press_release_default.jpg",
+            url: "#",
         },
         {
             title: "Don’t destroy greenery and don’t spoil scenery",
             published: "February 20, 2023",
             excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
-            url: "url",
+            image: "press_release/press_release_default.jpg",
+            url: "#",
         },
         {
             title: "Don’t destroy greenery and don’t spoil scenery",
             published: "February 20, 2023",
             excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
-            url: "url",
+            image: "press_release/press_release_default.jpg",
+            url: "#",
         },
         {
             title: "Don’t destroy greenery and don’t spoil scenery",
             published: "February 20, 2023",
             excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
-            url: "url",
+            image: "press_release/press_release_default.jpg",
+            url: "#",
         },
         {
             title: "Don’t destroy greenery and don’t spoil scenery",
             published: "February 20, 2023",
             excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
-            url: "url",
+            image: "press_release/press_release_default.jpg",
+            url: "#",
         },
         {
             title: "Don’t destroy greenery and don’t spoil scenery",
             published: "February 20, 2023",
             excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
-            url: "url",
+            image: "press_release/press_release_default.jpg",
+            url: "#",
         },
         {
             title: "Don’t destroy greenery and don’t spoil scenery",
             published: "February 20, 2023",
             excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
-            url: "url",
+            image: "press_release/press_release_default.jpg",
+            url: "#",
         },
         {
             title: "Don’t destroy greenery and don’t spoil scenery",
             published: "February 20, 2023",
             excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
-            url: "url",
+            image: "press_release/press_release_default.jpg",
+            url: "#",
         },
         {
             title: "Don’t destroy greenery and don’t spoil scenery",
             published: "February 20, 2023",
             excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
-            url: "url",
+            image: "press_release/press_release_default.jpg",
+            url: "#",
         },
         {
             title: "Don’t destroy greenery and don’t spoil scenery",
             published: "February 20, 2023",
             excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
-            url: "url",
+            image: "press_release/press_release_default.jpg",
+            url: "#",
         },
         {
             title: "Don’t destroy greenery and don’t spoil scenery",
             published: "February 20, 2023",
             excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
-            url: "url",
+            image: "press_release/press_release_default.jpg",
+            url: "#",
         },
     ];
 
     return (
-        <div>
+        <div className="pt-[4rem] lg:pt-[8.2rem]">
             <section className="text-center py-12">
                 <Slide bottom>
                     <h1 className="text-4xl font-semibold my-5">

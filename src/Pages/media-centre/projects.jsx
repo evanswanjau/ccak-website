@@ -9,62 +9,62 @@ export const ProjectsPage = () => {
             title: "Mission 40K: Tree plantation",
             description:
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+            image: "projects/project_default.jpg",
             url: "mission-40k",
         },
         {
             title: "Mission 40K: Tree plantation",
             description:
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+            image: "projects/project_default.jpg",
             url: "mission-40k",
         },
         {
             title: "Mission 40K: Tree plantation",
             description:
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+            image: "projects/project_default.jpg",
             url: "mission-40k",
         },
         {
             title: "Mission 40K: Tree plantation",
             description:
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+            image: "projects/project_default.jpg",
             url: "mission-40k",
         },
         {
             title: "Mission 40K: Tree plantation",
             description:
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+            image: "projects/project_default.jpg",
             url: "mission-40k",
         },
         {
             title: "Mission 40K: Tree plantation",
             description:
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+            image: "projects/project_default.jpg",
             url: "mission-40k",
         },
         {
             title: "Mission 40K: Tree plantation",
             description:
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+            image: "projects/project_default.jpg",
             url: "mission-40k",
         },
         {
             title: "Mission 40K: Tree plantation",
             description:
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+            image: "projects/project_default.jpg",
             url: "mission-40k",
         },
     ];
 
     return (
-        <div>
+        <div className="pt-[4rem] lg:pt-[8.2rem]">
             <section className="text-center py-12">
                 <Slide bottom>
                     <h1 className="text-4xl font-semibold my-5">Projects</h1>
@@ -84,7 +84,7 @@ export const ProjectsPage = () => {
                     })}
                 </div>
                 <div className="hidden lg:block w-4/12 pt-10 pl-10">
-                    <MediaCentreSideBar category="press release" />
+                    <MediaCentreSideBar category="projects" />
                 </div>
             </div>
             <section>
