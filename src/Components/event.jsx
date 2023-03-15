@@ -7,7 +7,12 @@ export const Event = ({ data: { image, date, title, venue, url } }) => {
         <Fade>
             <a href={`/media-centre/events/${url}`}>
                 <div
-                    className={`bg-[url('${image}')] bg-cover bg-center bg-no-repeat rounded-lg text-white group`}
+                    style={{
+                        backgroundImage: `url(${
+                            import.meta.env.VITE_IMAGEKIT + image
+                        })`,
+                    }}
+                    className={`bg-cover bg-center bg-no-repeat rounded-lg text-white group`}
                 >
                     <div className="w-fit bg-white text-black text-center px-3">
                         <h2 className="text-3xl font-bold tracking-widest">
