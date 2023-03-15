@@ -3,7 +3,7 @@ import { DonationStats } from "../../Containers/donationStats";
 
 export const DonatePage = () => {
     return (
-        <div>
+        <div className="pt-[4rem] lg:pt-[8.2rem]">
             <section className="flex flex-col md:flex-row w-full py-6 md:py-20 px-6 md:px-12 bg-[#EFF7F2]">
                 <div className="hidden w-full lg:block md:w-1/12">
                     <Fade>
@@ -32,16 +32,20 @@ export const DonatePage = () => {
                         </button>
                     </Slide>
                 </div>
-                <div className="w-full mt-5 md:mt-0 lg:w-5/12 flex justify-center">
+                <div className="w-full mt-5 flex items-center md:mt-0 lg:w-5/12">
                     <Fade>
                         <img
-                            src="http://localhost:5173/src/assets/home/BGHomeVid.png"
-                            alt=""
+                            className="rounded-lg"
+                            src={
+                                import.meta.env.VITE_IMAGEKIT +
+                                "donate_page_section_1.jpg"
+                            }
+                            alt="Importance of clean cooking"
                         />
                     </Fade>
                 </div>
             </section>
-            <section className="w-full flex flex-col lg:flex-row p-6 lg:p-12 space-y-12 lg:space-y-0 lg:space-x-12">
+            <section className="w-full flex flex-col lg:flex-row p-6 lg:p-16 space-y-12 lg:space-y-0 lg:space-x-12">
                 <div className="lg:w-6/12">
                     <Fade>
                         <h5 className="font-semibold pb-5">

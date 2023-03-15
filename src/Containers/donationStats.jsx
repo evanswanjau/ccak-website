@@ -59,7 +59,7 @@ const statistics = [
 
 export const DonationStats = () => {
     return (
-        <section className="flex flex-col lg:flex-row text-white bg-black p-6 lg:p-16">
+        <section className="flex flex-col lg:flex-row text-white bg-black py-20 p-6 lg:p-16">
             <div className="lg:w-7/12 space-y-8">
                 <Slide bottom>
                     <h3 className="text-5xl">
