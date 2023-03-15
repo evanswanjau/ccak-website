@@ -1,4 +1,4 @@
-import { Project } from "../../Components/Project";
+import { Project } from "../../Components/project";
 import { MediaCentreSideBar } from "../../Containers/mediaCentreSideBar";
 import { RecentNews } from "../../Containers/recentNews";
 import { Slide } from "react-reveal";

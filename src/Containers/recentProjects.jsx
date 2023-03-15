@@ -1,5 +1,5 @@
 import React from "react";
-import { Project } from "../Components/Project";
+import { Project } from "../Components/project";
 import { Slide, Fade } from "react-reveal";
 
 const projects = [
