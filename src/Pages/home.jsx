@@ -69,8 +69,15 @@ export const HomePage = ({}) => {
     ];
 
     return (
-        <div className="text-gray-600">
-            <section className="bg-[url('http://localhost:5173/src/assets/home/BGHomeVid.png')] h-screen bg-cover bg-center bg-no-repeat">
+        <div className="text-gray-600 pt-[4rem] lg:pt-[8.2rem]">
+            <section
+                style={{
+                    backgroundImage: `url(${
+                        import.meta.env.VITE_IMAGEKIT + "home_hero_section.jpg"
+                    })`,
+                }}
+                className={`h-screen bg-cover bg-center bg-no-repeat`}
+            >
                 <div className="flex flex-row items-center bg-black/[.3] w-full h-full">
                     <div className="lg:w-6/12 lg:ml-14 p-6 text-white content-center">
                         <Slide bottom>
@@ -88,11 +95,11 @@ export const HomePage = ({}) => {
                         <Slide bottom>
                             <div className="flex space-x-3 lg:space-x-8 my-10">
                                 <a href={"/what-we-do"}>
-                                    <button className="bg-white text-gray-600 pt-3 pb-2 px-6 hover:bg-[#ED7423] hover:text-white rounded-md transition-all tracking-widest">
+                                    <button className="bg-white text-gray-600 pt-3 pb-2 px-6 hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest">
                                         WHAT WE DO
                                     </button>
                                 </a>
-                                <button className="flex text-xl items-center space-x-2 hover:text-[#ED7423] transition-all">
+                                <button className="flex text-xl items-center space-x-2 hover:text-[#ED7423] transition duration-300 ease-in-out">
                                     <PlayCircleIcon className="w-6" />
                                     <p className="">Play Video</p>
                                 </button>
@@ -144,8 +151,12 @@ export const HomePage = ({}) => {
                 <div className="lg:w-5/12 mt-5 lg:m-0">
                     <Fade>
                         <img
-                            src="http://localhost:5173/src/assets/home/BGHomeVid.png"
-                            alt=""
+                            className="rounded-lg"
+                            src={
+                                import.meta.env.VITE_IMAGEKIT +
+                                "home_section_2_promote_clean_cooking.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1678477808057"
+                            }
+                            alt="Promoting clean cooking"
                         />
                     </Fade>
                 </div>
@@ -161,10 +172,10 @@ export const HomePage = ({}) => {
                 </div>
             </section>
             <section className="flex flex-col lg:flex-row p-6 lg:p-12">
-                <div className="w-1/12">
+                <div className="hidden lg:block w-1/12">
                     <div className="border-t-2 border-black mx-5 mt-1"></div>
                 </div>
-                <div className="lg:w-6/12">
+                <div className="lg:w-6/12 lg:pr-10">
                     <Fade>
                         <h6 className="text-black font-bold text-xs">
                             ABOUT US
@@ -195,17 +206,21 @@ export const HomePage = ({}) => {
                     </Slide>
                     <Slide bottom>
                         <a href={"/who-we-are/about-us"}>
-                            <button className="bg-[#329E49] text-white pt-3 pb-2 px-6 my-5 hover:bg-[#ED7423] hover:text-white rounded-md transition-all delay-150">
+                            <button className="bg-[#329E49] text-white pt-3 pb-2 px-6 my-5 hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out">
                                 LEARN MORE
                             </button>
                         </a>
                     </Slide>
                 </div>
-                <div className="lg:w-5/12 mt-5 lg:m-0">
+                <div className="lg:w-5/12 mt-5 lg:m-0 lg:py-16">
                     <Fade>
                         <img
-                            src="http://localhost:5173/src/assets/home/BGHomeVid.png"
-                            alt=""
+                            className="rounded-lg"
+                            src={
+                                import.meta.env.VITE_IMAGEKIT +
+                                "home_section_4_promote_clean_cooking.jpg"
+                            }
+                            alt="Promoting clean cooking"
                         />
                     </Fade>
                 </div>
