@@ -69,7 +69,7 @@ const data = [
 
 export const ResearchPapersPage = () => {
     return (
-        <div>
+        <div className="pt-[4rem] lg:pt-[8.2rem]">
             <section className="text-center py-12">
                 <Slide bottom>
                     <h1 className="text-4xl font-semibold my-5">

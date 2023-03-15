@@ -69,7 +69,7 @@ const data = [
 
 export const AgmMaterialPage = () => {
     return (
-        <div>
+        <div className="pt-[4rem] lg:pt-[8.2rem]">
             <section className="text-center py-12">
                 <Slide bottom>
                     <h1 className="text-4xl font-semibold my-5">
@@ -78,9 +78,9 @@ export const AgmMaterialPage = () => {
                 </Slide>
                 <Slide bottom>
                     <p className="w-full text-gray-600 px-6 lg:w-6/12 mx-auto">
-                        Welcome to the AGM page! On
-                        this page, we will provide you with a comprehensive
-                        guide to everything you need to know about our Annual General Meetings.
+                        Welcome to the AGM page! On this page, we will provide
+                        you with a comprehensive guide to everything you need to
+                        know about our Annual General Meetings.
                     </p>
                 </Slide>
                 <div className="flex flex-row px-6 lg:px-16 py-5">
