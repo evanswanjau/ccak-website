@@ -55,7 +55,7 @@ export const TopBar = ({ setDropDown }) => {
                             </a>
                         )
                     )}
-                    <Link to="/donate">
+                    <Link to="/get-involved/donate">
                         <button className="bg-[#329E49] text-white pt-2 pb-1 px-5 mx-5 hover:bg-[#3ab554] rounded-md tracking-widest">
                             DONATE
                         </button>
