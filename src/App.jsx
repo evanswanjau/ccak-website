@@ -50,7 +50,7 @@ function App() {
     ]);
     return (
         <div className=" app relative">
-            <BrowserRouter>
+            <BrowserRouter basename="/">
                 <NavBar />
                 <Routes>
                     <Route path="/" element={<HomePage />} />
