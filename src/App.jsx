@@ -8,7 +8,6 @@ import {
     Routes,
 } from "react-router-dom";
 
-import EventRead from "./Pages/EventRead";
 import Footer from "./Components/Footer";
 
 //Strategic Pillars Icons
@@ -34,7 +33,7 @@ import { NewsPage } from "./Pages/media-centre/news";
 import { EventsPage } from "./Pages/media-centre/events";
 import { ProjectsPage } from "./Pages/media-centre/projects";
 import { PhotoGalleryPage } from "./Pages/media-centre/photoGallery";
-// import { EventReadMore } from "./Pages/read-more/event";
+import { EventReadMore } from "./Pages/read-more/event";
 
 function App() {
     //Events
@@ -60,10 +59,6 @@ function App() {
             <BrowserRouter>
                 <NavBar />
                 <Routes>
-                    <Route
-                        path="/eventread"
-                        element={<EventRead events={events}></EventRead>}
-                    ></Route>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/what-we-do" element={<WhatWeDoPage />} />
                     /** --------------- WHO WE ARE ---------------------*/
@@ -124,10 +119,10 @@ function App() {
                         element={<PhotoGalleryPage />}
                     />
                     /** ----------------- READ MORE --------------------- */
-                    {/* <Route
+                    <Route
                         path="/media-centre/events/read-more/:id/:title"
                         element={<EventReadMore />}
-                    /> */}
+                    />
                 </Routes>
                 <Footer />
             </BrowserRouter>
