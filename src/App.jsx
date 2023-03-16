@@ -56,7 +56,7 @@ function App() {
         <div className=" app relative">
             <Router>
                 <NavBar />
-                <Routes>
+                <Switch>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/what-we-do" element={<WhatWeDoPage />} />
                     /** --------------- WHO WE ARE ---------------------*/
@@ -121,7 +121,7 @@ function App() {
                         path="/media-centre/events/read-more/:id/:title"
                         element={<EventReadMore />}
                     /> */}
-                </Routes>
+                </Switch>
                 <Footer />
             </Router>
         </div>
