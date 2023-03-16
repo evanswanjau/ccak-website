@@ -8,28 +8,28 @@ const projects = [
         description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
         image: "projects/project_default.jpg",
-        link: "mission-40k",
+        url: "#",
     },
     {
         title: "Mission 40K: Tree plantation",
         description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
         image: "projects/project_default.jpg",
-        link: "mission-40k",
+        url: "#",
     },
     {
         title: "Mission 40K: Tree plantation",
         description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
         image: "projects/project_default.jpg",
-        link: "mission-40k",
+        url: "#",
     },
     {
         title: "Mission 40K: Tree plantation",
         description:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
         image: "projects/project_default.jpg",
-        link: "mission-40k",
+        url: "#",
     },
 ];
 

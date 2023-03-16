@@ -6,49 +6,49 @@ const data = [
         title: "Consultancy for the provision of media management services to CCAK.",
         description:
             "The objective of the project is to provide communications support to the Clean Cooking Association of Kenya to help them build a foundation for effective communication to the local governments and other relevant stakeholders from the public and private sector...",
-        url: "mission-40k",
+        url: "#",
     },
     {
         title: "Consultancy for the provision of media management services to CCAK.",
         description:
             "The objective of the project is to provide communications support to the Clean Cooking Association of Kenya to help them build a foundation for effective communication to the local governments and other relevant stakeholders from the public and private sector...",
-        url: "mission-40k",
+        url: "#",
     },
     {
         title: "Consultancy for the provision of media management services to CCAK.",
         description:
             "The objective of the project is to provide communications support to the Clean Cooking Association of Kenya to help them build a foundation for effective communication to the local governments and other relevant stakeholders from the public and private sector...",
-        url: "mission-40k",
+        url: "#",
     },
     {
         title: "Consultancy for the provision of media management services to CCAK.",
         description:
             "The objective of the project is to provide communications support to the Clean Cooking Association of Kenya to help them build a foundation for effective communication to the local governments and other relevant stakeholders from the public and private sector...",
-        url: "mission-40k",
+        url: "#",
     },
     {
         title: "Consultancy for the provision of media management services to CCAK.",
         description:
             "The objective of the project is to provide communications support to the Clean Cooking Association of Kenya to help them build a foundation for effective communication to the local governments and other relevant stakeholders from the public and private sector...",
-        url: "mission-40k",
+        url: "#",
     },
     {
         title: "Consultancy for the provision of media management services to CCAK.",
         description:
             "The objective of the project is to provide communications support to the Clean Cooking Association of Kenya to help them build a foundation for effective communication to the local governments and other relevant stakeholders from the public and private sector...",
-        url: "mission-40k",
+        url: "#",
     },
     {
         title: "Consultancy for the provision of media management services to CCAK.",
         description:
             "The objective of the project is to provide communications support to the Clean Cooking Association of Kenya to help them build a foundation for effective communication to the local governments and other relevant stakeholders from the public and private sector...",
-        url: "mission-40k",
+        url: "#",
     },
     {
         title: "Consultancy for the provision of media management services to CCAK.",
         description:
             "The objective of the project is to provide communications support to the Clean Cooking Association of Kenya to help them build a foundation for effective communication to the local governments and other relevant stakeholders from the public and private sector...",
-        url: "mission-40k",
+        url: "#",
     },
 ];
 

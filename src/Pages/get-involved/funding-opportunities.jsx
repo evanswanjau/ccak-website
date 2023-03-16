@@ -6,31 +6,31 @@ const data = [
         title: "Call for clean cooking technologies to participate KOSAP results based financing",
         description:
             "The Kenya Off-Grid Solar Access Project (KOSAP) is a flagship project of the Ministry of Energy, financed by the World Bank. Component 2 of the project is a US$ 47 million funding window encompassing two results-based financings (RBF) facilities for solar (US$ 12 million)...",
-        url: "mission-40k",
+        url: "#",
     },
     {
         title: "Call for clean cooking technologies to participate KOSAP results based financing",
         description:
             "The Kenya Off-Grid Solar Access Project (KOSAP) is a flagship project of the Ministry of Energy, financed by the World Bank. Component 2 of the project is a US$ 47 million funding window encompassing two results-based financings (RBF) facilities for solar (US$ 12 million)...",
-        url: "mission-40k",
+        url: "#",
     },
     {
         title: "Call for clean cooking technologies to participate KOSAP results based financing",
         description:
             "The Kenya Off-Grid Solar Access Project (KOSAP) is a flagship project of the Ministry of Energy, financed by the World Bank. Component 2 of the project is a US$ 47 million funding window encompassing two results-based financings (RBF) facilities for solar (US$ 12 million)...",
-        url: "mission-40k",
+        url: "#",
     },
     {
         title: "Call for clean cooking technologies to participate KOSAP results based financing",
         description:
             "The Kenya Off-Grid Solar Access Project (KOSAP) is a flagship project of the Ministry of Energy, financed by the World Bank. Component 2 of the project is a US$ 47 million funding window encompassing two results-based financings (RBF) facilities for solar (US$ 12 million)...",
-        url: "mission-40k",
+        url: "#",
     },
     {
         title: "Call for clean cooking technologies to participate KOSAP results based financing",
         description:
             "The Kenya Off-Grid Solar Access Project (KOSAP) is a flagship project of the Ministry of Energy, financed by the World Bank. Component 2 of the project is a US$ 47 million funding window encompassing two results-based financings (RBF) facilities for solar (US$ 12 million)...",
-        url: "mission-40k",
+        url: "#",
     },
 ];
 

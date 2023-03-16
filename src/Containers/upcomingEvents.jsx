@@ -7,25 +7,25 @@ const data = [
         title: "Netherlands Enterprise Agency",
         venue: "KICC",
         image: "events/event_default.jpg",
-        url: "mission-40k",
+        url: "#",
     },
     {
         title: "Netherlands Enterprise Agency",
         venue: "KICC",
         image: "events/event_default.jpg",
-        url: "mission-40k",
+        url: "#",
     },
     {
         title: "Netherlands Enterprise Agency",
         venue: "KICC",
         image: "events/event_default.jpg",
-        url: "mission-40k",
+        url: "#",
     },
     {
         title: "Netherlands Enterprise Agency",
         venue: "KICC",
         image: "events/event_default.jpg",
-        url: "mission-40k",
+        url: "#",
     },
 ];
 

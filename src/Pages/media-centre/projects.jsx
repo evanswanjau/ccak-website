@@ -10,56 +10,56 @@ export const ProjectsPage = () => {
             description:
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             image: "projects/project_default.jpg",
-            url: "mission-40k",
+            url: "#",
         },
         {
             title: "Mission 40K: Tree plantation",
             description:
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             image: "projects/project_default.jpg",
-            url: "mission-40k",
+            url: "#",
         },
         {
             title: "Mission 40K: Tree plantation",
             description:
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             image: "projects/project_default.jpg",
-            url: "mission-40k",
+            url: "#",
         },
         {
             title: "Mission 40K: Tree plantation",
             description:
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             image: "projects/project_default.jpg",
-            url: "mission-40k",
+            url: "#",
         },
         {
             title: "Mission 40K: Tree plantation",
             description:
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             image: "projects/project_default.jpg",
-            url: "mission-40k",
+            url: "#",
         },
         {
             title: "Mission 40K: Tree plantation",
             description:
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             image: "projects/project_default.jpg",
-            url: "mission-40k",
+            url: "#",
         },
         {
             title: "Mission 40K: Tree plantation",
             description:
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             image: "projects/project_default.jpg",
-            url: "mission-40k",
+            url: "#",
         },
         {
             title: "Mission 40K: Tree plantation",
             description:
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             image: "projects/project_default.jpg",
-            url: "mission-40k",
+            url: "#",
         },
     ];
 
