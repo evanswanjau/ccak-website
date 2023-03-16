@@ -1,7 +1,9 @@
 import { useState } from "react";
 import "./App.css";
 
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+    BrowserRouter as Router, Route, Switch
+} from "react-router-dom";
 ; 
 
 import Footer from "./Components/Footer";
@@ -52,9 +54,9 @@ function App() {
     ]);
     return (
         <div className=" app relative">
-            <BrowserRouter>
+            <Router>
                 <NavBar />
-                <Switch>
+                <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/what-we-do" element={<WhatWeDoPage />} />
                     /** --------------- WHO WE ARE ---------------------*/
@@ -119,9 +121,9 @@ function App() {
                         path="/media-centre/events/read-more/:id/:title"
                         element={<EventReadMore />}
                     /> */}
-                </Switch>
+                </Routes>
                 <Footer />
-            </BrowserRouter>
+            </Router>
         </div>
     );
 }
