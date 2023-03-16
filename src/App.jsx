@@ -53,7 +53,6 @@ function App() {
             <BrowserRouter>
                 <NavBar />
                 <Routes>
-                    <Route path="/" element={<HomePage />} />
                     <Route path="/what-we-do" element={<WhatWeDoPage />} />
                     /** --------------- WHO WE ARE ---------------------*/
                     <Route
@@ -117,8 +116,8 @@ function App() {
                         path="/media-centre/events/read-more/:id/:title"
                         element={<EventReadMore />}
                     /> */}
+                    <Route path="/" element={<HomePage />} />
                 </Routes>
-
                 <Footer />
             </BrowserRouter>
         </div>
