@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./App.css";
 
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "./Components/Footer";
 
 //Strategic Pillars Icons
@@ -52,78 +52,72 @@ function App() {
         <div className=" app relative">
             <BrowserRouter>
                 <NavBar />
-                <React.Fragment>
-                    <Switch>
-                        <Route path="/" element={<HomePage />} />
-                        <Route path="/what-we-do" element={<WhatWeDoPage />} />
-                        /** --------------- WHO WE ARE ---------------------*/
-                        <Route
-                            path="/who-we-are/about-us"
-                            element={<AboutUsPage />}
-                        />
-                        <Route
-                            path="/who-we-are/our-team"
-                            element={<OurTeamPage />}
-                        />
-                        /** ---------------RESOURCE CENTRE
-                        ---------------------*/
-                        <Route
-                            path="/resource-centre/agm-material"
-                            element={<AgmMaterialPage />}
-                        />
-                        <Route
-                            path="/resource-centre/research-papers"
-                            element={<ResearchPapersPage />}
-                        />
-                        /** ---------------GET INVOLVED ---------------------*/
-                        <Route
-                            path="/get-involved/careers"
-                            element={<CareersPage />}
-                        />
-                        <Route
-                            path="/get-involved/consultancy"
-                            element={<ConsultancyPage />}
-                        />
-                        <Route
-                            path="/get-involved/funding-opportunities"
-                            element={<FundingOpportunitiesPage />}
-                        />
-                        <Route
-                            path="/get-involved/contact-us"
-                            element={<ContactUsPage />}
-                        />
-                        <Route
-                            path="/get-involved/donate"
-                            element={<DonatePage />}
-                        />
-                        /** --------------- MEDIA CENTRE --------------------*/
-                        <Route
-                            path="/media-centre/press-release"
-                            element={<PressReleasePage />}
-                        />
-                        <Route
-                            path="/media-centre/news"
-                            element={<NewsPage />}
-                        />
-                        <Route
-                            path="/media-centre/events"
-                            element={<EventsPage />}
-                        />
-                        <Route
-                            path="/media-centre/projects"
-                            element={<ProjectsPage />}
-                        />
-                        <Route
-                            path="/media-centre/photo-gallery"
-                            element={<PhotoGalleryPage />}
-                        />
-                        /** ----------------- READ MORE --------------------- */
-                        {/* <Route
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/what-we-do" element={<WhatWeDoPage />} />
+                    /** --------------- WHO WE ARE ---------------------*/
+                    <Route
+                        path="/who-we-are/about-us"
+                        element={<AboutUsPage />}
+                    />
+                    <Route
+                        path="/who-we-are/our-team"
+                        element={<OurTeamPage />}
+                    />
+                    /** ---------------RESOURCE CENTRE ---------------------*/
+                    <Route
+                        path="/resource-centre/agm-material"
+                        element={<AgmMaterialPage />}
+                    />
+                    <Route
+                        path="/resource-centre/research-papers"
+                        element={<ResearchPapersPage />}
+                    />
+                    /** ---------------GET INVOLVED ---------------------*/
+                    <Route
+                        path="/get-involved/careers"
+                        element={<CareersPage />}
+                    />
+                    <Route
+                        path="/get-involved/consultancy"
+                        element={<ConsultancyPage />}
+                    />
+                    <Route
+                        path="/get-involved/funding-opportunities"
+                        element={<FundingOpportunitiesPage />}
+                    />
+                    <Route
+                        path="/get-involved/contact-us"
+                        element={<ContactUsPage />}
+                    />
+                    <Route
+                        path="/get-involved/donate"
+                        element={<DonatePage />}
+                    />
+                    /** --------------- MEDIA CENTRE --------------------*/
+                    <Route
+                        path="/media-centre/press-release"
+                        element={<PressReleasePage />}
+                    />
+                    <Route path="/media-centre/news" element={<NewsPage />} />
+                    <Route
+                        path="/media-centre/events"
+                        element={<EventsPage />}
+                    />
+                    <Route
+                        path="/media-centre/projects"
+                        element={<ProjectsPage />}
+                    />
+                    <Route
+                        path="/media-centre/photo-gallery"
+                        element={<PhotoGalleryPage />}
+                    />
+                    /** ----------------- READ MORE --------------------- */
+                    {/* <Route
                         path="/media-centre/events/read-more/:id/:title"
                         element={<EventReadMore />}
                     /> */}
-                    </Switch>
-                </React.Fragment>
+                </Routes>
 
                 <Footer />
             </BrowserRouter>
