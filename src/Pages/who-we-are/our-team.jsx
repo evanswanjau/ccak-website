@@ -10,25 +10,25 @@ const data = [
             {
                 name: "jechoniah kitala",
                 position: "chairman",
-                image: "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+                image: "our_team/executive_commitee/jechoniah_kitala.jpg",
                 bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             },
             {
                 name: "dorothy otieno",
                 position: "vice chairperson",
-                image: "http://localhost:5173/src/assets/team/ImageAvatar.png",
+                image: "our_team/executive_commitee/dorothy_otieno.jpg",
                 bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             },
             {
                 name: "reimund hoffmann",
                 position: "treasurer",
-                image: "http://localhost:5173/src/assets/team/ImageAvatar.png",
+                image: "our_team/executive_commitee/reimund_hoffmann.png",
                 bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             },
             {
                 name: "david njugi",
-                position: "chairman",
-                image: "http://localhost:5173/src/assets/team/ImageAvatar.png",
+                position: "CEO",
+                image: "our_team/executive_commitee/david_njugi.jpg",
                 bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             },
         ],
@@ -37,39 +37,39 @@ const data = [
         name: "executive board members",
         members: [
             {
-                name: "jechoniah kitala",
-                position: "chairman",
-                image: "http://localhost:5173/src/assets/team/ImageAvatar.png",
+                name: "francis akumu",
+                position: "board member",
+                image: "our_team/executive_board/francis_akumu.jpg",
                 bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             },
             {
-                name: "dorothy otieno",
-                position: "vice chairperson",
-                image: "http://localhost:5173/src/assets/team/ImageAvatar.png",
+                name: "daniel wanjohi",
+                position: "board member",
+                image: "our_team/executive_board/daniel_wanjohi.jpg",
                 bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             },
             {
-                name: "reimund hoffmann",
-                position: "treasurer",
-                image: "http://localhost:5173/src/assets/team/ImageAvatar.png",
+                name: "scott otieno",
+                position: "board member",
+                image: "our_team/executive_board/scott_otieno.jpg",
                 bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             },
             {
-                name: "david njugi",
-                position: "chairman",
-                image: "http://localhost:5173/src/assets/team/ImageAvatar.png",
+                name: "susanne hounsell",
+                position: "board member",
+                image: "our_team/executive_board/susanne_hounsell.jpg",
                 bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             },
             {
-                name: "jechoniah kitala",
-                position: "chairman",
-                image: "http://localhost:5173/src/assets/team/ImageAvatar.png",
+                name: "tom morton",
+                position: "board member",
+                image: "our_team/executive_board/tom_morton.jpg",
                 bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             },
             {
-                name: "dorothy otieno",
-                position: "vice chairperson",
-                image: "http://localhost:5173/src/assets/team/ImageAvatar.png",
+                name: "anna ingwe",
+                position: "board member",
+                image: "our_team/executive_board/anna_ingwe.jpg",
                 bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             },
         ],
@@ -78,33 +78,33 @@ const data = [
         name: "secretariat",
         members: [
             {
-                name: "jechoniah kitala",
-                position: "chairman",
-                image: "http://localhost:5173/src/assets/team/ImageAvatar.png",
+                name: "mariam karanja",
+                position: "programme manager",
+                image: "our_team/secretariat/mariam_karanja.jpg",
                 bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             },
             {
-                name: "dorothy otieno",
-                position: "vice chairperson",
-                image: "http://localhost:5173/src/assets/team/ImageAvatar.png",
+                name: "philomena mitalo",
+                position: "operations office",
+                image: "our_team/secretariat/philomena_mitalo.jpg",
                 bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             },
             {
-                name: "reimund hoffmann",
-                position: "treasurer",
-                image: "http://localhost:5173/src/assets/team/ImageAvatar.png",
+                name: "benjamin bosire",
+                position: "finance officer",
+                image: "our_team/secretariat/benjamin_bosire.jpg",
                 bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             },
             {
-                name: "david njugi",
-                position: "chairman",
-                image: "http://localhost:5173/src/assets/team/ImageAvatar.png",
+                name: "philip dinga",
+                position: "program officer",
+                image: "our_team/secretariat/philip_dinga.png",
                 bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             },
             {
-                name: "david njugi",
-                position: "chairman",
-                image: "http://localhost:5173/src/assets/team/ImageAvatar.png",
+                name: "brian murumba",
+                position: "communications officer",
+                image: "our_team/secretariat/brian_murumba.png",
                 bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
             },
         ],
@@ -115,7 +115,7 @@ export const OurTeamPage = () => {
     const [member, setMember] = useState({ modal: false, member: {} });
 
     return (
-        <div>
+        <div className="pt-[4rem] lg:pt-[8.2rem]">
             {member.modal && (
                 <MemberModal member={member} setMember={setMember} />
             )}

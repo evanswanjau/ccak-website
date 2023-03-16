@@ -29,7 +29,8 @@ export const MemberModal = ({
                 <div className="flex flex-col justify-items-center text-center">
                     <img
                         className="w-1/2 h-auto rounded-lg mb-6 mx-auto"
-                        src="/avatar.png"
+                        src={import.meta.env.VITE_IMAGEKIT + image}
+                        alt={name}
                     ></img>
                     <h6 className="text font-semibold capitalize">{name}</h6>
                     <p className="text-gray-600 capitalize">{position}</p>

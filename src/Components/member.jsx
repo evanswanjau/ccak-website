@@ -15,8 +15,9 @@ export const Member = ({ data: { name, position, image, bio }, setMember }) => {
             >
                 <img
                     className="w-38 h-38 rounded-lg mb-6 mx-auto cursor-pointer hover:scale-[1.05] duration-300 ease-in-out"
-                    src="/avatar.png"
-                ></img>
+                    src={import.meta.env.VITE_IMAGEKIT + image}
+                    alt={name}
+                />
                 <h6 className="text font-semibold capitalize group-hover:text-[#ED7423] duration-300 ease-in-out">
                     {name}
                 </h6>
