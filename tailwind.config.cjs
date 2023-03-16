@@ -5,6 +5,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 manjari: ['"Manjari"'],
+                montserrat: ['"Montserrat"'],
             },
         },
     },
