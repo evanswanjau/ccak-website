@@ -59,7 +59,6 @@ function App() {
     return (
         <div className=" app relative">
             <BrowserRouter>
-                <NavBar />
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/what-we-do" element={<WhatWeDoPage />} />
@@ -126,7 +125,6 @@ function App() {
                         element={<EventReadMore />}
                     /> */}
                 </Routes>
-                <Footer />
             </BrowserRouter>
         </div>
     );
