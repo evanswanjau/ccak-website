@@ -1,14 +1,22 @@
 import { useState } from "react";
 import "./App.css";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+    BrowserRouter,
+    Routes,
+    useNavigate,
+} from "react-router-dom";
+
 import Footer from "./Components/Footer";
 
 //Strategic Pillars Icons
 import { NavBar } from "./Containers/navBar";
 
 import { HomePage } from "./Pages/home";
-import { WhatWeDoPage } from "./Pages/what-we-do";
+import WhatWeDoPage from "./Pages/what-we-do";
 
 import { AboutUsPage } from "./Pages/who-we-are/about-us";
 import { OurTeamPage } from "./Pages/who-we-are/our-team";
@@ -50,7 +58,7 @@ function App() {
     ]);
     return (
         <div className=" app relative">
-            <BrowserRouter basename="/">
+            <BrowserRouter>
                 <NavBar />
                 <Routes>
                     <Route path="/" element={<HomePage />} />

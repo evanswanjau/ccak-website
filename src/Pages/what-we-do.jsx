@@ -19,38 +19,48 @@ const items = [
             "We work to create policies and regulatory frameworks that enable the growth of the clean cooking sector.",
     },
     {
-        icon: <UsersIcon className="w-8 text-[#329E49] group-hover:text-[#ED7423] transition duration-300 ease-in-out" />,
+        icon: (
+            <UsersIcon className="w-8 text-[#329E49] group-hover:text-[#ED7423] transition duration-300 ease-in-out" />
+        ),
         name: "capacity building",
         description:
             "We promote training and capacity building initiatives to improve the skills of those working in the clean cooking sector.",
     },
     {
-        icon: <CubeTransparentIcon className="w-8 text-[#329E49] group-hover:text-[#ED7423] transition duration-300 ease-in-out" />,
+        icon: (
+            <CubeTransparentIcon className="w-8 text-[#329E49] group-hover:text-[#ED7423] transition duration-300 ease-in-out" />
+        ),
         name: "stakeholder coordination",
         description:
             "We collaborate with government, private sector, and other partners to coordinate efforts and advocate for the sector.",
     },
     {
-        icon: <Squares2X2Icon className="w-8 text-[#329E49] group-hover:text-[#ED7423] transition duration-300 ease-in-out" />,
+        icon: (
+            <Squares2X2Icon className="w-8 text-[#329E49] group-hover:text-[#ED7423] transition duration-300 ease-in-out" />
+        ),
         name: "promote clean cooking",
         description:
             "We encourage the adoption of clean cooking technologies and solutions to reduce the negative impacts of traditional cooking methods.",
     },
     {
-        icon: <WrenchScrewdriverIcon className="w-8 text-[#329E49] group-hover:text-[#ED7423] transition duration-300 ease-in-out" />,
+        icon: (
+            <WrenchScrewdriverIcon className="w-8 text-[#329E49] group-hover:text-[#ED7423] transition duration-300 ease-in-out" />
+        ),
         name: "research and development",
         description:
             "We promote innovation and research in the clean cooking sector to drive advancements and improvements.",
     },
     {
-        icon: <WrenchScrewdriverIcon className="w-8 text-[#329E49] group-hover:text-[#ED7423] transition duration-300 ease-in-out" />,
+        icon: (
+            <WrenchScrewdriverIcon className="w-8 text-[#329E49] group-hover:text-[#ED7423] transition duration-300 ease-in-out" />
+        ),
         name: "impact lives",
         description:
             "We promote clean cooking solutions that reduce health impacts, improve livelihoods, and mitigate climate change. ",
     },
 ];
 
-export const WhatWeDoPage = () => {
+function WhatWeDoPage() {
     return (
         <div className="pt-[4rem] lg:pt-[8.2rem]">
             <section className="flex flex-col md:flex-row w-full py-6 md:py-20 px-6 md:px-12">
@@ -133,4 +143,6 @@ export const WhatWeDoPage = () => {
             </section>
         </div>
     );
-};
+}
+
+export default WhatWeDoPage;
