@@ -16,7 +16,7 @@ import Footer from "./Components/Footer";
 import { NavBar } from "./Containers/navBar";
 
 import { HomePage } from "./Pages/home";
-import WhatWeDoPage from "./Pages/what-we-do";
+import { WhatWeDoPage } from "./Pages/what-we-do";
 
 import { AboutUsPage } from "./Pages/who-we-are/about-us";
 import { OurTeamPage } from "./Pages/who-we-are/our-team";
@@ -59,6 +59,7 @@ function App() {
     return (
         <div className=" app relative">
             <BrowserRouter>
+                <NavBar />
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/what-we-do" element={<WhatWeDoPage />} />
@@ -125,6 +126,7 @@ function App() {
                         element={<EventReadMore />}
                     /> */}
                 </Routes>
+                <Footer />
             </BrowserRouter>
         </div>
     );
