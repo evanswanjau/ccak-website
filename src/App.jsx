@@ -1,14 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 
-import {
-    BrowserRouter as Router,
-    Route,
-    Link,
-    BrowserRouter,
-    Routes,
-    useNavigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import Footer from "./Components/Footer";
 
@@ -38,31 +31,16 @@ import { PhotoGalleryPage } from "./Pages/media-centre/photoGallery";
 // import { EventReadMore } from "./Pages/read-more/event";
 
 function App() {
-    //Events
-    const [events] = useState([
-        {
-            Day: "28",
-            Address: "8 Brewery Drive, Hudson, NH 03051, USA",
-            Month: "SEP",
-            Time: "September 3, 2021 8:30 AM",
-            title: "Say  no to plastic usage and save the planet",
-        },
-        {
-            Day: "28",
-            Month: "SEP",
-            Time: "September 3, 2021 8:30 AM",
-
-            Address: "8 Brewery Drive, Hudson, NH 03051, USA",
-            title: "Say no to plastic usage and save the planet",
-        },
-    ]);
     return (
-        <div className=" app relative">
-            <BrowserRouter>
+        <Router>
+            <div className="App app relative">
                 <NavBar />
                 <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/what-we-do" element={<WhatWeDoPage />} />
+                    <Route exact path="/" element={<HomePage />} />
+                    <Route
+                        path="/what-we-do"
+                        element={<WhatWeDoPage />}
+                    ></Route>
                     /** --------------- WHO WE ARE ---------------------*/
                     <Route
                         path="/who-we-are/about-us"
@@ -127,8 +105,8 @@ function App() {
                     /> */}
                 </Routes>
                 <Footer />
-            </BrowserRouter>
-        </div>
+            </div>
+        </Router>
     );
 }
 
