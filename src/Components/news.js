@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
 import { Fade } from "react-reveal";
 
-export const News = ({ data: { title, published, excerpt, image, url } }) => {
+export const News = ({
+    data: { category, title, published, excerpt, image, url },
+}) => {
     return (
         <Fade>
-            <Link to={`/media-centre/news/${url}`} className="group">
+            <Link
+                to={`/media-centre/${category}/read-more/${url}`}
+                className="group"
+            >
                 <div
                     style={{
                         backgroundImage: `url(${
