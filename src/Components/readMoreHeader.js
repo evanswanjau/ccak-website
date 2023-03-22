@@ -9,7 +9,7 @@ import { CalendarDaysIcon, MapPinIcon } from "@heroicons/react/24/outline";
 import { BsTwitter, BsFacebook, BsLinkedin } from "react-icons/bs";
 
 export const ReadMoreHeader = ({
-    data: { category, title, excerpt, location, venue, date, start_time },
+    data: { title, excerpt, category, published, location, venue, date, start_time },
 }) => {
     return (
         <section className="flex justify-center bg-[#EFF7F2] pt-24 pb-16">
@@ -45,7 +45,7 @@ export const ReadMoreHeader = ({
                         <Slide bottom>
                             <p className="flex flex-row justify-center space-x-2 my-5 font-semibold">
                                 <CalendarDaysIcon className="-mt-2 w-6 text-[#329E49]" />
-                                <span> {simpleDate(date)}</span>
+                                <span> {simpleDate(published)}</span>
                             </p>
                         </Slide>
                     )}
