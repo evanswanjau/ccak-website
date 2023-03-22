@@ -4,32 +4,36 @@ import { Slide, Fade } from "react-reveal";
 
 const projects = [
     {
+        id: 1,
+        category: "project",
         title: "Mission 40K: Tree plantation",
-        description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+        excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         image: "projects/project_default.jpg",
-        url: "#",
+        url: "1/dont-destroy-greenery-and-dont-spoil-scenery",
     },
     {
+        id: 2,
+        category: "project",
         title: "Mission 40K: Tree plantation",
-        description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+        excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         image: "projects/project_default.jpg",
-        url: "#",
+        url: "2/dont-destroy-greenery-and-dont-spoil-scenery",
     },
     {
+        id: 3,
+        category: "project",
         title: "Mission 40K: Tree plantation",
-        description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+        excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         image: "projects/project_default.jpg",
-        url: "#",
+        url: "3/dont-destroy-greenery-and-dont-spoil-scenery",
     },
     {
+        id: 4,
+        category: "project",
         title: "Mission 40K: Tree plantation",
-        description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
+        excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         image: "projects/project_default.jpg",
-        url: "#",
+        url: "4/dont-destroy-greenery-and-dont-spoil-scenery",
     },
 ];
 
@@ -57,7 +61,7 @@ export const RecentProjects = () => {
                 </div>
             </div>
             <div className="w-full flex flex-row">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-6 sm:gap-6 py-3 lg:py-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5 gap-y-6 sm:gap-6 py-3 lg:py-10">
                     {projects.map((project, i) => {
                         return <Project key={i} data={project} />;
                     })}
