@@ -6,60 +6,52 @@ import { Slide } from "react-reveal";
 export const ProjectsPage = () => {
     const data = [
         {
+            id: 1,
+            category: "project",
             title: "Mission 40K: Tree plantation",
-            description:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             image: "projects/project_default.jpg",
-            url: "#",
+            url: "1/dont-destroy-greenery-and-dont-spoil-scenery",
         },
         {
+            id: 2,
+            category: "project",
             title: "Mission 40K: Tree plantation",
-            description:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             image: "projects/project_default.jpg",
-            url: "#",
+            url: "2/dont-destroy-greenery-and-dont-spoil-scenery",
         },
         {
+            id: 3,
+            category: "project",
             title: "Mission 40K: Tree plantation",
-            description:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             image: "projects/project_default.jpg",
-            url: "#",
+            url: "3/dont-destroy-greenery-and-dont-spoil-scenery",
         },
         {
+            id: 4,
+            category: "project",
             title: "Mission 40K: Tree plantation",
-            description:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             image: "projects/project_default.jpg",
-            url: "#",
+            url: "4/dont-destroy-greenery-and-dont-spoil-scenery",
         },
         {
+            id: 5,
+            category: "project",
             title: "Mission 40K: Tree plantation",
-            description:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             image: "projects/project_default.jpg",
-            url: "#",
+            url: "5/dont-destroy-greenery-and-dont-spoil-scenery",
         },
         {
+            id: 6,
+            category: "project",
             title: "Mission 40K: Tree plantation",
-            description:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
             image: "projects/project_default.jpg",
-            url: "#",
-        },
-        {
-            title: "Mission 40K: Tree plantation",
-            description:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            image: "projects/project_default.jpg",
-            url: "#",
-        },
-        {
-            title: "Mission 40K: Tree plantation",
-            description:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            image: "projects/project_default.jpg",
-            url: "#",
+            url: "6/dont-destroy-greenery-and-dont-spoil-scenery",
         },
     ];
 
@@ -78,7 +70,7 @@ export const ProjectsPage = () => {
                 </Slide>
             </section>
             <div className="flex flex-row px-6 lg:px-16">
-                <div className="w-full lg:w-9/12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-6 sm:gap-6 py-10">
+                <div className="w-full lg:w-9/12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-y-6 sm:gap-6 py-10">
                     {data.map((item, i) => {
                         return <Project key={i} data={item} />;
                     })}
