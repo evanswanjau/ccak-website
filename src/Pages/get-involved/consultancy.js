@@ -1,54 +1,38 @@
-import { Slide, } from "react-reveal";
+import { Slide } from "react-reveal";
 import { Career } from "../../Components/career";
 
 const data = [
     {
+        id: 1,
+        category: "consultancy",
         title: "Consultancy for the provision of media management services to CCAK.",
-        description:
+        excerpt:
             "The objective of the project is to provide communications support to the Clean Cooking Association of Kenya to help them build a foundation for effective communication to the local governments and other relevant stakeholders from the public and private sector...",
-        url: "#",
+        url: "1/consultancy-for-the-provision-of-media-management-services-to-ccak",
     },
     {
+        id: 2,
+        category: "consultancy",
         title: "Consultancy for the provision of media management services to CCAK.",
-        description:
+        excerpt:
             "The objective of the project is to provide communications support to the Clean Cooking Association of Kenya to help them build a foundation for effective communication to the local governments and other relevant stakeholders from the public and private sector...",
-        url: "#",
+        url: "2/consultancy-for-the-provision-of-media-management-services-to-ccak",
     },
     {
+        id: 3,
+        category: "consultancy",
         title: "Consultancy for the provision of media management services to CCAK.",
-        description:
+        excerpt:
             "The objective of the project is to provide communications support to the Clean Cooking Association of Kenya to help them build a foundation for effective communication to the local governments and other relevant stakeholders from the public and private sector...",
-        url: "#",
+        url: "3/consultancy-for-the-provision-of-media-management-services-to-ccak",
     },
     {
+        id: 4,
+        category: "consultancy",
         title: "Consultancy for the provision of media management services to CCAK.",
-        description:
+        excerpt:
             "The objective of the project is to provide communications support to the Clean Cooking Association of Kenya to help them build a foundation for effective communication to the local governments and other relevant stakeholders from the public and private sector...",
-        url: "#",
-    },
-    {
-        title: "Consultancy for the provision of media management services to CCAK.",
-        description:
-            "The objective of the project is to provide communications support to the Clean Cooking Association of Kenya to help them build a foundation for effective communication to the local governments and other relevant stakeholders from the public and private sector...",
-        url: "#",
-    },
-    {
-        title: "Consultancy for the provision of media management services to CCAK.",
-        description:
-            "The objective of the project is to provide communications support to the Clean Cooking Association of Kenya to help them build a foundation for effective communication to the local governments and other relevant stakeholders from the public and private sector...",
-        url: "#",
-    },
-    {
-        title: "Consultancy for the provision of media management services to CCAK.",
-        description:
-            "The objective of the project is to provide communications support to the Clean Cooking Association of Kenya to help them build a foundation for effective communication to the local governments and other relevant stakeholders from the public and private sector...",
-        url: "#",
-    },
-    {
-        title: "Consultancy for the provision of media management services to CCAK.",
-        description:
-            "The objective of the project is to provide communications support to the Clean Cooking Association of Kenya to help them build a foundation for effective communication to the local governments and other relevant stakeholders from the public and private sector...",
-        url: "#",
+        url: "4/consultancy-for-the-provision-of-media-management-services-to-ccak",
     },
 ];
 
@@ -68,7 +52,7 @@ export const ConsultancyPage = () => {
                     </p>
                 </Slide>
                 <div className="flex flex-row px-6 lg:px-16 py-5">
-                    <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-y-6 sm:gap-6 py-10">
+                    <div className="w-full grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-y-6 sm:gap-6 py-10">
                         {data.map((item, i) => {
                             return <Career key={i} data={item} />;
                         })}
