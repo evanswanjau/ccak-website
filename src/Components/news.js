@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Fade } from "react-reveal";
+import { simpleDate } from "../helpers/date";
 
 export const News = ({
     data: { category, title, published, excerpt, image, url },
@@ -18,7 +19,9 @@ export const News = ({
                     }}
                     className={`bg-cover bg-center bg-no-repeat rounded-lg text-white h-40`}
                 ></div>
-                <p className="text-sm py-2 text-gray-400">{published}</p>
+                <p className="text-sm py-2 text-gray-400">
+                    {simpleDate(published)}
+                </p>
                 <h3 className="text-black group-hover:text-[#ED7423] font-medium transition duration-300 ease-in-out">
                     {title}
                 </h3>

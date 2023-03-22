@@ -4,7 +4,7 @@ import { Fade } from "react-reveal";
 import { SubFooter } from "../../Containers/subFooter";
 
 const data = {
-    category: "news",
+    id: 1,
     title: "Don’t destroy greenery and don’t spoil scenery",
     excerpt:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
@@ -45,14 +45,8 @@ const data = {
             </p>
         </div>
     ),
-    event: "physical",
-    venue_link: "https://goo.gl/maps/pwhgWAdkxCALwEZV6",
-    online_link: "https://zoom.us/j/5551112222",
-    location: "Mombasa Road",
-    venue: "CCAK Offices",
-    date: "2023-04-01",
-    start_time: "10:00",
-    end_time: "17:00",
+    category: "news",
+    published: "2023-03-08",
 };
 
 const recentData = [
@@ -60,7 +54,7 @@ const recentData = [
         id: 1,
         category: "news",
         title: "Don’t destroy greenery and don’t spoil scenery",
-        published: "February 20, 2023",
+        published: "2023-03-08",
         excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
         image: "news/news_default.jpg",
         url: "1/dont-destroy-greenery-and-dont-spoil-scenery",
@@ -69,7 +63,7 @@ const recentData = [
         id: 2,
         category: "news",
         title: "Don’t destroy greenery and don’t spoil scenery",
-        published: "February 20, 2023",
+        published: "2023-03-08",
         excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
         image: "news/news_default.jpg",
         url: "2/dont-destroy-greenery-and-dont-spoil-scenery",
@@ -78,10 +72,19 @@ const recentData = [
         id: 3,
         category: "news",
         title: "Don’t destroy greenery and don’t spoil scenery",
-        published: "February 20, 2023",
+        published: "2023-03-08",
         excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
         image: "news/news_default.jpg",
         url: "3/dont-destroy-greenery-and-dont-spoil-scenery",
+    },
+    {
+        id: 4,
+        category: "news",
+        title: "Don’t destroy greenery and don’t spoil scenery",
+        published: "2023-03-08",
+        excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
+        image: "news/news_default.jpg",
+        url: "4/dont-destroy-greenery-and-dont-spoil-scenery",
     },
 ];
 
