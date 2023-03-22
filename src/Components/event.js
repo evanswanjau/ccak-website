@@ -6,7 +6,7 @@ import { Fade } from "react-reveal";
 export const Event = ({ data: { image, date, title, venue, url } }) => {
     return (
         <Fade>
-            <Link to={`/media-centre/events/${url}`}>
+            <Link to={`/media-centre/events/read-more/${url}`}>
                 <div
                     style={{
                         backgroundImage: `url(${
