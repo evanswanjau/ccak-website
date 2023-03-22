@@ -6,88 +6,58 @@ import { Slide } from "react-reveal";
 export const PressReleasePage = () => {
     const data = [
         {
+            id: 1,
+            category: "press-release",
             title: "Don’t destroy greenery and don’t spoil scenery",
             published: "February 20, 2023",
             excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
             image: "press_release/press_release_default.jpg",
-            url: "#",
+            url: "1/dont-destroy-greenery-and-dont-spoil-scenery",
         },
         {
+            id: 2,
+            category: "press-release",
             title: "Don’t destroy greenery and don’t spoil scenery",
             published: "February 20, 2023",
             excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
             image: "press_release/press_release_default.jpg",
-            url: "#",
+            url: "1/dont-destroy-greenery-and-dont-spoil-scenery",
         },
         {
+            id: 3,
+            category: "press-release",
             title: "Don’t destroy greenery and don’t spoil scenery",
             published: "February 20, 2023",
             excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
             image: "press_release/press_release_default.jpg",
-            url: "#",
+            url: "1/dont-destroy-greenery-and-dont-spoil-scenery",
         },
         {
+            id: 4,
+            category: "press-release",
             title: "Don’t destroy greenery and don’t spoil scenery",
             published: "February 20, 2023",
             excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
             image: "press_release/press_release_default.jpg",
-            url: "#",
+            url: "1/dont-destroy-greenery-and-dont-spoil-scenery",
         },
         {
+            id: 5,
+            category: "press-release",
             title: "Don’t destroy greenery and don’t spoil scenery",
             published: "February 20, 2023",
             excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
             image: "press_release/press_release_default.jpg",
-            url: "#",
+            url: "1/dont-destroy-greenery-and-dont-spoil-scenery",
         },
         {
+            id: 6,
+            category: "press-release",
             title: "Don’t destroy greenery and don’t spoil scenery",
             published: "February 20, 2023",
             excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
             image: "press_release/press_release_default.jpg",
-            url: "#",
-        },
-        {
-            title: "Don’t destroy greenery and don’t spoil scenery",
-            published: "February 20, 2023",
-            excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "press_release/press_release_default.jpg",
-            url: "#",
-        },
-        {
-            title: "Don’t destroy greenery and don’t spoil scenery",
-            published: "February 20, 2023",
-            excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "press_release/press_release_default.jpg",
-            url: "#",
-        },
-        {
-            title: "Don’t destroy greenery and don’t spoil scenery",
-            published: "February 20, 2023",
-            excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "press_release/press_release_default.jpg",
-            url: "#",
-        },
-        {
-            title: "Don’t destroy greenery and don’t spoil scenery",
-            published: "February 20, 2023",
-            excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "press_release/press_release_default.jpg",
-            url: "#",
-        },
-        {
-            title: "Don’t destroy greenery and don’t spoil scenery",
-            published: "February 20, 2023",
-            excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "press_release/press_release_default.jpg",
-            url: "#",
-        },
-        {
-            title: "Don’t destroy greenery and don’t spoil scenery",
-            published: "February 20, 2023",
-            excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "press_release/press_release_default.jpg",
-            url: "#",
+            url: "1/dont-destroy-greenery-and-dont-spoil-scenery",
         },
     ];
 
@@ -108,7 +78,7 @@ export const PressReleasePage = () => {
                 </Slide>
             </section>
             <div className="flex flex-row px-6 lg:px-16">
-                <div className="w-full lg:w-9/12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-6 sm:gap-6 py-10">
+                <div className="w-full lg:w-9/12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-y-6 sm:gap-6 py-10">
                     {data.map((item, i) => {
                         return <News key={i} data={item} />;
                     })}
