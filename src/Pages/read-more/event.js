@@ -1,4 +1,5 @@
 import { Slide, Fade } from "react-reveal";
+import { Link } from "react-router-dom";
 import { Event } from "../../Components/event";
 import { AddToCalendarButton } from "add-to-calendar-button-react";
 import {
@@ -10,11 +11,13 @@ import {
     CalendarDaysIcon,
     MapPinIcon,
     CursorArrowRaysIcon,
-    BsFacebook,
 } from "@heroicons/react/24/outline";
+import { BsTwitter, BsFacebook, BsLinkedin } from "react-icons/bs";
 
 const data = {
     title: "2023 Annual General Meeting",
+    excerpt:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     content: (
         <div>
             <p>
@@ -88,7 +91,12 @@ export const EventReadMore = ({}) => {
         <div className="pt-[4rem] lg:pt-[8.2rem]">
             <section className="text-center bg-[#EFF7F2] pt-24 pb-16">
                 <Slide bottom>
-                    <h1 className="text-4xl font-semibold my-5">
+                    <h className="text-sm font-bold mt-5 text-gray-600">
+                        EVENTS
+                    </h>
+                </Slide>
+                <Slide bottom>
+                    <h1 className="text-3xl md:text-4xl font-semibold mb-5">
                         {data.title}
                     </h1>
                 </Slide>
@@ -100,12 +108,12 @@ export const EventReadMore = ({}) => {
                     </p>
                 </Slide>
                 <Slide bottom>
-                    <div className="flex flex-row justify-center my-6 space-x-6 font-semibold">
-                        <p className="flex flex-row space-x-1">
+                    <div className="flex flex-col md:flex-row justify-center my-6 space-y-3 md:space-y-0 md:space-x-6 font-semibold">
+                        <p className="justify-center flex flex-row space-x-1">
                             <MapPinIcon className="-mt-2 w-6 text-[#329E49]" />
                             <span>{data.location + ", " + data.venue}</span>
                         </p>
-                        <p className="flex flex-row space-x-1">
+                        <p className="justify-center flex flex-row space-x-1">
                             <CalendarDaysIcon className="-mt-2 w-6 text-[#329E49]" />
                             <span> 1st April 2023 {data.start_time} AM</span>
                         </p>
@@ -113,21 +121,38 @@ export const EventReadMore = ({}) => {
                 </Slide>
                 <Slide bottom>
                     <div className="flex flex-row justify-center my-6 space-x-6 font-semibold">
-                        <div className="py-5 space-x-8 space flex">
+                        <div className="py-5 space-x-10 space flex">
                             <FacebookShareButton
-                                url="https://google.com"
-                                quote="heelo"
+                                children={
+                                    <BsFacebook className="text-2xl text-[#3b5998]" />
+                                }
+                                url={window.location.href}
                                 hashtag="#ccak"
+                            />
+                            <TwitterShareButton
+                                children={
+                                    <BsTwitter className="text-2xl text-[#1DA1F2]" />
+                                }
+                                url={window.location.href}
+                                title={data.title}
+                                hashtag="#ccak"
+                            />
+                            <LinkedinShareButton
+                                children={
+                                    <BsLinkedin className="text-2xl text-[#0E76A8]" />
+                                }
+                                url={window.location.href}
+                                title={data.title}
                             />
                         </div>
                     </div>
                 </Slide>
             </section>
-            <div className="flex flex-row px-6 lg:px-16">
-                <div className="w-full lg:w-9/12 py-10">
+            <div className="flex flex-col md:flex-row px-6 lg:px-16">
+                <div className="md:w-9/12 py-10">
                     <p>{data.content}</p>
                 </div>
-                <div className="w-4/12 pt-10 px-10">
+                <div className="md:w-4/12 pt-10 lg:px-10">
                     <button className="bg-[#329E49] w-full font-manjari leading-none pb-3 pt-4 px-5 text-white hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest">
                         ATTEND THIS EVENT
                     </button>
