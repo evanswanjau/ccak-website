@@ -30,6 +30,10 @@ import { PhotoGalleryPage } from "./Pages/media-centre/photoGallery";
 import { EventReadMore } from "./Pages/read-more/event";
 import { PressReleaseReadMore } from "./Pages/read-more/pressRelease";
 import { NewsReadMore } from "./Pages/read-more/news";
+import { ProjectReadMore } from "./Pages/read-more/project";
+import { ConsultancyReadMore } from "./Pages/read-more/consultancy";
+import { CarrerReadMore } from "./Pages/read-more/career";
+import { FundingOppportunitiesReadMore } from "./Pages/read-more/funding";
 
 function App() {
     return (
@@ -128,6 +132,26 @@ function App() {
                     exact
                     path="/media-centre/news/read-more/:id/:title"
                     component={NewsReadMore}
+                />
+                <Route
+                    exact
+                    path="/media-centre/projects/read-more/:id/:title"
+                    component={ProjectReadMore}
+                />
+                <Route
+                    exact
+                    path="/get-involved/consultancy/read-more/:id/:title"
+                    component={ConsultancyReadMore}
+                />
+                <Route
+                    exact
+                    path="/get-involved/careers/read-more/:id/:title"
+                    component={CarrerReadMore}
+                />
+                <Route
+                    exact
+                    path="/get-involved/funding-opportunities/read-more/:id/:title"
+                    component={FundingOppportunitiesReadMore}
                 />
             </Switch>
             <Footer />
