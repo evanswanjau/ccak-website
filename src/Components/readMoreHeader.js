@@ -1,4 +1,4 @@
-import { Slide, Fade } from "react-reveal";
+import { Slide } from "react-reveal";
 import { simpleDate } from "../helpers/date";
 import {
     FacebookShareButton,
@@ -9,14 +9,23 @@ import { CalendarDaysIcon, MapPinIcon } from "@heroicons/react/24/outline";
 import { BsTwitter, BsFacebook, BsLinkedin } from "react-icons/bs";
 
 export const ReadMoreHeader = ({
-    data: { title, excerpt, category, published, location, venue, date, start_time },
+    data: {
+        title,
+        excerpt,
+        category,
+        published,
+        location,
+        venue,
+        date,
+        start_time,
+    },
 }) => {
     return (
         <section className="flex justify-center bg-[#EFF7F2] pt-24 pb-16">
             <div className="lg:w-6/12 text-center">
                 <Slide bottom>
                     <h6 className="text-sm font-bold mt-5 text-gray-600 uppercase">
-                        {category.replace("-", " ")}
+                        {category}
                     </h6>
                 </Slide>
                 <Slide bottom>
@@ -28,7 +37,7 @@ export const ReadMoreHeader = ({
                     <p className="px-5 text-gray-600">{excerpt}</p>
                 </Slide>
                 <div>
-                    {category === "event" ? (
+                    {category === "events" ? (
                         <Slide bottom>
                             <div className="flex flex-col md:flex-row justify-center my-6 space-y-3 md:space-y-0 md:space-x-6 font-semibold">
                                 <p className="justify-center flex flex-row space-x-1">
@@ -37,7 +46,13 @@ export const ReadMoreHeader = ({
                                 </p>
                                 <p className="justify-center flex flex-row space-x-1">
                                     <CalendarDaysIcon className="-mt-2 w-6 text-[#329E49]" />
-                                    <span> {date + " " + start_time} AM</span>
+                                    <span>
+                                        {" "}
+                                        {simpleDate(date) +
+                                            " " +
+                                            start_time}{" "}
+                                        AM
+                                    </span>
                                 </p>
                             </div>
                         </Slide>

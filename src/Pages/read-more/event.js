@@ -1,20 +1,16 @@
-import { Slide, Fade } from "react-reveal";
+import { Fade } from "react-reveal";
 import { Link } from "react-router-dom";
 import { Event } from "../../Components/event";
 import { AddToCalendarButton } from "add-to-calendar-button-react";
 import {
-    FacebookShareButton,
-    LinkedinShareButton,
-    TwitterShareButton,
-} from "react-share";
-import {
-    CalendarDaysIcon,
     MapPinIcon,
     CursorArrowRaysIcon,
 } from "@heroicons/react/24/outline";
-import { BsTwitter, BsFacebook, BsLinkedin } from "react-icons/bs";
+import { ReadMoreHeader } from "../../Components/readMoreHeader";
+import { SubFooter } from "../../Containers/subFooter";
 
 const data = {
+    id: 1,
     title: "2023 Annual General Meeting",
     excerpt:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -55,6 +51,7 @@ const data = {
             </p>
         </div>
     ),
+    category: "events",
     event: "physical",
     venue_link: "https://goo.gl/maps/pwhgWAdkxCALwEZV6",
     online_link: "https://zoom.us/j/5551112222",
@@ -86,68 +83,10 @@ const upComingEvents = [
     },
 ];
 
-export const EventReadMore = ({}) => {
+export const EventReadMore = () => {
     return (
         <div className="pt-[4rem] lg:pt-[8.2rem]">
-            <section className="text-center bg-[#EFF7F2] pt-24 pb-16">
-                <Slide bottom>
-                    <h className="text-sm font-bold mt-5 text-gray-600">
-                        EVENTS
-                    </h>
-                </Slide>
-                <Slide bottom>
-                    <h1 className="text-3xl md:text-4xl font-semibold mb-5">
-                        {data.title}
-                    </h1>
-                </Slide>
-                <Slide bottom>
-                    <p className="w-full px-5 md:w-6/12 mx-auto text-gray-600">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua.
-                    </p>
-                </Slide>
-                <Slide bottom>
-                    <div className="flex flex-col md:flex-row justify-center my-6 space-y-3 md:space-y-0 md:space-x-6 font-semibold">
-                        <p className="justify-center flex flex-row space-x-1">
-                            <MapPinIcon className="-mt-2 w-6 text-[#329E49]" />
-                            <span>{data.location + ", " + data.venue}</span>
-                        </p>
-                        <p className="justify-center flex flex-row space-x-1">
-                            <CalendarDaysIcon className="-mt-2 w-6 text-[#329E49]" />
-                            <span> 1st April 2023 {data.start_time} AM</span>
-                        </p>
-                    </div>
-                </Slide>
-                <Slide bottom>
-                    <div className="flex flex-row justify-center my-6 space-x-6 font-semibold">
-                        <div className="py-5 space-x-10 space flex">
-                            <FacebookShareButton
-                                children={
-                                    <BsFacebook className="text-2xl text-[#3b5998]" />
-                                }
-                                url={window.location.href}
-                                hashtag="#ccak"
-                            />
-                            <TwitterShareButton
-                                children={
-                                    <BsTwitter className="text-2xl text-[#1DA1F2]" />
-                                }
-                                url={window.location.href}
-                                title={data.title}
-                                hashtag="#ccak"
-                            />
-                            <LinkedinShareButton
-                                children={
-                                    <BsLinkedin className="text-2xl text-[#0E76A8]" />
-                                }
-                                url={window.location.href}
-                                title={data.title}
-                            />
-                        </div>
-                    </div>
-                </Slide>
-            </section>
+            <ReadMoreHeader data={data} />
             <div className="flex flex-col md:flex-row px-6 lg:px-16">
                 <div className="md:w-9/12 py-10">
                     <p>{data.content}</p>
@@ -213,11 +152,11 @@ export const EventReadMore = ({}) => {
                             })}
                         </div>
                     </div>
-
-                    {/* <MediaCentreSideBar category="events" /> */}
                 </div>
             </div>
-            <section>{/* <RecentNews /> */}</section>
+            <section className="my-10">
+                <SubFooter />
+            </section>
         </div>
     );
 };
