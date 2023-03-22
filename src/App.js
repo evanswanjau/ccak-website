@@ -28,6 +28,7 @@ import { ProjectsPage } from "./Pages/media-centre/projects";
 import { PhotoGalleryPage } from "./Pages/media-centre/photoGallery";
 
 import { EventReadMore } from "./Pages/read-more/event";
+import { PressReleaseReadMore } from "./Pages/read-more/pressRelease";
 
 function App() {
     return (
@@ -116,6 +117,11 @@ function App() {
                     exact
                     path="/media-centre/events/read-more/:id/:title"
                     component={EventReadMore}
+                />
+                <Route
+                    exact
+                    path="/media-centre/press-release/read-more/:id/:title"
+                    component={PressReleaseReadMore}
                 />
             </Switch>
             <Footer />
