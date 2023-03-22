@@ -27,6 +27,8 @@ import { EventsPage } from "./Pages/media-centre/events";
 import { ProjectsPage } from "./Pages/media-centre/projects";
 import { PhotoGalleryPage } from "./Pages/media-centre/photoGallery";
 
+import { EventReadMore } from "./Pages/read-more/event";
+
 function App() {
     return (
         <Router>
@@ -110,10 +112,11 @@ function App() {
                     component={PhotoGalleryPage}
                 />
                 {/** ----------------- READ MORE --------------------- */}
-                {/* <Route
-                        exact path="/media-centre/events/read-more/:id/:title"
-                        component={EventReadMore }
-                    /> */}
+                <Route
+                    exact
+                    path="/media-centre/events/read-more/:id/:title"
+                    component={EventReadMore}
+                />
             </Switch>
             <Footer />
         </Router>
