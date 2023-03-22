@@ -41,7 +41,7 @@ export const UpcomingEvents = () => {
                 </div>
             </Fade>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-6 sm:gap-6 px-6 lg:px-16 py-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5 gap-y-6 sm:gap-6 px-6 lg:px-16 py-10">
                 {data.map((item, i) => {
                     return <Event key={i} data={item} />;
                 })}

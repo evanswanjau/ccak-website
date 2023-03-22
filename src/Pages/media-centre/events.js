@@ -6,40 +6,46 @@ import { Slide } from "react-reveal";
 export const EventsPage = () => {
     const data = [
         {
+            id: 1,
             title: "Netherlands Enterprise Agency",
             venue: "KICC",
             image: "events/event_default.jpg",
-            url: "#",
+            url: "1/netherlands-enterprice-agency/",
         },
         {
+            id: 2,
             title: "Netherlands Enterprise Agency",
             venue: "KICC",
             image: "events/event_default.jpg",
-            url: "#",
+            url: "2/netherlands-enterprice-agency/",
         },
         {
+            id: 3,
             title: "Netherlands Enterprise Agency",
             venue: "KICC",
             image: "events/event_default.jpg",
-            url: "#",
+            url: "3/netherlands-enterprice-agency/",
         },
         {
+            id: 4,
             title: "Netherlands Enterprise Agency",
             venue: "KICC",
             image: "events/event_default.jpg",
-            url: "#",
+            url: "4/netherlands-enterprice-agency/",
         },
         {
+            id: 5,
             title: "Netherlands Enterprise Agency",
             venue: "KICC",
             image: "events/event_default.jpg",
-            url: "#",
+            url: "5/netherlands-enterprice-agency/",
         },
         {
+            id: 6,
             title: "Netherlands Enterprise Agency",
             venue: "KICC",
             image: "events/event_default.jpg",
-            url: "#",
+            url: "6/netherlands-enterprice-agency/",
         },
     ];
 
@@ -58,7 +64,7 @@ export const EventsPage = () => {
                 </Slide>
             </section>
             <div className="flex flex-row px-6 lg:px-16">
-                <div className="w-full lg:w-9/12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-6 sm:gap-6 py-10">
+                <div className="w-full lg:w-9/12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-y-6 sm:gap-6 py-10">
                     {data.map((item, i) => {
                         return <Event key={i} data={item} />;
                     })}
