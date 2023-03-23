@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import { MapPinIcon } from "@heroicons/react/24/solid";
 import { Fade } from "react-reveal";
 
 export const Event = ({ data: { image, date, title, venue, url } }) => {
     return (
         <Fade>
-            <Link to={`/media-centre/events/read-more/${url}`}>
+            <a href={`/media-centre/events/read-more/${url}`}>
                 <div
                     style={{
                         backgroundImage: `url(${
@@ -31,7 +31,7 @@ export const Event = ({ data: { image, date, title, venue, url } }) => {
                         </p>
                     </div>
                 </div>
-            </Link>
+            </a>
         </Fade>
     );
 };

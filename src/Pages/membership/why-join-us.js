@@ -1,5 +1,5 @@
 import { Slide, Fade } from "react-reveal";
-import { Link } from "react-router-dom";
+
 
 export const WhyJoinUsPage = () => {
     return (
@@ -7,7 +7,8 @@ export const WhyJoinUsPage = () => {
             <section
                 style={{
                     backgroundImage: `url(${
-                        process.env.REACT_APP_IMAGEKIT + "/why_join_us/why_join_us.jpg"
+                        process.env.REACT_APP_IMAGEKIT +
+                        "/why_join_us/why_join_us.jpg"
                     })`,
                 }}
                 className={`h-screen bg-cover bg-center bg-no-repeat`}
@@ -51,11 +52,11 @@ export const WhyJoinUsPage = () => {
                         </p>
                     </Slide>
                     <Slide bottom>
-                        <Link to="/membership/packages">
+                        <a href="/membership/packages">
                             <button className="bg-[#329E49] font-manjari leading-none mt-5 pb-3 pt-4 px-5 text-white hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest">
                                 GET STARTED
                             </button>
-                        </Link>
+                        </a>
                     </Slide>
                 </div>
                 <div className="lg:w-6/12">
@@ -101,11 +102,11 @@ export const WhyJoinUsPage = () => {
                         </p>
                     </Slide>
                     <Slide bottom>
-                        <Link to="/membership/packages">
+                        <a href="/membership/packages">
                             <button className="bg-[#329E49] font-manjari leading-none mt-5 pb-3 pt-4 px-5 text-white hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest">
                                 GET STARTED
                             </button>
-                        </Link>
+                        </a>
                     </Slide>
                 </div>
             </section>{" "}
@@ -127,11 +128,11 @@ export const WhyJoinUsPage = () => {
                         </p>
                     </Slide>
                     <Slide bottom>
-                        <Link to="/membership/packages">
+                        <a href="/membership/packages">
                             <button className="bg-[#329E49] font-manjari leading-none mt-5 pb-3 pt-4 px-5 text-white hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest">
                                 GET STARTED
                             </button>
-                        </Link>
+                        </a>
                     </Slide>
                 </div>
                 <div className="lg:w-6/12">
@@ -178,11 +179,11 @@ export const WhyJoinUsPage = () => {
                         </p>
                     </Slide>
                     <Slide bottom>
-                        <Link to="/membership/packages">
+                        <a href="/membership/packages">
                             <button className="bg-[#329E49] font-manjari leading-none mt-5 pb-3 pt-4 px-5 text-white hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest">
                                 GET STARTED
                             </button>
-                        </Link>
+                        </a>
                     </Slide>
                 </div>
             </section>{" "}
@@ -206,11 +207,11 @@ export const WhyJoinUsPage = () => {
                         </p>
                     </Slide>
                     <Slide bottom>
-                        <Link to="/membership/packages">
+                        <a href="/membership/packages">
                             <button className="bg-[#329E49] font-manjari leading-none mt-5 pb-3 pt-4 px-5 text-white hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest">
                                 GET STARTED
                             </button>
-                        </Link>
+                        </a>
                     </Slide>
                 </div>
                 <div className="lg:w-6/12">

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import { Slide, Fade } from "react-reveal";
 import {
     UsersIcon,
@@ -124,7 +124,7 @@ export const WhatWeDoPage = () => {
                                         </div>
                                         <div className="sm:w-10/12">
                                             <h6 className="font-semibold capitalize mb-2 group-hover:text-[#ED7423] transition duration-300 ease-in-out">
-                                                <Link to="#">{item.name}</Link>
+                                                <a href="#">{item.name}</a>
                                             </h6>
                                             <p className="text-gray-600">
                                                 {item.description}

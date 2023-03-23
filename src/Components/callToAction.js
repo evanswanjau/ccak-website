@@ -1,5 +1,4 @@
 import { Fade } from "react-reveal";
-import { Link } from "react-router-dom";
 
 export const CallToAction = () => {
     return (
@@ -19,23 +18,23 @@ export const CallToAction = () => {
                         greener!
                     </h3>
                     <div className="flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-6 pb-10">
-                        <Link to="#">
+                        <a href="#">
                             <button
                                 href="/get-involved/become-a-member"
                                 className="bg-[#329E49] font-manjari leading-none pb-3 pt-4 px-5 text-white hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest"
                             >
                                 BECOME A MEMBER
                             </button>
-                        </Link>
+                        </a>
 
-                        <Link to="/get-involved/donate">
+                        <a href="/get-involved/donate">
                             <button
                                 href="/get-involved/become-a-member"
                                 className="bg-white font-manjari leading-none pb-3 pt-4 px-5 hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest"
                             >
                                 DONATE
                             </button>
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </div>

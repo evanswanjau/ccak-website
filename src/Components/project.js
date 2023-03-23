@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom";
 import { Fade } from "react-reveal";
 
 export const Project = ({ data: { title, excerpt, image, url } }) => {
     return (
         <Fade>
-            <Link to={`/media-centre/projects/read-more/${url}`}>
+            <a href={`/media-centre/projects/read-more/${url}`}>
                 <div
                     style={{
                         backgroundImage: `url(${
@@ -18,7 +17,7 @@ export const Project = ({ data: { title, excerpt, image, url } }) => {
                         <p>{excerpt}</p>
                     </div>
                 </div>
-            </Link>
+            </a>
         </Fade>
     );
 };

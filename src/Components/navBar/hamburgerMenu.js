@@ -1,15 +1,13 @@
-import { Link } from "react-router-dom";
-
 export const HamburgerMenu = ({ setMobile }) => {
     return (
         <div className="w-full flex justify-between items-center py-2 px-6 bg-white shadow-sm">
-            <Link to="/">
+            <a href="/">
                 <img
                     className="w-32"
                     src="/ccak_side_logo.png"
                     alt="CCAK Logo"
                 />
-            </Link>
+            </a>
             <div
                 className="flex flex-col space-y-1 cursor-pointer"
                 onClick={() => {

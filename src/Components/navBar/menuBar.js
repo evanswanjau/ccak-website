@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 export const MenuBar = ({ setDropDown }) => {
     const links = [
@@ -44,11 +43,11 @@ export const MenuBar = ({ setDropDown }) => {
                                 {link.name}
                             </li>
                         ) : (
-                            <Link to={link.link} key={link.name}>
+                            <a href={link.link} key={link.name}>
                                 <li className="px-5 cursor-pointer truncate text-lg text-gray-100 hover:text-white">
                                     {link.name}
                                 </li>
-                            </Link>
+                            </a>
                         )
                     )}
                 </ul>

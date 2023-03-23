@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 export const DropDown = ({ dropDown: { show, category }, setDropDown }) => {
     const whoWeAreData = {
@@ -168,7 +167,7 @@ export const DropDown = ({ dropDown: { show, category }, setDropDown }) => {
                     <div className="w-3/12 p-5">
                         <ul className=" border-r">
                             {data.links.map((link, i) => (
-                                <Link to={link.link} key={i}>
+                                <a href={link.link} key={i}>
                                     <li
                                         className="m-6 cursor-pointer text-lg hover:text-[#ED7423]"
                                         onClick={() => {
@@ -180,7 +179,7 @@ export const DropDown = ({ dropDown: { show, category }, setDropDown }) => {
                                     >
                                         {link.name}
                                     </li>
-                                </Link>
+                                </a>
                             ))}
                         </ul>
                     </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import { RecentProjects } from "../Containers/recentProjects";
 import { SubFooter } from "../Containers/subFooter";
 import { LogoCarousel } from "../Components/carousel";
@@ -95,11 +95,11 @@ export const HomePage = () => {
                         </Slide>
                         <Slide bottom>
                             <div className="flex space-x-3 lg:space-x-8 my-10">
-                                <Link to={"/what-we-do"}>
+                                <a href={"/what-we-do"}>
                                     <button className="bg-white text-gray-600 pt-3 pb-2 px-6 hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest">
                                         WHAT WE DO
                                     </button>
-                                </Link>
+                                </a>
                                 <button className="flex text-xl items-center space-x-2 hover:text-[#ED7423] transition duration-300 ease-in-out">
                                     <PlayCircleIcon className="w-6" />
                                     <p className="">Play Video</p>
@@ -206,11 +206,11 @@ export const HomePage = () => {
                         </p>
                     </Slide>
                     <Slide bottom>
-                        <Link to={"/who-we-are/about-us"}>
+                        <a href={"/who-we-are/about-us"}>
                             <button className="bg-[#329E49] text-white pt-3 pb-2 px-6 my-5 hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out">
                                 LEARN MORE
                             </button>
-                        </Link>
+                        </a>
                     </Slide>
                 </div>
                 <div className="lg:w-5/12 mt-5 lg:m-0 lg:py-16">

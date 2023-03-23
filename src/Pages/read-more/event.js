@@ -1,11 +1,8 @@
 import { Fade } from "react-reveal";
-import { Link } from "react-router-dom";
+
 import { Event } from "../../Components/event";
 import { AddToCalendarButton } from "add-to-calendar-button-react";
-import {
-    MapPinIcon,
-    CursorArrowRaysIcon,
-} from "@heroicons/react/24/outline";
+import { MapPinIcon, CursorArrowRaysIcon } from "@heroicons/react/24/outline";
 import { ReadMoreHeader } from "../../Components/readMoreHeader";
 import { SubFooter } from "../../Containers/subFooter";
 
@@ -64,22 +61,25 @@ const data = {
 
 const upComingEvents = [
     {
+        id: 1,
         title: "Netherlands Enterprise Agency",
         venue: "KICC",
         image: "events/event_default.jpg",
-        url: "mission-40k",
+        url: "1/netherlands-enterprice-agency/",
     },
     {
+        id: 2,
         title: "Netherlands Enterprise Agency",
         venue: "KICC",
         image: "events/event_default.jpg",
-        url: "mission-40k",
+        url: "2/netherlands-enterprice-agency/",
     },
     {
+        id: 3,
         title: "Netherlands Enterprise Agency",
         venue: "KICC",
         image: "events/event_default.jpg",
-        url: "mission-40k",
+        url: "3/netherlands-enterprice-agency/",
     },
 ];
 
@@ -114,13 +114,13 @@ export const EventReadMore = () => {
                             </div>
                             <div className="flex flex-col w-10/12">
                                 <p>GET DIRECTIONS</p>
-                                <Link
+                                <a
                                     className="break-all text-sky-600"
                                     href={data.venue_link}
                                     target="_blank"
                                 >
                                     {data.venue_link}
-                                </Link>
+                                </a>
                             </div>
                         </div>
                         <div className="flex flex-row my-3">
@@ -129,13 +129,13 @@ export const EventReadMore = () => {
                             </div>
                             <div className="flex flex-col w-10/12">
                                 <p>JOIN ONLINE EVENT</p>
-                                <Link
+                                <a
                                     className="break-all text-sky-600"
                                     href={data.online_link}
                                     target="_blank"
                                 >
                                     {data.online_link}
-                                </Link>
+                                </a>
                             </div>
                         </div>
                     </div>

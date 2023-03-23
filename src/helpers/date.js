@@ -1,4 +1,5 @@
 module.exports.simpleDate = (date) => {
+    console.log(date);
     let newDate = new Date(date).toString();
 
     newDate = newDate.split(" ");

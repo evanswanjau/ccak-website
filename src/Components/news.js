@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Fade } from "react-reveal";
 import { simpleDate } from "../helpers/date";
 
@@ -7,8 +6,8 @@ export const News = ({
 }) => {
     return (
         <Fade>
-            <Link
-                to={`/media-centre/${category}/read-more/${url}`}
+            <a
+                href={`/media-centre/${category}/read-more/${url}`}
                 className="group"
             >
                 <div
@@ -26,7 +25,7 @@ export const News = ({
                     {title}
                 </h3>
                 <p className="text-gray-600">{excerpt}</p>
-            </Link>
+            </a>
         </Fade>
     );
 };

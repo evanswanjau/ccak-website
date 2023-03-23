@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Slide, Fade } from "react-reveal";
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import { BsTwitter, BsFacebook, BsLinkedin } from "react-icons/bs";
@@ -42,20 +41,20 @@ export const ContactUsPage = () => {
                             {" "}
                             <div className="flex flex-row space-x-4 hover:text-[#ED7423] my-2 text-gray-600">
                                 <EnvelopeIcon className="w-5 h-5" />
-                                <Link
+                                <a
                                     href="mailto:info@ccak.or.ke"
                                     target="_blank"
                                 >
                                     info@ccak.or.ke
-                                </Link>
+                                </a>
                             </div>
                         </Slide>
                         <Slide bottom>
                             <div className="flex flex-row space-x-4 hover:text-[#ED7423] my-3 text-gray-600">
                                 <PhoneIcon className="w-5 h-5" />
-                                <Link to="tel:+254707111669" target="_blank">
+                                <a href="tel:+254707111669" target="_blank">
                                     0707 111 669
-                                </Link>
+                                </a>
                             </div>
                         </Slide>
                     </div>
@@ -67,12 +66,12 @@ export const ContactUsPage = () => {
                         </Slide>
                         <Slide bottom>
                             <p className="text-gray-600 hover:text-[#ED7423]">
-                                <Link
+                                <a
                                     href="https://goo.gl/maps/TFu82RKkDVPSWjuv8"
                                     target="_blank"
                                 >
                                     NextGen Mall, Mombasa Road. Nairobi, Kenya
-                                </Link>
+                                </a>
                             </p>
                         </Slide>
                     </div>
@@ -101,24 +100,24 @@ export const ContactUsPage = () => {
                     </div>
                     <Fade bottom>
                         <div className="py-5 space-x-8 space flex">
-                            <Link
+                            <a
                                 href="https://web.facebook.com/CleanCookingKe"
                                 target="_blank"
                             >
                                 <BsFacebook className="text-xl text-gray-600 hover:text-[#ED7423] transition duration-150 ease-in-out" />
-                            </Link>
-                            <Link
+                            </a>
+                            <a
                                 href="https://twitter.com/CleanCookingKe"
                                 target="_blank"
                             >
                                 <BsTwitter className="text-xl text-gray-600 hover:text-[#ED7423] transition duration-150 ease-in-out" />
-                            </Link>
-                            <Link
+                            </a>
+                            <a
                                 href="https://www.linkedin.com/in/clean-cooking-association-of-kenya-ccak-ba852517b"
                                 target="_blank"
                             >
                                 <BsLinkedin className="text-xl text-gray-600 hover:text-[#ED7423] transition duration-150 ease-in-out" />
-                            </Link>
+                            </a>
                         </div>
                     </Fade>
                 </div>

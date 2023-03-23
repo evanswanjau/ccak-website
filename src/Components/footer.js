@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
 
 export const Footer = () => {
@@ -45,13 +44,13 @@ export const Footer = () => {
         <footer className="w-full px-5 lg:px-10 pt-5 text-gray-600">
             <div className="flex flex-col lg:flex-row lg:space-x-8">
                 <div className="w-full lg:w-3/12">
-                    <Link to="/">
+                    <a href="/">
                         <img
                             className="w-40 mb-5"
                             src="/ccak_side_logo.png"
                             alt="CCAK Logo"
                         />
-                    </Link>
+                    </a>
                     <p className="py-3">
                         The Clean Cooking Association of Kenya is a sector
                         association with a vision to see universal access and
@@ -60,11 +59,11 @@ export const Footer = () => {
                     </p>
                     <div className="flex flex-row space-x-4 hover:text-[#ED7423] my-2">
                         <EnvelopeIcon className="w-5 h-5" />
-                        <Link to="mailto:info@ccak.or.ke">info@ccak.or.ke</Link>
+                        <a href="mailto:info@ccak.or.ke">info@ccak.or.ke</a>
                     </div>
                     <div className="flex flex-row space-x-4 hover:text-[#ED7423] my-3">
                         <PhoneIcon className="w-5 h-5" />
-                        <Link to="tel:+254707111669">0707 111 669</Link>
+                        <a href="tel:+254707111669">0707 111 669</a>
                     </div>
                 </div>
                 <div className="w-full lg:w-6/12 pt-5">
@@ -78,11 +77,11 @@ export const Footer = () => {
                                     <ul>
                                         {link.links.map((item, i) => {
                                             return (
-                                                <Link to={item.url} key={i}>
+                                                <a href={item.url} key={i}>
                                                     <li className="text-gray-600 hover:text-[#ED7423] my-4">
                                                         {item.name}
                                                     </li>
-                                                </Link>
+                                                </a>
                                             );
                                         })}
                                     </ul>
@@ -115,19 +114,19 @@ export const Footer = () => {
                     rights Reserved
                 </p>
                 <p className="w-full lg:w-6/12 lg:text-right">
-                    <Link
-                        to="legal/terms-and-conditions"
+                    <a
+                        href="legal/terms-and-conditions"
                         className="hover:text-[#ED7423]"
                     >
                         Terms and Conditions
-                    </Link>
+                    </a>
                     &nbsp; | &nbsp;
-                    <Link
-                        to="legal/privacy-policy"
+                    <a
+                        href="legal/privacy-policy"
                         className="hover:text-[#ED7423]"
                     >
                         Privacy Policy
-                    </Link>
+                    </a>
                 </p>
             </div>
         </footer>

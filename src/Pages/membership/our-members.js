@@ -1,6 +1,5 @@
 import { Slide, Fade } from "react-reveal";
 import { OurMember } from "../../Components/ourMember";
-import { Link } from "react-router-dom";
 
 const data = [
     {
@@ -121,7 +120,7 @@ export const OurMembersPage = () => {
                         <ul className="font-manjari space-y-2 my-5">
                             {technologies.map((technology) => {
                                 return (
-                                    <Link to={technology}>
+                                    <a href={technology}>
                                         <li className="hover:text-[#ED7423] transition duration-150 ease-in-out">
                                             {technology
                                                 .charAt(0)
@@ -130,7 +129,7 @@ export const OurMembersPage = () => {
                                                     .slice(1)
                                                     .replace(/-/g, " ")}
                                         </li>
-                                    </Link>
+                                    </a>
                                 );
                             })}
                         </ul>
@@ -140,15 +139,12 @@ export const OurMembersPage = () => {
                         <ul className="font-manjari space-y-2 my-5">
                             {categories.map((category) => {
                                 return (
-                                    <Link to={category}>
+                                    <a href={category}>
                                         <li className="hover:text-[#ED7423] transition duration-150 ease-in-out">
-                                            {category
-                                                .charAt(0)
-                                                .toUpperCase() +
-                                                category
-                                                    .slice(1)}
+                                            {category.charAt(0).toUpperCase() +
+                                                category.slice(1)}
                                         </li>
-                                    </Link>
+                                    </a>
                                 );
                             })}
                         </ul>

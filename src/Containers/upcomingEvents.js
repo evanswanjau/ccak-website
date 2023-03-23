@@ -4,28 +4,32 @@ import { Fade } from "react-reveal";
 
 const data = [
     {
+        id: 1,
         title: "Netherlands Enterprise Agency",
         venue: "KICC",
         image: "events/event_default.jpg",
-        url: "#",
+        url: "1/netherlands-enterprice-agency/",
     },
     {
+        id: 2,
         title: "Netherlands Enterprise Agency",
         venue: "KICC",
         image: "events/event_default.jpg",
-        url: "#",
+        url: "2/netherlands-enterprice-agency/",
     },
     {
+        id: 3,
         title: "Netherlands Enterprise Agency",
         venue: "KICC",
         image: "events/event_default.jpg",
-        url: "#",
+        url: "3/netherlands-enterprice-agency/",
     },
     {
+        id: 4,
         title: "Netherlands Enterprise Agency",
         venue: "KICC",
         image: "events/event_default.jpg",
-        url: "#",
+        url: "4/netherlands-enterprice-agency/",
     },
 ];
 

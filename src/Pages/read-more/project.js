@@ -1,4 +1,4 @@
-import { News } from "../../Components/news";
+import { Project } from "../../Components/project";
 import { ReadMoreHeader } from "../../Components/readMoreHeader";
 import { Fade } from "react-reveal";
 import { SubFooter } from "../../Containers/subFooter";
@@ -101,7 +101,7 @@ export const ProjectReadMore = () => {
                         </Fade>
                         <div className="grid grid-cols-1 gap-y-6">
                             {recentData.map((item) => {
-                                return <News data={item} />;
+                                return <Project data={item} />;
                             })}
                         </div>
                     </div>

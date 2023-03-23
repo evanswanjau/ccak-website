@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 export const TopBar = ({ setDropDown }) => {
     const links = [
@@ -16,13 +15,13 @@ export const TopBar = ({ setDropDown }) => {
     return (
         <nav className="flex flex-row p-2 w-100 font-manjari text-gray-600 bg-white items-centre lg:px-16">
             <div className="w-3/12">
-                <Link to="/">
+                <a href="/">
                     <img
                         className="w-28"
                         src="/ccak_side_logo.png"
                         alt="CCAK Logo"
                     />
-                </Link>
+                </a>
             </div>
             <div className="w-9/12">
                 <ul className="flex flex-row justify-end items-center">
@@ -44,7 +43,7 @@ export const TopBar = ({ setDropDown }) => {
                                 {link.name}
                             </li>
                         ) : (
-                            <Link to={link.link} key={link.name}>
+                            <a href={link.link} key={link.name}>
                                 <li
                                     className={` ${
                                         link.name !== "RESOURCE CENTRE" &&
@@ -53,14 +52,14 @@ export const TopBar = ({ setDropDown }) => {
                                 >
                                     {link.name}
                                 </li>
-                            </Link>
+                            </a>
                         )
                     )}
-                    <Link to="/get-involved/donate">
+                    <a href="/get-involved/donate">
                         <button className="bg-[#329E49] text-white pt-2 pb-1 px-5 mx-5 hover:bg-[#3ab554] rounded-md tracking-widest">
                             DONATE
                         </button>
-                    </Link>
+                    </a>
                 </ul>
             </div>
         </nav>

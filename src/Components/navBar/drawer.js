@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ChevronDownIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
@@ -155,13 +154,13 @@ export const Drawer = ({ mobile, setMobile }) => {
                 tabindex="-1"
             >
                 <div className="flex flex-row items-center justify-between border-b pb-5">
-                    <Link to="/">
+                    <a href="/">
                         <img
                             className="w-32"
                             src="/ccak_side_logo_white.png"
                             alt="CCAK Logo"
                         />
-                    </Link>
+                    </a>
                     <button
                         type="button"
                         class="text-white hover:text-[#ED7423] bg-transparent hover:bg-white rounded-lg text-sm p-1.5 transition duration-300 ease-in-out"
@@ -179,7 +178,7 @@ export const Drawer = ({ mobile, setMobile }) => {
                         {data.map((item) => {
                             return (
                                 <li key={item.links.title}>
-                                    <Link to={item.info.link}>
+                                    <a href={item.info.link}>
                                         <button
                                             type="button"
                                             class="flex items-center w-full pt-3 pb-2 px-2 text-base font-normal text-white rounded-lg group hover:bg-white hover:text-[#ED7423] transition duration-300 ease-in-out"
@@ -198,7 +197,7 @@ export const Drawer = ({ mobile, setMobile }) => {
                                                 <ChevronDownIcon className="w-5" />
                                             )}
                                         </button>
-                                    </Link>
+                                    </a>
                                     <ul
                                         id="dropdown-example"
                                         class={`${
@@ -209,12 +208,12 @@ export const Drawer = ({ mobile, setMobile }) => {
                                         {item.links.map((link) => {
                                             return (
                                                 <li key={link.name}>
-                                                    <Link
+                                                    <a
                                                         href={link.link}
                                                         class="flex items-center w-full pt-3 pb-2 px-2 text-base font-normal text-white rounded-lg pl-11 group hover:bg-white hover:text-[#ED7423] transition duration-300 ease-in-out"
                                                     >
                                                         {link.name}
-                                                    </Link>
+                                                    </a>
                                                 </li>
                                             );
                                         })}

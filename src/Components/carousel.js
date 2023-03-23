@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 export const LogoCarousel = ({ logos }) => {
     return (
         <div className=" flex items-center justify-center">
@@ -14,9 +12,9 @@ export const LogoCarousel = ({ logos }) => {
                                 key={i}
                                 className="flex justify-center items-start w-32 hover:scale-[1.1] duration-300 ease-in-out]"
                             >
-                                <Link to={logo.link} target="_blank">
+                                <a href={logo.link} target="_blank">
                                     <img src={logo.image} alt={logo.name} />
-                                </Link>
+                                </a>
                             </div>
                         );
                     })}
@@ -26,9 +24,9 @@ export const LogoCarousel = ({ logos }) => {
                                 key={i}
                                 className="flex justify-center items-start w-32 hover:scale-[1.1] duration-300 ease-in-out"
                             >
-                                <Link to={logo.link} target="_blank">
+                                <a href={logo.link} target="_blank">
                                     <img src={logo.image} alt={logo.name} />
-                                </Link>
+                                </a>
                             </div>
                         );
                     })}

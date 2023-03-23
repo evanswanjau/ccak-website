@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom";
 import { Fade } from "react-reveal";
 
 export const Gallery = ({ data: { title, description, image, url } }) => {
     return (
         <Fade>
-            <Link to={`/media-centre/photo-gallery/${url}`}>
+            <a href={`/media-centre/photo-gallery/${url}`}>
                 <div
                     style={{
                         backgroundImage: `url(${
@@ -17,7 +16,7 @@ export const Gallery = ({ data: { title, description, image, url } }) => {
                         <h3 className="font-semibold mb-1">{title}</h3>
                     </div>
                 </div>
-            </Link>
+            </a>
         </Fade>
     );
 };
