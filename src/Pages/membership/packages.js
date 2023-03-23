@@ -46,7 +46,7 @@ const data = [
     {
         name: "association",
         category: "membership",
-        price: "KSH. 10,000",
+        price: "KSH. 20,000",
         list: [
             "Membership associations",
             "Registration fee of Ksh. 10,000",
@@ -68,9 +68,9 @@ const data = [
         category: "-",
         price: "KSH. 50,000",
         list: [
-            "Donor Supported",
+            "Donor supported",
             "Registration fee of Ksh. 25,000",
-            "Annual subscription fee of Ksh. 100,000",
+            "Annual subscription fee of Ksh. 50,000",
         ],
     },
     {
@@ -144,7 +144,7 @@ export const PackagesPage = () => {
                     </p>
                 </Slide>
                 <div className="flex flex-row px-6 lg:px-16 py-5">
-                    <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-10 py-10">
+                    <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 py-10">
                         {data.map((item, i) => {
                             return <Package key={i} data={item} />;
                         })}
