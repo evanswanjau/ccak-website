@@ -35,6 +35,10 @@ import { ConsultancyReadMore } from "./Pages/read-more/consultancy";
 import { CarrerReadMore } from "./Pages/read-more/career";
 import { FundingOppportunitiesReadMore } from "./Pages/read-more/funding";
 
+import { PackagesPage } from "./Pages/membership/packages";
+import { OurMembersPage } from "./Pages/membership/our-members";
+import { WhyJoinUsPage } from "./Pages/membership/why-join-us";
+
 function App() {
     return (
         <Router>
@@ -152,6 +156,22 @@ function App() {
                     exact
                     path="/get-involved/funding-opportunities/read-more/:id/:title"
                     component={FundingOppportunitiesReadMore}
+                />
+                {/** ----------------- MEMBERSHIP --------------------- */}
+                <Route
+                    exact
+                    path="/membership/why-join-us"
+                    component={WhyJoinUsPage}
+                />
+                <Route
+                    exact
+                    path="/membership/packages"
+                    component={PackagesPage}
+                />
+                <Route
+                    exact
+                    path="/membership/our-members"
+                    component={OurMembersPage}
                 />
             </Switch>
             <Footer />
