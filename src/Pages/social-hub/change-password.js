@@ -10,12 +10,14 @@ export const SocialHubChangePasswordPage = () => {
     });
     return (
         <div className="pt-[4rem] lg:pt-[8.2rem]">
-            <div className="flex flex-col md:flex-row px-6 lg:px-28">
+            <div className="flex flex-col md:flex-row px-6 lg:px-16 space-x-8">
                 <div className="md:w-3/12 py-10">
-                    <SideMenu />
+                    <div className="fixed md:w-3/12">
+                        <SideMenu />
+                    </div>
                 </div>
-                <div className="md:w-9/12 pt-10 lg:px-10">
-                    <div className="w-8/12 space-y-6">
+                <div className="md:w-6/12 pt-10 lg:px-10">
+                    <div className="space-y-6">
                         <h3 className="font-semibold text-2xl my-5">
                             Change Password
                         </h3>
