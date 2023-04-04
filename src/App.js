@@ -39,6 +39,12 @@ import { PackagesPage } from "./Pages/membership/packages";
 import { OurMembersPage } from "./Pages/membership/our-members";
 import { WhyJoinUsPage } from "./Pages/membership/why-join-us";
 
+import { SocialHubHomePage } from "./Pages/social-hub/home";
+import { SocialHubProfilePage } from "./Pages/social-hub/profile";
+import { SocialHubBookmarksPage } from "./Pages/social-hub/bookmarks";
+import { SocialHubBillingPage } from "./Pages/social-hub/billing";
+import { SocialHubChangePasswordPage } from "./Pages/social-hub/change-password";
+
 function App() {
     return (
         <Router>
@@ -173,8 +179,28 @@ function App() {
                     path="/membership/our-members"
                     component={OurMembersPage}
                 />
+                {/**--------------------- SOCIAL HUB ----------------------- */}
+                <Route path="/social-hub/home" component={SocialHubHomePage} />
+                <Route
+                    path="/social-hub/profile"
+                    component={SocialHubProfilePage}
+                />
+                <Route
+                    path="/social-hub/bookmarks"
+                    component={SocialHubBookmarksPage}
+                />
+                <Route
+                    path="/social-hub/billing"
+                    component={SocialHubBillingPage}
+                />
+                <Route
+                    path="/social-hub/change-password"
+                    component={SocialHubChangePasswordPage}
+                />
             </Switch>
-            <Footer />
+            {window.location.pathname.split("/")[1] !== "social-hub" && (
+                <Footer />
+            )}
         </Router>
     );
 }
