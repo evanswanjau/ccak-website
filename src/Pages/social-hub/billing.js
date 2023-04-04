@@ -35,9 +35,11 @@ const data = [
 export const SocialHubBillingPage = () => {
     return (
         <div className="pt-[4rem] lg:pt-[8.2rem]">
-            <div className="flex flex-col md:flex-row px-6 lg:px-16">
+            <div className="flex flex-col md:flex-row px-6 lg:px-16 space-x-8">
                 <div className="md:w-3/12 py-10">
-                    <SideMenu />
+                    <div className="fixed md:w-3/12">
+                        <SideMenu />
+                    </div>
                 </div>
                 <div className="md:w-9/12 pt-10 lg:px-10">
                     <div className="space-y-6">
