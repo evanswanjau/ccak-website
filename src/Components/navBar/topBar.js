@@ -3,6 +3,10 @@ import React from "react";
 export const TopBar = ({ setDropDown }) => {
     const links = [
         {
+            link: "/social-hub/home",
+            name: "SOCIAL HUB",
+        },
+        {
             link: "#",
             name: "RESOURCE CENTRE",
         },
@@ -30,7 +34,7 @@ export const TopBar = ({ setDropDown }) => {
                             <li
                                 key={link.name}
                                 className={` ${
-                                    link.name !== "RESOURCE CENTRE" &&
+                                    link.name !== "SOCIAL HUB" &&
                                     "border-l"
                                 }  px-5 cursor-pointer hover:text-[#ED7423]`}
                                 onClick={() => {
@@ -46,7 +50,7 @@ export const TopBar = ({ setDropDown }) => {
                             <a href={link.link} key={link.name}>
                                 <li
                                     className={` ${
-                                        link.name !== "RESOURCE CENTRE" &&
+                                        link.name !== "SOCIAL HUB" &&
                                         "border-l"
                                     }  px-5 cursor-pointer hover:text-[#ED7423]`}
                                 >
