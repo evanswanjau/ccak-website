@@ -34,12 +34,12 @@ const lists = [
 ];
 
 export const SideMenu = () => {
-    console.log(window.location.pathname.split("/")[2]);
     return (
         <div className="p-10 rounded-lg shadow-lg">
             {lists.map((list, i) => {
                 return (
                     <a
+                        key={i}
                         href={list.link}
                         className={`flex py-5 space-x-4 ${
                             i + 1 < lists.length && "border-b border-gray-100"
