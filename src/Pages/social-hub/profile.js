@@ -67,7 +67,7 @@ export const SocialHubProfilePage = () => {
                 <div className="md:w-6/12 pt-10 lg:px-10">
                     <div className="space-y-6">
                         <div className="flex rounded-lg shadow-md p-5 space-x-6 text-gray-600">
-                            <div>
+                            <div className="w-2/12">
                                 <img
                                     src="/logos/burn.jpeg"
                                     alt="member logo"
@@ -75,7 +75,7 @@ export const SocialHubProfilePage = () => {
                                     git
                                 />
                             </div>
-                            <div>
+                            <div className="w-10/12">
                                 <h3 className="font-semibold text-2xl text-black mb-2">
                                     Burn Manufactures
                                 </h3>
