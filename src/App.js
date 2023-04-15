@@ -37,7 +37,6 @@ import { FundingOppportunitiesReadMore } from "./Pages/read-more/funding";
 
 import { PackagesPage } from "./Pages/membership/packages";
 import { OurMembersPage } from "./Pages/membership/our-members";
-import { WhyJoinUsPage } from "./Pages/membership/why-join-us";
 
 import { SocialHubHomePage } from "./Pages/social-hub/home";
 import { SocialHubProfilePage } from "./Pages/social-hub/profile";
@@ -164,11 +163,6 @@ function App() {
                     component={FundingOppportunitiesReadMore}
                 />
                 {/** ----------------- MEMBERSHIP --------------------- */}
-                <Route
-                    exact
-                    path="/membership/why-join-us"
-                    component={WhyJoinUsPage}
-                />
                 <Route
                     exact
                     path="/membership/packages"

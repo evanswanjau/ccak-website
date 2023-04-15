@@ -66,10 +66,6 @@ export const DropDown = ({ dropDown: { show, category }, setDropDown }) => {
     const membershipData = {
         links: [
             {
-                link: "/membership/why-join-us/",
-                name: "WHY JOIN US",
-            },
-            {
                 link: "/membership/packages/",
                 name: "MEMBER PACKAGES",
             },
