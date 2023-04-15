@@ -41,7 +41,7 @@ export const Footer = () => {
     ];
 
     return (
-        <footer className="w-full px-5 lg:px-10 pt-5 text-gray-600">
+        <footer className="w-full px-5 lg:px-10 pt-5 text-gray-200 bg-zinc-800">
             <div className="flex flex-col lg:flex-row lg:space-x-8">
                 <div className="w-full lg:w-3/12">
                     <a href="/">
@@ -57,11 +57,11 @@ export const Footer = () => {
                         adoption of clean cooking solutions and practices in
                         kenya, through a sustainable market environment.
                     </p>
-                    <div className="flex flex-row space-x-4 hover:text-[#ED7423] my-2">
+                    <div className="flex flex-row space-x-4 hover:text-[#ED7423] transition duration-300 ease-in-out my-2">
                         <EnvelopeIcon className="w-5 h-5" />
                         <a href="mailto:info@ccak.or.ke">info@ccak.or.ke</a>
                     </div>
-                    <div className="flex flex-row space-x-4 hover:text-[#ED7423] my-3">
+                    <div className="flex flex-row space-x-4 hover:text-[#ED7423] transition duration-300 ease-in-out my-3">
                         <PhoneIcon className="w-5 h-5" />
                         <a href="tel:+254707111669">0707 111 669</a>
                     </div>
@@ -71,14 +71,14 @@ export const Footer = () => {
                         {links.map((link, i) => {
                             return (
                                 <div key={i}>
-                                    <h3 className="text-black font-medium my-5">
+                                    <h3 className="text-white font-medium my-5">
                                         {link.name}
                                     </h3>
                                     <ul>
                                         {link.links.map((item, i) => {
                                             return (
                                                 <a href={item.url} key={i}>
-                                                    <li className="text-gray-600 hover:text-[#ED7423] my-4">
+                                                    <li className="text-gray-200 hover:text-[#ED7423] transition duration-300 ease-in-out my-4">
                                                         {item.name}
                                                     </li>
                                                 </a>
@@ -91,7 +91,7 @@ export const Footer = () => {
                     </div>
                 </div>
                 <div className="w-full lg:w-3/12 pt-5 font-manjari">
-                    <h3 className="text-black font-medium my-5">NEWSLETTER</h3>
+                    <h3 className="text-gray-200 font-medium my-5">NEWSLETTER</h3>
                     <p className="py-3">
                         Stay up-to-date with the latest news and updates on
                         clean cooking in Kenya by signing up for our newsletter!
