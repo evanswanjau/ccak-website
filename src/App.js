@@ -34,6 +34,8 @@ import { ProjectReadMore } from "./Pages/read-more/project";
 import { ConsultancyReadMore } from "./Pages/read-more/consultancy";
 import { CarrerReadMore } from "./Pages/read-more/career";
 import { FundingOppportunitiesReadMore } from "./Pages/read-more/funding";
+import { ResearchPapersReadMore } from "./Pages/read-more/research-papers";
+import { AgmMaterialReadMore } from "./Pages/read-more/agm-material";
 
 import { PackagesPage } from "./Pages/membership/packages";
 import { OurMembersPage } from "./Pages/membership/our-members";
@@ -161,6 +163,16 @@ function App() {
                     exact
                     path="/get-involved/funding-opportunities/read-more/:id/:title"
                     component={FundingOppportunitiesReadMore}
+                />
+                <Route
+                    exact
+                    path="/resource-centre/research-papers/read-more/:id/:title"
+                    component={ResearchPapersReadMore}
+                />
+                <Route
+                    exact
+                    path="/resource-centre/agm-material/read-more/:id/:title"
+                    component={AgmMaterialReadMore}
                 />
                 {/** ----------------- MEMBERSHIP --------------------- */}
                 <Route
