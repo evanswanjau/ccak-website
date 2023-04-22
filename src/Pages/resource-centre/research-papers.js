@@ -6,7 +6,8 @@ const data = [
         title: "Analysis of the implications of the value-added tax on clean cooking in Kenya",
         excerpt:
             "A key policy objective of the Government of Kenya (GoK) is to meet the Sustainable Development Goal (SDG) 7 target of universal access to clean cooking solutions by 2028.",
-        url: "mission-40k",
+        url: "1/analysis-of-the-implications-of-the-value-added-tax-on-clean-cooking-in-kenya",
+        category: "research-papers",
         published: "2023-03-08",
         downloads: 23,
         size: "136.6 kb",
@@ -15,7 +16,8 @@ const data = [
         title: "Analysis of the implications of the value-added tax on clean cooking in Kenya",
         excerpt:
             "A key policy objective of the Government of Kenya (GoK) is to meet the Sustainable Development Goal (SDG) 7 target of universal access to clean cooking solutions by 2028.",
-        url: "mission-40k",
+        url: "2/analysis-of-the-implications-of-the-value-added-tax-on-clean-cooking-in-kenya",
+        category: "research-papers",
         published: "2023-03-08",
         downloads: 23,
         size: "136.6 kb",
@@ -24,7 +26,8 @@ const data = [
         title: "Analysis of the implications of the value-added tax on clean cooking in Kenya",
         excerpt:
             "A key policy objective of the Government of Kenya (GoK) is to meet the Sustainable Development Goal (SDG) 7 target of universal access to clean cooking solutions by 2028.",
-        url: "mission-40k",
+        url: "3/analysis-of-the-implications-of-the-value-added-tax-on-clean-cooking-in-kenya",
+        category: "research-papers",
         published: "2023-03-08",
         downloads: 23,
         size: "136.6 kb",
@@ -33,7 +36,8 @@ const data = [
         title: "Analysis of the implications of the value-added tax on clean cooking in Kenya",
         excerpt:
             "A key policy objective of the Government of Kenya (GoK) is to meet the Sustainable Development Goal (SDG) 7 target of universal access to clean cooking solutions by 2028.",
-        url: "mission-40k",
+        url: "4/analysis-of-the-implications-of-the-value-added-tax-on-clean-cooking-in-kenya",
+        category: "research-papers",
         published: "2023-03-08",
         downloads: 23,
         size: "136.6 kb",
@@ -42,7 +46,8 @@ const data = [
         title: "Analysis of the implications of the value-added tax on clean cooking in Kenya",
         excerpt:
             "A key policy objective of the Government of Kenya (GoK) is to meet the Sustainable Development Goal (SDG) 7 target of universal access to clean cooking solutions by 2028.",
-        url: "mission-40k",
+        url: "5/analysis-of-the-implications-of-the-value-added-tax-on-clean-cooking-in-kenya",
+        category: "research-papers",
         published: "2023-03-08",
         downloads: 23,
         size: "136.6 kb",
@@ -51,7 +56,8 @@ const data = [
         title: "Analysis of the implications of the value-added tax on clean cooking in Kenya",
         excerpt:
             "A key policy objective of the Government of Kenya (GoK) is to meet the Sustainable Development Goal (SDG) 7 target of universal access to clean cooking solutions by 2028.",
-        url: "mission-40k",
+        url: "6/analysis-of-the-implications-of-the-value-added-tax-on-clean-cooking-in-kenya",
+        category: "research-papers",
         published: "2023-03-08",
         downloads: 23,
         size: "136.6 kb",
@@ -60,7 +66,8 @@ const data = [
         title: "Analysis of the implications of the value-added tax on clean cooking in Kenya",
         excerpt:
             "A key policy objective of the Government of Kenya (GoK) is to meet the Sustainable Development Goal (SDG) 7 target of universal access to clean cooking solutions by 2028.",
-        url: "mission-40k",
+        url: "7/analysis-of-the-implications-of-the-value-added-tax-on-clean-cooking-in-kenya",
+        category: "research-papers",
         published: "2023-03-08",
         downloads: 23,
         size: "136.6 kb",
