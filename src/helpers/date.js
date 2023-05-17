@@ -1,10 +1,20 @@
 module.exports.simpleDate = (date) => {
-    console.log(date);
-    let newDate = new Date(date).toString();
+    if (date) {
+        let newDate = new Date(date).toString();
 
-    newDate = newDate.split(" ");
+        newDate = newDate.split(" ");
 
-    return newDate[2].replace(/^0+/, '') + nth(newDate[2]) + " " + newDate[1] + " " + newDate[3];
+        return (
+            newDate[2].replace(/^0+/, "") +
+            nth(newDate[2]) +
+            " " +
+            newDate[1] +
+            " " +
+            newDate[3]
+        );
+    } else {
+        return "__:__:__";
+    }
 };
 
 const nth = (d) => {

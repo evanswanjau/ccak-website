@@ -47,7 +47,6 @@ export const ReadMoreHeader = ({
                                 <p className="justify-center flex flex-row space-x-1">
                                     <CalendarDaysIcon className="-mt-2 w-6 text-[#329E49]" />
                                     <span>
-                                        {" "}
                                         {simpleDate(date) + " " + start_time} AM
                                     </span>
                                 </p>
@@ -81,7 +80,7 @@ export const ReadMoreHeader = ({
                                 title={title}
                                 hashtag="#ccak"
                             />
-                            <aedinShareButton
+                            <LinkedinShareButton
                                 children={
                                     <BsLinkedin className="text-2xl text-[#0E76A8]" />
                                 }
