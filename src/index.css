@@ -23,6 +23,11 @@ a {
     line-height: 1.8;
 }
 
+#content p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 @keyframes scroll {
     0% {
         left: 0;
