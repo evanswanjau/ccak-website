@@ -2,18 +2,24 @@ import { Fade } from "react-reveal";
 import { simpleDate } from "../helpers/date";
 
 export const News = ({
-    data: { category, title, published, excerpt, image, url },
+    data: { id, category, title, published, excerpt, image, url, folder },
 }) => {
     return (
         <Fade>
             <a
-                href={`/media-centre/${category}/read-more/${url}`}
+                href={`/media-centre/${category}/read-more/${id}/${title
+                    .replace(/ /g, "-")
+                    .replace("'", "")
+                    .toLowerCase()}`}
                 className="group"
             >
                 <div
                     style={{
                         backgroundImage: `url(${
-                            process.env.REACT_APP_IMAGEKIT_URL + image
+                            process.env.REACT_APP_IMAGEKIT_URL +
+                            folder +
+                            "/" +
+                            image
                         })`,
                     }}
                     className={`bg-cover bg-center bg-no-repeat rounded-lg text-white h-40`}
@@ -24,7 +30,9 @@ export const News = ({
                 <h3 className="text-black group-hover:text-[#ED7423] font-medium transition duration-300 ease-in-out">
                     {title}
                 </h3>
-                <p className="text-gray-600">{excerpt}</p>
+                <p className="text-gray-600 line-clamp-2" title={excerpt}>
+                    {excerpt}
+                </p>
             </a>
         </Fade>
     );
