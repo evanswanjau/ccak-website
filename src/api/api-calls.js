@@ -9,7 +9,6 @@ export const apiRequest = (method, url, data, updateData) => {
             "Content-Type": "application/json",
         },
     }).then(({ data }) => {
-        console.log(data);
         updateData(data);
     });
 };
