@@ -1,46 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { News } from "../Components/news";
 import { Fade } from "react-reveal";
+import { apiRequest } from "../api/api-calls";
 
 export const RecentNews = () => {
-    const data = [
-        {
-            id: 1,
-            category: "news",
-            title: "Don’t destroy greenery and don’t spoil scenery",
-            published: "2023-03-08",
-            excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "news/news_default.jpg",
-            url: "1/dont-destroy-greenery-and-dont-spoil-scenery",
-        },
-        {
-            id: 2,
-            category: "news",
-            title: "Don’t destroy greenery and don’t spoil scenery",
-            published: "2023-03-08",
-            excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "news/news_default.jpg",
-            url: "2/dont-destroy-greenery-and-dont-spoil-scenery",
-        },
-        {
-            id: 3,
-            category: "news",
-            title: "Don’t destroy greenery and don’t spoil scenery",
-            published: "2023-03-08",
-            excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "news/news_default.jpg",
-            url: "3/dont-destroy-greenery-and-dont-spoil-scenery",
-        },
-        {
-            id: 4,
-            category: "news",
-            title: "Don’t destroy greenery and don’t spoil scenery",
-            published: "2023-03-08",
-            excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-            image: "news/news_default.jpg",
-            url: "4/dont-destroy-greenery-and-dont-spoil-scenery",
-        },
-    ];
+    const [data, updateData] = useState([]);
+
+    useEffect(() => {
+        apiRequest("get", "post/search/all/news/4", data, updateData);
+    }, []); // eslint-disable-line
 
     return (
         <div className="py-5">
