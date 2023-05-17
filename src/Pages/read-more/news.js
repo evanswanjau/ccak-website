@@ -7,45 +7,6 @@ import { SubFooter } from "../../Containers/subFooter";
 import { apiRequest } from "../../api/api-calls";
 import ReactHtmlParser from "react-html-parser";
 
-const recentData = [
-    {
-        id: 1,
-        category: "news",
-        title: "Don’t destroy greenery and don’t spoil scenery",
-        published: "2023-03-08",
-        excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-        image: "news/news_default.jpg",
-        url: "1/dont-destroy-greenery-and-dont-spoil-scenery",
-    },
-    {
-        id: 2,
-        category: "news",
-        title: "Don’t destroy greenery and don’t spoil scenery",
-        published: "2023-03-08",
-        excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-        image: "news/news_default.jpg",
-        url: "2/dont-destroy-greenery-and-dont-spoil-scenery",
-    },
-    {
-        id: 3,
-        category: "news",
-        title: "Don’t destroy greenery and don’t spoil scenery",
-        published: "2023-03-08",
-        excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-        image: "news/news_default.jpg",
-        url: "3/dont-destroy-greenery-and-dont-spoil-scenery",
-    },
-    {
-        id: 4,
-        category: "news",
-        title: "Don’t destroy greenery and don’t spoil scenery",
-        published: "2023-03-08",
-        excerpt: "Lorem ipsum dolor sit amet, conser adipiscing elit...",
-        image: "news/news_default.jpg",
-        url: "4/dont-destroy-greenery-and-dont-spoil-scenery",
-    },
-];
-
 export const NewsReadMore = () => {
     const params = useParams();
     const [data, updateData] = useState([]);
