@@ -53,7 +53,7 @@ export const SocialHubPost = ({
                 <p>{post}</p>
                 {image !== "" && (
                     <img
-                        src={`${process.env.REACT_APP_IMAGEKIT + image}`}
+                        src={`${process.env.REACT_APP_IMAGEKIT_URL + image}`}
                         alt="post"
                         className="rounded-lg my-5"
                     />

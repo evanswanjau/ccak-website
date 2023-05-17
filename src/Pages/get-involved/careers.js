@@ -89,7 +89,7 @@ export const CareersPage = () => {
                         <img
                             className="rounded-lg"
                             src={
-                                process.env.REACT_APP_IMAGEKIT +
+                                process.env.REACT_APP_IMAGEKIT_URL +
                                 "careers_page_section_1.jpg"
                             }
                             alt="Importance of clean cooking"

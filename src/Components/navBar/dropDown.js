@@ -188,7 +188,7 @@ export const DropDown = ({ dropDown: { show, category }, setDropDown }) => {
                     <div
                         style={{
                             backgroundImage: `url(${
-                                process.env.REACT_APP_IMAGEKIT + data.image
+                                process.env.REACT_APP_IMAGEKIT_URL + data.image
                             })`,
                         }}
                         className={`w-4/12 bg-cover bg-center bg-no-repeat`}

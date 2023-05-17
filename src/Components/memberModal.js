@@ -25,7 +25,7 @@ export const MemberModal = ({
                 <div className="flex flex-col justify-items-center text-center">
                     <img
                         className="w-1/2 h-auto rounded-lg mb-6 mx-auto"
-                        src={process.env.REACT_APP_IMAGEKIT + image}
+                        src={process.env.REACT_APP_IMAGEKIT_URL + image}
                         alt={name}
                     ></img>
                     <h6 className="text font-semibold capitalize">{name}</h6>

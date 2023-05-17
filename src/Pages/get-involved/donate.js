@@ -37,7 +37,7 @@ export const DonatePage = () => {
                         <img
                             className="rounded-lg"
                             src={
-                                process.env.REACT_APP_IMAGEKIT +
+                                process.env.REACT_APP_IMAGEKIT_URL +
                                 "donate_page_section_1.jpg"
                             }
                             alt="Importance of clean cooking"

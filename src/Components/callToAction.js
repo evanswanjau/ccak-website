@@ -6,7 +6,7 @@ export const CallToAction = () => {
             <div
                 style={{
                     backgroundImage: `url(${
-                        process.env.REACT_APP_IMAGEKIT +
+                        process.env.REACT_APP_IMAGEKIT_URL +
                         "call_to_action_section_contribute_to_clean_cooking.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1678480594240"
                     })`,
                 }}

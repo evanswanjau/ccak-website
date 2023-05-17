@@ -10,7 +10,7 @@ export const Event = ({ data: { image, date, title, venue, url } }) => {
                 <div
                     style={{
                         backgroundImage: `url(${
-                            process.env.REACT_APP_IMAGEKIT + image
+                            process.env.REACT_APP_IMAGEKIT_URL + image
                         })`,
                     }}
                     className={`bg-cover bg-center bg-no-repeat rounded-lg text-white group`}

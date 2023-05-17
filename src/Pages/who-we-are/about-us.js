@@ -159,7 +159,7 @@ export const AboutUsPage = () => {
                     <div
                         style={{
                             backgroundImage: `url(${
-                                process.env.REACT_APP_IMAGEKIT +
+                                process.env.REACT_APP_IMAGEKIT_URL +
                                 "about_us_section_2_video_bg.jpg"
                             })`,
                         }}
@@ -330,7 +330,7 @@ export const AboutUsPage = () => {
                             <img
                                 className="rounded-lg"
                                 src={
-                                    process.env.REACT_APP_IMAGEKIT +
+                                    process.env.REACT_APP_IMAGEKIT_URL +
                                     "about_us_section_6_clean_cooking_importance.jpg"
                                 }
                                 alt="Importance of clean cooking"

@@ -74,7 +74,8 @@ export const HomePage = () => {
             <section
                 style={{
                     backgroundImage: `url(${
-                        process.env.REACT_APP_IMAGEKIT + "home_hero_section.jpg"
+                        process.env.REACT_APP_IMAGEKIT_URL +
+                        "home_hero_section.jpg"
                     })`,
                 }}
                 className={`h-screen bg-cover bg-center bg-no-repeat`}
@@ -154,7 +155,7 @@ export const HomePage = () => {
                         <img
                             className="rounded-lg"
                             src={
-                                process.env.REACT_APP_IMAGEKIT +
+                                process.env.REACT_APP_IMAGEKIT_URL +
                                 "home_section_2_promote_clean_cooking.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1678477808057"
                             }
                             alt="Promoting clean cooking"
@@ -218,7 +219,7 @@ export const HomePage = () => {
                         <img
                             className="rounded-lg"
                             src={
-                                process.env.REACT_APP_IMAGEKIT +
+                                process.env.REACT_APP_IMAGEKIT_URL +
                                 "home_section_4_promote_clean_cooking.jpg"
                             }
                             alt="Promoting clean cooking"

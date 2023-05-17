@@ -99,7 +99,7 @@ export const WhatWeDoPage = () => {
                         <img
                             className="rounded-lg"
                             src={
-                                process.env.REACT_APP_IMAGEKIT +
+                                process.env.REACT_APP_IMAGEKIT_URL +
                                 "what_we_do_section_1_celebrating_change.jpg"
                             }
                             alt="Collaborating for change through clean cooking"
