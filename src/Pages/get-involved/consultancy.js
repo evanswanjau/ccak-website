@@ -1,42 +1,14 @@
+import { useState, useEffect } from "react";
 import { Slide } from "react-reveal";
 import { Career } from "../../Components/career";
-
-const data = [
-    {
-        id: 1,
-        category: "consultancy",
-        title: "Consultancy for the provision of media management services to CCAK.",
-        excerpt:
-            "The objective of the project is to provide communications support to the Clean Cooking Association of Kenya to help them build a foundation for effective communication to the local governments and other relevant stakeholders from the public and private sector...",
-        url: "1/consultancy-for-the-provision-of-media-management-services-to-ccak",
-    },
-    {
-        id: 2,
-        category: "consultancy",
-        title: "Consultancy for the provision of media management services to CCAK.",
-        excerpt:
-            "The objective of the project is to provide communications support to the Clean Cooking Association of Kenya to help them build a foundation for effective communication to the local governments and other relevant stakeholders from the public and private sector...",
-        url: "2/consultancy-for-the-provision-of-media-management-services-to-ccak",
-    },
-    {
-        id: 3,
-        category: "consultancy",
-        title: "Consultancy for the provision of media management services to CCAK.",
-        excerpt:
-            "The objective of the project is to provide communications support to the Clean Cooking Association of Kenya to help them build a foundation for effective communication to the local governments and other relevant stakeholders from the public and private sector...",
-        url: "3/consultancy-for-the-provision-of-media-management-services-to-ccak",
-    },
-    {
-        id: 4,
-        category: "consultancy",
-        title: "Consultancy for the provision of media management services to CCAK.",
-        excerpt:
-            "The objective of the project is to provide communications support to the Clean Cooking Association of Kenya to help them build a foundation for effective communication to the local governments and other relevant stakeholders from the public and private sector...",
-        url: "4/consultancy-for-the-provision-of-media-management-services-to-ccak",
-    },
-];
+import { apiRequest } from "../../api/api-calls";
 
 export const ConsultancyPage = () => {
+    const [data, updateData] = useState([]);
+
+    useEffect(() => {
+        apiRequest("get", "post/search/all/consultancy/12", data, updateData);
+    }, []); // eslint-disable-line
     return (
         <div className="pt-[4rem] lg:pt-[8.2rem]">
             <section className="text-center py-12">

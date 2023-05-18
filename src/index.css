@@ -23,6 +23,10 @@ a {
     line-height: 1.8;
 }
 
+#content * {
+    font-family: Manjari;
+}
+
 #content p {
     margin-top: 20px;
     margin-bottom: 20px;

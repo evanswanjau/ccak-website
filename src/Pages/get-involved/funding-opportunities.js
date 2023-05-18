@@ -1,50 +1,20 @@
+import { useState, useEffect } from "react";
 import { Slide } from "react-reveal";
 import { Career } from "../../Components/career";
-
-const data = [
-    {
-        id: 1,
-        category: "funding-opportunities",
-        title: "Call for clean cooking technologies to participate KOSAP results based financing",
-        excerpt:
-            "The Kenya Off-Grid Solar Access Project (KOSAP) is a flagship project of the Ministry of Energy, financed by the World Bank. Component 2 of the project is a US$ 47 million funding window encompassing two results-based financings (RBF) facilities for solar (US$ 12 million)...",
-        url: "1/call-for-clean-cooking-technologies-to-participate-kosap-results-based-financing",
-    },
-    {
-        id: 2,
-        category: "funding-opportunities",
-        title: "Call for clean cooking technologies to participate KOSAP results based financing",
-        excerpt:
-            "The Kenya Off-Grid Solar Access Project (KOSAP) is a flagship project of the Ministry of Energy, financed by the World Bank. Component 2 of the project is a US$ 47 million funding window encompassing two results-based financings (RBF) facilities for solar (US$ 12 million)...",
-        url: "2/call-for-clean-cooking-technologies-to-participate-kosap-results-based-financing",
-    },
-    {
-        id: 3,
-        category: "funding-opportunities",
-        title: "Call for clean cooking technologies to participate KOSAP results based financing",
-        excerpt:
-            "The Kenya Off-Grid Solar Access Project (KOSAP) is a flagship project of the Ministry of Energy, financed by the World Bank. Component 2 of the project is a US$ 47 million funding window encompassing two results-based financings (RBF) facilities for solar (US$ 12 million)...",
-        url: "3/call-for-clean-cooking-technologies-to-participate-kosap-results-based-financing",
-    },
-    {
-        id: 4,
-        category: "funding-opportunities",
-        title: "Call for clean cooking technologies to participate KOSAP results based financing",
-        excerpt:
-            "The Kenya Off-Grid Solar Access Project (KOSAP) is a flagship project of the Ministry of Energy, financed by the World Bank. Component 2 of the project is a US$ 47 million funding window encompassing two results-based financings (RBF) facilities for solar (US$ 12 million)...",
-        url: "4/call-for-clean-cooking-technologies-to-participate-kosap-results-based-financing",
-    },
-    {
-        id: 5,
-        category: "funding-opportunities",
-        title: "Call for clean cooking technologies to participate KOSAP results based financing",
-        excerpt:
-            "The Kenya Off-Grid Solar Access Project (KOSAP) is a flagship project of the Ministry of Energy, financed by the World Bank. Component 2 of the project is a US$ 47 million funding window encompassing two results-based financings (RBF) facilities for solar (US$ 12 million)...",
-        url: "5/call-for-clean-cooking-technologies-to-participate-kosap-results-based-financing",
-    },
-];
+import { apiRequest } from "../../api/api-calls";
 
 export const FundingOpportunitiesPage = () => {
+    const [data, updateData] = useState([]);
+
+    useEffect(() => {
+        apiRequest(
+            "get",
+            "post/search/all/funding-opportunities/12",
+            data,
+            updateData
+        );
+    }, []); // eslint-disable-line
+    
     return (
         <div className="pt-[4rem] lg:pt-[8.2rem]">
             <section className="text-center py-12">

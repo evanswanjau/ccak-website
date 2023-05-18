@@ -32,7 +32,7 @@ import { PressReleaseReadMore } from "./Pages/read-more/pressRelease";
 import { NewsReadMore } from "./Pages/read-more/news";
 import { ProjectReadMore } from "./Pages/read-more/project";
 import { ConsultancyReadMore } from "./Pages/read-more/consultancy";
-import { CarrerReadMore } from "./Pages/read-more/career";
+import { CareerReadMore } from "./Pages/read-more/career";
 import { FundingOppportunitiesReadMore } from "./Pages/read-more/funding";
 import { ResearchPapersReadMore } from "./Pages/read-more/research-papers";
 import { AgmMaterialReadMore } from "./Pages/read-more/agm-material";
@@ -157,7 +157,7 @@ function App() {
                 <Route
                     exact
                     path="/get-involved/careers/read-more/:id/:title"
-                    component={CarrerReadMore}
+                    component={CareerReadMore}
                 />
                 <Route
                     exact

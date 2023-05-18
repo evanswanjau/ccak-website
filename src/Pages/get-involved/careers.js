@@ -1,58 +1,15 @@
+import { useState, useEffect } from "react";
 import { Slide, Fade } from "react-reveal";
 import { Career } from "../../Components/career";
-
-const data = [
-    {
-        id: 1,
-        category: "careers",
-        title: "Programmes Manager",
-        excerpt:
-            "The head of programmes will report to the Chief Executive Officer (CEO). In the meantime when the CEO position is vacant, he/she will report directly Chair of the Executive Committee of the Association.",
-        url: "1/programmes-manager",
-    },
-    {
-        id: 2,
-        category: "careers",
-        title: "Programmes Manager",
-        excerpt:
-            "The head of programmes will report to the Chief Executive Officer (CEO). In the meantime when the CEO position is vacant, he/she will report directly Chair of the Executive Committee of the Association.",
-        url: "2/programmes-manager",
-    },
-    {
-        id: 3,
-        category: "careers",
-        title: "Programmes Manager",
-        excerpt:
-            "The head of programmes will report to the Chief Executive Officer (CEO). In the meantime when the CEO position is vacant, he/she will report directly Chair of the Executive Committee of the Association.",
-        url: "3/programmes-manager",
-    },
-    {
-        id: 4,
-        category: "careers",
-        title: "Programmes Manager",
-        excerpt:
-            "The head of programmes will report to the Chief Executive Officer (CEO). In the meantime when the CEO position is vacant, he/she will report directly Chair of the Executive Committee of the Association.",
-        url: "4/programmes-manager",
-    },
-    {
-        id: 5,
-        category: "careers",
-        title: "Programmes Manager",
-        excerpt:
-            "The head of programmes will report to the Chief Executive Officer (CEO). In the meantime when the CEO position is vacant, he/she will report directly Chair of the Executive Committee of the Association.",
-        url: "5/programmes-manager",
-    },
-    {
-        id: 6,
-        category: "careers",
-        title: "Programmes Manager",
-        excerpt:
-            "The head of programmes will report to the Chief Executive Officer (CEO). In the meantime when the CEO position is vacant, he/she will report directly Chair of the Executive Committee of the Association.",
-        url: "6/programmes-manager",
-    },
-];
+import { apiRequest } from "../../api/api-calls";
 
 export const CareersPage = () => {
+    const [data, updateData] = useState([]);
+
+    useEffect(() => {
+        apiRequest("get", "post/search/all/careers/12", data, updateData);
+    }, []); // eslint-disable-line
+
     return (
         <div className="pt-[4rem] lg:pt-[8.2rem]">
             <section className="flex flex-col md:flex-row w-full py-6 md:py-20 px-6 md:px-12 bg-[#EFF7F2]">
