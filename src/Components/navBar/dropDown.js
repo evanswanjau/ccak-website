@@ -8,18 +8,6 @@ export const DropDown = ({ dropDown: { show, category }, setDropDown }) => {
                 name: "ABOUT US",
             },
             {
-                link: "/who-we-are/about-us/#our-mission",
-                name: "OUR MISSION",
-            },
-            {
-                link: "/who-we-are/about-us/#our-vision",
-                name: "OUR VISION",
-            },
-            {
-                link: "/who-we-are/about-us/#our-partners",
-                name: "OUR PARTNERS",
-            },
-            {
                 link: "/who-we-are/our-team",
                 name: "OUR TEAM",
             },

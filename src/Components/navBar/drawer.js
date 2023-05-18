@@ -16,18 +16,6 @@ const data = [
                 name: "ABOUT US",
             },
             {
-                link: "/who-we-are/about-us/#our-mission",
-                name: "OUR MISSION",
-            },
-            {
-                link: "/who-we-are/about-us/#our-vision",
-                name: "OUR VISION",
-            },
-            {
-                link: "/who-we-are/about-us/#our-partners",
-                name: "OUR PARTNERS",
-            },
-            {
                 link: "/who-we-are/our-team",
                 name: "OUR TEAM",
             },
@@ -79,9 +67,24 @@ const data = [
         image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
     },
     {
-        links: [],
+        links: [
+            {
+                link: "/membership/packages/",
+                name: "MEMBER PACKAGES",
+            },
+            {
+                link: "/membership/our-members/",
+                name: "OUR MEMBERS",
+            },
+            {
+                link: "/membership/register/",
+                name: "REGISTER NOW",
+            },
+        ],
         info: {
             title: "MEMBERSHIP",
+            content:
+                "We welcome individuals, organizations, and companies who share our vision and want to join us in promoting the adoption of clean cooking solutions and practices in Kenya. There are several ways to get involved with CCAK, whether it's by volunteering your time and skills, becoming a member, supporting our fundraising efforts, or collaborating with us on a project.",
             link: "#",
         },
     },
