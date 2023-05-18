@@ -21,13 +21,13 @@ export const RecentProjects = () => {
                 <div className="lg:w-11/12">
                     <Slide bottom>
                         <h6 className="text-black font-bold text-xs">
-                            PROJECTS WE HAVE DONE
+                            CURRENT PROJECTS
                         </h6>
                     </Slide>
                     <Slide bottom>
                         <h2 className="text-black text-2xl lg:text-4xl font-semibold my-8">
-                            We are creating sustainable society, for everyone
-                            and forever.
+                            Transforming Cooking Practices for Cleaner and
+                            Healthier Homes
                         </h2>
                     </Slide>
                 </div>
