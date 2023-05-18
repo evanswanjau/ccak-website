@@ -11,6 +11,7 @@ import {
     SunIcon,
 } from "@heroicons/react/24/outline";
 import { PlayCircleIcon } from "@heroicons/react/24/solid";
+import { HomeSlider } from "../Containers/homeSlider";
 
 export const HomePage = () => {
     const whatWedo = [
@@ -71,44 +72,8 @@ export const HomePage = () => {
 
     return (
         <div className="text-gray-600 pt-[4rem] lg:pt-[8.2rem]">
-            <section
-                style={{
-                    backgroundImage: `url(${
-                        process.env.REACT_APP_IMAGEKIT_URL +
-                        "home_hero_section.jpg"
-                    })`,
-                }}
-                className={`h-screen bg-cover bg-center bg-no-repeat`}
-            >
-                <div className="flex flex-row items-center bg-black/[.3] w-full h-full">
-                    <div className="lg:w-6/12 lg:ml-14 p-6 text-white content-center">
-                        <Slide bottom>
-                            <h1 className="text-4xl md:text-6xl font-bold my-5">
-                                Clean cooking for a healthier environment
-                            </h1>
-                        </Slide>
-                        <Slide bottom>
-                            <p className="text-lg my-5">
-                                Rural and peri-urban women and children in Kenya
-                                suffer more from household air pollution caused
-                                by traditional cooking methods.
-                            </p>
-                        </Slide>
-                        <Slide bottom>
-                            <div className="flex space-x-3 lg:space-x-8 my-10">
-                                <a href={"/what-we-do"}>
-                                    <button className="bg-white text-gray-600 pt-3 pb-2 px-6 hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest">
-                                        WHAT WE DO
-                                    </button>
-                                </a>
-                                <button className="flex text-xl items-center space-x-2 hover:text-[#ED7423] transition duration-300 ease-in-out">
-                                    <PlayCircleIcon className="w-6" />
-                                    <p className="">Play Video</p>
-                                </button>
-                            </div>
-                        </Slide>
-                    </div>
-                </div>
+            <section>
+                <HomeSlider />
             </section>
             <section className="flex flex-col lg:flex-row w-full p-6 lg:py-20 lg:p-12 bg-[#EFF7F2]">
                 <div className="hidden lg:block w-1/12">
