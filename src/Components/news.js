@@ -2,7 +2,7 @@ import { Fade } from "react-reveal";
 import { simpleDate } from "../helpers/date";
 
 export const News = ({
-    data: { id, category, title, published, excerpt, image, url, folder },
+    data: { id, category, title, published, excerpt, image, folder },
 }) => {
     return (
         <Fade>
