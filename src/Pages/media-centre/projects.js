@@ -1,59 +1,16 @@
+import { useState, useEffect } from "react";
 import { Project } from "../../Components/project";
 import { MediaCentreSideBar } from "../../Containers/mediaCentreSideBar";
 import { RecentNews } from "../../Containers/recentNews";
 import { Slide } from "react-reveal";
+import { apiRequest } from "../../api/api-calls";
 
 export const ProjectsPage = () => {
-    const data = [
-        {
-            id: 1,
-            category: "project",
-            title: "Mission 40K: Tree plantation",
-            excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            image: "projects/project_default.jpg",
-            url: "1/dont-destroy-greenery-and-dont-spoil-scenery",
-        },
-        {
-            id: 2,
-            category: "project",
-            title: "Mission 40K: Tree plantation",
-            excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            image: "projects/project_default.jpg",
-            url: "2/dont-destroy-greenery-and-dont-spoil-scenery",
-        },
-        {
-            id: 3,
-            category: "project",
-            title: "Mission 40K: Tree plantation",
-            excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            image: "projects/project_default.jpg",
-            url: "3/dont-destroy-greenery-and-dont-spoil-scenery",
-        },
-        {
-            id: 4,
-            category: "project",
-            title: "Mission 40K: Tree plantation",
-            excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            image: "projects/project_default.jpg",
-            url: "4/dont-destroy-greenery-and-dont-spoil-scenery",
-        },
-        {
-            id: 5,
-            category: "project",
-            title: "Mission 40K: Tree plantation",
-            excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            image: "projects/project_default.jpg",
-            url: "5/dont-destroy-greenery-and-dont-spoil-scenery",
-        },
-        {
-            id: 6,
-            category: "project",
-            title: "Mission 40K: Tree plantation",
-            excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            image: "projects/project_default.jpg",
-            url: "6/dont-destroy-greenery-and-dont-spoil-scenery",
-        },
-    ];
+    const [data, updateData] = useState([]);
+
+    useEffect(() => {
+        apiRequest("get", "post/search/all/projects/12", data, updateData);
+    }, []); // eslint-disable-line
 
     return (
         <div className="pt-[4rem] lg:pt-[8.2rem]">
