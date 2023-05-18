@@ -1,53 +1,16 @@
+import { useState, useEffect } from "react";
 import { Event } from "../../Components/event";
 import { MediaCentreSideBar } from "../../Containers/mediaCentreSideBar";
 import { RecentNews } from "../../Containers/recentNews";
 import { Slide } from "react-reveal";
+import { apiRequest } from "../../api/api-calls";
 
 export const EventsPage = () => {
-    const data = [
-        {
-            id: 1,
-            title: "Netherlands Enterprise Agency",
-            venue: "KICC",
-            image: "events/event_default.jpg",
-            url: "1/netherlands-enterprice-agency/",
-        },
-        {
-            id: 2,
-            title: "Netherlands Enterprise Agency",
-            venue: "KICC",
-            image: "events/event_default.jpg",
-            url: "2/netherlands-enterprice-agency/",
-        },
-        {
-            id: 3,
-            title: "Netherlands Enterprise Agency",
-            venue: "KICC",
-            image: "events/event_default.jpg",
-            url: "3/netherlands-enterprice-agency/",
-        },
-        {
-            id: 4,
-            title: "Netherlands Enterprise Agency",
-            venue: "KICC",
-            image: "events/event_default.jpg",
-            url: "4/netherlands-enterprice-agency/",
-        },
-        {
-            id: 5,
-            title: "Netherlands Enterprise Agency",
-            venue: "KICC",
-            image: "events/event_default.jpg",
-            url: "5/netherlands-enterprice-agency/",
-        },
-        {
-            id: 6,
-            title: "Netherlands Enterprise Agency",
-            venue: "KICC",
-            image: "events/event_default.jpg",
-            url: "6/netherlands-enterprice-agency/",
-        },
-    ];
+    const [data, updateData] = useState([]);
+
+    useEffect(() => {
+        apiRequest("get", "post/search/all/events/12", data, updateData);
+    }, []); // eslint-disable-line
 
     return (
         <div className="pt-[4rem] lg:pt-[8.2rem]">

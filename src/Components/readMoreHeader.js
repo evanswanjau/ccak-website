@@ -14,10 +14,8 @@ export const ReadMoreHeader = ({
         excerpt,
         category,
         published,
-        location,
         venue,
-        date,
-        start_time,
+        event_date,
     },
 }) => {
     return (
@@ -42,12 +40,12 @@ export const ReadMoreHeader = ({
                             <div className="flex flex-col md:flex-row justify-center my-6 space-y-3 md:space-y-0 md:space-x-6 font-semibold">
                                 <p className="justify-center flex flex-row space-x-1">
                                     <MapPinIcon className="-mt-2 w-6 text-[#329E49]" />
-                                    <span>{location + ", " + venue}</span>
+                                    <span className="capitalize">{venue}</span>
                                 </p>
                                 <p className="justify-center flex flex-row space-x-1">
                                     <CalendarDaysIcon className="-mt-2 w-6 text-[#329E49]" />
                                     <span>
-                                        {simpleDate(date) + " " + start_time} AM
+                                        {simpleDate(event_date) + " " + event_date.split("T")[1].slice(0, -4) }
                                     </span>
                                 </p>
                             </div>

@@ -1,39 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Event } from "../Components/event";
 import { Fade } from "react-reveal";
-
-const data = [
-    {
-        id: 1,
-        title: "Netherlands Enterprise Agency",
-        venue: "KICC",
-        image: "events/event_default.jpg",
-        url: "1/netherlands-enterprice-agency/",
-    },
-    {
-        id: 2,
-        title: "Netherlands Enterprise Agency",
-        venue: "KICC",
-        image: "events/event_default.jpg",
-        url: "2/netherlands-enterprice-agency/",
-    },
-    {
-        id: 3,
-        title: "Netherlands Enterprise Agency",
-        venue: "KICC",
-        image: "events/event_default.jpg",
-        url: "3/netherlands-enterprice-agency/",
-    },
-    {
-        id: 4,
-        title: "Netherlands Enterprise Agency",
-        venue: "KICC",
-        image: "events/event_default.jpg",
-        url: "4/netherlands-enterprice-agency/",
-    },
-];
+import { apiRequest } from "../api/api-calls";
 
 export const UpcomingEvents = () => {
+    const [data, updateData] = useState([]);
+
+    useEffect(() => {
+        apiRequest("get", "post/search/all/events/4", data, updateData);
+    }, []); // eslint-disable-line
+
     return (
         <div className="py-5">
             <Fade top>
