@@ -1,50 +1,50 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import ScrollToTop from "./Containers/scrollToTop";
+import ScrollToTop from "./layouts/scrollToTop";
 
-import { NavBar } from "./Containers/navBar";
-import { Footer } from "./Components/footer";
+import { NavBar } from "./layouts/navBar";
+import { Footer } from "./components/footer";
 
-import { HomePage } from "./Pages/home";
-import { WhatWeDoPage } from "./Pages/what-we-do";
+import { HomePage } from "./pages/home";
+import { WhatWeDoPage } from "./pages/what-we-do";
 
-import { AboutUsPage } from "./Pages/who-we-are/about-us";
-import { OurTeamPage } from "./Pages/who-we-are/our-team";
+import { AboutUsPage } from "./pages/who-we-are/about-us";
+import { OurTeamPage } from "./pages/who-we-are/our-team";
 
-import { CareersPage } from "./Pages/get-involved/careers";
-import { ConsultancyPage } from "./Pages/get-involved/consultancy";
-import { FundingOpportunitiesPage } from "./Pages/get-involved/funding-opportunities";
-import { DonatePage } from "./Pages/get-involved/donate";
-import { ContactUsPage } from "./Pages/get-involved/contact-us";
+import { CareersPage } from "./pages/get-involved/careers";
+import { ConsultancyPage } from "./pages/get-involved/consultancy";
+import { FundingOpportunitiesPage } from "./pages/get-involved/funding-opportunities";
+import { DonatePage } from "./pages/get-involved/donate";
+import { ContactUsPage } from "./pages/get-involved/contact-us";
 
-import { ResearchPapersPage } from "./Pages/resource-centre/research-papers";
-import { AgmMaterialPage } from "./Pages/resource-centre/agm-material";
+import { ResearchPapersPage } from "./pages/resource-centre/research-papers";
+import { AgmMaterialPage } from "./pages/resource-centre/agm-material";
 
-import { PressReleasePage } from "./Pages/media-centre/pressRelease";
-import { NewsPage } from "./Pages/media-centre/news";
-import { EventsPage } from "./Pages/media-centre/events";
-import { ProjectsPage } from "./Pages/media-centre/projects";
-import { PhotoGalleryPage } from "./Pages/media-centre/photoGallery";
+import { PressReleasePage } from "./pages/media-centre/pressRelease";
+import { NewsPage } from "./pages/media-centre/news";
+import { EventsPage } from "./pages/media-centre/events";
+import { ProjectsPage } from "./pages/media-centre/projects";
+import { PhotoGalleryPage } from "./pages/media-centre/photoGallery";
 
-import { EventReadMore } from "./Pages/read-more/event";
-import { PressReleaseReadMore } from "./Pages/read-more/pressRelease";
-import { NewsReadMore } from "./Pages/read-more/news";
-import { ProjectReadMore } from "./Pages/read-more/project";
-import { ConsultancyReadMore } from "./Pages/read-more/consultancy";
-import { CareerReadMore } from "./Pages/read-more/career";
-import { FundingOppportunitiesReadMore } from "./Pages/read-more/funding";
-import { ResearchPapersReadMore } from "./Pages/read-more/research-papers";
-import { AgmMaterialReadMore } from "./Pages/read-more/agm-material";
+import { EventReadMore } from "./pages/read-more/event";
+import { PressReleaseReadMore } from "./pages/read-more/pressRelease";
+import { NewsReadMore } from "./pages/read-more/news";
+import { ProjectReadMore } from "./pages/read-more/project";
+import { ConsultancyReadMore } from "./pages/read-more/consultancy";
+import { CareerReadMore } from "./pages/read-more/career";
+import { FundingOppportunitiesReadMore } from "./pages/read-more/funding";
+import { ResearchPapersReadMore } from "./pages/read-more/research-papers";
+import { AgmMaterialReadMore } from "./pages/read-more/agm-material";
 
-import { PackagesPage } from "./Pages/membership/packages";
-import { OurMembersPage } from "./Pages/membership/our-members";
+import { PackagesPage } from "./pages/membership/packages";
+import { OurMembersPage } from "./pages/membership/our-members";
 
-import { SocialHubHomePage } from "./Pages/social-hub/home";
-import { SocialHubProfilePage } from "./Pages/social-hub/profile";
-import { SocialHubBookmarksPage } from "./Pages/social-hub/bookmarks";
-import { SocialHubBillingPage } from "./Pages/social-hub/billing";
-import { SocialHubChangePasswordPage } from "./Pages/social-hub/change-password";
+import { SocialHubHomePage } from "./pages/social-hub/home";
+import { SocialHubProfilePage } from "./pages/social-hub/profile";
+import { SocialHubBookmarksPage } from "./pages/social-hub/bookmarks";
+import { SocialHubBillingPage } from "./pages/social-hub/billing";
+import { SocialHubChangePasswordPage } from "./pages/social-hub/change-password";
 
 function App() {
     return (
