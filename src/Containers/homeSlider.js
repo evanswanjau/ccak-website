@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Slide } from "react-reveal";
 import { PlayCircleIcon } from "@heroicons/react/24/solid";
@@ -8,6 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import { EffectFade, Autoplay, Pagination, Navigation } from "swiper";
+import { ModalYoutubeVideo } from "./modalVideo";
 
 const data = [
     {
@@ -48,8 +50,11 @@ const data = [
 ];
 
 export const HomeSlider = () => {
+    const [show, setShow] = useState(false);
+
     return (
         <>
+            <ModalYoutubeVideo show={show} setShow={setShow} />
             <Swiper
                 spaceBetween={30}
                 effect={"fade"}
@@ -94,23 +99,24 @@ export const HomeSlider = () => {
                                             {item.content}
                                         </p>
                                     </Slide>
-                                    {i === 0 && (
-                                        <Slide bottom>
-                                            <div className="flex space-x-3 lg:space-x-8 my-10">
-                                                <a href={"/what-we-do"}>
-                                                    <button className="bg-white text-gray-600 pt-3 pb-2 px-6 hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest">
-                                                        WHAT WE DO
-                                                    </button>
-                                                </a>
-                                                <button className="flex text-xl items-center space-x-2 hover:text-[#ED7423] transition duration-300 ease-in-out">
-                                                    <PlayCircleIcon className="w-6" />
-                                                    <p className="">
-                                                        Play Video
-                                                    </p>
+                                    <Slide bottom>
+                                        <div className="flex space-x-3 lg:space-x-8 my-10">
+                                            <a href={"/what-we-do"}>
+                                                <button className="bg-white text-gray-600 pt-3 pb-2 px-6 hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest">
+                                                    WHAT WE DO
                                                 </button>
-                                            </div>
-                                        </Slide>
-                                    )}
+                                            </a>
+                                            <button
+                                                className="flex text-xl items-center space-x-2 hover:text-[#ED7423] transition duration-300 ease-in-out"
+                                                onClick={() => {
+                                                    setShow(true);
+                                                }}
+                                            >
+                                                <PlayCircleIcon className="w-6" />
+                                                <p className="">Play Video</p>
+                                            </button>
+                                        </div>
+                                    </Slide>
                                 </div>
                             </div>
                         </SwiperSlide>
