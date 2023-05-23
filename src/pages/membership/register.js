@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { InputForm } from "../components/forms/input-form";
+import { InputForm } from "../../components/forms/input-form";
 import {
     validateEmail,
     validatePassword,
     validatePhoneNumber,
-} from "../helpers/validation";
-import { ErrorMessage } from "../components/forms/error";
-import { ButtonLoader } from "../components/btnLoader";
-import { registerMember } from "../api/api-calls";
+} from "../../helpers/validation";
+import { ErrorMessage } from "../../components/forms/error";
+import { ButtonLoader } from "../../components/btnLoader";
+import { registerMember } from "../../api/api-calls";
 
 export const RegisterPage = () => {
     const [btnLoading, setBtnLoading] = useState(false);
