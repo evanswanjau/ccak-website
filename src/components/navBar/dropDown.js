@@ -77,12 +77,12 @@ export const DropDown = ({ dropDown: { show, category }, setDropDown }) => {
     const resourceCentreData = {
         links: [
             {
-                link: "/resource-centre/research-papers/",
-                name: "RESEARCH PAPERS",
+                link: "/resource-centre/publications/",
+                name: "PUBLICATIONS",
             },
             {
-                link: "/resource-centre/agm-material/",
-                name: "AGM MATERIAL",
+                link: "/resource-centre/funding-opportunities/",
+                name: "FUNDING OPPORTUNITES",
             },
         ],
         info: {
