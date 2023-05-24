@@ -44,6 +44,7 @@ export const ContactUsPage = () => {
                                 <a
                                     href="mailto:info@ccak.or.ke"
                                     target="_blank"
+                                    rel="noreferrer"
                                 >
                                     info@ccak.or.ke
                                 </a>
@@ -52,7 +53,11 @@ export const ContactUsPage = () => {
                         <Slide bottom>
                             <div className="flex flex-row space-x-4 hover:text-[#ED7423] my-3 text-gray-600">
                                 <PhoneIcon className="w-5 h-5" />
-                                <a href="tel:+254707111669" target="_blank">
+                                <a
+                                    href="tel:+254707111669"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
                                     0707 111 669
                                 </a>
                             </div>
@@ -69,6 +74,7 @@ export const ContactUsPage = () => {
                                 <a
                                     href="https://goo.gl/maps/TFu82RKkDVPSWjuv8"
                                     target="_blank"
+                                    rel="noreferrer"
                                 >
                                     NextGen Mall, Mombasa Road. Nairobi, Kenya
                                 </a>
@@ -85,7 +91,7 @@ export const ContactUsPage = () => {
                             <p className="text-gray-600">
                                 Monday-Friday:{" "}
                                 <span className="text-black font-semibold">
-                                    08:00 - 18:00
+                                    8:00 AM - 05:00 PM
                                 </span>
                             </p>
                         </Slide>
@@ -99,31 +105,36 @@ export const ContactUsPage = () => {
                         </Slide>
                     </div>
                     <Fade bottom>
-                        <div className="py-5 space-x-8 space flex">
+                        <div className="py-5 space-x-14 space flex">
                             <a
                                 href="https://web.facebook.com/CleanCookingKe"
                                 target="_blank"
+                                rel="noreferrer"
+                                title="@CleanCookingKe"
                             >
-                                <BsFacebook className="text-xl text-gray-600 hover:text-[#ED7423] transition duration-150 ease-in-out" />
+                                <BsFacebook className="text-3xl text-[#3b5998] hover:text-[#ED7423] transition duration-300 ease-in-out" />
                             </a>
                             <a
                                 href="https://twitter.com/CleanCookingKe"
                                 target="_blank"
+                                rel="noreferrer"
+                                title="@CleanCookingKe"
                             >
-                                <BsTwitter className="text-xl text-gray-600 hover:text-[#ED7423] transition duration-150 ease-in-out" />
+                                <BsTwitter className="text-3xl text-[#00ACEE] hover:text-[#ED7423] transition duration-300 ease-in-out" />
                             </a>
                             <a
                                 href="https://www.linkedin.com/in/clean-cooking-association-of-kenya-ccak-ba852517b"
                                 target="_blank"
+                                rel="noreferrer"
                             >
-                                <BsLinkedin className="text-xl text-gray-600 hover:text-[#ED7423] transition duration-150 ease-in-out" />
+                                <BsLinkedin className="text-3xl text-[#0077b5] hover:text-[#ED7423] transition duration-300 ease-in-out" />
                             </a>
                         </div>
                     </Fade>
                 </div>
             </section>
-            <section className="w-full flex py-6 px-6 md:p-16">
-                <div className="mx-auto w-full lg:w-7/12">
+            <section className="w-full space-y-12 lg:space-y-0 lg:space-x-8 flex-col flex lg:flex-row py-16 px-6 lg:px-10">
+                <div className="w-full">
                     <Slide bottom>
                         <h3 className="text-black text-xl mb-5 font-semibold">
                             Send us a message
@@ -164,16 +175,18 @@ export const ContactUsPage = () => {
                         </button>
                     </Fade>
                 </div>
-            </section>
-            <section>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15955.013920974716!2d36.8440354!3d-1.3237712!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11be560b5283%3A0x9dacf93424a76a51!2sThe%20Nextgen%20Mall!5e0!3m2!1sen!2ske!4v1678349809373!5m2!1sen!2ske"
-                    width="100%"
-                    height="450"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                ></iframe>
+                <div className="w-full">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15955.013920974716!2d36.8440354!3d-1.3237712!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f11be560b5283%3A0x9dacf93424a76a51!2sThe%20Nextgen%20Mall!5e0!3m2!1sen!2ske!4v1678349809373!5m2!1sen!2ske"
+                        width="100%"
+                        height="450"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="maps"
+                        className="rounded-lg"
+                    ></iframe>
+                </div>
             </section>
         </div>
     );
