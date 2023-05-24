@@ -71,7 +71,7 @@ export const WhatWeDoPage = () => {
                         <div className="border-t-2 border-black mx-5 my-1"></div>
                     </Fade>
                 </div>
-                <div className="w-full lg:w-6/12 md:pr-5">
+                <div className="w-full lg:w-6/12 md:pr-10">
                     <Fade>
                         <h6 className="text-black text-xs font-bold">
                             WHAT WE DO
@@ -79,7 +79,8 @@ export const WhatWeDoPage = () => {
                     </Fade>
                     <Slide bottom>
                         <h2 className="text-black text-4xl lg:text-5xl my-8 font-bold">
-                            Collaborating for change through clean cooking
+                            Collaborating at all levels for change in clean
+                            cooking
                         </h2>
                     </Slide>
                     <Slide bottom>
@@ -110,7 +111,7 @@ export const WhatWeDoPage = () => {
             <section className="p-6 lg:p-16 bg-[#EFF7F2]">
                 <Slide bottom>
                     <h2 className="font-semibold text-2xl md:text-4xl flex my-6 justify-center">
-                        What we do through clean cooking
+                        What we do in the clean cooking cector
                     </h2>
                 </Slide>
                 <div className="flex flex-row md:px-6 py-5">
@@ -118,13 +119,13 @@ export const WhatWeDoPage = () => {
                         {items.map((item) => {
                             return (
                                 <Slide bottom key={item.name}>
-                                    <div className="w-full flex flex-col md:flex-row space-y-3 md:space-y-0 group">
+                                    <div className="w-full flex flex-col md:flex-row space-y-3 md:space-y-0">
                                         <div className="w-2/12">
                                             {item.icon}
                                         </div>
                                         <div className="sm:w-10/12">
-                                            <h6 className="font-semibold capitalize mb-2 group-hover:text-[#ED7423] transition duration-300 ease-in-out">
-                                                <a href="#">{item.name}</a>
+                                            <h6 className="font-semibold text-[#329E49] text-lg capitalize mb-2">
+                                                {item.name}
                                             </h6>
                                             <p className="text-gray-600">
                                                 {item.description}
