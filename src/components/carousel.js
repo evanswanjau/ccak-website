@@ -12,8 +12,12 @@ export const LogoCarousel = ({ logos }) => {
                                 key={i}
                                 className="flex justify-center items-start w-32 hover:scale-[1.1] duration-300 ease-in-out]"
                             >
-                                <a href={logo.link} target="_blank">
-                                    <img src={logo.image} alt={logo.name} />
+                                <a
+                                    href={logo.link}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    <img src={logo.image} alt={logo.name} className="max-h-20" />
                                 </a>
                             </div>
                         );
@@ -24,8 +28,12 @@ export const LogoCarousel = ({ logos }) => {
                                 key={i}
                                 className="flex justify-center items-start w-32 hover:scale-[1.1] duration-300 ease-in-out"
                             >
-                                <a href={logo.link} target="_blank">
-                                    <img src={logo.image} alt={logo.name} />
+                                <a
+                                    href={logo.link}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    <img src={logo.image} alt={logo.name} className="max-h-20" />
                                 </a>
                             </div>
                         );
