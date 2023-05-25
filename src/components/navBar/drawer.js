@@ -122,8 +122,8 @@ const data = [
                 name: "EVENTS",
             },
             {
-                link: "/media-centre/projects/",
-                name: "PROJECTS",
+                link: "/media-centre/blog/",
+                name: "BLOG",
             },
             {
                 link: "/media-centre/photo-gallery/",
