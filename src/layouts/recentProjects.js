@@ -21,7 +21,7 @@ export const RecentProjects = () => {
                 <div className="lg:w-11/12">
                     <Slide bottom>
                         <h6 className="text-black font-bold text-xs">
-                            CURRENT PROJECTS
+                            PROJECTS WE'VE DONE
                         </h6>
                     </Slide>
                     <Slide bottom>
