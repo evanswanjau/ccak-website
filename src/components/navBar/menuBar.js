@@ -25,7 +25,7 @@ export const MenuBar = ({ setDropDown }) => {
     ];
 
     return (
-        <div className="flex flex-row items-center py-5 px-5 w-100 font-manjari text-gray-600 bg-[#329E49]">
+        <div className="flex flex-row items-center py-3 px-5 w-100 font-manjari text-gray-600 bg-[#329E49]">
             <div className="lg:w-10/12 pt-1">
                 <ul className="flex flex-row">
                     {links.map((link) =>

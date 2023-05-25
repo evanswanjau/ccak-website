@@ -21,7 +21,7 @@ export const TopBar = ({ setDropDown }) => {
             <div className="w-3/12">
                 <a href="/">
                     <img
-                        className="w-28"
+                        className="w-24"
                         src="/ccak_side_logo.png"
                         alt="CCAK Logo"
                     />
@@ -60,7 +60,7 @@ export const TopBar = ({ setDropDown }) => {
                         )
                     )}
                     <a href="/get-involved/donate">
-                        <button className="bg-[#329E49] text-white pt-2 pb-1 px-5 mx-5 hover:bg-[#3ab554] rounded-md tracking-widest">
+                        <button className="bg-[#329E49] text-white pt-[0.3em] px-3 mx-5 hover:bg-[#3ab554] rounded-md tracking-widest">
                             DONATE
                         </button>
                     </a>
