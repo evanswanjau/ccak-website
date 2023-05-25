@@ -31,27 +31,27 @@ const chart = [
 
 const statistics = [
     {
-        name: "Promote clean cooking",
+        name: "Representation and advocacy",
         percentage: "40%",
         color: "bg-[#BEF3C0]",
     },
     {
-        name: "Capacity building",
+        name: "Membership and member oriented services",
         percentage: "35%",
         color: "bg-[#AC94F1]",
     },
     {
-        name: "Environment advocate",
+        name: "Standards and technical issues",
         percentage: "10%",
         color: "bg-[#FFF0CA]",
     },
     {
-        name: "Research and dvelopment",
+        name: "Knowledge and information management",
         percentage: "10%",
         color: "bg-[#F9CF64]",
     },
     {
-        name: "Impact lives",
+        name: "Institution strengthening and resourcing",
         percentage: "5%",
         color: "bg-[#F38FBF]",
     },
@@ -82,7 +82,6 @@ export const DonationStats = () => {
                                 <div
                                     className={`w-5 h-5 rounded-md aspect-square ${stat.color} `}
                                 ></div>
-                                <p>{stat.percentage}</p>
                                 <p>{stat.name}</p>
                             </div>
                         </Slide>
