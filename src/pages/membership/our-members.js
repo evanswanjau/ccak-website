@@ -1,5 +1,6 @@
 import { Slide, Fade } from "react-reveal";
 import { OurMember } from "../../components/ourMember";
+import { CallToAction } from "../../components/callToAction";
 
 const data = [
     {
@@ -61,12 +62,18 @@ const data = [
 ];
 
 let technologies = [
-    "associate-members",
-    "biogas",
-    "biomass",
-    "eletricity-and-lpg",
+    "cook stoves providers",
     "ethanol",
+    "biogas",
+    "non-carbonized briquettes",
+    "carbon briquettes",
+    "research and consultancy",
+    "LPG",
+    "partners",
+    "membership associations",
     "solar",
+    "journalists",
+    "IMC",
 ];
 
 let categories = [
@@ -101,7 +108,7 @@ export const OurMembersPage = () => {
                     </p>
                 </Slide>
             </section>
-            <div className="flex flex-row px-6 lg:px-16">
+            <section className="flex flex-row px-6 lg:px-16">
                 <div className="w-full lg:w-9/12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3 gap-y-6 sm:gap-6 py-10">
                     {data.map((item, i) => {
                         return <OurMember key={i} data={item} />;
@@ -116,7 +123,22 @@ export const OurMembersPage = () => {
                         />
                     </Fade>
                     <div className="bg-[#F3F3F3] p-5 rounded-lg my-5">
-                        <h3 className="border-b pb-2">TECHNOLOGY</h3>
+                        <h3 className="border-b pb-2">MEMBERSHIP TYPES</h3>
+                        <ul className="font-manjari space-y-2 my-5">
+                            {categories.map((category) => {
+                                return (
+                                    <a href={category}>
+                                        <li className="hover:text-[#ED7423] transition duration-150 ease-in-out">
+                                            {category.charAt(0).toUpperCase() +
+                                                category.slice(1)}
+                                        </li>
+                                    </a>
+                                );
+                            })}
+                        </ul>
+                    </div>
+                    <div className="bg-[#F3F3F3] p-5 rounded-lg my-5">
+                        <h3 className="border-b pb-2">CATEGORIES</h3>
                         <ul className="font-manjari space-y-2 my-5">
                             {technologies.map((technology) => {
                                 return (
@@ -134,23 +156,11 @@ export const OurMembersPage = () => {
                             })}
                         </ul>
                     </div>
-                    <div className="bg-[#F3F3F3] p-5 rounded-lg my-5">
-                        <h3 className="border-b pb-2">CATEGORY</h3>
-                        <ul className="font-manjari space-y-2 my-5">
-                            {categories.map((category) => {
-                                return (
-                                    <a href={category}>
-                                        <li className="hover:text-[#ED7423] transition duration-150 ease-in-out">
-                                            {category.charAt(0).toUpperCase() +
-                                                category.slice(1)}
-                                        </li>
-                                    </a>
-                                );
-                            })}
-                        </ul>
-                    </div>
                 </div>
-            </div>
+            </section>
+            <section className="my-10">
+                <CallToAction />
+            </section>
         </div>
     );
 };
