@@ -41,7 +41,7 @@ import { PackagesPage } from "./pages/membership/packages";
 import { OurMembersPage } from "./pages/membership/our-members";
 import { RegisterPage } from "./pages/membership/register";
 import { LoginPage } from "./pages/membership/login";
-import { OnboardingPage } from "./pages/membership/onboarding";
+// import { OnboardingPage } from "./pages/membership/onboarding";
 
 import { SocialHubHomePage } from "./pages/social-hub/home";
 import { SocialHubProfilePage } from "./pages/social-hub/profile";
