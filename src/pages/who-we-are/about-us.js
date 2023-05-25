@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Slide, Fade } from "react-reveal";
 import { LogoCarousel } from "../../components/carousel";
 import { PlayCircleIcon } from "@heroicons/react/24/solid";
@@ -9,6 +10,7 @@ import {
     WrenchScrewdriverIcon,
 } from "@heroicons/react/24/outline";
 import { SubFooter } from "../../layouts/subFooter";
+import { ModalYoutubeVideo } from "../../layouts/modalVideo";
 
 const partners = [
     {
@@ -81,37 +83,40 @@ const pillars = [
         icon: <ScaleIcon className="w-8 text-[#329E49]" />,
         name: "representation and advocacy",
         description:
-            "Through this pillar CCAK aims to improve the environment, sector cohesion and self-regulation. The priorities are on actions to improve the policy, legal and regulatory environment, budgetary allocation towards clean cooking, see better partnerships and collaboration and influence sector strategy",
+            "This pillar focuses on representing the interests of the clean cooking sector at various levels, including engaging with governments, policymakers, and other stakeholders to advocate for supportive policies and regulations. It involves raising awareness about the importance of clean cooking and highlighting the benefits it brings to health, environment, and livelihoods.",
     },
     {
         icon: <UsersIcon className="w-8 text-[#329E49]" />,
         name: "membership and member oriented services",
         description:
-            "CCAK aims to recruit and retain members and have a strong and influential membership base. Core, associate and honorary members will be identified and will benefit from renewed value propositions along ten fundamental value areas.",
+            "This pillar emphasizes building and maintaining a strong membership base within the clean cooking sector. It involves offering services and support to members, such as networking opportunities, capacity building, and access to resources and information. The organization works to foster collaboration and provide value to its members.",
     },
     {
         icon: <CubeTransparentIcon className="w-8 text-[#329E49]" />,
         name: "standards and technical issues",
         description:
-            "Through this pillar CCAK aims to improve the environment, sector cohesion and self-regulation. The priorities are on actions to improve the policy, legal and regulatory environment, budgetary allocation towards clean cooking, see better partnerships and collaboration and influence sector strateg",
+            "This pillar revolves around establishing and promoting standards for clean cooking technologies, fuels, and related practices. It includes developing guidelines and technical specifications to ensure the quality, safety, and performance of clean cooking solutions. This pillar also involves addressing technical challenges and facilitating innovation within the sector.",
     },
     {
         icon: <Squares2X2Icon className="w-8 text-[#329E49]" />,
         name: "knowledge and information management",
         description:
-            "CCAK aims to recruit and retain members and have a strong and influential membership base. Core, associate and honorary members will be identified and will benefit from renewed value propositions along ten fundamental value areas.",
+            "This pillar focuses on gathering, organizing, and disseminating knowledge and information related to clean cooking. It involves conducting research, collecting data, and sharing best practices, lessons learned, and evidence-based insights. The organization strives to be a central hub for knowledge exchange and learning within the clean cooking sector.",
     },
     {
         icon: <WrenchScrewdriverIcon className="w-8 text-[#329E49]" />,
         name: "institution strengthening and resourcing",
         description:
-            "Through this pillar CCAK aims to improve the environment, sector cohesion and self-regulation. The priorities are on actions to improve the policy, legal and regulatory environment, budgetary allocation towards clean cooking, see better partnerships and collaboration and influence sector strateg",
+            "This pillar aims to strengthen the capacity and sustainability of the organization itself. It involves building institutional capabilities, establishing governance structures, and enhancing financial resources. This pillar focuses on ensuring the organization's long-term viability and effectiveness in achieving its mission and goals.",
     },
 ];
 
 export const AboutUsPage = () => {
+    const [show, setShow] = useState(false);
+
     return (
         <div className="pt-[4rem] lg:pt-[8.2rem]">
+            <ModalYoutubeVideo show={show} setShow={setShow} />
             <section className="flex flex-col md:flex-row w-full pt-6 md:pb-40 md:pt-20 px-6 md:px-16">
                 <div className="hidden w-full lg:block md:w-1/12">
                     <Fade>
@@ -160,12 +165,15 @@ export const AboutUsPage = () => {
                         style={{
                             backgroundImage: `url(${
                                 process.env.REACT_APP_IMAGEKIT_URL +
-                                "about_us_section_2_video_bg.jpg"
+                                "about_us_section_2_video_bg.jpg?updatedAt=1684939639742"
                             })`,
                         }}
-                        className="md:-mt-40 mx-auto flex justify-center w-10/12 p-32 bg-cover bg-center bg-no-repeat rounded-lg group cursor-pointer"
+                        className="md:-mt-40 mx-auto flex justify-center w-10/12 p-40 bg-cover bg-center bg-no-repeat rounded-lg group cursor-pointer"
+                        onClick={() => {
+                            setShow(true);
+                        }}
                     >
-                        <PlayCircleIcon className="w-12 text-white group-hover:scale-[1.15] duration-300 ease-in-out" />
+                        <PlayCircleIcon className="w-12 text-white group-hover:scale-[1.15] group-hover:text-[#ED7423] duration-300 ease-in-out" />
                     </div>
                 </Slide>
                 <div
@@ -254,9 +262,11 @@ export const AboutUsPage = () => {
                                 development partners, Non-Governmental
                                 Organizations among others.
                             </Slide>
-                            <br />
-                            <br />
-                            <Slide bottom>
+                        </p>
+                    </div>
+                    <div className="lg:w-6/12">
+                        <Slide bottom>
+                            <p className="text-gray-600">
                                 The main objective of CCAK is to advocate for an
                                 enabling environment at both national and county
                                 levels to catalyze the growth of the clean
@@ -266,23 +276,6 @@ export const AboutUsPage = () => {
                                 has effective frameworks of engagement with
                                 government and other stakeholders to coordinate
                                 and advocate for the sector.
-                            </Slide>
-                        </p>
-                    </div>
-                    <div className="lg:w-6/12">
-                        <Slide bottom>
-                            <p className="text-gray-600">
-                                CCAK recently launched its five year strategy
-                                outlined in five pillars to help it achieve its
-                                mission as the sector champion. With the renewed
-                                focus and strategy, CCAK expects to have 10
-                                million households using clean cooking solutions
-                                by 2022; see a 90% drop in health impacts by
-                                2022; improve livelihoods; impact at least 7
-                                million women; mitigate climate change and;
-                                preserve the environment. For these to be
-                                achieved, CCAK works around five key strategic
-                                pillars:
                             </p>
                         </Slide>
                     </div>
@@ -342,7 +335,7 @@ export const AboutUsPage = () => {
             <section className="p-6 lg:px-8">
                 <Slide bottom>
                     <h2 className="font-semibold text-3xl md:text-4xl flex justify-center">
-                        Our Five Key Strategic Pillars
+                        Our Key Strategic Pillars
                     </h2>
                 </Slide>
                 <div className="flex flex-row md:px-6 lg:px-16 py-5">
@@ -355,9 +348,9 @@ export const AboutUsPage = () => {
                                         <h6 className="font-semibold capitalize text-[#329E49]">
                                             {pillar.name}
                                         </h6>
-                                        <div className="text-gray-600">
+                                        <p className="text-gray-600">
                                             {pillar.description}
-                                        </div>
+                                        </p>
                                     </div>
                                 </Slide>
                             );
