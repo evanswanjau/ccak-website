@@ -10,7 +10,6 @@ import {
     UserGroupIcon,
     SunIcon,
 } from "@heroicons/react/24/outline";
-import { PlayCircleIcon } from "@heroicons/react/24/solid";
 import { HomeSlider } from "../layouts/homeSlider";
 
 export const HomePage = () => {
@@ -71,72 +70,9 @@ export const HomePage = () => {
     ];
 
     return (
-        <div className="text-gray-600 pt-[4rem] lg:pt-[8.2rem]">
+        <div className="text-gray-600 pt-[3.8rem] lg:pt-[6.9rem]">
             <section>
                 <HomeSlider />
-            </section>
-            <section className="flex flex-col lg:flex-row w-full p-6 lg:py-20 lg:p-12 bg-[#EFF7F2]">
-                <div className="hidden lg:block w-1/12">
-                    <div className="border-t-2 border-black mx-5 mt-2"></div>
-                </div>
-                <div className="lg:w-6/12">
-                    <Slide bottom>
-                        <h6 className="text-black font-bold text-xs">
-                            WHAT WE DO
-                        </h6>
-                    </Slide>
-                    <Slide bottom>
-                        <h2 className="text-black font-semibold text-4xl my-6">
-                            Promoting clean cooking solutions
-                        </h2>
-                    </Slide>
-                    <Slide bottom>
-                        <p className="my-5">
-                            The Clean Cooking Association of Kenya (CCAK) is a
-                            not-for-profit business membership organization
-                            representing stakeholders in the clean cooking
-                            sector.
-                        </p>
-                    </Slide>
-
-                    <ul className="border-l">
-                        {whatWedo.map((item, i) => (
-                            <Slide bottom key={i}>
-                                <li className="flex flex-row my-8">
-                                    <div className="mx-5">{item.icon}</div>
-                                    <div className="lg:w-2/4">
-                                        <p className="text-xl font-semibold  text-black">
-                                            {item.title}
-                                        </p>
-                                        <p>{item.desc}</p>
-                                    </div>
-                                </li>
-                            </Slide>
-                        ))}
-                    </ul>
-                </div>
-                <div className="lg:w-5/12 mt-5 lg:m-0">
-                    <Fade>
-                        <img
-                            className="rounded-lg"
-                            src={
-                                process.env.REACT_APP_IMAGEKIT_URL +
-                                "home_section_2_promote_clean_cooking.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1678477808057"
-                            }
-                            alt="Promoting clean cooking"
-                        />
-                    </Fade>
-                </div>
-            </section>
-            <section className="py-10 px-6 lg:px-16">
-                <div className="py-3">
-                    <Fade>
-                        <h6 className="text-black text-sm font-semibold my-5">
-                            OUR PARTNERS AND DONORS
-                        </h6>
-                    </Fade>
-                    <LogoCarousel logos={partners} />
-                </div>
             </section>
             <section className="flex flex-col lg:flex-row p-6 lg:p-12">
                 <div className="hidden lg:block w-1/12">
@@ -186,6 +122,69 @@ export const HomePage = () => {
                             src={
                                 process.env.REACT_APP_IMAGEKIT_URL +
                                 "home_section_4_promote_clean_cooking.jpg"
+                            }
+                            alt="Promoting clean cooking"
+                        />
+                    </Fade>
+                </div>
+            </section>
+            <section className="py-10 px-6 lg:px-16">
+                <div className="py-3">
+                    <Fade>
+                        <h6 className="text-black text-sm font-semibold my-5">
+                            OUR PARTNERS AND DONORS
+                        </h6>
+                    </Fade>
+                    <LogoCarousel logos={partners} />
+                </div>
+            </section>
+            <section className="flex flex-col lg:flex-row w-full p-6 lg:py-20 lg:p-12 bg-[#EFF7F2]">
+                <div className="hidden lg:block w-1/12">
+                    <div className="border-t-2 border-black mx-5 mt-2"></div>
+                </div>
+                <div className="lg:w-6/12">
+                    <Slide bottom>
+                        <h6 className="text-black font-bold text-xs">
+                            WHAT WE DO
+                        </h6>
+                    </Slide>
+                    <Slide bottom>
+                        <h2 className="text-black font-semibold text-4xl my-6">
+                            Promoting clean cooking solutions
+                        </h2>
+                    </Slide>
+                    <Slide bottom>
+                        <p className="my-5">
+                            The Clean Cooking Association of Kenya (CCAK) is a
+                            not-for-profit business membership organization
+                            representing stakeholders in the clean cooking
+                            sector.
+                        </p>
+                    </Slide>
+
+                    <ul className="border-l">
+                        {whatWedo.map((item, i) => (
+                            <Slide bottom key={i}>
+                                <li className="flex flex-row my-8">
+                                    <div className="mx-5">{item.icon}</div>
+                                    <div className="lg:w-2/4">
+                                        <p className="text-xl font-semibold  text-black">
+                                            {item.title}
+                                        </p>
+                                        <p>{item.desc}</p>
+                                    </div>
+                                </li>
+                            </Slide>
+                        ))}
+                    </ul>
+                </div>
+                <div className="lg:w-5/12 mt-5 lg:m-0">
+                    <Fade>
+                        <img
+                            className="rounded-lg"
+                            src={
+                                process.env.REACT_APP_IMAGEKIT_URL +
+                                "home_section_2_promote_clean_cooking.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1678477808057"
                             }
                             alt="Promoting clean cooking"
                         />
