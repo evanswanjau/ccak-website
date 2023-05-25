@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Slide } from "react-reveal";
+// import { Slide } from "react-reveal";
 import { PlayCircleIcon } from "@heroicons/react/24/solid";
 
 import "swiper/css";
@@ -13,39 +13,39 @@ import { ModalYoutubeVideo } from "./modalVideo";
 
 const data = [
     {
-        title: "Clean cooking for a healthier environment",
+        title: "Non-carbonized and Carbonized briquettes.",
         content:
-            "Rural and peri-urban women and children in Kenya suffer more from household air pollution caused by traditional cooking methods.",
+            "These briquettes are made from agricultural waste products, such as rice husks, maize cobs, and sugarcane bagasse.",
     },
     {
-        title: "Limited Access to Clean Cooking Solutions",
+        title: "Biogas",
         content:
-            "Ensuring equitable access to clean cooking technologies and fuels for all households in Kenya, reducing the health and environmental impacts of traditional cooking methods.",
+            "Biogas is produced by the anaerobic digestion of organic matter, such as manure, food waste, and sewage..",
     },
     {
-        title: "High Dependence on Solid Fuels",
+        title: "Bio-Ethanol",
         content:
-            "Promoting the transition from solid fuels to cleaner and more sustainable cooking fuels, improving indoor air quality and reducing deforestation rates in Kenya.",
+            "Bioethanol is produced from the fermentation of plant materials, such as sugarcane, corn, and cassava.",
     },
     {
-        title: "Lack of Awareness and Behavioral Change",
+        title: "LPG",
         content:
-            "Raising awareness and promoting behavioral change among communities to adopt clean cooking practices, reducing the exposure of women and children to harmful household air pollution.",
+            "LPG is a liquefied petroleum gas that is made from natural gas. It is a clean and efficient fuel that can be used for cooking, heating, and electricity generation.",
     },
     {
-        title: "Inadequate Financing for Clean Cooking Initiatives",
+        title: "Electric cooking",
         content:
-            "Mobilizing financial resources and advocating for increased funding support to accelerate the adoption of clean cooking technologies, fostering sustainable and scalable solutions in Kenya.",
+            "Electric cooking is a clean and efficient way to cook food. It is also a convenient option, as it does not require the use of fuel.",
     },
     {
-        title: "Insufficient Research and Development",
+        title: "Solar",
         content:
-            "Promoting research and development in clean cooking technologies, fuels, and practices, driving innovation and evidence-based solutions to address the health and environmental challenges associated with traditional cooking methods.",
+            "Solar cookers use the sun's heat to cook food. They are a clean and efficient way to cook food, and they do not require the use of fuel.",
     },
     {
-        title: "Limited Integration of Gender Considerations",
+        title: "Improved Cookstoves",
         content:
-            "Integrating gender considerations into clean cooking initiatives, empowering women as key stakeholders and change agents for cleaner and healthier cooking practices.",
+            "Improved cookstoves are more efficient than traditional cookstoves, and they produce less smoke and pollutants.",
     },
 ];
 
@@ -84,39 +84,33 @@ export const HomeSlider = () => {
                                 })`,
                                 backgroundSize: "cover",
                                 backgroundPosition: "center center",
-                                height: "calc(100vh - 8em)",
+                                height: "calc(100vh - 6.9em)",
                             }}
                         >
                             <div className="flex flex-row items-center bg-black/[.3] w-full h-full">
                                 <div className="lg:w-7/12 lg:ml-14 p-6 text-white content-center">
-                                    <Slide right>
-                                        <h1 className="text-4xl md:text-6xl font-bold my-5">
-                                            {item.title}
-                                        </h1>
-                                    </Slide>
-                                    <Slide bottom>
-                                        <p className="text-xl font-bold mt-5 leading-normal">
-                                            {item.content}
-                                        </p>
-                                    </Slide>
-                                    <Slide bottom>
-                                        <div className="flex space-x-3 lg:space-x-8 my-10">
-                                            <a href={"/what-we-do"}>
-                                                <button className="bg-white text-gray-600 pt-3 pb-2 px-6 hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest">
-                                                    WHAT WE DO
-                                                </button>
-                                            </a>
-                                            <button
-                                                className="flex text-xl items-center space-x-2 hover:text-[#ED7423] transition duration-300 ease-in-out"
-                                                onClick={() => {
-                                                    setShow(true);
-                                                }}
-                                            >
-                                                <PlayCircleIcon className="w-6" />
-                                                <p className="">Play Video</p>
+                                    <h1 className="text-4xl md:text-6xl font-bold my-5">
+                                        {item.title}
+                                    </h1>
+                                    <p className="text-xl font-bold mt-5 leading-normal">
+                                        {item.content}
+                                    </p>
+                                    <div className="flex space-x-3 lg:space-x-8 my-10">
+                                        <a href={"/what-we-do"}>
+                                            <button className="bg-white text-gray-600 pt-3 pb-2 px-6 hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest">
+                                                WHAT WE DO
                                             </button>
-                                        </div>
-                                    </Slide>
+                                        </a>
+                                        <button
+                                            className="flex text-xl items-center space-x-2 hover:text-[#ED7423] transition duration-300 ease-in-out"
+                                            onClick={() => {
+                                                setShow(true);
+                                            }}
+                                        >
+                                            <PlayCircleIcon className="w-6" />
+                                            <p className="">Play Video</p>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </SwiperSlide>
