@@ -61,7 +61,7 @@ a {
     animation-play-state: paused;
 }
 .mySwiper {
-    --swiper-navigation-size: 40px;
+    --swiper-navigation-size: 32px;
     --swiper-navigation-sides-offset: 20px;
     --swiper-navigation-color: #ffffff;
 }

@@ -18,8 +18,8 @@ import { FundingOpportunitiesPage } from "./pages/get-involved/funding-opportuni
 import { DonatePage } from "./pages/get-involved/donate";
 import { ContactUsPage } from "./pages/get-involved/contact-us";
 
-import { ResearchPapersPage } from "./pages/resource-centre/research-papers";
-import { AgmMaterialPage } from "./pages/resource-centre/agm-material";
+import { PublicationsPage } from "./pages/resource-centre/publications";
+import { FundingOpportunitiesRCPage } from "./pages/resource-centre/funding-opportunities";
 
 import { PressReleasePage } from "./pages/media-centre/pressRelease";
 import { NewsPage } from "./pages/media-centre/news";
@@ -39,17 +39,42 @@ import { AgmMaterialReadMore } from "./pages/read-more/agm-material";
 
 import { PackagesPage } from "./pages/membership/packages";
 import { OurMembersPage } from "./pages/membership/our-members";
+import { RegisterPage } from "./pages/membership/register";
+import { LoginPage } from "./pages/membership/login";
+import { OnboardingPage } from "./pages/membership/onboarding";
 
 import { SocialHubHomePage } from "./pages/social-hub/home";
 import { SocialHubProfilePage } from "./pages/social-hub/profile";
 import { SocialHubBookmarksPage } from "./pages/social-hub/bookmarks";
 import { SocialHubBillingPage } from "./pages/social-hub/billing";
 import { SocialHubChangePasswordPage } from "./pages/social-hub/change-password";
+import { BlogPage } from "./pages/media-centre/blog";
+
+const viewFooter = (pathname) => {
+    let footer = true;
+
+    if (pathname.split("/")[1] === "social-hub") footer = false;
+    if (pathname.split("/")[2] === "register") footer = false;
+    if (pathname.split("/")[2] === "login") footer = false;
+    if (pathname.split("/")[2] === "onboarding") footer = false;
+
+    return footer;
+};
+
+const viewHeader = (pathname) => {
+    let footer = true;
+
+    if (pathname.split("/")[2] === "register") footer = false;
+    if (pathname.split("/")[2] === "login") footer = false;
+    if (pathname.split("/")[2] === "onboarding") footer = false;
+
+    return footer;
+};
 
 function App() {
     return (
         <Router>
-            <NavBar />
+            {viewHeader(window.location.pathname) && <NavBar />}
             <ScrollToTop />
             <Switch>
                 <Route exact path="/" component={HomePage} />
@@ -72,13 +97,13 @@ function App() {
                 {/** ---------------RESOURCE CENTRE ---------------------*/}
                 <Route
                     exact
-                    path="/resource-centre/agm-material"
-                    component={AgmMaterialPage}
+                    path="/resource-centre/publications"
+                    component={PublicationsPage}
                 />
                 <Route
                     exact
-                    path="/resource-centre/research-papers"
-                    component={ResearchPapersPage}
+                    path="/resource-centre/funding-opportunities"
+                    component={FundingOpportunitiesRCPage}
                 />
                 {/** ---------------GET INVOLVED ---------------------*/}
                 <Route
@@ -123,6 +148,7 @@ function App() {
                     path="/media-centre/projects"
                     component={ProjectsPage}
                 />
+                <Route exact path="/media-centre/blog" component={BlogPage} />
                 <Route
                     exact
                     path="/media-centre/photo-gallery"
@@ -185,6 +211,17 @@ function App() {
                     path="/membership/our-members"
                     component={OurMembersPage}
                 />
+                <Route
+                    exact
+                    path="/membership/register"
+                    component={RegisterPage}
+                />
+                {/* <Route
+                    exact
+                    path="/membership/onboarding"
+                    component={OnboardingPage}
+                /> */}
+                <Route exact path="/membership/login" component={LoginPage} />
                 {/**--------------------- SOCIAL HUB ----------------------- */}
                 <Route path="/social-hub/home" component={SocialHubHomePage} />
                 <Route
@@ -204,9 +241,7 @@ function App() {
                     component={SocialHubChangePasswordPage}
                 />
             </Switch>
-            {window.location.pathname.split("/")[1] !== "social-hub" && (
-                <Footer />
-            )}
+            {viewFooter(window.location.pathname) && <Footer />}
         </Router>
     );
 }
