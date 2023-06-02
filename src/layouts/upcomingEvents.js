@@ -1,13 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { Event } from "../components/event";
 import { Fade } from "react-reveal";
-import { apiRequest } from "../api/api-calls";
+import { searchPosts } from "../api/api-calls";
 
 export const UpcomingEvents = () => {
     const [data, updateData] = useState([]);
 
+    const searchData = {
+        keyword: "",
+        table: "posts",
+        category: "events",
+        technology: "",
+        project_status: "",
+        page: 1,
+        limit: 4,
+        ip_address: "",
+        created_by: 0,
+    };
+
     useEffect(() => {
-        apiRequest("get", "post/search/all/events/4", data, updateData);
+        searchPosts(searchData, updateData);
     }, []); // eslint-disable-line
 
     return (
