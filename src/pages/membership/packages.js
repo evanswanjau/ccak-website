@@ -81,7 +81,7 @@ const data = [
 
 export const PackagesPage = () => {
     return (
-        <div className="pt-[4rem] lg:pt-[8.2rem]">
+        <div className="pt-[3.8rem] lg:pt-[6.9rem]">
             <section className="text-center py-12">
                 <Slide bottom>
                     <h1 className="text-4xl font-semibold my-5">Packages</h1>

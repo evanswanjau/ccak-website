@@ -76,7 +76,7 @@ const data = [
 
 export const FundingOpportunitiesRCPage = () => {
     return (
-        <div className="pt-[4rem] lg:pt-[8.2rem]">
+        <div className="pt-[3.8rem] lg:pt-[6.9rem]">
             <section className="text-center py-12">
                 <Slide bottom>
                     <h1 className="text-4xl font-semibold my-5">
@@ -85,9 +85,9 @@ export const FundingOpportunitiesRCPage = () => {
                 </Slide>
                 <Slide bottom>
                     <p className="w-full text-gray-600 px-6 lg:w-6/12 mx-auto">
-                        Welcome to the Funding Opportunities page! On this page, we will provide
-                        you with a comprehensive guide to everything you need to
-                        know about funding opportunities.
+                        Welcome to the Funding Opportunities page! On this page,
+                        we will provide you with a comprehensive guide to
+                        everything you need to know about funding opportunities.
                     </p>
                 </Slide>
                 <div className="flex flex-row px-6 lg:px-16 py-5">

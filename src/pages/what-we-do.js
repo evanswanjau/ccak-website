@@ -64,7 +64,7 @@ const items = [
 
 export const WhatWeDoPage = () => {
     return (
-        <div className="pt-[4rem] lg:pt-[8.2rem]">
+        <div className="pt-[3.8rem] lg:pt-[6.9rem]">
             <section className="flex flex-col md:flex-row w-full py-6 md:py-20 px-6 md:px-12">
                 <div className="hidden w-full lg:block md:w-1/12">
                     <Fade>
