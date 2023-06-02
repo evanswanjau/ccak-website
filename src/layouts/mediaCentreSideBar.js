@@ -1,15 +1,24 @@
+import { InputForm } from "../components/forms/input-form";
 import { TwitterEmbedd } from "../components/twitterEmbedd";
 import { Fade } from "react-reveal";
 
-export const MediaCentreSideBar = ({ category }) => {
+export const MediaCentreSideBar = ({
+    category,
+    searchData,
+    updateSearchData,
+}) => {
     return (
         <div>
             <Fade>
-                <input
-                    className="w-full bg-gray-100 mb-5 font-manjari outline-0 rounded-md pt-3 pb-2 px-3"
-                    type="text"
-                    placeholder={`Search ${category}`}
-                />
+                <div className="mb-5">
+                    <InputForm
+                        type="text"
+                        name="keyword"
+                        label={`Search ${category.replace(/-/g, " ")}`}
+                        data={searchData}
+                        updateData={updateSearchData}
+                    />
+                </div>
             </Fade>
 
             <TwitterEmbedd />
