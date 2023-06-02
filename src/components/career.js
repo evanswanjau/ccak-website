@@ -11,7 +11,7 @@ export const Career = ({ data: { id, category, title, excerpt } }) => {
                     .replace(":", "")
                     .toLowerCase()}`}
             >
-                <div className="bg-[#BEF3C0] group text-left p-5 rounded-lg transition duration-300 ease-in-out hover:bg-[#ED7423]">
+                <div className="bg-[#BEF3C0] group text-left p-5 rounded-lg transition duration-300 ease-in-out hover:bg-[#ED7423] flex flex-col h-full">
                     <div className="flex w-full justify-between border-b border-gray-400 pb-3 group-hover:border-white transition duration-150 ease-in-out">
                         <h3 className="w-10/12 font-semibold mb-1 group-hover:text-white transition duration-150 ease-in-out">
                             {title}
