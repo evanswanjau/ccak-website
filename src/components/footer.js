@@ -23,7 +23,7 @@ export const Footer = () => {
 
 
     return (
-        <footer className="w-full px-5 md:px-10 pt-5 text-gray-800 bg-[#ED7423] bg-opacity-30">
+        <footer className="w-full px-5 md:px-10 pt-5 bg-[#ED7423] bg-opacity-30">
             <div className="flex flex-col lg:flex-row lg:space-x-8">
                 <div className="w-full lg:w-8/12 flex flex-col">
                     <a href="/">
@@ -37,7 +37,7 @@ export const Footer = () => {
                         {links.map((item, i) => {
                             return (
                                 <a href={item.url} key={i}>
-                                    <li className="text-gray-800 hover:text-[#ED7423] transition duration-300 ease-in-out">
+                                    <li className="text-black font-semibold hover:text-[#ED7423] transition duration-300 ease-in-out">
                                         {item.name}
                                     </li>
                                 </a>
@@ -45,7 +45,7 @@ export const Footer = () => {
                         })}
                     </ul>
                 </div>
-                <div className="w-full lg:w-4/12 pt-5 lg:pt-14 font-manjari items-end">
+                <div className="w-full lg:w-4/12 pt-5 lg:pt-14 font-manjari justfy-end items-end">
                     {error && (
                         <ErrorMessage error={error} setError={setError} />
                     )}
@@ -74,7 +74,7 @@ export const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col lg:flex-row border-t border-gray-600 py-5 mt-12 text-sm">
+            <div className="flex flex-col lg:flex-row text-black border-t border-gray-600 py-5 mt-12 text-sm">
                 <p className="w-full lg:w-6/12">
                     © Clean Cooking Association Kenya 2023 &nbsp;|&nbsp; All
                     rights Reserved
@@ -82,7 +82,7 @@ export const Footer = () => {
                 <p className="w-full lg:w-6/12 lg:text-right">
                     <a
                         href="legal/terms-and-conditions"
-                        className="hover:text-[#ED7423]"
+                        className="hover:text-[#ED7423] transition delay-100 ease-in-out"
                     >
                         Terms and Conditions
                     </a>
