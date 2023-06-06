@@ -53,7 +53,7 @@ const packages = [
     {
         name: "donor",
         category: "-",
-        value: "ngo-international",
+        value: "donor",
         price: "KSH. 50,000",
         list: ["Donor supported", "Registration fee of Ksh. 25,000"],
     },
