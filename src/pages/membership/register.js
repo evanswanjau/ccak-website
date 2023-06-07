@@ -32,7 +32,7 @@ export const RegisterPage = () => {
             validatePassword(data.password, data.confirm_password);
 
             setError(false);
-            registerMember(data);
+            registerMember(data, setBtnLoading, setError);
         } catch (error) {
             setBtnLoading(false);
             setError(error.message);
@@ -202,8 +202,9 @@ export const RegisterPage = () => {
                     </div>
                     <button
                         type="button"
+                        disabled={disabled || btnLoading}
                         className={`w-full tracking-widest ${
-                            disabled
+                            disabled || btnLoading
                                 ? "bg-gray-200"
                                 : "bg-[#329E49] hover:bg-[#3ab554]"
                         }  text-white flex justify-center font-medium rounded-lg text-sm px-5 py-3 my-5 transition duration-700 ease-in-out`}
