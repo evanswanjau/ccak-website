@@ -1,65 +1,9 @@
+import { useState, useEffect } from "react";
 import { Slide, Fade } from "react-reveal";
 import { OurMember } from "../../components/ourMember";
 import { CallToAction } from "../../components/callToAction";
-
-const data = [
-    {
-        name: "burn",
-        category: "corporate large",
-        technology: "biomass cookstoves",
-        phone_number: "0706585629",
-        location: "New Horizons Industrial Park, Ruiru Kenya",
-    },
-    {
-        name: "burn",
-        category: "corporate large",
-        technology: "biomass cookstoves",
-        phone_number: "0706585629",
-        location: "New Horizons Industrial Park, Ruiru Kenya",
-    },
-    {
-        name: "burn",
-        category: "corporate large",
-        technology: "biomass cookstoves",
-        phone_number: "0706585629",
-        location: "New Horizons Industrial Park, Ruiru Kenya",
-    },
-    {
-        name: "burn",
-        category: "corporate large",
-        technology: "biomass cookstoves",
-        phone_number: "0706585629",
-        location: "New Horizons Industrial Park, Ruiru Kenya",
-    },
-    {
-        name: "burn",
-        category: "corporate large",
-        technology: "biomass cookstoves",
-        phone_number: "0706585629",
-        location: "New Horizons Industrial Park, Ruiru Kenya",
-    },
-    {
-        name: "burn",
-        category: "corporate large",
-        technology: "biomass cookstoves",
-        phone_number: "0706585629",
-        location: "New Horizons Industrial Park, Ruiru Kenya",
-    },
-    {
-        name: "burn",
-        category: "corporate large",
-        technology: "biomass cookstoves",
-        phone_number: "0706585629",
-        location: "New Horizons Industrial Park, Ruiru Kenya",
-    },
-    {
-        name: "burn",
-        category: "corporate large",
-        technology: "biomass cookstoves",
-        phone_number: "0706585629",
-        location: "New Horizons Industrial Park, Ruiru Kenya",
-    },
-];
+import { searchMember } from "../../api/api-calls";
+import { InputForm } from "../../components/forms/input-form";
 
 let technologies = [
     "cook stoves providers",
@@ -84,14 +28,33 @@ let categories = [
     "ngo-international",
     "ngo-local",
     "donor-large",
-    "asoociation-membership",
+    "association-membership",
     "CSO",
     "intitution-research,technology",
     "individual",
-    "students",
+    "student",
 ];
 
 export const OurMembersPage = () => {
+    const [data, updateData] = useState([]);
+
+    const [searchData, updateSearchData] = useState({
+        keyword: "",
+        table: "members",
+        category: "",
+        technology: "",
+        member_type: "",
+        project_status: "",
+        page: 1,
+        limit: 12,
+        ip_address: "",
+        created_by: 0,
+    });
+
+    useEffect(() => {
+        searchMember(searchData, updateData);
+    }, [searchData]); // eslint-disable-line
+
     return (
         <div className="pt-[3.8rem] lg:pt-[6.9rem]">
             <section className="text-center py-12">
@@ -116,10 +79,12 @@ export const OurMembersPage = () => {
                 </div>
                 <div className="hidden lg:block w-4/12 pt-10 pl-10">
                     <Fade>
-                        <input
-                            className="w-full bg-gray-100 mb-5 font-manjari outline-0 rounded-md pt-3 pb-2 px-3"
+                        <InputForm
                             type="text"
-                            placeholder={`Search member`}
+                            name="keyword"
+                            label={`Search member`}
+                            data={searchData}
+                            updateData={updateSearchData}
                         />
                     </Fade>
                     <div className="bg-[#F3F3F3] p-5 rounded-lg my-5">
@@ -127,12 +92,17 @@ export const OurMembersPage = () => {
                         <ul className="font-manjari space-y-2 my-5">
                             {categories.map((category) => {
                                 return (
-                                    <a href={category}>
-                                        <li className="hover:text-[#ED7423] transition duration-150 ease-in-out">
-                                            {category.charAt(0).toUpperCase() +
-                                                category.slice(1)}
-                                        </li>
-                                    </a>
+                                    <li
+                                        className="hover:text-[#ED7423] transition duration-150 ease-in-out capitalize cursor-pointer"
+                                        onClick={() => {
+                                            updateSearchData({
+                                                ...searchData,
+                                                member_type: category,
+                                            });
+                                        }}
+                                    >
+                                        {category.replace(/-/g, " ")}
+                                    </li>
                                 );
                             })}
                         </ul>
@@ -142,16 +112,17 @@ export const OurMembersPage = () => {
                         <ul className="font-manjari space-y-2 my-5">
                             {technologies.map((technology) => {
                                 return (
-                                    <a href={technology}>
-                                        <li className="hover:text-[#ED7423] transition duration-150 ease-in-out">
-                                            {technology
-                                                .charAt(0)
-                                                .toUpperCase() +
-                                                technology
-                                                    .slice(1)
-                                                    .replace(/-/g, " ")}
-                                        </li>
-                                    </a>
+                                    <li
+                                        className="hover:text-[#ED7423] transition duration-150 ease-in-out capitalize cursor-pointer"
+                                        onClick={() => {
+                                            updateSearchData({
+                                                ...searchData,
+                                                technology: technology,
+                                            });
+                                        }}
+                                    >
+                                        {technology.replace(/-/g, " ")}
+                                    </li>
                                 );
                             })}
                         </ul>
