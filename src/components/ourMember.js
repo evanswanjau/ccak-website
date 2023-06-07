@@ -10,7 +10,7 @@ export const OurMember = ({
 }) => {
     return (
         <Fade bottom>
-            <div className="bg-[#EFF7F2] p-6 rounded-lg text-left">
+            <div className="bg-[#EFF7F2] p-6 rounded-lg text-left flex flex-col max-h-[250px]">
                 <div className="flex mb-5">
                     <div className="w-2/12">
                         <UserCircleIcon className="w-12" />
