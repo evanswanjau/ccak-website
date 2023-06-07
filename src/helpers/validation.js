@@ -36,3 +36,16 @@ export const validatePassword = (password, confirmPassword) => {
 
     if (password !== confirmPassword) throw new Error("Passwords not similar");
 };
+
+/**
+ * A function that validates a url and throws an error if not
+ * @param {*} url
+ */
+export const validateUrl = (url) => {
+    if (
+        !url.match(
+            /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g
+        )
+    )
+        throw new Error("Not a valid website url");
+};
