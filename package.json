@@ -13,6 +13,8 @@
     "add-to-calendar-button-react": "^2.2.2",
     "axios": "^1.4.0",
     "buffer": "^6.0.3",
+    "imagekitio-react": "^2.0.0",
+    "jwt-decode": "^3.1.2",
     "nivo": "^0.31.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
