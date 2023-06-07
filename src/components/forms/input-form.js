@@ -24,7 +24,10 @@ export const InputForm = ({
                 <input
                     type={type === "password" && passType}
                     id={name}
-                    class="border font-manjari text-gray-900 rounded-lg focus:outline-none focus:ring-[#ED7423] focus:border-[#ED7423] block w-full p-2 pt-3"
+                    class={`border font-manjari text-gray-900 rounded-lg focus:outline-none focus:ring-[#ED7423] focus:border-[#ED7423] block w-full p-2 pt-3 ${
+                        name === "mpesaCode" && "uppercase tracking-wider"
+                    }`}
+                    maxLength={name === "mpesaCode" ? 10 : null}
                     placeholder={label.toLowerCase()}
                     value={data[name]}
                     onChange={(event) => {
