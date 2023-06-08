@@ -1,13 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { Project } from "../components/project";
 import { Slide, Fade } from "react-reveal";
-import { apiRequest } from "../api/api-calls";
+import { searchPosts } from "../api/api-calls";
 
 export const RecentProjects = () => {
     const [data, updateData] = useState([]);
 
+    const searchData = {
+        keyword: "",
+        table: "posts",
+        category: "projects",
+        technology: "",
+        project_status: "",
+        page: 1,
+        limit: 4,
+        ip_address: "",
+        created_by: 0,
+    };
+
     useEffect(() => {
-        apiRequest("get", "post/search/all/projects/4", data, updateData);
+        searchPosts(searchData, updateData);
     }, []); // eslint-disable-line
 
     return (
@@ -32,12 +44,10 @@ export const RecentProjects = () => {
                     </Slide>
                 </div>
             </div>
-            <div className="w-full flex flex-row">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5 gap-y-6 sm:gap-6 py-3 lg:py-10">
-                    {data.map((project, i) => {
-                        return <Project key={i} data={project} />;
-                    })}
-                </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5 gap-y-6 sm:gap-6 py-3 lg:py-10">
+                {data.map((project, i) => {
+                    return <Project key={i} data={project} />;
+                })}
             </div>
         </div>
     );
