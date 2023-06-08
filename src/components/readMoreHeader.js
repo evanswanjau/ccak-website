@@ -9,17 +9,10 @@ import { CalendarDaysIcon, MapPinIcon } from "@heroicons/react/24/outline";
 import { BsTwitter, BsFacebook, BsLinkedin } from "react-icons/bs";
 
 export const ReadMoreHeader = ({
-    data: {
-        title,
-        excerpt,
-        category,
-        published,
-        venue,
-        event_date,
-    },
+    data: { title, excerpt, category, published, venue, event_date },
 }) => {
     return (
-        <section className="flex justify-center bg-[#EFF7F2] pt-24 pb-16">
+        <section className="flex justify-center bg-[#F2F9F4] pt-24 pb-16">
             <div className="lg:w-6/12 text-center">
                 <Slide bottom>
                     <h6 className="text-sm font-bold mt-5 text-gray-600 uppercase">
@@ -45,7 +38,11 @@ export const ReadMoreHeader = ({
                                 <p className="justify-center flex flex-row space-x-1">
                                     <CalendarDaysIcon className="-mt-2 w-6 text-[#329E49]" />
                                     <span>
-                                        {simpleDate(event_date) + " " + event_date.split("T")[1].slice(0, -4) }
+                                        {simpleDate(event_date) +
+                                            " " +
+                                            event_date
+                                                .split("T")[1]
+                                                .slice(0, -4)}
                                     </span>
                                 </p>
                             </div>

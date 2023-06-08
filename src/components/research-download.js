@@ -5,7 +5,7 @@ export const ResearchDownload = ({
 }) => {
     return (
         <Fade>
-            <div className="bg-[#EFF7F2] text-left p-5 rounded-lg">
+            <div className="bg-[#F2F9F4] text-left p-5 rounded-lg">
                 <div className="flex w-full pb-3 group-hover:border-white transition duration-150 ease-in-out">
                     <h3 className="font-semibold mb-1 group-hover:text-white transition duration-150 ease-in-out">
                         {title}
