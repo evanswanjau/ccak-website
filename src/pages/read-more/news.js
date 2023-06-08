@@ -4,22 +4,28 @@ import { News } from "../../components/news";
 import { ReadMoreHeader } from "../../components/readMoreHeader";
 import { Fade } from "react-reveal";
 import { SubFooter } from "../../layouts/subFooter";
-import { apiRequest } from "../../api/api-calls";
+import { apiRequest, searchPosts } from "../../api/api-calls";
 import ReactHtmlParser from "react-html-parser";
 
 export const NewsReadMore = () => {
     const params = useParams();
     const [data, updateData] = useState([]);
     const [recentData, updateRecentData] = useState([]);
+    const searchData = {
+        keyword: "",
+        table: "posts",
+        category: "news",
+        technology: "",
+        project_status: "",
+        page: 1,
+        limit: 4,
+        ip_address: "",
+        created_by: 0,
+    };
 
     useEffect(() => {
         apiRequest("get", "post/" + params.id, data, updateData);
-        apiRequest(
-            "get",
-            "post/search/all/news/4",
-            recentData,
-            updateRecentData
-        );
+        searchPosts(searchData, updateRecentData);
     }, []); // eslint-disable-line
 
     return (
@@ -33,7 +39,7 @@ export const NewsReadMore = () => {
                     <div className="py-3">
                         <Fade top>
                             <h2 className="w-full text-xl text-black font-bold py-5">
-                                Recent News
+                                More News
                             </h2>
                         </Fade>
                         <div className="grid grid-cols-1 gap-y-6">

@@ -6,23 +6,29 @@ import { AddToCalendarButton } from "add-to-calendar-button-react";
 import { MapPinIcon, CursorArrowRaysIcon } from "@heroicons/react/24/outline";
 import { ReadMoreHeader } from "../../components/readMoreHeader";
 import { SubFooter } from "../../layouts/subFooter";
-import { apiRequest } from "../../api/api-calls";
+import { apiRequest, searchPosts } from "../../api/api-calls";
 import ReactHtmlParser from "react-html-parser";
 
 export const EventReadMore = () => {
     const params = useParams();
     const [data, updateData] = useState([]);
     const [upcomingEvents, updateUpcomingEvents] = useState([]);
+    const searchData = {
+        keyword: "",
+        table: "posts",
+        category: "events",
+        technology: "",
+        project_status: "",
+        page: 1,
+        limit: 4,
+        ip_address: "",
+        created_by: 0,
+    };
 
     useEffect(() => {
         apiRequest("get", "post/" + params.id, data, updateData);
-        apiRequest(
-            "get",
-            "post/search/all/events/4",
-            upcomingEvents,
-            updateUpcomingEvents
-        );
-    }, []); // eslint-disable-line
+        searchPosts(searchData, updateUpcomingEvents);
+    }, [searchData]); // eslint-disable-line
 
     return (
         <div className="pt-[3.8rem] lg:pt-[6.9rem]">
@@ -88,7 +94,7 @@ export const EventReadMore = () => {
                     <div className="py-3">
                         <Fade top>
                             <h2 className="w-full text-xl text-black font-bold py-3">
-                                Upcoming Events
+                                More Events
                             </h2>
                         </Fade>
                         <div className="grid grid-cols-1 gap-y-6">

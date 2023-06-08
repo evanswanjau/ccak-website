@@ -4,22 +4,28 @@ import { Fade } from "react-reveal";
 import { ReadMoreHeader } from "../../components/readMoreHeader";
 import { SubFooter } from "../../layouts/subFooter";
 import { Career } from "../../components/career";
-import { apiRequest } from "../../api/api-calls";
+import { apiRequest, searchPosts } from "../../api/api-calls";
 import ReactHtmlParser from "react-html-parser";
 
 export const FundingOppportunitiesReadMore = () => {
     const params = useParams();
     const [data, updateData] = useState([]);
     const [recentData, updateRecentData] = useState([]);
+    const searchData = {
+        keyword: "",
+        table: "posts",
+        category: "funding-opportunities",
+        technology: "",
+        project_status: "",
+        page: 1,
+        limit: 4,
+        ip_address: "",
+        created_by: 0,
+    };
 
     useEffect(() => {
         apiRequest("get", "post/" + params.id, data, updateData);
-        apiRequest(
-            "get",
-            "post/search/all/funding-opportunities/4",
-            recentData,
-            updateRecentData
-        );
+        searchPosts(searchData, updateRecentData);
     }, []); // eslint-disable-line
 
     return (
@@ -33,7 +39,7 @@ export const FundingOppportunitiesReadMore = () => {
                     <div className="py-3">
                         <Fade top>
                             <h2 className="w-full text-xl text-black font-bold py-3">
-                                Recent Funding Opportunities
+                                More Funding Opportunities
                             </h2>
                         </Fade>
                         <div className="grid grid-cols-1 gap-y-6">
