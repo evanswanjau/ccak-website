@@ -15,7 +15,7 @@ export const CareersPage = () => {
         limit: 12,
         ip_address: "",
         created_by: 0,
-    })
+    });
 
     useEffect(() => {
         searchPosts(searchData, updateData);
@@ -23,7 +23,7 @@ export const CareersPage = () => {
 
     return (
         <div className="pt-[3.8rem] lg:pt-[6.9rem]">
-            <section className="flex flex-col md:flex-row w-full py-6 md:py-20 px-6 md:px-12 bg-[#EFF7F2]">
+            <section className="flex flex-col md:flex-row w-full py-6 md:py-20 px-6 md:px-12 bg-[#F2F9F4]">
                 <div className="hidden w-full lg:block md:w-1/12">
                     <Fade>
                         <div className="border-t-2 border-black mx-5 my-2"></div>

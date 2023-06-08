@@ -1,10 +1,16 @@
+import { useState } from "react";
 import { Slide, Fade } from "react-reveal";
 import { DonationStats } from "../../layouts/donationStats";
+import { DonateNow } from "../../layouts/donate";
 
 export const DonatePage = () => {
+    const [show, setShow] = useState(false);
+
     return (
         <div className="pt-[3.8rem] lg:pt-[6.9rem]">
-            <section className="flex flex-col md:flex-row w-full py-6 md:py-20 px-6 md:px-12 bg-[#EFF7F2]">
+            {show && <DonateNow setShow={setShow} />}
+
+            <section className="flex flex-col md:flex-row w-full py-6 md:py-20 px-6 md:px-12 bg-[#F2F9F4]">
                 <div className="hidden w-full lg:block md:w-1/12">
                     <Fade>
                         <div className="border-t-2 border-black mx-5 my-2"></div>
@@ -27,7 +33,12 @@ export const DonatePage = () => {
                         </p>
                     </Slide>
                     <Slide bottom>
-                        <button className="bg-[#329E49] font-manjari leading-none pb-3 pt-4 px-5 text-white hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest">
+                        <button
+                            className="bg-[#ED7423] font-manjari leading-none pb-3 pt-4 px-5 text-white hover:bg-[#ce621b] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest"
+                            onClick={() => {
+                                setShow(true);
+                            }}
+                        >
                             DONATE NOW
                         </button>
                     </Slide>

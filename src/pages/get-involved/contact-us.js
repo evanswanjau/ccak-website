@@ -1,11 +1,51 @@
 import { Slide, Fade } from "react-reveal";
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
 import { BsTwitter, BsFacebook, BsLinkedin } from "react-icons/bs";
+import { useState } from "react";
+import { InputForm } from "../../components/forms/input-form";
+import { TextArea } from "../../components/forms/text-area";
+import { ErrorMessage } from "../../components/forms/error";
+import { SuccessMessage } from "../../components/forms/success";
+import { ButtonLoader } from "../../components/btnLoader";
+import { validateEmail, validatePhoneNumber } from "../../helpers/validation";
+import { sendMail } from "../../api/api-calls";
 
 export const ContactUsPage = () => {
+    const [btnLoading, setBtnLoading] = useState(false);
+    const [error, setError] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [data, updateData] = useState({
+        first_name: "",
+        last_name: "",
+        email: "",
+        phone_number: "",
+        message: "",
+    });
+
+    const sendMessage = () => {
+        try {
+            setBtnLoading(true);
+            validateEmail(data.email);
+            validatePhoneNumber(data.phone_number);
+
+            setError(false);
+            sendMail(data, setBtnLoading, setError, setSuccess);
+        } catch (error) {
+            setBtnLoading(false);
+            setError(error.message);
+        }
+    };
+
+    let disabled =
+        data.first_name === "" ||
+        data.last_name === "" ||
+        data.email === "" ||
+        data.phone_number === "" ||
+        data.message === "";
+
     return (
         <div className="pt-[3.8rem] lg:pt-[6.9rem]">
-            <section className="flex flex-col md:flex-row w-full py-6 md:py-20 px-6 md:px-12 bg-[#EFF7F2]">
+            <section className="flex flex-col md:flex-row w-full py-6 md:py-20 px-6 md:px-12 bg-[#F2F9F4]">
                 <div className="hidden w-full lg:block md:w-1/12">
                     <Fade>
                         <div className="border-t-2 border-black mx-5 my-7"></div>
@@ -141,37 +181,85 @@ export const ContactUsPage = () => {
                         </h3>
                     </Slide>
                     <Fade>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6 font-manjari">
-                            <input
-                                className="w-full border border-1 outline-0 rounded-md pt-3 pb-2 px-3 focus:border-gray-400 focus:border-1"
-                                type="text"
-                                placeholder="First Name"
-                            />
-                            <input
-                                className="w-full border border-1 outline-0 rounded-md pt-3 pb-2 px-3 focus:border-gray-400 focus:border-1"
-                                type="text"
-                                placeholder="Last Name"
-                            />
-                            <input
-                                className="w-full border border-1 outline-0 rounded-md pt-3 pb-2 px-3 focus:border-gray-400 focus:border-1"
-                                type="email"
-                                placeholder="Email"
-                            />
-                            <input
-                                className="w-full border border-1 outline-0 rounded-md pt-3 pb-2 px-3 focus:border-gray-400 focus:border-1"
-                                type="text"
-                                placeholder="Phone Number"
-                            />
+                        <div className="space-y-4">
+                            {error && (
+                                <ErrorMessage
+                                    error={error}
+                                    setError={setError}
+                                />
+                            )}
+                            {success && (
+                                <SuccessMessage
+                                    success={success}
+                                    setSuccess={setSuccess}
+                                />
+                            )}
+                            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 my-5">
+                                <div className="w-full">
+                                    <InputForm
+                                        type="text"
+                                        name="first_name"
+                                        label="First Name"
+                                        required={true}
+                                        data={data}
+                                        updateData={updateData}
+                                    />
+                                </div>
+                                <div className="w-full">
+                                    <InputForm
+                                        type="text"
+                                        name="last_name"
+                                        label="Last Name"
+                                        required={true}
+                                        data={data}
+                                        updateData={updateData}
+                                    />
+                                </div>
+                            </div>
+                            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+                                <div className="w-full">
+                                    <InputForm
+                                        type="email"
+                                        name="email"
+                                        label="Email Address"
+                                        required={true}
+                                        data={data}
+                                        updateData={updateData}
+                                    />
+                                </div>
+                                <div className="w-full">
+                                    <InputForm
+                                        type="text"
+                                        name="phone_number"
+                                        label="Phone Number"
+                                        required={true}
+                                        data={data}
+                                        updateData={updateData}
+                                    />
+                                </div>
+                            </div>
+                            <div className="w-full">
+                                <TextArea
+                                    type="text"
+                                    name="message"
+                                    label="Write your message here"
+                                    required={true}
+                                    data={data}
+                                    updateData={updateData}
+                                />
+                            </div>
                         </div>
-                        <div className="my-3 md:my-5 font-manjari">
-                            <textarea
-                                rows="4"
-                                placeholder="Enter your message here..."
-                                className="w-full border border-1 outline-0 rounded-md pt-3 pb-2 px-3 focus:border-gray-400 focus:border-1"
-                            ></textarea>
-                        </div>
-                        <button className="bg-[#329E49] leading-none pb-3 pt-4 px-5 font-manjari text-white hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest">
-                            SEND MESSAGE
+                        <button
+                            className={`${
+                                disabled || btnLoading
+                                    ? "bg-gray-200"
+                                    : "bg-[#ED7423] hover:bg-[#ce621b]"
+                            }  leading-none mt-5 pb-3 pt-4 px-5 font-manjari text-white  rounded-md transition duration-300 ease-in-out tracking-widest`}
+                            onClick={() => {
+                                sendMessage();
+                            }}
+                        >
+                            {btnLoading ? <ButtonLoader /> : "SEND MESSAGE"}
                         </button>
                     </Fade>
                 </div>
