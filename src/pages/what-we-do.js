@@ -14,7 +14,7 @@ import { RecentProjects } from "../layouts/recentProjects";
 const items = [
     {
         icon: (
-            <ScaleIcon className="w-8 text-[#329E49] group-hover:text-[#ED7423] transition duration-300 ease-in-out" />
+            <ScaleIcon className="w-8 text-white" />
         ),
         name: "environment advocate",
         description:
@@ -22,7 +22,7 @@ const items = [
     },
     {
         icon: (
-            <UsersIcon className="w-8 text-[#329E49] group-hover:text-[#ED7423] transition duration-300 ease-in-out" />
+            <UsersIcon className="w-8 text-white" />
         ),
         name: "capacity building",
         description:
@@ -30,7 +30,7 @@ const items = [
     },
     {
         icon: (
-            <CubeTransparentIcon className="w-8 text-[#329E49] group-hover:text-[#ED7423] transition duration-300 ease-in-out" />
+            <CubeTransparentIcon className="w-8 text-white" />
         ),
         name: "stakeholder coordination",
         description:
@@ -38,7 +38,7 @@ const items = [
     },
     {
         icon: (
-            <Squares2X2Icon className="w-8 text-[#329E49] group-hover:text-[#ED7423] transition duration-300 ease-in-out" />
+            <Squares2X2Icon className="w-8 text-white" />
         ),
         name: "promote clean cooking",
         description:
@@ -46,7 +46,7 @@ const items = [
     },
     {
         icon: (
-            <WrenchScrewdriverIcon className="w-8 text-[#329E49] group-hover:text-[#ED7423] transition duration-300 ease-in-out" />
+            <WrenchScrewdriverIcon className="w-8 text-white" />
         ),
         name: "research and development",
         description:
@@ -54,7 +54,7 @@ const items = [
     },
     {
         icon: (
-            <WrenchScrewdriverIcon className="w-8 text-[#329E49] group-hover:text-[#ED7423] transition duration-300 ease-in-out" />
+            <WrenchScrewdriverIcon className="w-8 text-white" />
         ),
         name: "impact lives",
         description:
@@ -108,9 +108,9 @@ export const WhatWeDoPage = () => {
                     </Fade>
                 </div>
             </section>
-            <section className="p-6 lg:p-16 bg-[#EFF7F2]">
+            <section className="p-6 lg:p-16  bg-[#ED7423]">
                 <Slide bottom>
-                    <h2 className="font-semibold text-2xl md:text-4xl flex my-6 justify-center">
+                    <h2 className="text-white font-semibold text-2xl md:text-4xl flex my-6 justify-center">
                         What we do in the clean cooking cector
                     </h2>
                 </Slide>
@@ -124,10 +124,10 @@ export const WhatWeDoPage = () => {
                                             {item.icon}
                                         </div>
                                         <div className="sm:w-10/12">
-                                            <h6 className="font-semibold text-[#329E49] text-lg capitalize mb-2">
+                                            <h6 className="font-semibold text-white text-lg capitalize mb-2">
                                                 {item.name}
                                             </h6>
-                                            <p className="text-gray-600">
+                                            <p className="text-white">
                                                 {item.description}
                                             </p>
                                         </div>

@@ -80,31 +80,31 @@ const affiliations = [
 
 const pillars = [
     {
-        icon: <ScaleIcon className="w-8 text-[#329E49]" />,
+        icon: <ScaleIcon className="w-8 text-black" />,
         name: "representation and advocacy",
         description:
             "This pillar focuses on representing the interests of the clean cooking sector at various levels, including engaging with governments, policymakers, and other stakeholders to advocate for supportive policies and regulations. It involves raising awareness about the importance of clean cooking and highlighting the benefits it brings to health, environment, and livelihoods.",
     },
     {
-        icon: <UsersIcon className="w-8 text-[#329E49]" />,
+        icon: <UsersIcon className="w-8 text-black" />,
         name: "membership and member oriented services",
         description:
             "This pillar emphasizes building and maintaining a strong membership base within the clean cooking sector. It involves offering services and support to members, such as networking opportunities, capacity building, and access to resources and information. The organization works to foster collaboration and provide value to its members.",
     },
     {
-        icon: <CubeTransparentIcon className="w-8 text-[#329E49]" />,
+        icon: <CubeTransparentIcon className="w-8 text-black" />,
         name: "standards and technical issues",
         description:
             "This pillar revolves around establishing and promoting standards for clean cooking technologies, fuels, and related practices. It includes developing guidelines and technical specifications to ensure the quality, safety, and performance of clean cooking solutions. This pillar also involves addressing technical challenges and facilitating innovation within the sector.",
     },
     {
-        icon: <Squares2X2Icon className="w-8 text-[#329E49]" />,
+        icon: <Squares2X2Icon className="w-8 text-black" />,
         name: "knowledge and information management",
         description:
             "This pillar focuses on gathering, organizing, and disseminating knowledge and information related to clean cooking. It involves conducting research, collecting data, and sharing best practices, lessons learned, and evidence-based insights. The organization strives to be a central hub for knowledge exchange and learning within the clean cooking sector.",
     },
     {
-        icon: <WrenchScrewdriverIcon className="w-8 text-[#329E49]" />,
+        icon: <WrenchScrewdriverIcon className="w-8 text-black" />,
         name: "institution strengthening and resourcing",
         description:
             "This pillar aims to strengthen the capacity and sustainability of the organization itself. It involves building institutional capabilities, establishing governance structures, and enhancing financial resources. This pillar focuses on ensuring the organization's long-term viability and effectiveness in achieving its mission and goals.",
@@ -159,7 +159,7 @@ export const AboutUsPage = () => {
                     </Slide>
                 </div>
             </section>
-            <section className="p-6 md:p-16 bg-[#EFF7F2]">
+            <section className="p-6 md:p-16 bg-[#F2F9F4]">
                 <Slide bottom>
                     <div
                         style={{
@@ -282,16 +282,16 @@ export const AboutUsPage = () => {
                 </div>
             </section>
             <section className="p-6 lg:p-16">
-                <div className="flex flex-col lg:flex-row text-white bg-black md:space-x-10 p-6 lg:p-16 rounded-lg">
+                <div className="flex flex-col lg:flex-row items-center text-white bg-[#ED7423] lg:space-x-10 p-6 lg:p-16 rounded-lg">
                     <div className="lg:w-6/12">
                         <Slide bottom>
-                            <h3 className="text-3xl md:text-4xl mb-10">
+                            <h3 className="text-3xl md:text-4xl mb-10 font-bold">
                                 Why clean cooking is important
                             </h3>
                         </Slide>
 
                         <Slide bottom>
-                            <p className="text-gray-400">
+                            <p className="text-white text-lg">
                                 Clean cooking is essential for a variety of
                                 reasons. Traditional cooking methods, such as
                                 burning wood or charcoal, release harmful
@@ -301,7 +301,7 @@ export const AboutUsPage = () => {
                         </Slide>
                         <br />
                         <Slide bottom>
-                            <p className="text-gray-400">
+                            <p className="text-white text-lg">
                                 They reduce or eliminate these pollutants,
                                 improving indoor air quality and promoting
                                 better health.
@@ -309,7 +309,7 @@ export const AboutUsPage = () => {
                         </Slide>
                         <br />
                         <Slide bottom>
-                            <p className="text-gray-400">
+                            <p className="text-white text-lg">
                                 Additionally, traditional cooking methods
                                 contribute to deforestation and other
                                 environmental problems. Clean cooking solutions
@@ -318,7 +318,7 @@ export const AboutUsPage = () => {
                             </p>
                         </Slide>
                     </div>
-                    <div className="mt-10 sm:mt-0 lg:w-6/12 lg:pt-10">
+                    <div className="mt-10 lg:mt-0 lg:w-6/12 flex">
                         <Fade>
                             <img
                                 className="rounded-lg"
@@ -345,7 +345,7 @@ export const AboutUsPage = () => {
                                 <Slide bottom key={i}>
                                     <div className="space-y-2">
                                         {pillar.icon}
-                                        <h6 className="font-semibold capitalize text-[#329E49]">
+                                        <h6 className="font-semibold capitalize text-black">
                                             {pillar.name}
                                         </h6>
                                         <p className="text-gray-600">

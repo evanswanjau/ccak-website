@@ -17,22 +17,22 @@ export const HomePage = () => {
         {
             title: "Impact at least 7 million women",
             desc: "We have set out to impact at least 7 million women through its five-year strategy.",
-            icon: <ChartBarSquareIcon className="w-6 text-[#329E49]" />,
+            icon: <ChartBarSquareIcon className="w-6 text-white" />,
         },
         {
             title: "Mitigate climate change",
             desc: "Promoting clean cooking is an effective way to mitigate climate change.",
-            icon: <GlobeEuropeAfricaIcon className="w-6 text-[#329E49]" />,
+            icon: <GlobeEuropeAfricaIcon className="w-6 text-white" />,
         },
         {
             title: "Improving livelihoods",
             desc: "By reducing exposure to indoor air pollution, clean cooking  can improve the well-being of individuals.",
-            icon: <UserGroupIcon className="w-6 text-[#329E49]" />,
+            icon: <UserGroupIcon className="w-6 text-white" />,
         },
         {
             title: "Preserve the environment",
             desc: "Producing fewer greenhouse gas emissions we are able to reducing the carbon footprint.",
-            icon: <SunIcon className="w-6 text-[#329E49]" />,
+            icon: <SunIcon className="w-6 text-white" />,
         },
     ];
 
@@ -107,11 +107,13 @@ export const HomePage = () => {
                             coordinate and advocate for the sector.
                         </p>
                     </Slide>
+                    <br />
                     <Slide bottom>
-                        <a href={"/who-we-are/about-us"}>
-                            <button className="bg-[#329E49] text-white pt-3 pb-2 px-6 my-5 hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out">
-                                LEARN MORE
-                            </button>
+                        <a
+                            href={"/who-we-are/about-us"}
+                            className="bg-[#EC7422] text-white pt-4 pb-3 px-6 hover:bg-[#ce621b] hover:text-white rounded-md transition duration-300 ease-in-out"
+                        >
+                            LEARN MORE
                         </a>
                     </Slide>
                 </div>
@@ -138,23 +140,23 @@ export const HomePage = () => {
                     <LogoCarousel logos={partners} />
                 </div>
             </section>
-            <section className="flex flex-col lg:flex-row w-full p-6 lg:py-20 lg:p-12 bg-[#EFF7F2]">
+            <section className="flex flex-col lg:flex-row w-full p-6 lg:py-20 lg:p-12 bg-[#EC7422]">
                 <div className="hidden lg:block w-1/12">
-                    <div className="border-t-2 border-black mx-5 mt-2"></div>
+                    <div className="border-t-2 border-white mx-5 mt-2"></div>
                 </div>
                 <div className="lg:w-6/12">
                     <Slide bottom>
-                        <h6 className="text-black font-bold text-xs">
+                        <h6 className="text-white font-bold text-xs">
                             WHAT WE DO
                         </h6>
                     </Slide>
                     <Slide bottom>
-                        <h2 className="text-black font-semibold text-4xl my-6">
+                        <h2 className="text-white font-semibold text-4xl my-6">
                             Promoting clean cooking solutions
                         </h2>
                     </Slide>
                     <Slide bottom>
-                        <p className="my-5">
+                        <p className="my-5 text-white">
                             The Clean Cooking Association of Kenya (CCAK) is a
                             not-for-profit business membership organization
                             representing stakeholders in the clean cooking
@@ -162,13 +164,13 @@ export const HomePage = () => {
                         </p>
                     </Slide>
 
-                    <ul className="border-l">
+                    <ul className="border-l border-gray-50 text-gray-50">
                         {whatWedo.map((item, i) => (
                             <Slide bottom key={i}>
                                 <li className="flex flex-row my-8">
                                     <div className="mx-5">{item.icon}</div>
                                     <div className="lg:w-2/4">
-                                        <p className="text-xl font-semibold  text-black">
+                                        <p className="text-xl font-semibold text-white">
                                             {item.title}
                                         </p>
                                         <p>{item.desc}</p>
