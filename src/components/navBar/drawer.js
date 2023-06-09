@@ -153,7 +153,7 @@ export const Drawer = ({ mobile, setMobile }) => {
         >
             <div
                 // prettier-ignore
-                class={`fixed top-0 left-0  font-manjari h-screen p-4 overflow-y-auto transition-translate duration-300 ease-in-out ${!mobile ? '-translate-x-full' : 'translate-x-0'} bg-white w-80`}
+                class={`fixed top-0 left-0  font-manjari h-screen p-4 overflow-y-auto transition-translate duration-300 ease-in-out ${!mobile ? '-translate-x-full' : 'translate-x-0'} bg-[#FAD5BB] w-80`}
                 tabindex="-1"
             >
                 <div className="flex flex-row items-center justify-between border-b pb-5">
@@ -184,7 +184,7 @@ export const Drawer = ({ mobile, setMobile }) => {
                                     <a href={item.info.link}>
                                         <button
                                             type="button"
-                                            class="flex items-center w-full pt-3.5 pb-3 px-2.5 text-base font-bold font-montserrat text-[#329E49] rounded-lg group hover:text-[#ED7423] transition duration-300 ease-in-out"
+                                            class="flex items-center w-full pt-3.5 pb-3 px-2.5 text-base font-bold font-montserrat text-black rounded-lg group hover:text-[#ED7423] transition duration-300 ease-in-out"
                                             onClick={() => {
                                                 setCurrent(
                                                     current === item.info.title
@@ -213,7 +213,7 @@ export const Drawer = ({ mobile, setMobile }) => {
                                                 <li key={link.name}>
                                                     <a
                                                         href={link.link}
-                                                        class="flex items-center w-full pt-3 pb-2 px-2 text-base font-bold font-montserrat text-[#329E49] rounded-lg pl-11 group hover:bg-white hover:text-[#ED7423] transition duration-300 ease-in-out"
+                                                        class="flex items-center w-full pt-3 pb-2 px-2 text-base font-bold font-montserrat text-black rounded-lg pl-11 group  hover:text-[#ED7423] transition duration-300 ease-in-out"
                                                     >
                                                         {link.name}
                                                     </a>
