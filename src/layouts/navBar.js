@@ -37,7 +37,7 @@ export const NavBar = () => {
                 };
             }
         }, 500);
-    }, [lastScrollY]);
+    }, [lastScrollY]); // eslint-disable-line
 
     return (
         <div className="fixed z-40 flex w-full">

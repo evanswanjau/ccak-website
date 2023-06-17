@@ -29,10 +29,19 @@ const data = [
         image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
     },
     {
-        links: [],
+        links: [
+            {
+                link: "/what-we-do",
+                name: "WHAT WE DO",
+            },
+            {
+                link: "/what-we-do/projects",
+                name: "PROJECTS",
+            },
+        ],
         info: {
             title: "WHAT WE DO",
-            link: "/what-we-do",
+            link: "#",
         },
     },
     {
@@ -78,7 +87,11 @@ const data = [
             },
             {
                 link: "/membership/register/",
-                name: "REGISTER NOW",
+                name: "MEMBER REGISTRATION",
+            },
+            {
+                link: "/membership/login/",
+                name: "MEMBER LOGIN",
             },
         ],
         info: {
@@ -95,8 +108,8 @@ const data = [
                 name: "PUBLICATIONS",
             },
             {
-                link: "/resource-centre/funding-opportunities/",
-                name: "FUNDING OPPORTUNITES",
+                link: "/resource-centre/newsletters/",
+                name: "NEWSLETTERS",
             },
         ],
         info: {
@@ -156,7 +169,7 @@ export const Drawer = ({ mobile, setMobile }) => {
                 class={`fixed top-0 left-0  font-manjari h-screen p-4 overflow-y-auto transition-translate duration-300 ease-in-out ${!mobile ? '-translate-x-full' : 'translate-x-0'} bg-[#FAD5BB] w-80`}
                 tabindex="-1"
             >
-                <div className="flex flex-row items-center justify-between border-b pb-5">
+                <div className="flex flex-row items-center justify-between border-b border-black pb-5">
                     <a href="/">
                         <img
                             className="w-32"
@@ -166,7 +179,7 @@ export const Drawer = ({ mobile, setMobile }) => {
                     </a>
                     <button
                         type="button"
-                        class="text-white hover:text-[#ED7423] bg-transparent hover:bg-white rounded-lg text-sm p-1.5 transition duration-300 ease-in-out"
+                        class="text-white bg-transparent hover:bg-black rounded-lg text-sm p-1.5 transition duration-300 ease-in-out"
                         onClick={() => {
                             setMobile(false);
                         }}

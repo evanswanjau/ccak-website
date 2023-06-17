@@ -20,6 +20,25 @@ export const DropDown = ({ dropDown: { show, category }, setDropDown }) => {
         image: "dropdown_menu/dropdown_who_we_are.jpg",
     };
 
+    const whatWeDoData = {
+        links: [
+            {
+                link: "/what-we-do",
+                name: "WHAT WE DO",
+            },
+            {
+                link: "/what-we-do/projects",
+                name: "PROJECTS",
+            },
+        ],
+        info: {
+            title: "WHAT WE DO",
+            content:
+                "We focus on various aspects to drive the growth of the clean cooking sector. Our efforts revolve around creating a favorable environment at national and county levels, fostering the adoption of clean cooking technologies, enhancing sector capacity, and engaging with stakeholders to advocate for its progress by aiming to catalyze the advancement of the clean cooking industry",
+        },
+        image: "dropdown_menu/dropdown_who_we_are.jpg",
+    };
+
     const getInvolvedData = {
         links: [
             {
@@ -63,7 +82,11 @@ export const DropDown = ({ dropDown: { show, category }, setDropDown }) => {
             },
             {
                 link: "/membership/register/",
-                name: "REGISTER NOW",
+                name: "MEMBER REGISTRATION",
+            },
+            {
+                link: "/membership/login/",
+                name: "MEMBER LOGIN",
             },
         ],
         info: {
@@ -81,8 +104,8 @@ export const DropDown = ({ dropDown: { show, category }, setDropDown }) => {
                 name: "PUBLICATIONS",
             },
             {
-                link: "/resource-centre/funding-opportunities/",
-                name: "FUNDING OPPORTUNITES",
+                link: "/resource-centre/newsletters/",
+                name: "NEWSLETTERS",
             },
         ],
         info: {
@@ -126,6 +149,7 @@ export const DropDown = ({ dropDown: { show, category }, setDropDown }) => {
 
     let data = "";
     if (category === "WHO WE ARE") data = whoWeAreData;
+    if (category === "WHAT WE DO") data = whatWeDoData;
     if (category === "GET INVOLVED") data = getInvolvedData;
     if (category === "MEMBERSHIP") data = membershipData;
     if (category === "MEDIA CENTRE") data = mediaCentreData;
@@ -147,9 +171,12 @@ export const DropDown = ({ dropDown: { show, category }, setDropDown }) => {
                 <div
                     id="dropdown"
                     className="z-10 flex flex-wrap w-100 font-manjari text-gray-600 bg-white shadow-sm"
+                    onMouseLeave={() => {
+                        setDropDown({ show: false, category: "" });
+                    }}
                 >
                     <div className="w-3/12 p-5">
-                        <ul className=" border-r">
+                        <ul>
                             {data.links.map((link, i) => (
                                 <a href={link.link} key={i}>
                                     <li
@@ -167,11 +194,13 @@ export const DropDown = ({ dropDown: { show, category }, setDropDown }) => {
                             ))}
                         </ul>
                     </div>
-                    <div className="w-5/12 p-5">
-                        <h1 className="m-5 text-2xl text-gray-800">
-                            {data.info.title}
-                        </h1>
-                        <p className="m-5">{data.info.content}</p>
+                    <div className="w-5/12 p-3">
+                        <div className="border-l p-2">
+                            <h1 className="m-5 text-2xl text-gray-800">
+                                {data.info.title}
+                            </h1>
+                            <p className="m-5">{data.info.content}</p>
+                        </div>
                     </div>
                     <div
                         style={{

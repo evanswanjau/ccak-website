@@ -1,6 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { searchPosts } from "../../api/api-calls";
 
 export const MenuBar = ({ setDropDown }) => {
+    const [data, updateData] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [searchData, updateSearchData] = useState({
+        keyword: "",
+        table: "posts",
+        category: "",
+        technology: "",
+        project_status: "",
+        page: 1,
+        limit: 10,
+        ip_address: "",
+        created_by: 0,
+    });
+
+    useEffect(() => {
+        if (searchData.keyword.length > 0) {
+            setLoading(true);
+            searchPosts(searchData, updateData, setLoading).finally(() => {
+                setLoading(false);
+            });
+        } else {
+            updateData([]);
+        }
+    }, [searchData]); // eslint-disable-line
+
     const links = [
         {
             link: "/",
@@ -11,7 +37,7 @@ export const MenuBar = ({ setDropDown }) => {
             name: "WHO WE ARE",
         },
         {
-            link: "/what-we-do",
+            link: "#",
             name: "WHAT WE DO",
         },
         {
@@ -25,15 +51,15 @@ export const MenuBar = ({ setDropDown }) => {
     ];
 
     return (
-        <div className="flex flex-row items-center py-3 px-5 w-100 font-manjari text-gray-600 bg-[#329E49]">
-            <div className="lg:w-10/12 pt-1">
+        <div className="flex flex-row px-5 items-center w-100 font-manjari text-gray-600 bg-[#329E49]">
+            <div className="lg:w-9/12">
                 <ul className="flex flex-row">
                     {links.map((link) =>
                         link.link === "#" ? (
                             <li
                                 key={link.name}
-                                className="px-5 cursor-pointer truncate text-lg text-gray-100 hover:text-white"
-                                onClick={() => {
+                                className="pt-4 pb-3 px-5 cursor-pointer truncate text-lg text-gray-100 hover:text-white hover:bg-[#ED7423] transition duration-300 ease-in"
+                                onMouseEnter={() => {
                                     setDropDown({
                                         show: true,
                                         category: link.name,
@@ -44,7 +70,15 @@ export const MenuBar = ({ setDropDown }) => {
                             </li>
                         ) : (
                             <a href={link.link} key={link.name}>
-                                <li className="px-5 cursor-pointer truncate text-lg text-gray-100 hover:text-white">
+                                <li
+                                    className="pt-4 pb-3 px-5 cursor-pointer truncate text-lg text-gray-100 hover:text-white hover:bg-[#ED7423] transition duration-300 ease-in"
+                                    onMouseEnter={() => {
+                                        setDropDown({
+                                            show: false,
+                                            category: "",
+                                        });
+                                    }}
+                                >
                                     {link.name}
                                 </li>
                             </a>
@@ -52,12 +86,73 @@ export const MenuBar = ({ setDropDown }) => {
                     )}
                 </ul>
             </div>
-            <div className="lg:w-2/12">
+            <div
+                className="lg:w-3/12"
+                onMouseEnter={() => {
+                    setDropDown({
+                        show: false,
+                        category: "",
+                    });
+                }}
+                onMouseLeave={() => {
+                    updateSearchData({ ...searchData, keyword: "" });
+                }}
+            >
                 <input
-                    className="w-full placeholder-gray-300 bg-[#2e8641] text-white font-manjari outline-0 rounded-md pt-2 pb-1 px-3"
+                    className="w-full placeholder-gray-300 bg-[#2e8641] text-white font-manjari outline-none rounded-md pt-2 pb-1 px-3 focus:outline-none"
                     type="text"
                     placeholder={`Search`}
+                    value={searchData.keyword}
+                    onChange={(event) => {
+                        updateSearchData({
+                            ...searchData,
+                            keyword: event.target.value,
+                        });
+                    }}
                 />
+                <div className="absolute right-[1em] bg-white shadow-lg  max-h-[calc(100vh-10rem)] lg:w-3/12 rounded-lg">
+                    {loading ? (
+                        <p className="p-3 text-sm text-gray-400">
+                            Searching ...
+                        </p>
+                    ) : (
+                        <>
+                            {data.length > 0 && searchData.keyword !== "" && (
+                                <>
+                                    <p className="p-3 text-sm text-gray-400">
+                                        Search results for{" "}
+                                        <b className="text-black">
+                                            {searchData.keyword}
+                                        </b>
+                                    </p>
+                                    <div className="overflow-y-scroll max-h-[calc(100vh-13rem)]">
+                                        {data.map((item, i) => {
+                                            return (
+                                                <div className="border-t p-2 cursor-pointer hover:bg-gray-100 transition duration-200 ease-in-out">
+                                                    <h1 className="text-sm text-gray-800 font-semibold">
+                                                        {item.title}
+                                                    </h1>
+                                                    <p className="text-xs line-clamp-1">
+                                                        {item.excerpt}
+                                                    </p>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                </>
+                            )}
+
+                            {data.length < 1 && searchData.keyword !== "" && (
+                                <p className="p-3 text-sm text-gray-400">
+                                    No results for{" "}
+                                    <b className="text-black">
+                                        {searchData.keyword}
+                                    </b>
+                                </p>
+                            )}
+                        </>
+                    )}
+                </div>
             </div>
         </div>
     );

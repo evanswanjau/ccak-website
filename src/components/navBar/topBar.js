@@ -34,10 +34,9 @@ export const TopBar = ({ setDropDown }) => {
                             <li
                                 key={link.name}
                                 className={` ${
-                                    link.name !== "SOCIAL HUB" &&
-                                    "border-l"
+                                    link.name !== "SOCIAL HUB" && "border-l"
                                 }  px-5 cursor-pointer hover:text-[#ED7423]`}
-                                onClick={() => {
+                                onMouseEnter={() => {
                                     setDropDown({
                                         show: true,
                                         category: link.name,
@@ -50,9 +49,14 @@ export const TopBar = ({ setDropDown }) => {
                             <a href={link.link} key={link.name}>
                                 <li
                                     className={` ${
-                                        link.name !== "SOCIAL HUB" &&
-                                        "border-l"
+                                        link.name !== "SOCIAL HUB" && "border-l"
                                     }  px-5 cursor-pointer hover:text-[#ED7423]`}
+                                    onMouseEnter={() => {
+                                        setDropDown({
+                                            show: false,
+                                            category: "",
+                                        });
+                                    }}
                                 >
                                     {link.name}
                                 </li>
@@ -60,7 +64,7 @@ export const TopBar = ({ setDropDown }) => {
                         )
                     )}
                     <a href="/get-involved/donate">
-                        <button className="bg-[#329E49] text-white pt-[0.3em] px-3 mx-5 hover:bg-[#3ab554] rounded-md tracking-widest">
+                        <button className="bg-[#EC7422] text-white pt-[0.3em] px-3 mx-5 hover:bg-[#ce621b] rounded-md tracking-widest">
                             DONATE
                         </button>
                     </a>
