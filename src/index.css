@@ -203,3 +203,8 @@ a {
     border-radius: 5px;
     margin-top: -6px;
 }
+
+.react-images__view-image--isModal {
+ display: inline-block;
+ left: 50%
+}

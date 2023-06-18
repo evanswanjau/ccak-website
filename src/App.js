@@ -7,7 +7,8 @@ import { NavBar } from "./layouts/navBar";
 import { Footer } from "./components/footer";
 
 import { HomePage } from "./pages/home";
-import { WhatWeDoPage } from "./pages/what-we-do";
+import { WhatWeDoPage } from "./pages/what-we-do/what-we-do";
+import { ProjectsPage } from "./pages/what-we-do/projects";
 
 import { AboutUsPage } from "./pages/who-we-are/about-us";
 import { OurTeamPage } from "./pages/who-we-are/our-team";
@@ -19,23 +20,24 @@ import { DonatePage } from "./pages/get-involved/donate";
 import { ContactUsPage } from "./pages/get-involved/contact-us";
 
 import { PublicationsPage } from "./pages/resource-centre/publications";
-import { FundingOpportunitiesRCPage } from "./pages/resource-centre/funding-opportunities";
+import { NewslettersPage } from "./pages/resource-centre/newsletters";
 
 import { PressReleasePage } from "./pages/media-centre/pressRelease";
 import { NewsPage } from "./pages/media-centre/news";
 import { EventsPage } from "./pages/media-centre/events";
-import { ProjectsPage } from "./pages/media-centre/projects";
 import { PhotoGalleryPage } from "./pages/media-centre/photoGallery";
 
 import { EventReadMore } from "./pages/read-more/event";
 import { PressReleaseReadMore } from "./pages/read-more/pressRelease";
 import { NewsReadMore } from "./pages/read-more/news";
-import { ProjectReadMore } from "./pages/read-more/project";
+import { BlogReadMore } from "./pages/read-more/blog";
 import { ConsultancyReadMore } from "./pages/read-more/consultancy";
 import { CareerReadMore } from "./pages/read-more/career";
 import { FundingOppportunitiesReadMore } from "./pages/read-more/funding";
 import { ResearchPapersReadMore } from "./pages/read-more/research-papers";
 import { AgmMaterialReadMore } from "./pages/read-more/agm-material";
+import { ProjectReadMore } from "./pages/read-more/project";
+import { PhotoGalleryReadMore } from "./pages/read-more/photo-gallery";
 
 import { PackagesPage } from "./pages/membership/packages";
 import { OurMembersPage } from "./pages/membership/our-members";
@@ -83,6 +85,11 @@ function App() {
                     path="/what-we-do"
                     component={WhatWeDoPage}
                 ></Route>
+                <Route
+                    exact
+                    path="/what-we-do/projects"
+                    component={ProjectsPage}
+                ></Route>
                 {/** --------------- WHO WE ARE ---------------------*/}
                 <Route
                     exact
@@ -102,8 +109,8 @@ function App() {
                 />
                 <Route
                     exact
-                    path="/resource-centre/funding-opportunities"
-                    component={FundingOpportunitiesRCPage}
+                    path="/resource-centre/newsletters"
+                    component={NewslettersPage}
                 />
                 {/** ---------------GET INVOLVED ---------------------*/}
                 <Route
@@ -143,11 +150,6 @@ function App() {
                     path="/media-centre/events"
                     component={EventsPage}
                 />
-                <Route
-                    exact
-                    path="/media-centre/projects"
-                    component={ProjectsPage}
-                />
                 <Route exact path="/media-centre/blog" component={BlogPage} />
                 <Route
                     exact
@@ -172,8 +174,13 @@ function App() {
                 />
                 <Route
                     exact
-                    path="/media-centre/projects/read-more/:id/:title"
-                    component={ProjectReadMore}
+                    path="/media-centre/blog/read-more/:id/:title"
+                    component={BlogReadMore}
+                />
+                <Route
+                    exact
+                    path="/media-centre/photo-gallery/read-more/:id/:title"
+                    component={PhotoGalleryReadMore}
                 />
                 <Route
                     exact
@@ -199,6 +206,11 @@ function App() {
                     exact
                     path="/resource-centre/agm-material/read-more/:id/:title"
                     component={AgmMaterialReadMore}
+                />
+                <Route
+                    exact
+                    path="/what-we-do/projects/read-more/:id/:title"
+                    component={ProjectReadMore}
                 />
                 {/** ----------------- MEMBERSHIP --------------------- */}
                 <Route

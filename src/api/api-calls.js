@@ -59,6 +59,7 @@ export const apiRequest = (method, url, data, updateData) => {
         },
     }).then(({ data }) => {
         updateData(data);
+        return data;
     });
 };
 
