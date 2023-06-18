@@ -83,31 +83,31 @@ const pillars = [
         icon: <ScaleIcon className="w-8 text-black" />,
         name: "representation and advocacy",
         description:
-            "This pillar focuses on representing the interests of the clean cooking sector at various levels, including engaging with governments, policymakers, and other stakeholders to advocate for supportive policies and regulations. It involves raising awareness about the importance of clean cooking and highlighting the benefits it brings to health, environment, and livelihoods.",
+            "Covers how best CCAK can improve its positioning in the sector to better advocate for varied clean cooking sector interests.",
     },
     {
         icon: <UsersIcon className="w-8 text-black" />,
         name: "membership and member oriented services",
         description:
-            "This pillar emphasizes building and maintaining a strong membership base within the clean cooking sector. It involves offering services and support to members, such as networking opportunities, capacity building, and access to resources and information. The organization works to foster collaboration and provide value to its members.",
+            "Clearer value propositions for members and improve engagement based on member needs.  ",
     },
     {
         icon: <CubeTransparentIcon className="w-8 text-black" />,
         name: "standards and technical issues",
         description:
-            "This pillar revolves around establishing and promoting standards for clean cooking technologies, fuels, and related practices. It includes developing guidelines and technical specifications to ensure the quality, safety, and performance of clean cooking solutions. This pillar also involves addressing technical challenges and facilitating innovation within the sector.",
+            "Focuses on ensuring standards for devices and fuels and other technical issues including voluntary labeling are handled effectively.",
     },
     {
         icon: <Squares2X2Icon className="w-8 text-black" />,
         name: "knowledge and information management",
         description:
-            "This pillar focuses on gathering, organizing, and disseminating knowledge and information related to clean cooking. It involves conducting research, collecting data, and sharing best practices, lessons learned, and evidence-based insights. The organization strives to be a central hub for knowledge exchange and learning within the clean cooking sector.",
+            "Underlies the need for CCAK to provide research and information to the sector and stakeholders. ",
     },
     {
         icon: <WrenchScrewdriverIcon className="w-8 text-black" />,
         name: "institution strengthening and resourcing",
         description:
-            "This pillar aims to strengthen the capacity and sustainability of the organization itself. It involves building institutional capabilities, establishing governance structures, and enhancing financial resources. This pillar focuses on ensuring the organization's long-term viability and effectiveness in achieving its mission and goals.",
+            "Institutional strengthening and resourcing to ensure the sustainability of CCAK. ",
     },
 ];
 
