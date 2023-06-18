@@ -1,7 +1,7 @@
 import { Fade } from "react-reveal";
 
 export const ResearchDownload = ({
-    data: { title, excerpt, published, url, category, size },
+    data: { title, folder, excerpt, published, file, category, size },
 }) => {
     return (
         <Fade>
@@ -12,12 +12,19 @@ export const ResearchDownload = ({
                     </h3>
                 </div>
                 <div className="flex flex-row justify-between items-center mt-3">
-                    <button
-                        href="#"
+                    <a
+                        href={
+                            process.env.REACT_APP_IMAGEKIT_URL +
+                            folder +
+                            "/" +
+                            file
+                        }
+                        target="_blank"
+                        rel="noreferrer"
                         className="bg-white font-manjari leading-none pb-2 text-md pt-3 px-5 hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest"
                     >
                         DOWNLOAD
-                    </button>
+                    </a>
                     <p>{size}</p>
                 </div>
             </div>

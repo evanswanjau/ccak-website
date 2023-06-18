@@ -34,8 +34,8 @@ import { BlogReadMore } from "./pages/read-more/blog";
 import { ConsultancyReadMore } from "./pages/read-more/consultancy";
 import { CareerReadMore } from "./pages/read-more/career";
 import { FundingOppportunitiesReadMore } from "./pages/read-more/funding";
-import { ResearchPapersReadMore } from "./pages/read-more/research-papers";
-import { AgmMaterialReadMore } from "./pages/read-more/agm-material";
+import { NewslettersReadMore } from "./pages/read-more/newsletters";
+import { PublicationReadMore } from "./pages/read-more/publication";
 import { ProjectReadMore } from "./pages/read-more/project";
 import { PhotoGalleryReadMore } from "./pages/read-more/photo-gallery";
 
@@ -199,13 +199,13 @@ function App() {
                 />
                 <Route
                     exact
-                    path="/resource-centre/research-papers/read-more/:id/:title"
-                    component={ResearchPapersReadMore}
+                    path="/resource-centre/newsletters/read-more/:id/:title"
+                    component={NewslettersReadMore}
                 />
                 <Route
                     exact
-                    path="/resource-centre/agm-material/read-more/:id/:title"
-                    component={AgmMaterialReadMore}
+                    path="/resource-centre/publications/read-more/:id/:title"
+                    component={PublicationReadMore}
                 />
                 <Route
                     exact

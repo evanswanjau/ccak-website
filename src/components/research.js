@@ -3,11 +3,16 @@ import { BsFileEarmarkPdf } from "react-icons/bs";
 import { simpleDate } from "../helpers/date";
 
 export const Research = ({
-    data: { title, excerpt, published, url, category },
+    data: { id, title, excerpt, published, category },
 }) => {
     return (
         <Fade>
-            <a href={`/resource-centre/${category}/read-more/${url}`}>
+            <a
+                href={`/resource-centre/${category}/read-more/${id}/${title
+                    .replace(/ /g, "-")
+                    .replace("'", "")
+                    .toLowerCase()}`}
+            >
                 <div className="bg-[#F2F9F4] group text-left p-5 rounded-lg transition duration-300 ease-in-out hover:bg-[#ED7423]">
                     <div className="flex w-full justify-between border-b border-gray-400 pb-3 group-hover:border-white transition duration-150 ease-in-out">
                         <div>

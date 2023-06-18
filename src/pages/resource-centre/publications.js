@@ -1,80 +1,26 @@
+import { useState, useEffect } from "react";
 import { Slide } from "react-reveal";
 import { Research } from "../../components/research";
-
-const data = [
-    {
-        title: "Analysis of the implications of the value-added tax on clean cooking in Kenya",
-        excerpt:
-            "A key policy objective of the Government of Kenya (GoK) is to meet the Sustainable Development Goal (SDG) 7 target of universal access to clean cooking solutions by 2028.",
-        url: "1/analysis-of-the-implications-of-the-value-added-tax-on-clean-cooking-in-kenya",
-        category: "research-papers",
-        published: "2023-03-08",
-        downloads: 23,
-        size: "136.6 kb",
-    },
-    {
-        title: "Analysis of the implications of the value-added tax on clean cooking in Kenya",
-        excerpt:
-            "A key policy objective of the Government of Kenya (GoK) is to meet the Sustainable Development Goal (SDG) 7 target of universal access to clean cooking solutions by 2028.",
-        url: "2/analysis-of-the-implications-of-the-value-added-tax-on-clean-cooking-in-kenya",
-        category: "research-papers",
-        published: "2023-03-08",
-        downloads: 23,
-        size: "136.6 kb",
-    },
-    {
-        title: "Analysis of the implications of the value-added tax on clean cooking in Kenya",
-        excerpt:
-            "A key policy objective of the Government of Kenya (GoK) is to meet the Sustainable Development Goal (SDG) 7 target of universal access to clean cooking solutions by 2028.",
-        url: "3/analysis-of-the-implications-of-the-value-added-tax-on-clean-cooking-in-kenya",
-        category: "research-papers",
-        published: "2023-03-08",
-        downloads: 23,
-        size: "136.6 kb",
-    },
-    {
-        title: "Analysis of the implications of the value-added tax on clean cooking in Kenya",
-        excerpt:
-            "A key policy objective of the Government of Kenya (GoK) is to meet the Sustainable Development Goal (SDG) 7 target of universal access to clean cooking solutions by 2028.",
-        url: "4/analysis-of-the-implications-of-the-value-added-tax-on-clean-cooking-in-kenya",
-        category: "research-papers",
-        published: "2023-03-08",
-        downloads: 23,
-        size: "136.6 kb",
-    },
-    {
-        title: "Analysis of the implications of the value-added tax on clean cooking in Kenya",
-        excerpt:
-            "A key policy objective of the Government of Kenya (GoK) is to meet the Sustainable Development Goal (SDG) 7 target of universal access to clean cooking solutions by 2028.",
-        url: "5/analysis-of-the-implications-of-the-value-added-tax-on-clean-cooking-in-kenya",
-        category: "research-papers",
-        published: "2023-03-08",
-        downloads: 23,
-        size: "136.6 kb",
-    },
-    {
-        title: "Analysis of the implications of the value-added tax on clean cooking in Kenya",
-        excerpt:
-            "A key policy objective of the Government of Kenya (GoK) is to meet the Sustainable Development Goal (SDG) 7 target of universal access to clean cooking solutions by 2028.",
-        url: "6/analysis-of-the-implications-of-the-value-added-tax-on-clean-cooking-in-kenya",
-        category: "research-papers",
-        published: "2023-03-08",
-        downloads: 23,
-        size: "136.6 kb",
-    },
-    {
-        title: "Analysis of the implications of the value-added tax on clean cooking in Kenya",
-        excerpt:
-            "A key policy objective of the Government of Kenya (GoK) is to meet the Sustainable Development Goal (SDG) 7 target of universal access to clean cooking solutions by 2028.",
-        url: "7/analysis-of-the-implications-of-the-value-added-tax-on-clean-cooking-in-kenya",
-        category: "research-papers",
-        published: "2023-03-08",
-        downloads: 23,
-        size: "136.6 kb",
-    },
-];
+import { searchPosts } from "../../api/api-calls";
 
 export const PublicationsPage = () => {
+    const [data, updateData] = useState([]);
+    const [searchData] = useState({
+        keyword: "",
+        table: "posts",
+        category: "publications",
+        technology: "",
+        project_status: "",
+        page: 1,
+        limit: 12,
+        ip_address: "",
+        created_by: 0,
+    });
+
+    useEffect(() => {
+        searchPosts(searchData, updateData);
+    }, [searchData]); // eslint-disable-line
+
     return (
         <div className="pt-[3.8rem] lg:pt-[6.6rem]">
             <section className="text-center py-12">
