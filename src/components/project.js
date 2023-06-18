@@ -4,7 +4,7 @@ export const Project = ({ data: { id, title, excerpt, image, folder } }) => {
     return (
         <Fade>
             <a
-                href={`/media-centre/projects/read-more/${id}/${title
+                href={`/what-we-do/projects/read-more/${id}/${title
                     .replace(/ /g, "-")
                     .replace("'", "")
                     .toLowerCase()}`}
