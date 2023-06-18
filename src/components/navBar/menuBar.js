@@ -1,6 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { searchPosts } from "../../api/api-calls";
 
+const links = [
+    {
+        link: "/",
+        name: "HOME",
+    },
+    {
+        link: "#",
+        name: "WHO WE ARE",
+    },
+    {
+        link: "#",
+        name: "WHAT WE DO",
+    },
+    {
+        link: "#",
+        name: "GET INVOLVED",
+    },
+    {
+        link: "#",
+        name: "MEMBERSHIP",
+    },
+];
+
 export const MenuBar = ({ setDropDown }) => {
     const [data, updateData] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -16,6 +39,34 @@ export const MenuBar = ({ setDropDown }) => {
         created_by: 0,
     });
 
+    const getUrl = (data) => {
+        let page = "";
+        if (
+            data.category === "careers" ||
+            data.category === "consultancy" ||
+            data.category === "funding-opportunities"
+        )
+            page = "get-involved";
+
+        if (
+            data.category === "press-release" ||
+            data.category === "news" ||
+            data.category === "events" ||
+            data.category === "photo-gallery" ||
+            data.category === "blog"
+        )
+            page = "media-centre";
+
+        if (data.category === "projects") page = "what-we-do";
+
+         if (data.category === "photo-gallery") page = "photo-gallery";
+
+        return `/${page}/${data.category}/read-more/${data.id}/${data.title
+            .replace(/ /g, "-")
+            .replace("'", "")
+            .toLowerCase()}`;
+    };
+
     useEffect(() => {
         if (searchData.keyword.length > 0) {
             setLoading(true);
@@ -26,29 +77,6 @@ export const MenuBar = ({ setDropDown }) => {
             updateData([]);
         }
     }, [searchData]); // eslint-disable-line
-
-    const links = [
-        {
-            link: "/",
-            name: "HOME",
-        },
-        {
-            link: "#",
-            name: "WHO WE ARE",
-        },
-        {
-            link: "#",
-            name: "WHAT WE DO",
-        },
-        {
-            link: "#",
-            name: "GET INVOLVED",
-        },
-        {
-            link: "#",
-            name: "MEMBERSHIP",
-        },
-    ];
 
     return (
         <div className="flex flex-row px-5 items-center w-100 font-manjari text-gray-600 bg-[#329E49]">
@@ -88,12 +116,6 @@ export const MenuBar = ({ setDropDown }) => {
             </div>
             <div
                 className="lg:w-3/12"
-                onMouseEnter={() => {
-                    setDropDown({
-                        show: false,
-                        category: "",
-                    });
-                }}
                 onMouseLeave={() => {
                     updateSearchData({ ...searchData, keyword: "" });
                 }}
@@ -128,14 +150,16 @@ export const MenuBar = ({ setDropDown }) => {
                                     <div className="overflow-y-scroll max-h-[calc(100vh-13rem)]">
                                         {data.map((item, i) => {
                                             return (
-                                                <div className="border-t p-2 cursor-pointer hover:bg-gray-100 transition duration-200 ease-in-out">
-                                                    <h1 className="text-sm text-gray-800 font-semibold">
-                                                        {item.title}
-                                                    </h1>
-                                                    <p className="text-xs line-clamp-1">
-                                                        {item.excerpt}
-                                                    </p>
-                                                </div>
+                                                <a href={getUrl(item)}>
+                                                    <div className="border-t p-2 cursor-pointer hover:bg-gray-100 transition duration-200 ease-in-out">
+                                                        <h1 className="text-sm text-gray-800 font-semibold">
+                                                            {item.title}
+                                                        </h1>
+                                                        <p className="text-xs line-clamp-1">
+                                                            {item.excerpt}
+                                                        </p>
+                                                    </div>
+                                                </a>
                                             );
                                         })}
                                     </div>
