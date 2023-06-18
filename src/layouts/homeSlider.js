@@ -84,7 +84,7 @@ export const HomeSlider = () => {
                                 })`,
                                 backgroundSize: "cover",
                                 backgroundPosition: "center center",
-                                height: "calc(100vh - 6.9em)",
+                                height: "calc(100vh - 6.6em)",
                             }}
                         >
                             <div className="flex flex-row items-center bg-black/[.3] w-full h-full">

@@ -115,7 +115,7 @@ export const AboutUsPage = () => {
     const [show, setShow] = useState(false);
 
     return (
-        <div className="pt-[3.8rem] lg:pt-[6.9rem]">
+        <div className="pt-[3.8rem] lg:pt-[6.6rem]">
             <ModalYoutubeVideo show={show} setShow={setShow} />
             <section className="flex flex-col md:flex-row w-full pt-6 md:pb-40 md:pt-20 px-6 md:px-16">
                 <div className="hidden w-full lg:block md:w-1/12">

@@ -70,7 +70,7 @@ export const HomePage = () => {
     ];
 
     return (
-        <div className="text-gray-600 pt-[3.8rem] lg:pt-[6.9rem]">
+        <div className="text-gray-600 pt-[3.8rem] lg:pt-[6.6rem]">
             <section>
                 <HomeSlider />
             </section>

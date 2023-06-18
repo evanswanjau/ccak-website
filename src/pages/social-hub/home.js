@@ -51,7 +51,7 @@ const posts = [
 
 export const SocialHubHomePage = () => {
     return (
-        <div className="pt-[3.8rem] lg:pt-[6.9rem]">
+        <div className="pt-[3.8rem] lg:pt-[6.6rem]">
             <div className="flex flex-col md:flex-row px-6 lg:px-16 space-x-8">
                 <div className="md:w-3/12 py-10">
                     <div className="fixed md:w-3/12">

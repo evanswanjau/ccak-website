@@ -115,7 +115,7 @@ export const OurTeamPage = () => {
     const [member, setMember] = useState({ modal: false, member: {} });
 
     return (
-        <div className="pt-[3.8rem] lg:pt-[6.9rem]">
+        <div className="pt-[3.8rem] lg:pt-[6.6rem]">
             {member.modal && (
                 <MemberModal member={member} setMember={setMember} />
             )}

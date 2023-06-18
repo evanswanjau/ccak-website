@@ -46,7 +46,7 @@ export const PhotoGalleryReadMore = () => {
     }, []); // eslint-disable-line
 
     return (
-        <div className="pt-[3.8rem] lg:pt-[6.9rem]">
+        <div className="pt-[3.8rem] lg:pt-[6.6rem]">
             <Gallery photos={photos} onClick={openLightbox} />
             <ModalGateway>
                 {viewerIsOpen ? (

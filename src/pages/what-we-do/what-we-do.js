@@ -13,49 +13,37 @@ import { RecentProjects } from "../../layouts/recentProjects";
 
 const items = [
     {
-        icon: (
-            <ScaleIcon className="w-8 text-white" />
-        ),
+        icon: <ScaleIcon className="w-8 text-white" />,
         name: "environment advocate",
         description:
             "We work to create policies and regulatory frameworks that enable the growth of the clean cooking sector.",
     },
     {
-        icon: (
-            <UsersIcon className="w-8 text-white" />
-        ),
+        icon: <UsersIcon className="w-8 text-white" />,
         name: "capacity building",
         description:
             "We promote training and capacity building initiatives to improve the skills of those working in the clean cooking sector.",
     },
     {
-        icon: (
-            <CubeTransparentIcon className="w-8 text-white" />
-        ),
+        icon: <CubeTransparentIcon className="w-8 text-white" />,
         name: "stakeholder coordination",
         description:
             "We collaborate with government, private sector, and other partners to coordinate efforts and advocate for the sector.",
     },
     {
-        icon: (
-            <Squares2X2Icon className="w-8 text-white" />
-        ),
+        icon: <Squares2X2Icon className="w-8 text-white" />,
         name: "promote clean cooking",
         description:
             "We encourage the adoption of clean cooking technologies and solutions to reduce the negative impacts of traditional cooking methods.",
     },
     {
-        icon: (
-            <WrenchScrewdriverIcon className="w-8 text-white" />
-        ),
+        icon: <WrenchScrewdriverIcon className="w-8 text-white" />,
         name: "research and development",
         description:
             "We promote innovation and research in the clean cooking sector to drive advancements and improvements.",
     },
     {
-        icon: (
-            <WrenchScrewdriverIcon className="w-8 text-white" />
-        ),
+        icon: <WrenchScrewdriverIcon className="w-8 text-white" />,
         name: "impact lives",
         description:
             "We promote clean cooking solutions that reduce health impacts, improve livelihoods, and mitigate climate change. ",
@@ -64,7 +52,7 @@ const items = [
 
 export const WhatWeDoPage = () => {
     return (
-        <div className="pt-[3.8rem] lg:pt-[6.9rem]">
+        <div className="pt-[3.8rem] lg:pt-[6.6rem]">
             <section className="flex flex-col md:flex-row w-full py-6 md:py-20 px-6 md:px-12">
                 <div className="hidden w-full lg:block md:w-1/12">
                     <Fade>

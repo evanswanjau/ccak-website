@@ -29,7 +29,7 @@ export const CareerReadMore = () => {
     }, [searchData]); // eslint-disable-line
 
     return (
-        <div className="pt-[3.8rem] lg:pt-[6.9rem]">
+        <div className="pt-[3.8rem] lg:pt-[6.6rem]">
             <ReadMoreHeader data={data} />
             <section className="flex flex-col md:flex-row px-6 lg:px-16">
                 <div className="md:w-9/12 py-10" id="content">

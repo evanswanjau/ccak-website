@@ -22,7 +22,7 @@ export const FundingOpportunitiesPage = () => {
     }, []); // eslint-disable-line
 
     return (
-        <div className="pt-[3.8rem] lg:pt-[6.9rem]">
+        <div className="pt-[3.8rem] lg:pt-[6.6rem]">
             <section className="text-center py-12">
                 <Slide bottom>
                     <h1 className="text-4xl px-6 font-semibold my-5">
