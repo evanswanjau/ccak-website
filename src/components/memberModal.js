@@ -7,8 +7,8 @@ export const MemberModal = ({
     setMember,
 }) => {
     return (
-        <div className="fixed z-50 w-full">
-            <div className="w-11/12 sm:8/12 md:w-7/12 lg:w-4/12 mx-auto bg-white pt-3 pb-6 px-3 shadow-2xl rounded-lg">
+        <div className="fixed bg-black bg-opacity-50 h-screen -mt-[6.6em] z-50 w-full overflow-y-scroll">
+            <div className="w-11/12 sm:8/12 md:w-7/12 lg:w-6/12 mx-auto bg-white pt-3 mt-8 pb-6 px-3 shadow-2xl rounded-lg overflow-y-scroll">
                 <div className="w-full flex justify-end">
                     <button
                         type="button"
@@ -23,11 +23,14 @@ export const MemberModal = ({
                 </div>
 
                 <div className="flex flex-col justify-items-center text-center">
-                    <img
-                        className="w-1/2 h-auto rounded-lg mb-6 mx-auto"
-                        src={process.env.REACT_APP_IMAGEKIT_URL + image}
-                        alt={name}
-                    ></img>
+                    <div
+                        style={{
+                            backgroundImage: `url(${
+                                process.env.REACT_APP_IMAGEKIT_URL + image
+                            })`,
+                        }}
+                        className={`bg-cover bg-center bg-no-repeat mx-auto text-white h-40 w-40 rounded-2xl mb-6 cursor-pointer`}
+                    ></div>
                     <h6 className="text font-semibold capitalize">{name}</h6>
                     <p className="text-gray-600 capitalize">{position}</p>
                     <p className="text-gray-600 my-2">{bio}</p>
