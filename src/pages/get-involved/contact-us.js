@@ -1,6 +1,6 @@
 import { Slide, Fade } from "react-reveal";
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
-import { BsTwitter, BsFacebook, BsLinkedin } from "react-icons/bs";
+import { BsTwitter, BsFacebook, BsLinkedin, BsYoutube, BsTiktok, BsInstagram } from "react-icons/bs";
 import { useState } from "react";
 import { InputForm } from "../../components/forms/input-form";
 import { TextArea } from "../../components/forms/text-area";
@@ -116,8 +116,21 @@ export const ContactUsPage = () => {
                                     target="_blank"
                                     rel="noreferrer"
                                 >
-                                    NextGen Mall, Mombasa Road. Nairobi, Kenya
+                                    Unit 19, NextGen Mall, Mombasa Road.
+                                    Nairobi, Kenya
                                 </a>
+                            </p>
+                        </Slide>
+                    </div>
+                    <div className="border-b py-5">
+                        <Slide bottom>
+                            <h3 className="text-black text-xl mb-3 font-semibold">
+                                Postal Address
+                            </h3>
+                        </Slide>
+                        <Slide bottom>
+                            <p className="text-gray-600">
+                                P.O Box 60469, 00100. Nairobi Kenya
                             </p>
                         </Slide>
                     </div>
@@ -168,6 +181,27 @@ export const ContactUsPage = () => {
                                 rel="noreferrer"
                             >
                                 <BsLinkedin className="text-3xl text-[#0077b5] hover:text-[#ED7423] transition duration-300 ease-in-out" />
+                            </a>
+                            <a
+                                href="https://www.youtube.com/@cleancookingassociationofk1288"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <BsYoutube className="text-3xl text-[#FF0000] hover:text-[#ED7423] transition duration-300 ease-in-out" />
+                            </a>
+                            <a
+                                href="https://www.tiktok.com/@ccakenya"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <BsTiktok className="text-3xl text-black hover:text-[#ED7423] transition duration-300 ease-in-out" />
+                            </a>
+                            <a
+                                href="https://www.instagram.com/ccakenya"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <BsInstagram className="text-3xl text-[#D62976] hover:text-[#ED7423] transition duration-300 ease-in-out" />
                             </a>
                         </div>
                     </Fade>
