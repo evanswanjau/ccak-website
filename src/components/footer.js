@@ -3,6 +3,14 @@ import { InputForm } from "./forms/input-form";
 import { subscribeUser } from "../api/api-calls";
 import { ErrorMessage } from "./forms/error";
 import { SuccessMessage } from "./forms/success";
+import {
+    BsTwitter,
+    BsFacebook,
+    BsLinkedin,
+    BsYoutube,
+    BsTiktok,
+    BsInstagram,
+} from "react-icons/bs";
 
 export const Footer = () => {
     const [data, updateData] = useState({ email: "" });
@@ -27,11 +35,57 @@ export const Footer = () => {
                 <div className="w-full lg:w-8/12 flex flex-col">
                     <a href="/">
                         <img
-                            className="w-20 mb-8"
+                            className="w-20"
                             src="/ccak_logo.png"
                             alt="CCAK Logo"
                         />
                     </a>
+                    <div className="py-10 space-x-8 space flex">
+                        <a
+                            href="https://web.facebook.com/CleanCookingKe"
+                            target="_blank"
+                            rel="noreferrer"
+                            title="@CleanCookingKe"
+                        >
+                            <BsFacebook className="text-xl text-[#3b5998] hover:text-[#ED7423] transition duration-300 ease-in-out" />
+                        </a>
+                        <a
+                            href="https://twitter.com/CleanCookingKe"
+                            target="_blank"
+                            rel="noreferrer"
+                            title="@CleanCookingKe"
+                        >
+                            <BsTwitter className="text-xl text-[#00ACEE] hover:text-[#ED7423] transition duration-300 ease-in-out" />
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/in/clean-cooking-association-of-kenya-ccak-ba852517b"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <BsLinkedin className="text-xl text-[#0077b5] hover:text-[#ED7423] transition duration-300 ease-in-out" />
+                        </a>
+                        <a
+                            href="https://www.youtube.com/@cleancookingassociationofk1288"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <BsYoutube className="text-xl text-[#FF0000] hover:text-[#ED7423] transition duration-300 ease-in-out" />
+                        </a>
+                        <a
+                            href="https://www.tiktok.com/@ccakenya"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <BsTiktok className="text-xl text-black hover:text-[#ED7423] transition duration-300 ease-in-out" />
+                        </a>
+                        <a
+                            href="https://www.instagram.com/ccakenya"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <BsInstagram className="text-xl text-[#D62976] hover:text-[#ED7423] transition duration-300 ease-in-out" />
+                        </a>
+                    </div>
                     <ul className="flex flex-col md:flex-row md:space-x-10 space-y-4 md:space-y-0 list-none">
                         {links.map((item, i) => {
                             return (
