@@ -62,11 +62,7 @@ export const RegisterPage = () => {
                 className="g-cover bg-center bg-no-repeat w-full hidden lg:block"
             >
                 <a href="/">
-                    <img
-                        src="/ccak_side_logo.png"
-                        className="w-32 m-5"
-                        alt="Logo"
-                    />
+                    <img src="/ccak_logo.png" className="w-20 m-5" alt="Logo" />
                 </a>
             </div>
             <div className="w-full p-10 bg-white overflow-scroll">

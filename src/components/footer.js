@@ -21,15 +21,14 @@ export const Footer = () => {
         { name: "Contact Us", url: "/get-involved/contact-us" },
     ];
 
-
     return (
         <footer className="w-full px-5 md:px-10 pt-5 bg-[#ED7423] bg-opacity-30">
             <div className="flex flex-col lg:flex-row lg:space-x-8">
                 <div className="w-full lg:w-8/12 flex flex-col">
                     <a href="/">
                         <img
-                            className="w-40 mb-8"
-                            src="/ccak_side_logo.png"
+                            className="w-20 mb-8"
+                            src="/ccak_logo.png"
                             alt="CCAK Logo"
                         />
                     </a>

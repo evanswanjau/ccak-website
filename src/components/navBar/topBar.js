@@ -21,8 +21,8 @@ export const TopBar = ({ setDropDown }) => {
             <div className="w-3/12">
                 <a href="/">
                     <img
-                        className="w-24"
-                        src="/ccak_side_logo.png"
+                        className="w-10"
+                        src="/ccak_logo.png"
                         alt="CCAK Logo"
                     />
                 </a>

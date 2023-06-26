@@ -172,8 +172,8 @@ export const Drawer = ({ mobile, setMobile }) => {
                 <div className="flex flex-row items-center justify-between border-b border-black pb-5">
                     <a href="/">
                         <img
-                            className="w-32"
-                            src="/ccak_side_logo.png"
+                            className="w-14"
+                            src="/ccak_logo.png"
                             alt="CCAK Logo"
                         />
                     </a>
