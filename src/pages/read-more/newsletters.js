@@ -17,8 +17,8 @@ export const NewslettersReadMore = () => {
         <div className="pt-[3.8rem] lg:pt-[6.6rem]">
             <ReadMoreHeader data={data} />
             <section className="flex flex-col md:flex-row px-6 lg:px-16">
-                <div className="py-10">
-                    <div className="grid grid-cols-4 gap-6">
+                <div className="py-10 w-full">
+                    <div className="flex flex-wrap w-full">
                         {data.files.data.map((item) => {
                             return (
                                 <ResearchDownload

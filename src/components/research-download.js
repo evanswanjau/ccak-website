@@ -1,17 +1,40 @@
 import { Fade } from "react-reveal";
+import { pdfjs, Document, Page } from "react-pdf";
+import "react-pdf/dist/esm/Page/AnnotationLayer.css";
+import "react-pdf/dist/esm/Page/TextLayer.css";
+
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+    "pdfjs-dist/build/pdf.worker.min.js",
+    import.meta.url
+).toString();
+
+const options = {
+    cMapUrl: "cmaps/",
+    standardFontDataUrl: "standard_fonts/",
+};
 
 export const ResearchDownload = ({
-    data: { title, folder, excerpt, published, file, category, size },
+    data: { folder, file, },
 }) => {
     return (
         <Fade>
-            <div className="bg-[#F2F9F4] text-left p-5 rounded-lg">
-                <div className="flex w-full pb-3 group-hover:border-white transition duration-150 ease-in-out">
-                    <h3 className="font-semibold mb-1 group-hover:text-white transition duration-150 ease-in-out">
-                        {title}
-                    </h3>
+            <div className="w-60 text-center">
+                <div className="Example__container">
+                    <div className="Example__container__document">
+                        <Document
+                            file={
+                                process.env.REACT_APP_IMAGEKIT_URL +
+                                folder +
+                                "/" +
+                                file
+                            }
+                            options={options}
+                        >
+                            <Page pageNumber={1} />
+                        </Document>
+                    </div>
                 </div>
-                <div className="flex flex-row justify-between items-center mt-3">
+                <div>
                     <a
                         href={
                             process.env.REACT_APP_IMAGEKIT_URL +
@@ -21,11 +44,14 @@ export const ResearchDownload = ({
                         }
                         target="_blank"
                         rel="noreferrer"
-                        className="bg-white font-manjari leading-none pb-2 text-md pt-3 px-5 hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest"
                     >
-                        DOWNLOAD
+                        <button
+                            href="/get-involved/become-a-member"
+                            className="bg-[#EC7422] font-manjari leading-none pb-2 pt-3 px-5 text-white hover:bg-[#ce621b] rounded-md transition duration-300 ease-in-out tracking-widest"
+                        >
+                            DOWNLOAD
+                        </button>
                     </a>
-                    <p>{size}</p>
                 </div>
             </div>
         </Fade>
