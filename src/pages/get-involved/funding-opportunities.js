@@ -31,9 +31,10 @@ export const FundingOpportunitiesPage = () => {
                 </Slide>
                 <Slide bottom>
                     <p className="w-full text-gray-600 px-6 lg:w-6/12 mx-auto">
-                        CCAK regularly seeks out and applies for funding
-                        opportunities from various sources such as government
-                        agencies, private foundations, and other organizations.
+                        CCAK regularly shares funding opportunities from various
+                        sources such as government agencies, private
+                        foundations, and other organizations with the public and
+                        its members.
                     </p>
                 </Slide>
                 <div className="flex flex-row px-6 lg:px-16 py-5">

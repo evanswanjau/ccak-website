@@ -177,22 +177,15 @@ export const AboutUsPage = () => {
                     </div>
                 </Slide>
                 <div
-                    id="our-mission"
-                    className="flex flex-col md:flex-row justify-evenly my-6"
+                    className="flex flex-col md:flex-row justify-evenly my-24"
                 >
                     <div id="our-vision" className="lg:w-4/12">
                         <Slide bottom>
-                            <h6 className="text-black text-sm font-semibold my-5">
+                            <h6 className="text-black text-2xl font-semibold my-5">
                                 OUR MISSION
                             </h6>
                         </Slide>
 
-                        <Slide bottom>
-                            <h5 className="font-semibold pb-5 text-2xl">
-                                Championing Sustainable Solutions for Universal
-                                Adoption
-                            </h5>
-                        </Slide>
                         <Slide bottom>
                             <p className="text-gray-600">
                                 The Clean Cooking Association of Kenya is the
@@ -206,17 +199,11 @@ export const AboutUsPage = () => {
                     </div>
                     <div className="lg:w-4/12">
                         <Slide bottom>
-                            <h6 className="text-black text-sm font-semibold my-5">
+                            <h6 className="text-black text-2xl font-semibold my-5">
                                 OUR VISION
                             </h6>
                         </Slide>
 
-                        <Slide bottom>
-                            <h5 className="font-semibold pb-5 text-2xl">
-                                Building a Sustainable Future with Clean Cooking
-                                Solutions
-                            </h5>
-                        </Slide>
                         <Slide bottom>
                             <p className="text-gray-600">
                                 Universal access and adoption of clean and
@@ -302,7 +289,7 @@ export const AboutUsPage = () => {
                         <br />
                         <Slide bottom>
                             <p className="text-white text-lg">
-                                They reduce or eliminate these pollutants,
+                                Clean cooking reduces and eliminates these pollutants,
                                 improving indoor air quality and promoting
                                 better health.
                             </p>

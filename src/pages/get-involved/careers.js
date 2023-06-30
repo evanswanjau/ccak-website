@@ -35,7 +35,7 @@ export const CareersPage = () => {
                     </Fade>
                     <Slide bottom>
                         <h2 className="text-black text-4xl lg:text-6xl my-8 font-bold">
-                            An environment for growth and opportunity
+                            An environment for opportunity and growth.
                         </h2>
                     </Slide>
                     <Slide bottom>

@@ -1,6 +1,13 @@
 import { Slide, Fade } from "react-reveal";
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
-import { BsTwitter, BsFacebook, BsLinkedin, BsYoutube, BsTiktok, BsInstagram } from "react-icons/bs";
+import {
+    BsTwitter,
+    BsFacebook,
+    BsLinkedin,
+    BsYoutube,
+    BsTiktok,
+    BsInstagram,
+} from "react-icons/bs";
 import { useState } from "react";
 import { InputForm } from "../../components/forms/input-form";
 import { TextArea } from "../../components/forms/text-area";
@@ -116,8 +123,8 @@ export const ContactUsPage = () => {
                                     target="_blank"
                                     rel="noreferrer"
                                 >
-                                    Unit 19, NextGen Mall, Mombasa Road.
-                                    Nairobi, Kenya
+                                    3rd Floor - Unit 19, NextGen Mall, Mombasa
+                                    Road. Nairobi, Kenya
                                 </a>
                             </p>
                         </Slide>

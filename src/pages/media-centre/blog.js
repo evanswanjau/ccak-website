@@ -33,7 +33,7 @@ export const BlogPage = () => {
                 <Slide bottom>
                     <p className="w-full px-5 md:w-6/12 mx-auto">
                         Welcome to our blog! This is where we showcase some of
-                        the exciting articles about CCAK.
+                        the exciting articles about CCAK and the sector.
                     </p>
                 </Slide>
             </section>

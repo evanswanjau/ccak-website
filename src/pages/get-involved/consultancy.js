@@ -28,10 +28,10 @@ export const ConsultancyPage = () => {
                 </Slide>
                 <Slide bottom>
                     <p className="w-full text-gray-600 px-6 lg:w-6/12 mx-auto">
-                        Working with us you will have the opportunity to have a
-                        positive impact on the lives of millions of people,
-                        including advocating for policy changes, and promoting
-                        the adoption of clean cooking technologies.
+                        Working with CCAK will give you an opportunity to have
+                        a positive impact on the lives of millions of people
+                        through advocating for policy changes, and promoting the
+                        adoption of clean cooking technologies.
                     </p>
                 </Slide>
                 <div className="flex flex-row px-6 lg:px-16 py-5">

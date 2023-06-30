@@ -14,7 +14,7 @@ import { RecentProjects } from "../../layouts/recentProjects";
 const items = [
     {
         icon: <ScaleIcon className="w-8 text-white" />,
-        name: "environment advocate",
+        name: "environment advocacy",
         description:
             "We work to create policies and regulatory frameworks that enable the growth of the clean cooking sector.",
     },
@@ -32,7 +32,7 @@ const items = [
     },
     {
         icon: <Squares2X2Icon className="w-8 text-white" />,
-        name: "promote clean cooking",
+        name: "clean cooking promotion",
         description:
             "We encourage the adoption of clean cooking technologies and solutions to reduce the negative impacts of traditional cooking methods.",
     },
@@ -44,7 +44,7 @@ const items = [
     },
     {
         icon: <WrenchScrewdriverIcon className="w-8 text-white" />,
-        name: "impact lives",
+        name: "impacting lives",
         description:
             "We promote clean cooking solutions that reduce health impacts, improve livelihoods, and mitigate climate change. ",
     },

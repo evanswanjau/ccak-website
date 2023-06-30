@@ -34,9 +34,9 @@ export const PhotoGalleryPage = () => {
                 </Slide>
                 <Slide bottom>
                     <p className="w-full px-5 md:w-6/12 mx-auto">
-                        Welcome to our company's gallery content page, where you
+                        Welcome to our CCK's gallery, where you
                         can browse through a collection of visual content
-                        showcasing our events, services, and company culture.
+                        showcasing our events, services, and culture.
                     </p>
                 </Slide>
             </section>

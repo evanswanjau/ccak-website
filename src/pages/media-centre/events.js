@@ -34,7 +34,7 @@ export const EventsPage = () => {
                     <p className="w-full px-5 md:w-6/12 mx-auto">
                         Welcome to our events page! Here you'll find all the
                         latest information on upcoming events that we're hosting
-                        or participating in.
+                        or participating.
                     </p>
                 </Slide>
             </section>

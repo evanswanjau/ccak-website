@@ -33,9 +33,8 @@ export const ProjectsPage = () => {
                 </Slide>
                 <Slide bottom>
                     <p className="w-full px-5 md:w-6/12 mx-auto">
-                        Welcome to our projects page! This is where we showcase
-                        some of the exciting projects we're currently working on
-                        and those we've completed in the past.
+                        Welcome to our projects page! This is where we display
+                        our our ongoing and completed projects.
                     </p>
                 </Slide>
             </section>

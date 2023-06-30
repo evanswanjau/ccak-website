@@ -27,9 +27,10 @@ export const DonatePage = () => {
                     </Slide>
                     <Slide bottom>
                         <p className="my-5 text-gray-600">
-                            When you donate, you’re supporting effective
-                            solutions to big environmental challenges—an
-                            investment in the future of our planet.
+                            We are committed to using your donations towards the
+                            adoption of clean cooking technologies in Kenya, and
+                            we are grateful for your support in helping us
+                            achieve our goals.
                         </p>
                     </Slide>
                     <Slide bottom>

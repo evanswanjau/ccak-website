@@ -92,9 +92,9 @@ export const PackagesPage = () => {
                         Members; as its main priority, it intends to be the
                         preferred organization through which players in the
                         clean cooking sector will engage. CCAK’s membership
-                        comprises over 50 members from the government, academia,
-                        private sector, donor agencies, NGOs and individuals
-                        active in the clean cooking sector
+                        comprises of members from the government, academia,
+                        private sector, NGOs and individuals active in the clean
+                        cooking sector
                     </p>
                 </Slide>
                 <div className="flex flex-row px-6 lg:px-16 py-5">

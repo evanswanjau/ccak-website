@@ -63,15 +63,15 @@ export const DonationStats = () => {
             <div className="lg:w-7/12 space-y-8">
                 <Slide bottom>
                     <h3 className="text-5xl">
-                        How we spend your donations and where it goes
+                        How we spend your donations
                     </h3>
                 </Slide>
 
                 <Slide bottom>
                     <p className="text-gray-400">
-                        We understand that when you make a  donation, you want
-                        to know exactly where your money is going and we pledge
-                        to be transparent.
+                        We are committed to transparency and understand that
+                        when you make a donation, it requires proper
+                        accountability.
                     </p>
                 </Slide>
 
