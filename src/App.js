@@ -19,7 +19,8 @@ import { FundingOpportunitiesPage } from "./pages/get-involved/funding-opportuni
 import { DonatePage } from "./pages/get-involved/donate";
 import { ContactUsPage } from "./pages/get-involved/contact-us";
 
-import { PublicationsPage } from "./pages/resource-centre/publications";
+import { InternalPublicationsPage } from "./pages/resource-centre/internal-publications";
+import { ExternalPublicationsPage } from "./pages/resource-centre/external-publications";
 import { NewslettersPage } from "./pages/resource-centre/newsletters";
 
 import { PressReleasePage } from "./pages/media-centre/pressRelease";
@@ -104,8 +105,13 @@ function App() {
                 {/** ---------------RESOURCE CENTRE ---------------------*/}
                 <Route
                     exact
-                    path="/resource-centre/publications"
-                    component={PublicationsPage}
+                    path="/resource-centre/external-publications"
+                    component={ExternalPublicationsPage}
+                />
+                <Route
+                    exact
+                    path="/resource-centre/internal-publications"
+                    component={InternalPublicationsPage}
                 />
                 <Route
                     exact

@@ -3,12 +3,12 @@ import { Slide } from "react-reveal";
 import { Research } from "../../components/research";
 import { searchPosts } from "../../api/api-calls";
 
-export const PublicationsPage = () => {
+export const InternalPublicationsPage = () => {
     const [data, updateData] = useState([]);
     const [searchData] = useState({
         keyword: "",
         table: "posts",
-        category: "publications",
+        category: "internal-publications",
         technology: "",
         project_status: "",
         page: 1,
@@ -26,14 +26,13 @@ export const PublicationsPage = () => {
             <section className="text-center py-12">
                 <Slide bottom>
                     <h1 className="text-4xl font-semibold my-5">
-                        Publications
+                        Internal Publications
                     </h1>
                 </Slide>
                 <Slide bottom>
                     <p className="w-full text-gray-600 px-6 lg:w-6/12 mx-auto">
-                        Welcome to our publications page! This is the place
-                        where you can find a collection of our latest and most
-                        innovative research in a variety of fields.
+                        Welcome to our internal publications page! This is the place
+                        where you can find a collection of CCAK's publications.
                     </p>
                 </Slide>
                 <div className="flex flex-row px-6 lg:px-16 py-5">

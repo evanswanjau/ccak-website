@@ -34,7 +34,7 @@ export const DropDown = ({ dropDown: { show, category }, setDropDown }) => {
         info: {
             title: "WHAT WE DO",
             content:
-                "We focus on various aspects to drive the growth of the clean cooking sector. Our efforts revolve around creating a favorable environment at national and county levels, fostering the adoption of clean cooking technologies, enhancing sector capacity, and engaging with stakeholders to advocate for its progress by aiming to catalyze the advancement of the clean cooking industry",
+                "We focus on various aspects to drive the growth of the clean cooking sector. Our efforts revolve around creating a favorable environment at national and county levels, fostering the adoption of clean cooking technologies, enhancing sector capacity, and engaging with stakeholders to advocate for its progress by aiming to catalyze the advancement of the clean cooking sector",
         },
         image: "dropdown_menu/dropdown_who_we_are.jpg",
     };
@@ -100,8 +100,12 @@ export const DropDown = ({ dropDown: { show, category }, setDropDown }) => {
     const resourceCentreData = {
         links: [
             {
-                link: "/resource-centre/publications/",
-                name: "PUBLICATIONS",
+                link: "/resource-centre/internal-publications/",
+                name: "INTERNAL PUBLICATIONS",
+            },
+            {
+                link: "/resource-centre/external-publications/",
+                name: "EXTERNAL PUBLICATIONS",
             },
             {
                 link: "/resource-centre/newsletters/",

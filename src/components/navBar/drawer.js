@@ -104,8 +104,12 @@ const data = [
     {
         links: [
             {
-                link: "/resource-centre/publications/",
-                name: "PUBLICATIONS",
+                link: "/resource-centre/internal-publications/",
+                name: "INTERNAL PUBLICATIONS",
+            },
+            {
+                link: "/resource-centre/external-publications/",
+                name: "EXTERNAL PUBLICATIONS",
             },
             {
                 link: "/resource-centre/newsletters/",
