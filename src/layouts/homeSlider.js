@@ -15,7 +15,7 @@ const data = [
     {
         title: "Non-carbonized and Carbonized briquettes.",
         content:
-            "These briquettes are made from agricultural waste products, such as rice husks, maize cobs, and sugarcane bagasse.",
+            "These briquettes are made from agricultural waste products, such as rice husks, maize cobs, sugarcane waste e.t.c.",
     },
     {
         title: "Biogas",
@@ -25,22 +25,22 @@ const data = [
     {
         title: "Bio-Ethanol",
         content:
-            "Bioethanol is produced from the fermentation of plant materials, such as sugarcane, corn, and cassava.",
+            "Fuel ethanol is made by fermenting the sugar in the starches of grains such as corn, sorghum, and barley, and the sugar in sugar cane and sugar beets.",
     },
     {
-        title: "LPG",
+        title: "Liquefied Petroleum Gas (LPG)",
         content:
-            "LPG is a liquefied petroleum gas that is made from natural gas. It is a clean and efficient fuel that can be used for cooking, heating, and electricity generation.",
+            "A fuel gas that contains a flammable mixture of hydrocarbon gases. LPG is used as a fuel gas in heating appliances, cooking equipment, and vehicles.",
     },
     {
         title: "Electric cooking",
         content:
-            "Electric cooking is a clean and efficient way to cook food. It is also a convenient option, as it does not require the use of fuel.",
+            "It refers to cooking food using an electric stove or electric range that has an integrated electrical heating device to cook and bake.",
     },
     {
         title: "Solar",
         content:
-            "Solar cookers use the sun's heat to cook food. They are a clean and efficient way to cook food, and they do not require the use of fuel.",
+            "Solar cookers use energy harnessed from the sun to cook food. They are a clean and efficient way to cook.",
     },
     {
         title: "Improved Cookstoves",
