@@ -11,6 +11,8 @@ export const CareersPage = () => {
         category: "careers",
         technology: "",
         project_status: "",
+        access:"public",
+        status:"published",
         page: 1,
         limit: 12,
         ip_address: "",

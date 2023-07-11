@@ -14,6 +14,8 @@ export const NewsPage = () => {
         category: "news",
         technology: "",
         project_status: "",
+        access: "public",
+        status: "published",
         page: 1,
         limit: 12,
         ip_address: "",

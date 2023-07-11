@@ -14,6 +14,8 @@ export const EventsPage = () => {
         category: "events",
         technology: "",
         project_status: "",
+        access: "public",
+        status: "published",
         page: 1,
         limit: 12,
         ip_address: "",
