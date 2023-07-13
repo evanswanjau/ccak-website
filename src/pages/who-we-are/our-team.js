@@ -85,7 +85,7 @@ const data = [
                 position: "programe manager",
                 image: "our_team/secretariat/simon-kiragu.jpg",
                 brief: "",
-                bio: "Simon Kiragu is the Programme Manager for the Clean Cookstoves Association of Kenya (CCAK). He formerly served as a Center Manager at the AJIRA Digital Program in the Ministry of ICT and Youth Affairs. A social advocate, Simon has served strategic and advocacy roles in sustainable development towards global issues such as sustainable energy, climate change, youth leadership, gig & freelance economy and social-economic empowerment at Women Entrepreneurship in Renewables (wPOWER), SNV, Integral Advisory and Barefoot Power. Simon holds an MBA in Project Management, an Energy Engineering Degree and Young Leader in Energy Access-2017 Awardee (awarded by the E.U) motivated by a strong sense of duty to impact society positively ",
+                bio: "Simon Kiragu is the Programme Manager for the Clean Cookstoves Association of Kenya (CCAK). He formerly served as a Center Manager at the AJIRA Digital Program in the Ministry of ICT and Youth Affairs. A social advocate, Simon has served strategic and advocacy roles in sustainable development towards global issues such as sustainable energy, climate change, youth leadership, gig & freelance economy and social-economic empowerment at Women Entrepreneurship in Renewables (wPOWER), SNV, Integral Advisory and Barefoot Power. Simon holds an MBA in Project Management, an Energy Engineering Degree and Young Leader in Energy Access-2017 Awardee (awarded by the E.U) motivated by a strong sense of duty to impact society positively.",
             },
             {
                 name: "philomena mitalo",
