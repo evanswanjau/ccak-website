@@ -12,6 +12,8 @@ export const UpcomingEvents = ({ limit = 4 }) => {
         category: "events",
         technology: "",
         project_status: "",
+        access: "public",
+        status: "published",
         page: 1,
         limit: limit,
         ip_address: "",

@@ -12,6 +12,8 @@ export const RecentNews = ({ limit = 4 }) => {
         category: "news",
         technology: "",
         project_status: "",
+        access: "public",
+        status: "published",
         page: 1,
         limit: limit,
         ip_address: "",
