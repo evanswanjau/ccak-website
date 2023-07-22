@@ -33,6 +33,8 @@ export const MenuBar = ({ setDropDown }) => {
         category: "",
         technology: "",
         project_status: "",
+        access: "public",
+        status: "published",
         page: 1,
         limit: 10,
         ip_address: "",
@@ -59,7 +61,7 @@ export const MenuBar = ({ setDropDown }) => {
 
         if (data.category === "projects") page = "what-we-do";
 
-         if (data.category === "photo-gallery") page = "photo-gallery";
+        if (data.category === "photo-gallery") page = "photo-gallery";
 
         return `/${page}/${data.category}/read-more/${data.id}/${data.title
             .replace(/ /g, "-")

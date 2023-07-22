@@ -17,6 +17,8 @@ export const CareerReadMore = () => {
         category: "careers",
         technology: "",
         project_status: "",
+        access: "public",
+        status: "published",
         page: 1,
         limit: 4,
         ip_address: "",

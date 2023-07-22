@@ -17,6 +17,8 @@ export const NewsReadMore = () => {
         category: "news",
         technology: "",
         project_status: "",
+        access: "public",
+        status: "published",
         page: 1,
         limit: 4,
         ip_address: "",
