@@ -5,7 +5,7 @@ import { SubFooter } from "../../layouts/subFooter";
 import { apiRequest } from "../../api/api-calls";
 import { ResearchDownload } from "../../components/research-download";
 
-export const PublicationReadMore = () => {
+export const InternalPublicationReadMore = () => {
     const params = useParams();
     const [data, updateData] = useState({ files: { data: [] } });
 
@@ -22,12 +22,7 @@ export const PublicationReadMore = () => {
                         {data.files.data.map((item) => {
                             return (
                                 <ResearchDownload
-                                    data={{
-                                        ...item,
-                                        file: item,
-                                        title: data.title,
-                                        folder: data.folder,
-                                    }}
+                                    data={item}
                                 />
                             );
                         })}

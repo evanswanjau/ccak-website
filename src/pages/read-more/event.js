@@ -40,9 +40,9 @@ export const EventReadMore = () => {
                     {ReactHtmlParser(data.content)}
                 </div>
                 <div className="md:w-4/12 pt-10 lg:px-10">
-                    <button className="bg-[#329E49] w-full font-manjari leading-none pb-3 pt-4 px-5 text-white hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest">
+                    {/* <button className="bg-[#329E49] w-full font-manjari leading-none pb-3 pt-4 px-5 text-white hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest">
                         ATTEND THIS EVENT
-                    </button>
+                    </button> */}
                     <div className="py-3">
                         <div className="mt-3 mb-8">
                             <AddToCalendarButton
