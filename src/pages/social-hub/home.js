@@ -92,7 +92,7 @@ export const SocialHubHomePage = () => {
           </div>
         </div>
 
-        <div className="md:w-6/12 pt-10 lg:px-10 overflow-hidden relative h-[89vh] border border-grey-500 rounded-md">
+        <div className="md:w-6/12 pt-10 lg:px-10 overflow-hidden relative h-[89vh] rounded-md">
           <div className="space-y-6 mb-0 overflow-y-auto max-h-[88vh]">
             {posts.map((post) => {
               return (
