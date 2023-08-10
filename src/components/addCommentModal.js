@@ -121,8 +121,8 @@ export const AddCommentModal = ({
 
         <p className="bg-gray-200 px-1 sticky rounded-t-md p-2 top-5">{post}</p>
 
-        <div className="flex justify-between w-full px-2 bg-gray-200 mb-5">
-          <div className="flex flex-1 gap-1">
+        <div className="flex justify-start items-start w-full px-2 bg-gray-200 mb-5">
+          <div className="flex w-fit gap-1">
             <div className="flex w-full justify-left ">
               <ChatBubbleLeftEllipsisIcon className="w-6 -mt-1" />
               <p>{comments}</p>
@@ -146,15 +146,11 @@ export const AddCommentModal = ({
               <p>{likes}</p>
             </div>
           </div>
-
-          <div className="flex w-full justify-end">
-            <ShareIcon className="w-6 -mt-1" />
-          </div>
         </div>
 
         <div className="flex w-full flex-col max-h-[66vh] overflow-y-scroll">
           {allcomments.map((comment) => (
-            <div key={comment.id} className="flex gap-1 flex-col">
+            <div key={comment.id} className="flex gap-1 flex-col pr-2">
               <span className="flex justify-between">
                 <span className="font-semibold">{comment.username}</span>
                 <span className="text-sm">{comment.date}</span>
@@ -190,7 +186,7 @@ export const AddCommentModal = ({
               disabled || btnLoading
                 ? "bg-gray-200"
                 : "bg-[#329E49] hover:bg-[#3ab554]"
-            }  text-white flex justify-center font-medium rounded-lg text-sm px-5 py-1 my-1 transition duration-700 ease-in-out`}
+            } bg-[#EC7422] text-white py-2 px-6 hover:bg-[#ce621b] hover:text-white rounded-md transition duration-300 ease-in-out`}
             onClick={() => {
               submitComment();
             }}
