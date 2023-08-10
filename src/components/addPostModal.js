@@ -72,7 +72,7 @@ export const AddPostModal = ({ onClose }) => {
         className="modal-content relative bg-white p-6 md:w-6/12 mx-auto rounded-lg shadow-lg z-20"
       >
         <div className="mb-4 flex items-center flex-row">
-          <h1 className="text-xl font-bold flex-1 flex items-center justify-center opacity-80">
+          <h1 className="text-2xl font-semibold flex-1 flex items-center justify-center opacity-80">
             Add Post
           </h1>
           <button
@@ -113,16 +113,16 @@ export const AddPostModal = ({ onClose }) => {
           <button
             type="button"
             disabled={disabled}
-            className={`w-full tracking-widest ${
+            className={`w-full mt-2 tracking-widest ${
               disabled || btnLoading
                 ? "bg-gray-200"
                 : "bg-[#329E49] hover:bg-[#3ab554]"
-            }  text-white flex justify-center font-medium rounded-lg text-sm px-5 py-3 my-5 transition duration-700 ease-in-out`}
+            }  bg-[#EC7422] text-white pt-2 pb-2 px-6 hover:bg-[#ce621b] hover:text-white rounded-md transition duration-300 ease-in-out`}
             onClick={() => {
               submitPost();
             }}
           >
-            {btnLoading ? <ButtonLoader /> : "Submit"}
+            {btnLoading ? <ButtonLoader /> : "SUBMIT"}
           </button>
         </div>
       </div>
