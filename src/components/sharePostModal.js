@@ -58,17 +58,17 @@ export const SharePostModal = ({ onClose, post: { post, name } }) => {
           </button>
         </div>
 
-        <div className="flex gap-4 w-fit border p-2 rounded-md">
+        <div className="flex gap-4 w-fit">
           <FacebookShareButton
             children={
-              <BsFacebook className="text-2xl text-[#3b5998] bg-gray-300 hover:bg-gray-400 transition-colors duration-300 rounded-full p-1 flex justify-center items-center h-12 w-12" />
+              <BsFacebook className="text-2xl text-[#3b5998] hover:text-[#ce621b] transition-colors duration-300 p-1 flex justify-center items-center h-10 w-10" />
             }
             url={window.location.href}
             hashtag="#ccak"
           />
           <TwitterShareButton
             children={
-              <BsTwitter className="text-2xl text-[#1DA1F2]  bg-gray-300 hover:bg-gray-400 transition-colors duration-300 rounded-full p-1 flex justify-center items-center h-12 w-12" />
+              <BsTwitter className="text-2xl text-[#1DA1F2]  hover:text-[#ce621b] transition-colors duration-300 p-1 flex justify-center items-center h-10 w-10" />
             }
             url={window.location.href}
             title={post}
@@ -76,7 +76,7 @@ export const SharePostModal = ({ onClose, post: { post, name } }) => {
           />
           <LinkedinShareButton
             children={
-              <BsLinkedin className="text-2xl text-[#0E76A8]  bg-gray-300 hover:bg-gray-400 transition-colors duration-300 rounded-full p-1 flex justify-center items-center h-12 w-12" />
+              <BsLinkedin className="text-2xl text-[#0E76A8]  hover:text-[#ce621b] transition-colors duration-300 p-1 flex justify-center items-center h-10 w-10" />
             }
             url={window.location.href}
             title={post}

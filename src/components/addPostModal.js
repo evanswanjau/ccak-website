@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ButtonLoader } from "./btnLoader";
-import { XCircleIcon, CloudArrowUpIcon } from "@heroicons/react/24/outline";
+import { XCircleIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
 
 export const AddPostModal = ({ onClose }) => {
   const [postData, setPostData] = useState({
@@ -72,7 +72,7 @@ export const AddPostModal = ({ onClose }) => {
         className="modal-content relative bg-white p-6 md:w-6/12 mx-auto rounded-lg shadow-lg z-20"
       >
         <div className="mb-4 flex items-center flex-row">
-          <h1 className="text-2xl font-semibold flex-1 flex items-center justify-center opacity-80">
+          <h1 className="text-xl font-bold flex-1 flex items-center justify-center opacity-80">
             Add Post
           </h1>
           <button
@@ -89,7 +89,7 @@ export const AddPostModal = ({ onClose }) => {
             value={postData.postText}
             onChange={handlePostTextChange}
             placeholder="Enter Post Text"
-            className="border-2 rounded-md p-1 flex-1 w-full border-gray-500 border-opacity-50 focus:outline-none"
+            className="border-2 rounded-md p-1 px-2 flex-1 w-full border-gray-500 border-opacity-50 focus:outline-none"
             maxLength={200}
             aria-label="post-text-input"
           />
@@ -99,7 +99,7 @@ export const AddPostModal = ({ onClose }) => {
               htmlFor="uploadImage"
               className="mt-2 cursor-pointer flex items-center flex-col"
             >
-              <CloudArrowUpIcon className="h-10 w-10 text-gray-500 mr-2" />
+              <PlusSmallIcon className="h-10 w-12 text-gray-500 mr-2 border rounded-md px-2" />
               Upload Image
             </label>
             <input

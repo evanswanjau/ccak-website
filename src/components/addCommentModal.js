@@ -150,7 +150,7 @@ export const AddCommentModal = ({
 
         <div className="flex w-full flex-col max-h-[66vh] overflow-y-scroll">
           {allcomments.map((comment) => (
-            <div key={comment.id} className="flex gap-1 flex-col">
+            <div key={comment.id} className="flex gap-1 flex-col pr-2">
               <span className="flex justify-between">
                 <span className="font-semibold">{comment.username}</span>
                 <span className="text-sm">{comment.date}</span>
