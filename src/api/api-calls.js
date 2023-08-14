@@ -4,7 +4,7 @@ import jwt from "jwt-decode";
 export const searchPosts = (searchData, updateData) => {
     return axios({
         method: "post",
-        url: process.env.REACT_APP_API_URL + "search/posts",
+        url: process.env.REACT_APP_API_URL + "posts/search",
         data: searchData,
         headers: {
             "Content-Type": "application/json",
@@ -17,7 +17,7 @@ export const searchPosts = (searchData, updateData) => {
 export const searchMember = (searchData, updateData) => {
     return axios({
         method: "post",
-        url: process.env.REACT_APP_API_URL + "search/members",
+        url: process.env.REACT_APP_API_URL + "members/search",
         data: searchData,
         headers: {
             "Content-Type": "application/json",
