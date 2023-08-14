@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Event } from "../components/event";
 import { Fade } from "react-reveal";
 import { searchPosts } from "../api/api-calls";
+import { SkeletonLoader } from "../components/skeletonLoader";
 
 export const UpcomingEvents = ({ limit = 4 }) => {
     const [data, updateData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
 
     const searchData = {
         keyword: "",
@@ -21,7 +24,13 @@ export const UpcomingEvents = ({ limit = 4 }) => {
     };
 
     useEffect(() => {
-        searchPosts(searchData, updateData);
+        searchPosts(searchData, updateData)
+            .catch(() => {
+                setError(true);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
     }, []); // eslint-disable-line
 
     return (
@@ -35,13 +44,41 @@ export const UpcomingEvents = ({ limit = 4 }) => {
                 </div>
             </Fade>
 
-            <div
-                className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-${limit} 2xl:grid-cols-5 gap-y-6 sm:gap-6 px-6 lg:px-16 py-10`}
-            >
-                {data.map((item, i) => {
-                    return <Event key={i} data={item} />;
-                })}
-            </div>
+            {loading && (
+                <div
+                    className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-${limit} 2xl:grid-cols-5 gap-y-6 sm:gap-6 px-6 lg:px-16 py-10`}
+                >
+                    {[1, 2, 3, 4].map((_, i) => {
+                        return <SkeletonLoader key={i} type="news" />;
+                    })}
+                </div>
+            )}
+
+            {!loading && data.length < 1 && (
+                <div className="flex justify-center mt-14">
+                    <p className="text-xl text-gray-500">
+                        No news posts at the moment
+                    </p>
+                </div>
+            )}
+
+            {error && !loading && (
+                <div className="flex justify-center mt-14">
+                    <p className="text-xl text-gray-500">
+                        Connection error, please try refreshing your page.
+                    </p>
+                </div>
+            )}
+
+            {!loading && data.length > 0 && (
+                <div
+                    className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-${limit} 2xl:grid-cols-5 gap-y-6 sm:gap-6 px-6 lg:px-16 py-10`}
+                >
+                    {data.map((item, i) => {
+                        return <Event key={i} data={item} />;
+                    })}
+                </div>
+            )}
         </div>
     );
 };
