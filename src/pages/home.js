@@ -53,6 +53,11 @@ export const HomePage = () => {
             image: "/logos/giz.png",
         },
         {
+            name: "wwf kenya",
+            link: "https://www.wwfkenya.org/",
+            image: "/logos/wwf-kenya.png",
+        },
+        {
             name: "practical action",
             link: "https://practicalaction.org/",
             image: "/logos/practical-action.png",

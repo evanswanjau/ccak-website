@@ -29,6 +29,11 @@ const partners = [
         image: "/logos/giz.png",
     },
     {
+        name: "wwf kenya",
+        link: "https://www.wwfkenya.org/",
+        image: "/logos/wwf-kenya.png",
+    },
+    {
         name: "practical action",
         link: "https://practicalaction.org/",
         image: "/logos/practical-action.png",
@@ -176,9 +181,7 @@ export const AboutUsPage = () => {
                         <PlayCircleIcon className="w-12 text-white group-hover:scale-[1.15] group-hover:text-[#ED7423] duration-300 ease-in-out" />
                     </div>
                 </Slide>
-                <div
-                    className="flex flex-col md:flex-row justify-evenly my-24"
-                >
+                <div className="flex flex-col md:flex-row justify-evenly my-24">
                     <div id="our-vision" className="lg:w-4/12">
                         <Slide bottom>
                             <h6 className="text-black text-2xl font-semibold my-5">
@@ -289,9 +292,9 @@ export const AboutUsPage = () => {
                         <br />
                         <Slide bottom>
                             <p className="text-white text-lg">
-                                Clean cooking reduces and eliminates these pollutants,
-                                improving indoor air quality and promoting
-                                better health.
+                                Clean cooking reduces and eliminates these
+                                pollutants, improving indoor air quality and
+                                promoting better health.
                             </p>
                         </Slide>
                         <br />
