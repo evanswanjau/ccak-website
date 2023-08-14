@@ -60,6 +60,7 @@ export const NewsPage = () => {
                     )}
 
                     {!loading &&
+                        !error &&
                         searchData.keyword !== "" &&
                         data.length < 1 && (
                             <div className="flex justify-center mt-14">
@@ -71,7 +72,8 @@ export const NewsPage = () => {
                         )}
 
                     {!loading &&
-                        searchData.keyword !== "" &&
+                        !error &&
+                        searchData.keyword === "" &&
                         data.length < 1 && (
                             <div className="flex justify-center mt-14">
                                 <p className="text-xl text-gray-500">

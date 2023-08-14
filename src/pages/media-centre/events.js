@@ -4,8 +4,11 @@ import { MediaCentreSideBar } from "../../layouts/mediaCentreSideBar";
 import { RecentNews } from "../../layouts/recentNews";
 import { Slide } from "react-reveal";
 import { searchPosts } from "../../api/api-calls";
+import { SkeletonLoader } from "../../components/skeletonLoader";
 
 export const EventsPage = () => {
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
     const [data, updateData] = useState([]);
 
     const [searchData, updateSearchData] = useState({
@@ -23,7 +26,13 @@ export const EventsPage = () => {
     });
 
     useEffect(() => {
-        searchPosts(searchData, updateData);
+        searchPosts(searchData, updateData)
+            .catch(() => {
+                setError(true);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
     }, [searchData]); // eslint-disable-line
 
     return (
@@ -42,16 +51,47 @@ export const EventsPage = () => {
             </section>
             <div className="flex flex-row px-6 lg:px-16">
                 <div className="w-full lg:w-9/12">
-                    {searchData.keyword !== "" && data.length < 1 && (
+                    {loading && (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-y-6 sm:gap-6 py-10">
+                            {[1, 2, 3, 4, 5, 6].map((_, i) => {
+                                return <SkeletonLoader key={i} type="event" />;
+                            })}
+                        </div>
+                    )}
+
+                    {!loading &&
+                        !error &&
+                        searchData.keyword !== "" &&
+                        data.length < 1 && (
+                            <div className="flex justify-center mt-14">
+                                <p className="text-xl text-gray-500">
+                                    No results found with the keyword{" "}
+                                    <b>{searchData.keyword}</b>
+                                </p>
+                            </div>
+                        )}
+
+                    {!loading &&
+                        !error &&
+                        searchData.keyword === "" &&
+                        data.length < 1 && (
+                            <div className="flex justify-center mt-14">
+                                <p className="text-xl text-gray-500">
+                                    No new posts at the moment
+                                </p>
+                            </div>
+                        )}
+
+                    {error && !loading && (
                         <div className="flex justify-center mt-14">
                             <p className="text-xl text-gray-500">
-                                No results found with the keyword{" "}
-                                <b>{searchData.keyword}</b>
+                                Connection error, please try refreshing your
+                                page.
                             </p>
                         </div>
                     )}
 
-                    {data.length > 0 && (
+                    {!loading && data.length > 0 && (
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-y-6 sm:gap-6 py-10">
                             {data.map((item, i) => {
                                 return <Event key={i} data={item} />;
