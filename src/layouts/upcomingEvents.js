@@ -54,7 +54,7 @@ export const UpcomingEvents = ({ limit = 4 }) => {
                 </div>
             )}
 
-            {!loading && data.length < 1 && (
+            {!loading && !error && data.length < 1 && (
                 <div className="flex justify-center mt-14">
                     <p className="text-xl text-gray-500">
                         No news posts at the moment
