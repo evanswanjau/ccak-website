@@ -35,8 +35,6 @@ export const AddCommentModal = ({
   const [disabled, setDisabled] = useState(true);
   const [btnLoading, setBtnLoading] = useState(false);
 
-  console.log({ fetchedComments });
-
   const [newComment, setNewComment] = useState("");
   const [allcomments, setAllComments] = useState(fetchedComments);
   const handleInputChange = (e) => {

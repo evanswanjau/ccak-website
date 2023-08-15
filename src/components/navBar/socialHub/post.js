@@ -5,6 +5,7 @@ import {
   HeartIcon as HeartIconOutline,
   ShareIcon,
 } from "@heroicons/react/24/outline";
+import { PencilSquareIcon, TrashIcon } from "@heroicons/react/20/solid";
 
 import {
   BookmarkIcon as BookmarkIconSolid,
@@ -12,8 +13,11 @@ import {
 } from "@heroicons/react/24/solid";
 
 export const SocialHubPost = ({
-  data: { logo, name, post, image, comments, likes },
+  data: { id, logo, name, post, image, comments, likes, created_by },
+  user_id,
   onCommentClick,
+  onUpdateClick,
+  onDeleteButtonClick,
   onShareButtonClick,
 }) => {
   const [bookmark, setBookmark] = useState(false);
@@ -24,16 +28,16 @@ export const SocialHubPost = ({
       <div className="flex justify-between">
         <div className="flex items-center space-x-6">
           <img
-            src={`/logos/${logo}`}
+            src={logo || `/logos/profile.png`}
             alt="member logo"
-            className="w-12 h-12 rounded-full"
+            className="w-10 h-10 rounded-full"
             git
           />
           <h3 className="font-semibold text-2xl text-black capitalize">
             {name}
           </h3>
         </div>
-        <div>
+        <div className="flex items-center gap-1">
           {bookmark ? (
             <BookmarkIconSolid
               className="w-6 text-black cursor-pointer"
@@ -49,45 +53,57 @@ export const SocialHubPost = ({
               }}
             />
           )}
+          {user_id === created_by && (
+            <>
+              <PencilSquareIcon
+                className="h-6 w-6 text-black cursor-pointer"
+                onClick={() =>
+                  onUpdateClick(logo, name, post, image, comments, likes)
+                }
+              />
+              <TrashIcon
+                className="h-6 w-6 text-black cursor-pointer opacity-80 hover:text-red-600 transition-all duration-300"
+                onClick={() => onDeleteButtonClick(id)}
+              />
+            </>
+          )}
         </div>
       </div>
-      <div className="my-5">
-        <p>{post}</p>
+      <div className="px-4 py-2 my-3 border rounded-lg">
+        <p className="rounded-lg w-full">{post}</p>
         {image !== "" && (
-          <img
-            src={`${process.env.REACT_APP_IMAGEKIT_URL + image}`}
-            alt="post"
-            className="rounded-lg my-5"
-          />
+          <img src={image} alt="post" className="rounded-lg my-2 w-full p-4" />
         )}
       </div>
       <div className="flex justify-between">
-        <div className="flex space-x-2 w-full justify-left ">
-          <ChatBubbleLeftEllipsisIcon
-            className="w-6 -mt-1 cursor-pointer"
-            onClick={() =>
-              onCommentClick(logo, name, post, image, comments, likes)
-            }
-          />
-          <p>{comments}</p>
-        </div>
-        <div className="flex space-x-2 w-full justify-center">
-          {favourite ? (
-            <HeartIconSolid
-              className="w-6 text-red-600 cursor-pointer"
-              onClick={() => {
-                setFavourite(false);
-              }}
+        <div className="flex gap-3 justify-center items-center">
+          <div className="flex space-x-2 w-full justify-left ">
+            <ChatBubbleLeftEllipsisIcon
+              className="w-6 -mt-1 cursor-pointer"
+              onClick={() =>
+                onCommentClick(logo, name, post, image, comments, likes)
+              }
             />
-          ) : (
-            <HeartIconOutline
-              className="w-6 text-black cursor-pointer"
-              onClick={() => {
-                setFavourite(true);
-              }}
-            />
-          )}
-          <p>{likes}</p>
+            <p>{comments}</p>
+          </div>
+          <div className="flex space-x-2 w-full justify-center">
+            {favourite ? (
+              <HeartIconSolid
+                className="w-6 text-red-600 cursor-pointer"
+                onClick={() => {
+                  setFavourite(false);
+                }}
+              />
+            ) : (
+              <HeartIconOutline
+                className="w-6 text-black cursor-pointer"
+                onClick={() => {
+                  setFavourite(true);
+                }}
+              />
+            )}
+            <p>{likes}</p>
+          </div>
         </div>
         <div className="flex space-x-2 w-full justify-end">
           <ShareIcon
