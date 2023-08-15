@@ -44,22 +44,16 @@ export const DeletePostModal = ({ onClose, post: { id } }) => {
         ref={modalRef}
         className="modal-content relative bg-white p-6 md:w-6/12 mx-auto rounded-lg shadow-lg z-20"
       >
-        {/* ... Other modal header code ... */}
-
         <div className="p-2 rounded-md">
-          {/* ... Other input fields ... */}
-
-          {/* Confirmation message */}
           <p className="mb-4 text-red-600">
             Are you sure you want to delete this post?
           </p>
 
-          {/* Delete and Cancel buttons */}
           <div className="flex justify-end mt-4">
             <button
               type="button"
               className="mr-2 px-4 py-2 text-white bg-red-600 rounded-md hover:bg-red-700 transition duration-300"
-              onClick={() => onDelete(id)} // Call the onDelete function here
+              onClick={() => onDelete(id)}
             >
               Delete
             </button>
