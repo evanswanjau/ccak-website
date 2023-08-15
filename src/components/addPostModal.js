@@ -1,37 +1,55 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ButtonLoader } from "./btnLoader";
-import { XCircleIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
+import { IKImage } from "imagekitio-react";
+import { BsImage } from "react-icons/bs";
+import { ImageUpload } from "./forms/uploadImage";
+import { TextArea } from "./forms/text-area";
+
+import { useHistory } from "react-router-dom";
+
+import { addSocialPost } from "../api/api-calls";
 
 export const AddPostModal = ({ onClose }) => {
+  const history = useHistory();
+
   const [postData, setPostData] = useState({
     postText: "",
-    postImgUrl: "www.testurl.com/v2/123",
-    postUserId: 1,
+    image: "",
   });
-
+  const [error, setError] = useState(false);
   const [disabled, setDisabled] = useState(true);
-
   const [btnLoading, setBtnLoading] = useState(false);
 
-  const handlePostTextChange = (e) => {
-    setPostData((prevData) => ({
-      ...prevData,
-      postText: e.target.value,
-    }));
+  const submitPost = async () => {
+    try {
+      const newPostData = {
+        post: postData.postText,
+        image:
+          postData.image == ""
+            ? ""
+            : process.env.REACT_APP_IMAGEKIT_URL +
+              "socialpost/" +
+              postData.image,
+      };
 
-    if (e.target.value !== "") {
-      setDisabled(false);
-    } else {
-      setDisabled(true);
+      await addSocialPost(
+        newPostData,
+        (successMessage) => {
+          onClose();
+          console.log(successMessage);
+          window.location.reload();
+        },
+        (errorMessage) => {
+          console.error(errorMessage);
+        }
+      );
+
+      setPostData({
+        postText: "",
+        image: "",
+      });
+    } catch (error) {
+      console.error("An error occurred:", error);
     }
-  };
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-  };
-
-  const submitPost = () => {
-    // console.log(postData);
   };
 
   const modalRef = useRef();
@@ -72,57 +90,76 @@ export const AddPostModal = ({ onClose }) => {
         className="modal-content relative bg-white p-6 md:w-6/12 mx-auto rounded-lg shadow-lg z-20"
       >
         <div className="mb-4 flex items-center flex-row">
-          <h1 className="text-xl font-bold flex-1 flex items-center justify-center opacity-80">
+          <h1 className="font-semibold text-lg flex-1 flex items-center justify-center">
             Add Post
           </h1>
-          <button
-            className="absolute top-2 right-5 flex items-center justify-center"
-            onClick={onClose}
-          >
-            <XCircleIcon className="h-10 w-10 text-[#1f6e30]" />
-          </button>
+
+          <div class="flex items-start justify-end mt-0 absolute right-3">
+            <button
+              type="button"
+              class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
+              data-modal-hide="staticModal"
+              onClick={onClose}
+            >
+              <svg
+                class="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </div>
         </div>
 
         <div className="p-2 rounded-md">
-          <textarea
+          <TextArea
             type="text"
-            value={postData.postText}
-            onChange={handlePostTextChange}
-            placeholder="Enter Post Text"
-            className="border-2 rounded-md p-1 px-2 flex-1 w-full border-gray-500 border-opacity-50 focus:outline-none"
-            maxLength={200}
-            aria-label="post-text-input"
+            name="postText"
+            label="Enter post text here"
+            required={true}
+            data={postData}
+            updateData={setPostData}
           />
 
-          <div className="mt-2 flex justify-center items-center border-2 rounded-md p-1 flex-1 w-full min-h-[20vh] border-gray-500 border-opacity-50  focus:outline-none">
-            <label
-              htmlFor="uploadImage"
-              className="mt-2 cursor-pointer flex items-center flex-col"
-            >
-              <PlusSmallIcon className="h-10 w-12 text-gray-500 mr-2 border rounded-md px-2" />
-              Upload Image
-            </label>
-            <input
-              id="uploadImage"
-              type="file"
-              accept="image/*"
-              className="hidden"
-              onChange={handleImageChange}
-            />
+          <div className="flex flex-1 justify-center flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 my-5 mx-3">
+            <div className="w-2/12 flex justify-center items-center">
+              {postData.image === "" ? (
+                <BsImage className="text-[8.5em] mx-auto -mt-1 text-gray-600" />
+              ) : (
+                <IKImage
+                  className="object-cover rounded-lg max-h-40"
+                  urlEndpoint={process.env.REACT_APP_IMAGEKIT_URL}
+                  path={"socialpost/" + postData.image}
+                />
+              )}
+            </div>
+            <div className="w-10/12">
+              <ImageUpload
+                data={postData}
+                updateData={setPostData}
+                setError={setError}
+                folder="socialpost"
+              />
+            </div>
           </div>
+
+          {/*  */}
+          {/*  */}
           <button
             type="button"
-            disabled={disabled}
-            className={`w-full mt-2 tracking-widest ${
-              disabled || btnLoading
-                ? "bg-gray-200"
-                : "bg-[#329E49] hover:bg-[#3ab554]"
-            }  bg-[#EC7422] text-white pt-2 pb-2 px-6 hover:bg-[#ce621b] hover:text-white rounded-md transition duration-300 ease-in-out`}
+            disabled={false}
+            className={`w-full mt-2 tracking-widest bg-[#EC7422] text-white pt-2 pb-2 px-6 hover:bg-[#ce621b] hover:text-white rounded-md transition duration-300 ease-in-out`}
             onClick={() => {
               submitPost();
             }}
           >
-            {btnLoading ? <ButtonLoader /> : "SUBMIT"}
+            SUBMIT
           </button>
         </div>
       </div>
