@@ -23,9 +23,6 @@ export const SocialHubPost = ({
   const [bookmark, setBookmark] = useState(false);
   const [favourite, setFavourite] = useState(true);
 
-  // console.log(user_id);
-  // console.log(created_by);
-
   return (
     <div className="rounded-lg shadow-md px-5 pt-5 pb-2 text-gray-600 border border-grey-500 ">
       <div className="flex justify-between">

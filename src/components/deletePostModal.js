@@ -1,9 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ButtonLoader } from "./btnLoader";
-import { XCircleIcon } from "@heroicons/react/24/outline";
 import { deletePost } from "../api/api-calls";
-
-// ... Other imports ...
 
 export const DeletePostModal = ({ onClose, post: { id } }) => {
   const [error, setError] = useState(false);

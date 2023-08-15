@@ -4,13 +4,9 @@ import { BsImage } from "react-icons/bs";
 import { ImageUpload } from "./forms/uploadImage";
 import { TextArea } from "./forms/text-area";
 
-import { useHistory } from "react-router-dom";
-
 import { addSocialPost } from "../api/api-calls";
 
 export const AddPostModal = ({ onClose }) => {
-  const history = useHistory();
-
   const [postData, setPostData] = useState({
     postText: "",
     image: "",
