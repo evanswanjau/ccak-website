@@ -50,14 +50,13 @@ export const AddCommentModal = ({
       await addSocialPostComment(
         newCommentData,
         () => {
-          // Optional: Handle success if needed
+          console.log("Success adding comment.");
         },
         (error) => {
           console.error("An error occurred:", error);
         }
       );
 
-      // Clear the comment input after adding comment
       setNewComment("");
       setDisabled(true);
     } catch (error) {

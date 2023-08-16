@@ -121,6 +121,46 @@ export const getMember = (updateData) => {
   });
 };
 
+export const getMemberPosts = () => {
+  let decodedToken = jwt(localStorage.getItem("token"));
+
+  return axios({
+    method: "get",
+    url:
+      process.env.REACT_APP_API_URL +
+      "socialposts/member/" +
+      decodedToken.user_id,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((error) => {
+      console.error("An error occurred:", error);
+      throw error;
+    });
+};
+export const getMemberProfile = () => {
+  let decodedToken = jwt(localStorage.getItem("token"));
+
+  return axios({
+    method: "get",
+    url: process.env.REACT_APP_API_URL + "member/" + decodedToken.user_id,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((error) => {
+      console.error("An error occurred:", error);
+      throw error;
+    });
+};
+
 export const getMembers = () => {
   return axios({
     method: "get",

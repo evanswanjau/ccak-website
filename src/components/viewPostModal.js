@@ -6,40 +6,7 @@ import {
   HeartIcon as HeartIconOutline,
 } from "@heroicons/react/24/outline";
 
-const allcomments = [
-  {
-    id: 1,
-    text: "Great post!",
-    date: "8/4/2023",
-    likes: 15,
-    replies: 3,
-    username: "Burn User3",
-  },
-  {
-    id: 2,
-    text: "Thanks for sharing!",
-    date: "8/3/2023",
-    likes: 10,
-    replies: 2,
-    username: "Burn User2",
-  },
-  {
-    id: 2,
-    text: "Thanks for sharing!",
-    date: "8/3/2023",
-    likes: 10,
-    replies: 2,
-    username: "Burn User2",
-  },
-  {
-    id: 2,
-    text: "Thanks for sharing!",
-    date: "8/3/2023",
-    likes: 10,
-    replies: 2,
-    username: "Burn User2",
-  },
-];
+import { getCommentsForPost, getMembers } from "../api/api-calls";
 
 export const ViewPostModal = ({
   onClose,
@@ -57,9 +24,28 @@ export const ViewPostModal = ({
 }) => {
   const [favourite, setFavourite] = useState(true);
 
-  const submitPost = async () => {
-    console.log("first");
-  };
+  const [allcomments, setAllComments] = useState([]);
+  const [error, setError] = useState(null);
+  const [userData, setUserData] = useState([]);
+
+  const submitPost = async () => {};
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const commentsData = await getCommentsForPost(2);
+        const userData = await getMembers();
+
+        setUserData(userData);
+
+        setAllComments(commentsData);
+      } catch (error) {
+        setError(error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const modalRef = useRef();
 
@@ -181,23 +167,40 @@ export const ViewPostModal = ({
           <div className="rounded-md border bg-gray-000">
             <div className="flex flex-1 justify-center flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 my-5 mx-3">
               <div className="flex w-full flex-col ">
-                {allcomments.map((comment) => (
-                  <div key={comment.id} className="flex gap-1 flex-col pr-2">
-                    <span className="flex justify-between">
-                      <span className="font-semibold">{comment.username}</span>
-                      <span className="text-sm">{comment.date}</span>
-                    </span>
-                    <span className="flex justify-between">
-                      <span className="flex-1"> {comment.text}</span>
-                      <span className="flex text-sm justify-center items-center gap-1">
-                        <HeartIconSolid className="w-4 text-sm text-gray-300 cursor-pointer" />
-                        {comment.likes}
-                      </span>
-                    </span>
+                {allcomments < 1
+                  ? "Loading"
+                  : allcomments.map((comment) => {
+                      const user =
+                        userData &&
+                        userData.find((user) => user.id === comment.created_by);
+                      const username = user ? user.first_name : "Unknown User";
 
-                    <hr />
-                  </div>
-                ))}
+                      return (
+                        <div
+                          key={comment.id}
+                          className="flex gap-1 flex-col pr-2"
+                        >
+                          <span className="flex justify-between">
+                            <span className="font-semibold">
+                              <span className="font-normal">By </span>{" "}
+                              {username}
+                            </span>
+                            <span className="text-sm">
+                              {simpleDate(comment.created_at)}
+                            </span>
+                          </span>
+                          <span className="flex justify-between">
+                            <span className="flex-1"> {comment.comment}</span>
+                            <span className="flex text-sm justify-center items-center gap-1">
+                              <HeartIconSolid className="w-4 text-sm text-gray-300 cursor-pointer" />
+                              0
+                            </span>
+                          </span>
+
+                          <hr />
+                        </div>
+                      );
+                    })}
               </div>
             </div>
 
@@ -205,7 +208,7 @@ export const ViewPostModal = ({
             {/*  */}
             <button
               type="button"
-              disabled={false}
+              disabled={true}
               className={`w-full mt-3 tracking-widest bg-[#EC7422] text-white pt-1 pb-1 px-6 hover:bg-[#ce621b] hover:text-white rounded-md transition duration-300 ease-in-out`}
               onClick={() => {
                 submitPost();
