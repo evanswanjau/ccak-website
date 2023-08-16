@@ -6,7 +6,6 @@ import {
   ShareIcon,
 } from "@heroicons/react/24/outline";
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/20/solid";
-
 import {
   BookmarkIcon as BookmarkIconSolid,
   HeartIcon as HeartIconSolid,
@@ -19,6 +18,7 @@ export const SocialHubPost = ({
   onUpdateClick,
   onDeleteButtonClick,
   onShareButtonClick,
+  onViewPostClick,
 }) => {
   const [bookmark, setBookmark] = useState(false);
   const [favourite, setFavourite] = useState(true);
@@ -69,11 +69,14 @@ export const SocialHubPost = ({
           )}
         </div>
       </div>
-      <div className="px-4 py-2 my-3 border rounded-lg">
-        <p className="rounded-lg w-full">{post}</p>
+      <div
+        className="px-4 py-2 my-3 border rounded-lg"
+        onClick={() => onViewPostClick(id)}
+      >
         {image !== "" && (
-          <img src={image} alt="post" className="rounded-lg my-2 w-full p-4" />
+          <img src={image} alt="post" className="rounded-lg my-2 w-full p-1" />
         )}
+        <p className="rounded-lg w-full">{post}</p>
       </div>
       <div className="flex justify-between">
         <div className="flex gap-3 justify-center items-center">
