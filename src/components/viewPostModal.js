@@ -1,16 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import { IKImage } from "imagekitio-react";
-import { BsImage } from "react-icons/bs";
-import { ImageUpload } from "./forms/uploadImage";
-import { TextArea } from "./forms/text-area";
 import { HeartIcon as HeartIconSolid } from "@heroicons/react/24/solid";
-import { addSocialPost } from "../api/api-calls";
 import { simpleDate } from "../helpers/date";
 import {
-  BookmarkIcon as BookmarkIconOutline,
   ChatBubbleLeftEllipsisIcon,
   HeartIcon as HeartIconOutline,
-  ShareIcon,
 } from "@heroicons/react/24/outline";
 
 const allcomments = [
@@ -62,16 +55,7 @@ export const ViewPostModal = ({
     created_at,
   },
 }) => {
-  const [postData, setPostData] = useState({
-    postText: "",
-    image: "",
-  });
-
-  const [bookmark, setBookmark] = useState(false);
   const [favourite, setFavourite] = useState(true);
-  const [error, setError] = useState(false);
-  const [disabled, setDisabled] = useState(true);
-  const [btnLoading, setBtnLoading] = useState(false);
 
   const submitPost = async () => {
     console.log("first");

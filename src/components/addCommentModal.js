@@ -1,42 +1,31 @@
 import React, { useState, useEffect, useRef } from "react";
 import { ButtonLoader } from "./btnLoader";
-import { XCircleIcon } from "@heroicons/react/24/outline";
 import {
   ChatBubbleLeftEllipsisIcon,
   HeartIcon as HeartIconOutline,
-  ShareIcon,
 } from "@heroicons/react/24/outline";
 import { HeartIcon as HeartIconSolid } from "@heroicons/react/24/solid";
-
-const fetchedComments = [
-  {
-    id: 1,
-    text: "Great post!",
-    date: "8/4/2023",
-    likes: 15,
-    replies: 3,
-    username: "Burn User3",
-  },
-  {
-    id: 2,
-    text: "Thanks for sharing!",
-    date: "8/3/2023",
-    likes: 10,
-    replies: 2,
-    username: "Burn User2",
-  },
-];
+import { simpleDate } from "../helpers/date";
+import {
+  addSocialPostComment,
+  getCommentsForPost,
+  getMembers,
+} from "../api/api-calls";
 
 export const AddCommentModal = ({
   onClose,
-  post: { post, likes, name, logo, image, comments },
+  post: { id, post, likes, name, logo, image, comments, created_at, userId },
 }) => {
   const [favourite, setFavourite] = useState(true);
   const [disabled, setDisabled] = useState(true);
   const [btnLoading, setBtnLoading] = useState(false);
 
+  const [error, setError] = useState(null);
+
   const [newComment, setNewComment] = useState("");
-  const [allcomments, setAllComments] = useState(fetchedComments);
+  const [allcomments, setAllComments] = useState([]);
+  const [userData, setUserData] = useState([]);
+
   const handleInputChange = (e) => {
     setNewComment(e.target.value);
 
@@ -47,19 +36,51 @@ export const AddCommentModal = ({
     }
   };
 
-  const submitComment = () => {
-    const newCommentData = {
-      id: allcomments.length + 1,
-      username: "John Doe",
-      date: new Date().toLocaleDateString("en-US"),
-      text: newComment,
-      likes: 0,
+  const submitComment = async () => {
+    try {
+      const newCommentData = {
+        post: newComment,
+        id: id,
+        userId: userId,
+        username: "John Doe",
+        socialpost: id,
+        likes: 0,
+      };
+
+      await addSocialPostComment(
+        newCommentData,
+        () => {
+          // Optional: Handle success if needed
+        },
+        (error) => {
+          console.error("An error occurred:", error);
+        }
+      );
+
+      // Clear the comment input after adding comment
+      setNewComment("");
+      setDisabled(true);
+    } catch (error) {
+      console.error("An error occurred:", error);
+    }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const commentsData = await getCommentsForPost(2);
+        const userData = await getMembers();
+
+        setUserData(userData);
+
+        setAllComments(commentsData);
+      } catch (error) {
+        setError(error);
+      }
     };
 
-    setAllComments((prevComments) => [...prevComments, newCommentData]);
-    setNewComment("");
-    setDisabled(true);
-  };
+    fetchData();
+  }, []);
 
   const modalRef = useRef();
 
@@ -96,101 +117,145 @@ export const AddCommentModal = ({
         ref={modalRef}
         className="relative modal-content flex flex-col justify-center items-center bg-white top-5 p-3 md:w-6/12 max-h-[80vh] overflow-hidden rounded-lg shadow-lg z-20"
       >
-        <div className="py-1 flex items-center w-full rounded-t-md mt-2">
-          <div className="flex flex-1 w-full ml-2 ">
-            <img
-              src={`/logos/${logo}`}
-              alt="member logo"
-              className="w-10 h-10 rounded-sm"
-              git
-            />
-            <h1 className="text-md font-bold ml-2 flex items-center justify-center opacity-80 capitalize">
-              {name}
-            </h1>
+        <div className="max-h-[66vh] overflow-y-scroll pr-2 w-full">
+          <div class="flex items-start justify-end mt-0 absolute right-6">
+            <button
+              type="button"
+              class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
+              data-modal-hide="staticModal"
+              onClick={onClose}
+            >
+              <svg
+                class="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
           </div>
 
-          <button
-            className="absolute top-2 right-5 flex items-center justify-center"
-            onClick={onClose}
-          >
-            <XCircleIcon className="h-10 w-10 text-[#1f6e30]" />
-          </button>
-        </div>
-
-        <p className="bg-gray-200 px-1 sticky rounded-t-md p-2 top-5">{post}</p>
-
-        <div className="flex justify-start items-start w-full px-2 bg-gray-200 mb-5">
-          <div className="flex w-fit gap-1">
-            <div className="flex w-full justify-left ">
-              <ChatBubbleLeftEllipsisIcon className="w-6 -mt-1" />
-              <p>{comments}</p>
+          <div className="flex justify-between mt-7">
+            <div className="flex items-center space-x-2">
+              <img
+                src={logo || `/logos/profile.png`}
+                alt="member logo"
+                className="w-7 h-7 rounded-full"
+                git
+              />
+              <h3 className="font-semibold text-xl text-black capitalize">
+                {name || "user1"}
+              </h3>
             </div>
-            <div className="flex w-full justify-center">
-              {favourite ? (
-                <HeartIconSolid
-                  className="w-6 text-red-600 cursor-pointer"
-                  onClick={() => {
-                    setFavourite(false);
-                  }}
-                />
-              ) : (
-                <HeartIconOutline
-                  className="w-6 text-black cursor-pointer"
-                  onClick={() => {
-                    setFavourite(true);
-                  }}
-                />
-              )}
-              <p>{likes}</p>
+            <div className="flex items-center gap-1">
+              {simpleDate(created_at)}
             </div>
           </div>
-        </div>
 
-        <div className="flex w-full flex-col max-h-[66vh] overflow-y-scroll">
-          {allcomments.map((comment) => (
-            <div key={comment.id} className="flex gap-1 flex-col pr-2">
-              <span className="flex justify-between">
-                <span className="font-semibold">{comment.username}</span>
-                <span className="text-sm">{comment.date}</span>
-              </span>
-              <span className="flex justify-between">
-                <span className="flex-1"> {comment.text}</span>
-                <span className="flex text-sm justify-center items-center gap-1">
-                  <HeartIconSolid className="w-4 text-sm text-gray-300 cursor-pointer" />
-                  {comment.likes}
+          <div className="my-3 border rounded-lg">
+            {image !== "" && (
+              <img
+                src={image}
+                alt="post"
+                className="rounded-lg my-2 w-full p-1 px-4 "
+              />
+            )}
+            <p className="rounded-lg w-full px-4 ">{post}</p>
+
+            <div className="flex gap-1 justify-start items-start bg-gray-200 w-full px-2">
+              <div className="flex space-x-1 w-fit justify-center items-center ">
+                <ChatBubbleLeftEllipsisIcon className="w-4 h-4 flex justify-center items-center cursor-pointer" />
+                <span className="flex justify-center items-center">
+                  {likes}
                 </span>
-              </span>
-
-              <hr />
+              </div>
+              <div className="flex space-x-1 w-fit justify-center items-center">
+                {favourite ? (
+                  <HeartIconSolid
+                    className="w-4 h-4 text-red-600 cursor-pointer"
+                    onClick={() => {
+                      setFavourite(false);
+                    }}
+                  />
+                ) : (
+                  <HeartIconOutline
+                    className="w-4 h-4 text-black cursor-pointer"
+                    onClick={() => {
+                      setFavourite(true);
+                    }}
+                  />
+                )}
+                <span className="flex justify-center items-center">
+                  {likes}
+                </span>
+              </div>
             </div>
-          ))}
-        </div>
+          </div>
 
-        <div className="p-1 flex-1 w-full rounded-md flex items-center gap-1 bg-gray-200 relative bottom-0">
-          <input
-            type="text"
-            value={newComment}
-            onChange={handleInputChange}
-            placeholder="Enter comment..."
-            className="border rounded-md p-0.5 h-9 flex-1 border-gray-500 border-opacity-50 focus:outline-none"
-            maxLength={150}
-            aria-label="post-text-input"
-          />
+          <div className="flex w-full flex-col max-h-[66vh] overflow-y-scroll">
+            {allcomments < 1
+              ? "Loading"
+              : allcomments.map((comment) => {
+                  const user =
+                    userData &&
+                    userData.find((user) => user.id === comment.created_by);
+                  const username = user ? user.first_name : "Unknown User";
 
-          <button
-            type="button"
-            disabled={disabled}
-            className={`w-fit tracking-widest ${
-              disabled || btnLoading
-                ? "bg-gray-200"
-                : "bg-[#329E49] hover:bg-[#3ab554]"
-            } bg-[#EC7422] text-white py-2 px-6 hover:bg-[#ce621b] hover:text-white rounded-md transition duration-300 ease-in-out`}
-            onClick={() => {
-              submitComment();
-            }}
-          >
-            {btnLoading ? <ButtonLoader /> : "Submit"}
-          </button>
+                  return (
+                    <div key={comment.id} className="flex gap-1 flex-col pr-2">
+                      <span className="flex justify-between">
+                        <span className="font-semibold">
+                          <span className="font-normal">By </span> {username}
+                        </span>
+                        <span className="text-sm">
+                          {simpleDate(comment.created_at)}
+                        </span>
+                      </span>
+                      <span className="flex justify-between">
+                        <span className="flex-1"> {comment.comment}</span>
+                        <span className="flex text-sm justify-center items-center gap-1">
+                          <HeartIconSolid className="w-4 text-sm text-gray-300 cursor-pointer" />
+                          0
+                        </span>
+                      </span>
+
+                      <hr />
+                    </div>
+                  );
+                })}
+          </div>
+
+          <div className="p-1 flex-1 w-full rounded-md flex items-center gap-1 bg-gray-200 bottom-0 sticky">
+            <input
+              type="text"
+              value={newComment}
+              onChange={handleInputChange}
+              placeholder="Enter comment..."
+              className="border rounded-md p-0.5 h-9 flex-1 border-gray-500 border-opacity-50 focus:outline-none"
+              maxLength={150}
+              aria-label="post-text-input"
+            />
+
+            <button
+              type="button"
+              disabled={disabled}
+              className={`w-fit tracking-widest ${
+                disabled || btnLoading
+                  ? "bg-gray-200"
+                  : "bg-[#329E49] hover:bg-[#3ab554]"
+              } bg-[#EC7422] text-white py-2 px-6 hover:bg-[#ce621b] hover:text-white rounded-md transition duration-300 ease-in-out`}
+              onClick={() => {
+                submitComment();
+              }}
+            >
+              {btnLoading ? <ButtonLoader /> : "Submit"}
+            </button>
+          </div>
         </div>
       </div>
     </div>

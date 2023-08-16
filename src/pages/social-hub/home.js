@@ -107,7 +107,12 @@ export const SocialHubHomePage = () => {
                     data={post}
                     user_id={userId}
                     key={post.id}
-                    onCommentClick={() => handleOpenCommentModal(post)}
+                    onCommentClick={() =>
+                      handleOpenCommentModal({
+                        ...post,
+                        userId: userId && userId,
+                      })
+                    }
                     onShareButtonClick={() => handleOpenSharePostModal(post)}
                     onUpdateClick={() => handleOpenUpdatePostModal(post)}
                     onDeleteButtonClick={() => handleDeletePostModal(post)}
