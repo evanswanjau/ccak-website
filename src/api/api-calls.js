@@ -121,6 +121,64 @@ export const getMember = (updateData) => {
   });
 };
 
+export const getMemberPosts = () => {
+  let decodedToken = jwt(localStorage.getItem("token"));
+
+  return axios({
+    method: "get",
+    url:
+      process.env.REACT_APP_API_URL +
+      "socialposts/member/" +
+      decodedToken.user_id,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((error) => {
+      console.error("An error occurred:", error);
+      throw error;
+    });
+};
+export const getMemberProfile = () => {
+  let decodedToken = jwt(localStorage.getItem("token"));
+
+  return axios({
+    method: "get",
+    url: process.env.REACT_APP_API_URL + "member/" + decodedToken.user_id,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((error) => {
+      console.error("An error occurred:", error);
+      throw error;
+    });
+};
+
+export const getMembers = () => {
+  return axios({
+    method: "get",
+    url: process.env.REACT_APP_API_URL + "members", // Update the URL according to your API endpoint
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  })
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((error) => {
+      console.error("An error occurred:", error);
+      throw error;
+    });
+};
+
 export const sendMail = (data, setBtnLoading, setError, setSuccess) => {
   let message = `Name: ${data.first_name} ${data.last_name} -
                     Email: ${data.email} -
@@ -232,6 +290,50 @@ export const deletePost = (postId, setBtnLoading, setError) => {
 
       setError(errors[keys[0]][0]);
       setBtnLoading(false);
+    });
+};
+
+export const getCommentsForPost = (postId, setError) => {
+  const url = process.env.REACT_APP_API_URL + "comments/socialpost/" + postId;
+
+  return axios({
+    method: "get",
+    url: url,
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => {
+      return response.data;
+    })
+    .catch(({ response }) => {
+      setError(response.data);
+      console.error("An error occurred:", response.data);
+      return [];
+    });
+};
+
+export const addSocialPostComment = (commentData, setSuccess, setError) => {
+  return axios({
+    method: "post",
+    url: process.env.REACT_APP_API_URL + "comment",
+    data: commentData,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  })
+    .then(() => {
+      setSuccess("Your comment has been added successfully");
+      setError(false);
+    })
+    .catch(({ response }) => {
+      console.log(response);
+      let errors = response.data;
+      let keys = Object.keys(response.data);
+
+      setError(errors[keys[0]][0]);
+      setSuccess(false);
     });
 };
 

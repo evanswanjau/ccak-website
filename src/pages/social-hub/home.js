@@ -6,6 +6,7 @@ import { SharePostModal } from "../../components/sharePostModal";
 import { AddCommentModal } from "../../components/addCommentModal";
 import { UpdatePostModal } from "../../components/updatePostModal";
 import { DeletePostModal } from "../../components/deletePostModal";
+import { ViewPostModal } from "../../components/viewPostModal.js";
 
 import { HiPlus } from "react-icons/hi2";
 import { fetchSocialPosts, deletePost } from "../../api/api-calls";
@@ -22,6 +23,7 @@ export const SocialHubHomePage = () => {
   const [isUpdatePostModalOpen, setIsUpdatePostModalOpen] = useState(false);
   const [isCommentModalOpen, setIsCommentModalOpen] = useState(false);
   const [isSharePostModalOpen, setIsSharePostModalOpen] = useState(false);
+  const [isViewPostModalOpen, setIsViewPostModalOpen] = useState(false);
   const [selectedPost, setSelectedPost] = useState(null);
 
   const handleOpenAddPostModal = () => {
@@ -42,6 +44,10 @@ export const SocialHubHomePage = () => {
     setSelectedPost(post);
     setIsCommentModalOpen(true);
   };
+  const handleViewPostModal = (post) => {
+    setSelectedPost(post);
+    setIsViewPostModalOpen(true);
+  };
 
   const handleOpenSharePostModal = (post) => {
     setSelectedPost(post);
@@ -49,12 +55,13 @@ export const SocialHubHomePage = () => {
   };
 
   const handleCloseModal = () => {
-    // setSelectedPost(null);
+    setSelectedPost(null);
     setIsDeletePostModalOpen(false);
     setIsAddPostModalOpen(false);
     setIsUpdatePostModalOpen(false);
     setIsCommentModalOpen(false);
     setIsSharePostModalOpen(false);
+    setIsViewPostModalOpen(false);
   };
 
   useEffect(() => {
@@ -87,7 +94,6 @@ export const SocialHubHomePage = () => {
             <SideMenu />
           </div>
         </div>
-
         <div className="md:w-6/12 pt-10 lg:px-10 overflow-hidden relative h-[89vh] rounded-md">
           <div className="space-y-6 mb-0 overflow-y-auto max-h-[88vh]">
             {posts < 1 ? (
@@ -101,10 +107,21 @@ export const SocialHubHomePage = () => {
                     data={post}
                     user_id={userId}
                     key={post.id}
-                    onCommentClick={() => handleOpenCommentModal(post)}
+                    onCommentClick={() =>
+                      handleOpenCommentModal({
+                        ...post,
+                        userId: userId && userId,
+                      })
+                    }
                     onShareButtonClick={() => handleOpenSharePostModal(post)}
                     onUpdateClick={() => handleOpenUpdatePostModal(post)}
                     onDeleteButtonClick={() => handleDeletePostModal(post)}
+                    onViewPostClick={() =>
+                      handleViewPostModal({
+                        ...post,
+                        userId: userId && userId,
+                      })
+                    }
                   />
                 );
               })
@@ -120,7 +137,6 @@ export const SocialHubHomePage = () => {
             </button>
           </div>
         </div>
-
         {isAddPostModalOpen && <AddPostModal onClose={handleCloseModal} />}
         {isSharePostModalOpen && (
           <SharePostModal onClose={handleCloseModal} post={selectedPost} />
@@ -130,6 +146,9 @@ export const SocialHubHomePage = () => {
         )}
         {isCommentModalOpen && (
           <AddCommentModal onClose={handleCloseModal} post={selectedPost} />
+        )}
+        {isViewPostModalOpen && (
+          <ViewPostModal onClose={handleCloseModal} post={selectedPost} />
         )}
         {isDeletePostModalOpen && (
           <DeletePostModal onClose={handleCloseModal} post={selectedPost} />
