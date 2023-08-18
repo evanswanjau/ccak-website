@@ -25,7 +25,7 @@ export const Select = ({ item, label, required = false, list, data, updateData }
                             key={option.value}
                             value={option.value}
                             selected={data[item] === option.value}
-                            className="font-manjari text-red-400"
+                            className="font-manjari"
                         >
                             {option.name}
                         </option>
