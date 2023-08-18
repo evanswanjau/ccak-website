@@ -19,7 +19,7 @@ export const ActionButtons = ({
                         updateData({ ...data, step: "personal" });
                     } else if (data.step === "subscription") {
                         updateData({ ...data, step: "company" });
-                    } else if (data.step === "checkout") {
+                    } else if (data.step === "confirm") {
                         updateData({ ...data, step: "subscription" });
                     }
                 }}
@@ -38,7 +38,13 @@ export const ActionButtons = ({
                     submitData();
                 }}
             >
-                {btnLoading ? <ButtonLoader /> : "CONTINUE"}
+                {btnLoading ? (
+                    <ButtonLoader />
+                ) : data.step === "confirm" ? (
+                    "PROCEED TO CHECKOUT"
+                ) : (
+                    "CONTINUE"
+                )}
             </button>
         </div>
     );

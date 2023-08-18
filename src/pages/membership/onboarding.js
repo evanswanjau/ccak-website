@@ -12,7 +12,7 @@ import { CompanyDetails } from "../../layouts/forms/onboarding/company";
 import { Stepper } from "../../layouts/forms/onboarding/stepper";
 import { ActionButtons } from "../../layouts/forms/onboarding/action-buttons";
 import { Subscription } from "../../layouts/forms/onboarding/subscription";
-import { Checkout } from "../../layouts/forms/checkout/checkout";
+import { ConfirmDetails } from "../../layouts/forms/onboarding/confirm";
 
 export const OnboardingPage = () => {
     const [btnLoading, setBtnLoading] = useState(false);
@@ -44,7 +44,8 @@ export const OnboardingPage = () => {
 
         if (data.step === "personal") step = "company";
         if (data.step === "company") step = "subscription";
-        if (data.step === "subscription") step = "checkout";
+        if (data.step === "subscription") step = "confirm";
+        if (data.step === "confirm") step = "checkout";
 
         return step;
     };
@@ -58,7 +59,7 @@ export const OnboardingPage = () => {
             if (data.company_email !== "") validateEmail(data.company_email);
             if (data.company_phone !== "")
                 validatePhoneNumber(data.company_phone);
-            if (data.website !== "") validateUrl(data.website_link);
+            if (data.website_link !== "") validateUrl(data.website_link);
 
             setError(false);
             onboardMember(
@@ -67,10 +68,16 @@ export const OnboardingPage = () => {
                 setBtnLoading,
                 setError
             );
+
+            if (data.step === "confirm") proceedToCheckout();
         } catch (error) {
             setBtnLoading(false);
             setError(error.message);
         }
+    };
+
+    const proceedToCheckout = () => {
+        console.log("we are ready to checkout");
     };
 
     useEffect(() => {
@@ -84,19 +91,13 @@ export const OnboardingPage = () => {
             data.first_name === "" ||
             data.last_name === "" ||
             data.email === "" ||
-            data.phone_number === "" ||
-            data.company === "" ||
-            data.designation === "";
+            data.phone_number === "";
     } else if (data.step === "company") {
         disabled =
             data.bio === "" ||
-            data.company_email === "" ||
-            data.company_phone === "" ||
             data.location === "" ||
             data.postal_address === "" ||
-            data.technology === "" ||
-            data.website === "" ||
-            data.logo === "";
+            data.technology === "";
     } else if (data.step === "subscription") {
         disabled = data.subscription_category === "";
     }
@@ -119,9 +120,7 @@ export const OnboardingPage = () => {
                 {data.step === "subscription" && (
                     <Subscription data={data} updateData={updateData} />
                 )}
-                {data.step === "checkout" && (
-                    <Checkout data={data} updateData={updateData} />
-                )}
+                {data.step === "confirm" && <ConfirmDetails data={data} />}
                 <ActionButtons
                     disabled={disabled}
                     data={data}

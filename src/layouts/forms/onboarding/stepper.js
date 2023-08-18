@@ -1,6 +1,6 @@
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 
-const items = ["personal", "company", "subscription", "checkout"];
+const items = ["personal", "company", "subscription", "confirm"];
 
 export const Stepper = ({ data, updateData }) => {
     return (
@@ -26,11 +26,11 @@ export const Stepper = ({ data, updateData }) => {
                             data.step === item && "text-blue-600 "
                         } hover:text-blue-600 transition duration-150`}
                         onClick={() => {
-                            updateData({ ...data, step: "checkout" });
+                            updateData({ ...data, step: "confirm" });
                         }}
                     >
                         <CheckCircleIcon className="w-6 -mt-1.5 mr-2" />
-                        Checkout
+                        Confirm
                     </li>
                 );
             })}

@@ -59,6 +59,7 @@ export const CompanyDetails = ({ data, updateData, setError }) => {
                         type="text"
                         name="location"
                         label="Location"
+                        required={true}
                         data={data}
                         updateData={updateData}
                     />
@@ -68,6 +69,7 @@ export const CompanyDetails = ({ data, updateData, setError }) => {
                         type="text"
                         name="postal_address"
                         label="Postal Address"
+                        required={true}
                         data={data}
                         updateData={updateData}
                     />
@@ -114,6 +116,7 @@ export const CompanyDetails = ({ data, updateData, setError }) => {
                         data={data}
                         updateData={updateData}
                         setError={setError}
+                        folder="members"
                     />
                 </div>
             </div>
