@@ -87,8 +87,8 @@ export const registerMember = (data, setBtnLoading, setError) => {
 
 export const onboardMember = (data, updateData, setBtnLoading, setError) => {
     return axios({
-        method: "patch",
-        url: process.env.REACT_APP_API_URL + "member/" + data.id,
+        method: "post",
+        url: process.env.REACT_APP_API_URL + "member/update/" + data.id,
         data: data,
         headers: {
             "Content-Type": "application/json",
