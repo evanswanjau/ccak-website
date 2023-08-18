@@ -71,7 +71,7 @@ export const RegisterPage = () => {
                     </li>
                 </ul>
             </div>
-            <div className="w-full p-10 bg-white overflow-scroll">
+            <div className="w-full p-10 bg-white overflow-scroll flex flex-col justify-center">
                 <h1 className="font-bold text-3xl">Register as a member</h1>
                 <p className="text-gray-400">
                     Already have an account{" "}
