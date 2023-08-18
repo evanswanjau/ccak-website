@@ -22,6 +22,7 @@ export const RegisterPage = () => {
         company: "",
         designation: "",
         agree_to_terms: false,
+        data_from: "website",
     });
 
     const submitData = () => {
@@ -61,9 +62,14 @@ export const RegisterPage = () => {
                 }}
                 className="g-cover bg-center bg-no-repeat w-full hidden lg:block"
             >
-                <a href="/">
-                    <img src="/ccak_logo.png" className="w-20 m-5" alt="Logo" />
-                </a>
+                <ul className="text-lg text-white flex space-x-2">
+                    <li className="m-2 hover:text-[#ED7423] transition duration-300 ease-in-out">
+                        <a href="/">Back to main site</a>
+                    </li>
+                    <li className="m-2 hover:text-[#ED7423] transition duration-300 ease-in-out">
+                        <a href="/membership/packages">Member packages</a>
+                    </li>
+                </ul>
             </div>
             <div className="w-full p-10 bg-white overflow-scroll">
                 <h1 className="font-bold text-3xl">Register as a member</h1>
