@@ -1,13 +1,23 @@
 import { useState } from "react";
 import { InputForm } from "../../components/forms/input-form";
+import { loginMember } from "../../api/api-calls";
+import { ButtonLoader } from "../../components/btnLoader";
+import { ErrorMessage } from "../../components/forms/error";
 
 export const LoginPage = () => {
+    const [btnLoading, setBtnLoading] = useState(false);
+    const [error, setError] = useState(false);
     const [data, updateData] = useState({
         email: "",
         password: "",
     });
 
     let disabled = data.email === "" || data.password === "";
+
+    const handleLogin = () => {
+        setBtnLoading(true);
+        loginMember(data, setBtnLoading, setError);
+    };
 
     return (
         <div className="h-screen flex">
@@ -34,6 +44,9 @@ export const LoginPage = () => {
                     </a>
                 </p>
                 <div className="space-y-4 my-24">
+                    {error && (
+                        <ErrorMessage error={error} setError={setError} />
+                    )}
                     <InputForm
                         type="email"
                         name="email"
@@ -56,8 +69,9 @@ export const LoginPage = () => {
                                 ? "bg-gray-200"
                                 : "bg-[#329E49] hover:bg-[#3ab554] focus:outline-none focus:ring-4 focus:ring-green-300 "
                         }  text-white  font-medium rounded-lg text-sm px-5 py-3 my-5 transition duration-700 ease-in-out`}
+                        onClick={() => handleLogin()}
                     >
-                        REGISTER
+                        {btnLoading ? <ButtonLoader /> : "Login"}
                     </button>
                 </div>
             </div>
