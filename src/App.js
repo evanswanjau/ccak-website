@@ -46,6 +46,7 @@ import { OurMembersPage } from "./pages/membership/our-members";
 import { RegisterPage } from "./pages/membership/register";
 import { LoginPage } from "./pages/membership/login";
 import { OnboardingPage } from "./pages/membership/onboarding";
+import { ForgotPasswordPage } from "./pages/membership/forgot-password";
 
 import { SocialHubHomePage } from "./pages/social-hub/home";
 import { SocialHubProfilePage } from "./pages/social-hub/profile";
@@ -53,6 +54,7 @@ import { SocialHubBookmarksPage } from "./pages/social-hub/bookmarks";
 import { SocialHubBillingPage } from "./pages/social-hub/billing";
 import { SocialHubChangePasswordPage } from "./pages/social-hub/change-password";
 import { BlogPage } from "./pages/media-centre/blog";
+import { CheckoutInvoice } from "./pages/checkout";
 
 const viewFooter = (pathname) => {
     let footer = true;
@@ -61,6 +63,8 @@ const viewFooter = (pathname) => {
     if (pathname.split("/")[2] === "register") footer = false;
     if (pathname.split("/")[2] === "login") footer = false;
     if (pathname.split("/")[2] === "onboarding") footer = false;
+    if (pathname.split("/")[2] === "forgot-password") footer = false;
+    if (pathname.split("/")[1] === "checkout") footer = false;
 
     return footer;
 };
@@ -71,6 +75,8 @@ const viewHeader = (pathname) => {
     if (pathname.split("/")[2] === "register") footer = false;
     if (pathname.split("/")[2] === "login") footer = false;
     if (pathname.split("/")[2] === "onboarding") footer = false;
+    if (pathname.split("/")[2] === "forgot-password") footer = false;
+    if (pathname.split("/")[1] === "checkout") footer = false;
 
     return footer;
 };
@@ -246,6 +252,11 @@ function App() {
                     component={OnboardingPage}
                 />
                 <Route exact path="/membership/login" component={LoginPage} />
+                <Route
+                    exact
+                    path="/membership/forgot-password"
+                    component={ForgotPasswordPage}
+                />
                 {/**--------------------- SOCIAL HUB ----------------------- */}
                 <Route path="/social-hub/home" component={SocialHubHomePage} />
                 <Route
@@ -263,6 +274,13 @@ function App() {
                 <Route
                     path="/social-hub/change-password"
                     component={SocialHubChangePasswordPage}
+                />
+
+                {/**--------------------- INVOICE ----------------------- */}
+
+                <Route
+                    path="/checkout/invoice/:id/:no"
+                    component={CheckoutInvoice}
                 />
             </Switch>
             {viewFooter(window.location.pathname) && <Footer />}
