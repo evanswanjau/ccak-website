@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { SocialHubPost } from "../../components/navBar/socialHub/post";
 import { SideMenu } from "../../components/navBar/socialHub/sideMenu";
-import { DeletePostModal } from "../../components/deletePostModal";
 import {
   PhoneIcon,
   EnvelopeIcon,
@@ -9,38 +8,72 @@ import {
   LinkIcon,
   InboxIcon,
 } from "@heroicons/react/24/outline";
-
+import { fetchDataAndProcess } from "../../helpers/modal-helpers";
 import jwt from "jwt-decode";
 import LoadingButton from "../../helpers/loaders";
 
-import { getMemberProfile, getMemberPosts } from "../../api/api-calls";
+import { SharePostModal } from "../../components/sharePostModal";
+import { AddCommentModal } from "../../components/addCommentModal";
+import { UpdatePostModal } from "../../components/updatePostModal";
+import { DeletePostModal } from "../../components/deletePostModal";
+import { ViewPostModal } from "../../components/viewPostModal.js";
+
+import { getMemberProfile } from "../../api/api-calls";
 
 export const SocialHubProfilePage = () => {
   const [userId, setUserId] = useState(null);
   const [userData, setUserData] = useState({});
-  const [posts, setPosts] = useState([]);
 
   const [isDeletePostModalOpen, setIsDeletePostModalOpen] = useState(false);
   const [selectedPost, setSelectedPost] = useState(null);
+
+  const [members, setMembers] = useState([]);
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const [isUpdatePostModalOpen, setIsUpdatePostModalOpen] = useState(false);
+  const [isCommentModalOpen, setIsCommentModalOpen] = useState(false);
+  const [isSharePostModalOpen, setIsSharePostModalOpen] = useState(false);
+  const [isViewPostModalOpen, setIsViewPostModalOpen] = useState(false);
+
+  const handleOpenUpdatePostModal = (post) => {
+    setSelectedPost(post);
+    setIsUpdatePostModalOpen(true);
+  };
+
+  const handleOpenCommentModal = (post) => {
+    setSelectedPost(post);
+    setIsCommentModalOpen(true);
+  };
+  const handleViewPostModal = (post) => {
+    setSelectedPost(post);
+    setIsViewPostModalOpen(true);
+  };
+
+  const handleOpenSharePostModal = (post) => {
+    setSelectedPost(post);
+    setIsSharePostModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedPost(null);
+    setIsDeletePostModalOpen(false);
+
+    setIsUpdatePostModalOpen(false);
+    setIsCommentModalOpen(false);
+    setIsSharePostModalOpen(false);
+    setIsViewPostModalOpen(false);
+  };
+
+  useEffect(() => {
+    fetchDataAndProcess(setPosts, setLoading, setError);
+  }, []);
 
   const handleDeletePostModal = (post) => {
     setSelectedPost(post);
     setIsDeletePostModalOpen(true);
   };
-
-  const handleCloseModal = () => {
-    setIsDeletePostModalOpen(false);
-  };
-
-  useEffect(() => {
-    getMemberPosts()
-      .then((data) => {
-        setPosts(data);
-      })
-      .catch((error) => {
-        console.log("Error getting posts ", error);
-      });
-  }, []);
 
   useEffect(() => {
     let userToken = localStorage.getItem("token");
@@ -155,7 +188,7 @@ export const SocialHubProfilePage = () => {
                     </a>
                     <div className="flex space-x-2 items-center">
                       <InboxIcon className="w-5" />
-                      <p>{userData?.postal_address || "00100 NAirobi"}</p>
+                      <p>{userData?.postal_address || "00100 Nairobi"}</p>
                     </div>
                   </div>
                 </div>
@@ -170,12 +203,28 @@ export const SocialHubProfilePage = () => {
                     posts.map((post) => {
                       return (
                         <SocialHubPost
+                          data={post}
                           user_id={userId}
                           key={post.id}
+                          onCommentClick={() =>
+                            handleOpenCommentModal({
+                              ...post,
+                              userId: userId && userId,
+                            })
+                          }
+                          onShareButtonClick={() =>
+                            handleOpenSharePostModal(post)
+                          }
+                          onUpdateClick={() => handleOpenUpdatePostModal(post)}
                           onDeleteButtonClick={() =>
                             handleDeletePostModal(post)
                           }
-                          data={post}
+                          onViewPostClick={() =>
+                            handleViewPostModal({
+                              ...post,
+                              userId: userId && userId,
+                            })
+                          }
                         />
                       );
                     })
@@ -186,6 +235,21 @@ export const SocialHubProfilePage = () => {
           )}
         </div>
       </div>
+      {isDeletePostModalOpen && (
+        <DeletePostModal onClose={handleCloseModal} post={selectedPost} />
+      )}
+      {isSharePostModalOpen && (
+        <SharePostModal onClose={handleCloseModal} post={selectedPost} />
+      )}
+      {isUpdatePostModalOpen && (
+        <UpdatePostModal onClose={handleCloseModal} post={selectedPost} />
+      )}
+      {isCommentModalOpen && (
+        <AddCommentModal onClose={handleCloseModal} post={selectedPost} />
+      )}
+      {isViewPostModalOpen && (
+        <ViewPostModal onClose={handleCloseModal} post={selectedPost} />
+      )}
       {isDeletePostModalOpen && (
         <DeletePostModal onClose={handleCloseModal} post={selectedPost} />
       )}

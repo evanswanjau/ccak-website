@@ -7,20 +7,18 @@ import { AddCommentModal } from "../../components/addCommentModal";
 import { UpdatePostModal } from "../../components/updatePostModal";
 import { DeletePostModal } from "../../components/deletePostModal";
 import { ViewPostModal } from "../../components/viewPostModal.js";
-
 import { HiPlus } from "react-icons/hi2";
-import { fetchSocialPosts, deletePost, getMembers } from "../../api/api-calls";
-
 import jwt from "jwt-decode";
 import LoadingButton, { NoPosts } from "../../helpers/loaders";
+import { fetchDataAndProcess } from "../../helpers/modal-helpers";
+import { getMember, getMemberProfile } from "../../api/api-calls";
 
 export const SocialHubHomePage = () => {
   const [posts, setPosts] = useState([]);
   const [userId, setUserId] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [members, setMembers] = useState([]);
-
+  
   const [isAddPostModalOpen, setIsAddPostModalOpen] = useState(false);
   const [isDeletePostModalOpen, setIsDeletePostModalOpen] = useState(false);
   const [isUpdatePostModalOpen, setIsUpdatePostModalOpen] = useState(false);
@@ -68,22 +66,8 @@ export const SocialHubHomePage = () => {
   };
 
   useEffect(() => {
-    Promise.all([getMembers(), fetchSocialPosts()])
-      .then(([fetchedMembers, fetchedPosts]) => {
-        setMembers(fetchedMembers);
-        setPosts(fetchedPosts);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-      });
+    fetchDataAndProcess(setPosts, setLoading, setError);
   }, []);
-
-  const getCreatorName = (creatorId) => {
-    const creator =
-      members && members.find((member) => member.id === creatorId);
-    return creator ? creator.first_name : "Unknown Creator";
-  };
 
   // check if token is present
   useEffect(() => {
@@ -103,8 +87,8 @@ export const SocialHubHomePage = () => {
             <SideMenu />
           </div>
         </div>
-        <div className="md:w-6/12 pt-10 lg:px-10 overflow-hidden relative h-[89vh] rounded-md">
-          <div className="space-y-6 mb-0 overflow-y-auto max-h-[88vh]">
+        <div className="md:w-6/12 pt-1 pb-2 lg:px-10 overflow-hidden relative h-[89vh] rounded-md">
+          <div className="space-y-6 mb-2 overflow-y-auto max-h-[88vh]">
             {loading == true ? (
               <div className="flex justify-center items-center h-[80vh] border">
                 <LoadingButton />
@@ -119,7 +103,6 @@ export const SocialHubHomePage = () => {
                   <SocialHubPost
                     data={post}
                     user_id={userId}
-                    creator={getCreatorName(post.created_by)}
                     key={post.id}
                     onCommentClick={() =>
                       handleOpenCommentModal({
@@ -140,36 +123,6 @@ export const SocialHubHomePage = () => {
                 );
               })
             )}
-            {/* {posts < 1 ? (
-              <div className="flex justify-center items-center h-[80vh] border">
-                <LoadingButton />
-              </div>
-            ) : (
-              posts.map((post) => {
-                return (
-                  <SocialHubPost
-                    data={post}
-                    user_id={userId}
-                    key={post.id}
-                    onCommentClick={() =>
-                      handleOpenCommentModal({
-                        ...post,
-                        userId: userId && userId,
-                      })
-                    }
-                    onShareButtonClick={() => handleOpenSharePostModal(post)}
-                    onUpdateClick={() => handleOpenUpdatePostModal(post)}
-                    onDeleteButtonClick={() => handleDeletePostModal(post)}
-                    onViewPostClick={() =>
-                      handleViewPostModal({
-                        ...post,
-                        userId: userId && userId,
-                      })
-                    }
-                  />
-                );
-              })
-            )} */}
           </div>
 
           <div className="absolute bottom-20 right-16 rounded-full cursor-pointer">
