@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { SocialHubPost } from "../../components/navBar/socialHub/post";
 import { SideMenu } from "../../components/navBar/socialHub/sideMenu";
+import { DeletePostModal } from "../../components/deletePostModal";
 import {
   PhoneIcon,
   EnvelopeIcon,
   MapPinIcon,
   LinkIcon,
+  InboxIcon,
 } from "@heroicons/react/24/outline";
 
 import jwt from "jwt-decode";
@@ -18,11 +20,22 @@ export const SocialHubProfilePage = () => {
   const [userData, setUserData] = useState({});
   const [posts, setPosts] = useState([]);
 
+  const [isDeletePostModalOpen, setIsDeletePostModalOpen] = useState(false);
+  const [selectedPost, setSelectedPost] = useState(null);
+
+  const handleDeletePostModal = (post) => {
+    setSelectedPost(post);
+    setIsDeletePostModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsDeletePostModalOpen(false);
+  };
+
   useEffect(() => {
     getMemberPosts()
       .then((data) => {
         setPosts(data);
-        console.log(data);
       })
       .catch((error) => {
         console.log("Error getting posts ", error);
@@ -32,9 +45,11 @@ export const SocialHubProfilePage = () => {
   useEffect(() => {
     let userToken = localStorage.getItem("token");
 
-    if (userToken) {
+    if (userToken !== null) {
       let decodedToken = jwt(localStorage.getItem("token"));
       setUserId(decodedToken.user_id);
+    } else {
+      setUserId(null);
     }
   }, []);
 
@@ -58,7 +73,7 @@ export const SocialHubProfilePage = () => {
         </div>
 
         <div className="md:w-6/12 pt-10 lg:px-10">
-          {!userId ? (
+          {userId == null ? (
             <div className="flex border flex-col rounded-lg min-h-[65vh] font-semibold justify-center items-center text-lg md:text-2xl">
               Login to view profile
               <svg
@@ -138,29 +153,42 @@ export const SocialHubProfilePage = () => {
                         {userData?.company_email || "https://burnstoves.com"}
                       </p>
                     </a>
+                    <div className="flex space-x-2 items-center">
+                      <InboxIcon className="w-5" />
+                      <p>{userData?.postal_address || "00100 NAirobi"}</p>
+                    </div>
                   </div>
                 </div>
               </div>
               <div>
                 <div className="space-y-6 mb-5">
-                  {posts < 1
-                    ? "Loading"
-                    : posts.map((post) => {
-                        return (
-                          <SocialHubPost
-                            user_id={userId}
-                            key={post.id}
-                            s
-                            data={post}
-                          />
-                        );
-                      })}
+                  {posts < 1 ? (
+                    <div className="border flex justify-center items-center">
+                      <LoadingButton />
+                    </div>
+                  ) : (
+                    posts.map((post) => {
+                      return (
+                        <SocialHubPost
+                          user_id={userId}
+                          key={post.id}
+                          onDeleteButtonClick={() =>
+                            handleDeletePostModal(post)
+                          }
+                          data={post}
+                        />
+                      );
+                    })
+                  )}
                 </div>
               </div>
             </div>
           )}
         </div>
       </div>
+      {isDeletePostModalOpen && (
+        <DeletePostModal onClose={handleCloseModal} post={selectedPost} />
+      )}
     </div>
   );
 };
