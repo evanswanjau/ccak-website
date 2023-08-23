@@ -9,14 +9,17 @@ import { DeletePostModal } from "../../components/deletePostModal";
 import { ViewPostModal } from "../../components/viewPostModal.js";
 
 import { HiPlus } from "react-icons/hi2";
-import { fetchSocialPosts, deletePost } from "../../api/api-calls";
+import { fetchSocialPosts, deletePost, getMembers } from "../../api/api-calls";
 
 import jwt from "jwt-decode";
-import LoadingButton from "../../helpers/loaders";
+import LoadingButton, { NoPosts } from "../../helpers/loaders";
 
 export const SocialHubHomePage = () => {
   const [posts, setPosts] = useState([]);
   const [userId, setUserId] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [members, setMembers] = useState([]);
 
   const [isAddPostModalOpen, setIsAddPostModalOpen] = useState(false);
   const [isDeletePostModalOpen, setIsDeletePostModalOpen] = useState(false);
@@ -65,18 +68,24 @@ export const SocialHubHomePage = () => {
   };
 
   useEffect(() => {
-    fetchSocialPosts()
-      .then((fetchedPosts) => {
+    Promise.all([getMembers(), fetchSocialPosts()])
+      .then(([fetchedMembers, fetchedPosts]) => {
+        setMembers(fetchedMembers);
         setPosts(fetchedPosts);
-        // setError(null);
+        setLoading(false);
       })
-      .catch((error) => {
-        // setError(error.message);
+      .catch((err) => {
+        setError(err.message);
       });
   }, []);
 
-  // check if token is present
+  const getCreatorName = (creatorId) => {
+    const creator =
+      members && members.find((member) => member.id === creatorId);
+    return creator ? creator.first_name : "Unknown Creator";
+  };
 
+  // check if token is present
   useEffect(() => {
     let userToken = localStorage.getItem("token");
 
@@ -96,7 +105,42 @@ export const SocialHubHomePage = () => {
         </div>
         <div className="md:w-6/12 pt-10 lg:px-10 overflow-hidden relative h-[89vh] rounded-md">
           <div className="space-y-6 mb-0 overflow-y-auto max-h-[88vh]">
-            {posts < 1 ? (
+            {loading == true ? (
+              <div className="flex justify-center items-center h-[80vh] border">
+                <LoadingButton />
+              </div>
+            ) : posts.length < 1 ? (
+              <div className="flex justify-center items-center h-[80vh] border">
+                <NoPosts />
+              </div>
+            ) : (
+              posts.map((post) => {
+                return (
+                  <SocialHubPost
+                    data={post}
+                    user_id={userId}
+                    creator={getCreatorName(post.created_by)}
+                    key={post.id}
+                    onCommentClick={() =>
+                      handleOpenCommentModal({
+                        ...post,
+                        userId: userId && userId,
+                      })
+                    }
+                    onShareButtonClick={() => handleOpenSharePostModal(post)}
+                    onUpdateClick={() => handleOpenUpdatePostModal(post)}
+                    onDeleteButtonClick={() => handleDeletePostModal(post)}
+                    onViewPostClick={() =>
+                      handleViewPostModal({
+                        ...post,
+                        userId: userId && userId,
+                      })
+                    }
+                  />
+                );
+              })
+            )}
+            {/* {posts < 1 ? (
               <div className="flex justify-center items-center h-[80vh] border">
                 <LoadingButton />
               </div>
@@ -125,7 +169,7 @@ export const SocialHubHomePage = () => {
                   />
                 );
               })
-            )}
+            )} */}
           </div>
 
           <div className="absolute bottom-20 right-16 rounded-full cursor-pointer">
