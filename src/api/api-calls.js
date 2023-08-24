@@ -49,7 +49,52 @@ export const subscribeUser = (data, setSuccess, setError) => {
         });
 };
 
-export const apiRequest = (method, url, data, updateData) => {
+export const generateInvoice = (data) => {
+    return axios({
+        method: "post",
+        url: process.env.REACT_APP_API_URL + "invoice",
+        data: data,
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+};
+
+export const searchMpesaCode = (mpesaCode) => {
+    return axios({
+        method: "post",
+        url: process.env.REACT_APP_API_URL + "payments/search",
+        data: {
+            transaction_id: mpesaCode,
+            method: "mpesa",
+            invoice_number: "",
+            page: 1,
+            limit: 1,
+        },
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+};
+
+export const paymentsByInvoice = (invoiceNumber) => {
+    return axios({
+        method: "post",
+        url: process.env.REACT_APP_API_URL + "payments/search",
+        data: {
+            transaction_id: "",
+            method: "mpesa",
+            invoice_number: invoiceNumber,
+            page: 1,
+            limit: 100,
+        },
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+};
+
+export const apiRequest = (method, url, data, updateData, parseData = null) => {
     return axios({
         method: method,
         url: process.env.REACT_APP_API_URL + url,
@@ -58,6 +103,7 @@ export const apiRequest = (method, url, data, updateData) => {
             "Content-Type": "application/json",
         },
     }).then(({ data }) => {
+        if (parseData) data = parseData(data);
         updateData(data);
         return data;
     });
@@ -118,6 +164,7 @@ export const getMember = (updateData) => {
         },
     }).then(({ data }) => {
         updateData(data);
+        return data;
     });
 };
 
@@ -262,10 +309,9 @@ export const loginMember = (data, setBtnLoading, setError) => {
     })
         .then(({ data }) => {
             localStorage.setItem("token", data.access);
-            window.location.replace("/");
+            window.location.replace("/social-hub/home");
         })
         .catch((error) => {
-            console.log(error.response.data.error);
             setError(error.response.data.error);
         })
         .finally(() => {
@@ -362,3 +408,5 @@ export const updateSocialPost = (
             setBtnLoading(false);
         });
 };
+
+export const resetPassword = () => {};
