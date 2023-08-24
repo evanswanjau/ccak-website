@@ -6,7 +6,7 @@ import { IKImage } from "imagekitio-react";
 import { BsImage } from "react-icons/bs";
 import { ImageUpload } from "./forms/uploadImage";
 import { TextArea } from "./forms/text-area";
-import { updateSocialPost } from "../api/api-calls"; // You need an update API function
+import { updateSocialPost } from "../api/api-calls";
 
 export const UpdatePostModal = ({
   onClose,
@@ -23,8 +23,6 @@ export const UpdatePostModal = ({
   const [error, setError] = useState(false);
   const [btnLoading, setBtnLoading] = useState(false);
 
-  const [updateImg, setUpdateImg] = useState(false);
-
   const updatePost = async () => {
     try {
       const newPostData = {
@@ -40,12 +38,12 @@ export const UpdatePostModal = ({
         id,
         newPostData,
         (successMessage) => {
+          window.location.reload();
           console.log(successMessage);
         },
         (errorMessage) => console.error(errorMessage)
       );
 
-      // Close the modal after successful update
       onClose();
     } catch (error) {
       console.error("An error occurred:", error);
@@ -98,8 +96,6 @@ export const UpdatePostModal = ({
           />
 
           <div className="flex flex-1 justify-center flex-col space-y-4 md:space-y-0 md:space-x-4 my-5 border">
-            {/* {image && <img src={image} alt="" />} */}
-
             <div className="flex flex-1 justify-center flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 my-5 mx-3">
               <div className="w-2/12 flex justify-center items-center">
                 {postData.image == "" ? (
@@ -117,7 +113,7 @@ export const UpdatePostModal = ({
               </div>
               <div className="w-10/12">
                 <ImageUpload
-                  data={postData.image}
+                  data={postData}
                   updateData={setPostData}
                   setError={setError}
                   folder="socialpost"

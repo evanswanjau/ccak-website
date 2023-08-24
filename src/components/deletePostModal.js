@@ -1,21 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
-import { deletePost } from "../api/api-calls";
+import React, { useEffect, useRef } from "react";
+import { useDeletePost } from "../helpers/modal-helpers";
 
 export const DeletePostModal = ({ onClose, post: { id } }) => {
-  const [error, setError] = useState(false);
-  const [btnLoading, setBtnLoading] = useState(false);
-
-  const onDelete = async () => {
-    try {
-      setBtnLoading(true);
-      await deletePost(id, setBtnLoading, setError);
-      onClose();
-      window.location.reload();
-    } catch (error) {
-      console.error("An error occurred:", error);
-      setBtnLoading(false);
-    }
-  };
+  const { onDelete } = useDeletePost();
 
   const modalRef = useRef();
 
@@ -49,7 +36,7 @@ export const DeletePostModal = ({ onClose, post: { id } }) => {
             <button
               type="button"
               className="mr-2 px-4 py-2 text-white bg-red-600 rounded-md hover:bg-red-700 transition duration-300"
-              onClick={() => onDelete(id)}
+              onClick={() => onDelete(id, onClose)}
             >
               Delete
             </button>

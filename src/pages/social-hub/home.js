@@ -7,17 +7,18 @@ import { AddCommentModal } from "../../components/addCommentModal";
 import { UpdatePostModal } from "../../components/updatePostModal";
 import { DeletePostModal } from "../../components/deletePostModal";
 import { ViewPostModal } from "../../components/viewPostModal.js";
-
 import { HiPlus } from "react-icons/hi2";
-import { fetchSocialPosts, deletePost } from "../../api/api-calls";
-
 import jwt from "jwt-decode";
-import LoadingButton from "../../helpers/loaders";
+import LoadingButton, { NoPosts } from "../../helpers/loaders";
+import { fetchDataAndProcess } from "../../helpers/modal-helpers";
+import { getMember, getMemberProfile } from "../../api/api-calls";
 
 export const SocialHubHomePage = () => {
   const [posts, setPosts] = useState([]);
   const [userId, setUserId] = useState(null);
-
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  
   const [isAddPostModalOpen, setIsAddPostModalOpen] = useState(false);
   const [isDeletePostModalOpen, setIsDeletePostModalOpen] = useState(false);
   const [isUpdatePostModalOpen, setIsUpdatePostModalOpen] = useState(false);
@@ -65,18 +66,10 @@ export const SocialHubHomePage = () => {
   };
 
   useEffect(() => {
-    fetchSocialPosts()
-      .then((fetchedPosts) => {
-        setPosts(fetchedPosts);
-        // setError(null);
-      })
-      .catch((error) => {
-        // setError(error.message);
-      });
+    fetchDataAndProcess(setPosts, setLoading, setError);
   }, []);
 
   // check if token is present
-
   useEffect(() => {
     let userToken = localStorage.getItem("token");
 
@@ -94,11 +87,15 @@ export const SocialHubHomePage = () => {
             <SideMenu />
           </div>
         </div>
-        <div className="md:w-6/12 pt-10 lg:px-10 overflow-hidden relative h-[89vh] rounded-md">
-          <div className="space-y-6 mb-0 overflow-y-auto max-h-[88vh]">
-            {posts < 1 ? (
+        <div className="md:w-6/12 pt-1 pb-2 lg:px-10 overflow-hidden relative h-[89vh] rounded-md">
+          <div className="space-y-6 mb-2 overflow-y-auto max-h-[88vh]">
+            {loading == true ? (
               <div className="flex justify-center items-center h-[80vh] border">
                 <LoadingButton />
+              </div>
+            ) : posts.length < 1 ? (
+              <div className="flex justify-center items-center h-[80vh] border">
+                <NoPosts />
               </div>
             ) : (
               posts.map((post) => {
