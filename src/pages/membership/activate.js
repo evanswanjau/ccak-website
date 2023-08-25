@@ -3,6 +3,7 @@ import jwt_decode from "jwt-decode";
 import { useParams } from "react-router-dom";
 import { AuthMember } from "../../helpers/auth";
 import { updateMember } from "../../api/member-api-calls";
+import { getMember } from "../../api/api-calls";
 
 export const ActivateEmail = () => {
     const params = useParams();
@@ -13,6 +14,7 @@ export const ActivateEmail = () => {
         localStorage.setItem("token", params.token);
 
         const decodedToken = jwt_decode(params.token);
+        getMember(setMember);
         updateMember(
             { ...member, email_activation: true, id: decodedToken.user_id },
             setMember
