@@ -10,17 +10,7 @@ import { getCommentsForPost, getMembers } from "../api/api-calls";
 
 export const ViewPostModal = ({
   onClose,
-  post: {
-    id,
-    logo,
-    name,
-    post,
-    image,
-    comments,
-    likes,
-    created_by,
-    created_at,
-  },
+  post: { id, logo, name, post, image, likes, created_by, created_at, author },
 }) => {
   const [favourite, setFavourite] = useState(true);
 
@@ -28,12 +18,10 @@ export const ViewPostModal = ({
   const [error, setError] = useState(null);
   const [userData, setUserData] = useState([]);
 
-  const submitPost = async () => {};
-
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const commentsData = await getCommentsForPost(2);
+        const commentsData = await getCommentsForPost(id);
         const userData = await getMembers();
 
         setUserData(userData);
@@ -82,7 +70,7 @@ export const ViewPostModal = ({
       <div className="modal-overlay fixed top-0 left-0 w-full h-full bg-gray-700 opacity-75"></div>
       <div
         ref={modalRef}
-        className="modal-content relative bg-white px-6 py-2 md:w-6/12 mx-auto rounded-lg shadow-lg z-20"
+        className="modal-content relative bg-white px-6 py-2 md:w-6/12 mx-auto rounded-lg shadow-lg z-20 pb-3"
       >
         <div class="flex items-start justify-end mt-0 absolute right-3">
           <button
@@ -98,15 +86,15 @@ export const ViewPostModal = ({
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                clip-rule="evenodd"
+                clipRule="evenodd"
               ></path>
             </svg>
           </button>
         </div>
 
-        <div className="flex justify-between mt-7">
+        <div className="flex justify-between mt-7 pb-1">
           <div className="flex items-center space-x-2">
             <img
               src={logo || `/logos/profile.png`}
@@ -114,9 +102,7 @@ export const ViewPostModal = ({
               className="w-7 h-7 rounded-full"
               git
             />
-            <h3 className="font-semibold text-xl text-black capitalize">
-              {name || "user1"}
-            </h3>
+            <h3 className="font-normal capitalize text-gray-700">{author}</h3>
           </div>
           <div className="flex items-center gap-1">
             {simpleDate(created_at)}
@@ -129,7 +115,7 @@ export const ViewPostModal = ({
               <img
                 src={image}
                 alt="post"
-                className="rounded-lg my-2 w-full p-1 px-4 "
+                className="rounded-lg my-2 w-full p-1 px-2 "
               />
             )}
             <p className="rounded-lg w-full px-4 ">{post}</p>
@@ -137,8 +123,8 @@ export const ViewPostModal = ({
             <div className="flex gap-1 justify-start items-start bg-gray-200 w-full px-2">
               <div className="flex space-x-1 w-fit justify-center items-center ">
                 <ChatBubbleLeftEllipsisIcon className="w-4 h-4 flex justify-center items-center cursor-pointer" />
-                <span className="flex justify-center items-center">
-                  {likes}
+                <span className="flex items-center justify-center">
+                  {allcomments?.length < 1 ? 0 : allcomments?.length}
                 </span>
               </div>
               <div className="flex space-x-1 w-fit justify-center items-center">
@@ -167,55 +153,43 @@ export const ViewPostModal = ({
           <div className="rounded-md border bg-gray-000">
             <div className="flex flex-1 justify-center flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 my-5 mx-3">
               <div className="flex w-full flex-col ">
-                {allcomments < 1
-                  ? "Loading"
-                  : allcomments.map((comment) => {
-                      const user =
-                        userData &&
-                        userData.find((user) => user.id === comment.created_by);
-                      const username = user ? user.first_name : "Unknown User";
+                {allcomments < 1 ? (
+                  <span className="px-1">No comments yet!</span>
+                ) : (
+                  allcomments.map((comment) => {
+                    const user =
+                      userData &&
+                      userData.find((user) => user.id === comment.created_by);
+                    const username = user ? user.first_name : "Unknown User";
 
-                      return (
-                        <div
-                          key={comment.id}
-                          className="flex gap-1 flex-col pr-2"
-                        >
-                          <span className="flex justify-between">
-                            <span className="font-semibold">
-                              <span className="font-normal">By </span>{" "}
-                              {username}
-                            </span>
-                            <span className="text-sm">
-                              {simpleDate(comment.created_at)}
-                            </span>
+                    return (
+                      <div
+                        key={comment.id}
+                        className="flex gap-1 flex-col pr-2"
+                      >
+                        <span className="flex justify-between">
+                          <span className="font-semibold">
+                            <span className="font-normal">By </span> {username}
                           </span>
-                          <span className="flex justify-between">
-                            <span className="flex-1"> {comment.comment}</span>
-                            <span className="flex text-sm justify-center items-center gap-1">
-                              <HeartIconSolid className="w-4 text-sm text-gray-300 cursor-pointer" />
-                              0
-                            </span>
+                          <span className="text-sm">
+                            {simpleDate(comment.created_at)}
                           </span>
+                        </span>
+                        <span className="flex justify-between">
+                          <span className="flex-1"> {comment.comment}</span>
+                          <span className="flex text-sm justify-center items-center gap-1">
+                            <HeartIconSolid className="w-4 text-sm text-gray-300 cursor-pointer" />
+                            0
+                          </span>
+                        </span>
 
-                          <hr />
-                        </div>
-                      );
-                    })}
+                        <hr />
+                      </div>
+                    );
+                  })
+                )}
               </div>
             </div>
-
-            {/*  */}
-            {/*  */}
-            <button
-              type="button"
-              disabled={true}
-              className={`w-full mt-3 tracking-widest bg-[#EC7422] text-white pt-1 pb-1 px-6 hover:bg-[#ce621b] hover:text-white rounded-md transition duration-300 ease-in-out`}
-              onClick={() => {
-                submitPost();
-              }}
-            >
-              Add Comment
-            </button>
           </div>
         </div>
       </div>
