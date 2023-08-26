@@ -144,7 +144,7 @@ export const ConfirmDetails = ({ data }) => {
                 </div>
                 <div className="w-full space-y-2">
                     <h3 className="font-bold mb-4">Company Details</h3>
-                    <p className="capitalize">
+                    <p>
                         Bio: <b>{data.bio}</b>
                     </p>
                     {data.company_email && (
