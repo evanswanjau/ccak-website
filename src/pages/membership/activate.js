@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import jwt_decode from "jwt-decode";
 import { useParams } from "react-router-dom";
 import { AuthMember } from "../../helpers/auth";
-import { updateMember } from "../../api/member-api-calls";
-import { getMember } from "../../api/api-calls";
+import { getMember, updateMember } from "../../api/member-api-calls";
 
 export const ActivateEmail = () => {
     const params = useParams();
