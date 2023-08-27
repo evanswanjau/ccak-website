@@ -30,7 +30,7 @@ export const ResearchDownload = ({ data }) => {
                             href="/get-involved/become-a-member"
                             className="bg-[#EC7422] font-manjari leading-none pb-2 pt-3 px-5 text-white hover:bg-[#ce621b] rounded-md transition duration-300 ease-in-out tracking-widest"
                         >
-                            DOWNLOAD
+                            OPEN
                         </button>
                     </a>
                 </div>
