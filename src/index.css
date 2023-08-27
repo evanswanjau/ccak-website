@@ -268,3 +268,7 @@ a {
 .Example__container__document .react-pdf__Page__textContent {
     display: none;
 }
+
+.react-images__view-image {
+    margin: 0 auto !important;
+}
