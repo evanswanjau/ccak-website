@@ -4,16 +4,6 @@ import Gallery from "react-photo-gallery";
 import { apiRequest } from "../../api/api-calls";
 import Carousel, { Modal, ModalGateway } from "react-images";
 
-const reduceImageSize = (width, height) => {
-    const reducedWidth = width * 0.5;
-    const reducedHeight = height * 0.5;
-
-    return {
-        width: reducedWidth,
-        height: reducedHeight,
-    };
-};
-
 export const PhotoGalleryReadMore = () => {
     const params = useParams();
     const [photos, updatePhotos] = useState([]);
@@ -36,14 +26,10 @@ export const PhotoGalleryReadMore = () => {
         apiRequest("get", "post/" + params.id, photos, updatePhotos)
             .then((data) => {
                 data.files.data.map((item) => {
-                    console.log(item);
                     return newArr.push({
                         src: item.url,
-                        sizes: [
-                            "(min-width: 480px) 50vw,(min-width: 1024px) 33.3vw,100vw",
-                        ],
-                        width: item.width * 0.5,
-                        height: item.height * 0.5,
+                        width: item.width / 10,
+                        height: item.height / 10,
                     });
                 });
             })
