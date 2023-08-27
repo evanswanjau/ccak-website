@@ -1,4 +1,5 @@
 import React from "react";
+import CountUp from "react-countup";
 
 import { RecentProjects } from "../layouts/recentProjects";
 import { SubFooter } from "../layouts/subFooter";
@@ -188,7 +189,7 @@ export const HomePage = () => {
                 <div className="lg:w-5/12 mt-5 lg:m-0">
                     <Fade>
                         <img
-                            className="rounded-lg"
+                            className="rounded-lg max-h-[40em]"
                             src={
                                 process.env.REACT_APP_IMAGEKIT_URL +
                                 "home_section_2_promote_clean_cooking.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1678477808057"
@@ -196,6 +197,63 @@ export const HomePage = () => {
                             alt="Promoting clean cooking"
                         />
                     </Fade>
+                </div>
+            </section>
+            <section className="py-10 px-6 lg:px-16">
+                <h2 className="font-semibold text-3xl my-10 md:text-4xl text-black flex justify-center">
+                    Our Achievements at a Glance
+                </h2>
+                <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-6 sm:gap-6 py-10">
+                    <div className="text-3xl font-bold text-center">
+                        <h3>Interministerial Commitees</h3>
+                        <div className="text-6xl my-5 text-black">
+                            +<CountUp end={100} duration={5} />
+                        </div>
+                    </div>
+                    <div className="text-3xl font-bold text-center">
+                        <h3>Projects Done</h3>
+                        <div className="text-6xl my-5 text-black">
+                            +<CountUp end={32} duration={5} />
+                        </div>
+                    </div>
+                    <div className="text-3xl font-bold text-center">
+                        <h3>Members</h3>
+                        <div className="text-6xl my-5 text-black">
+                            +<CountUp end={400} duration={5} />
+                        </div>
+                    </div>
+                    <div className="text-3xl font-bold text-center">
+                        <h3>Sector standards and guidelines</h3>
+                        <div className="text-6xl my-5 text-black">
+                            +<CountUp end={7} duration={5} />
+                        </div>
+                    </div>
+                </div>
+                <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-6 sm:gap-6 py-10">
+                    <div className="text-3xl font-bold text-center">
+                        <h3>Clean Cooking Week</h3>
+                        <div className="text-6xl my-5 text-black">
+                            +<CountUp end={100} duration={5} />
+                        </div>
+                    </div>
+                    <div className="text-3xl font-bold text-center">
+                        <h3>Resources Raised</h3>
+                        <div className="text-6xl my-5 text-black">
+                            <CountUp end={800000} duration={5} />M
+                        </div>
+                    </div>
+                    <div className="text-3xl font-bold text-center">
+                        <h3>Amount Raised</h3>
+                        <div className="text-6xl my-5 text-black">
+                            +<CountUp end={400} duration={5} />
+                        </div>
+                    </div>
+                    <div className="text-3xl font-bold text-center">
+                        <h3>Awards</h3>
+                        <div className="text-6xl my-5 text-black">
+                            +<CountUp end={100} duration={5} />
+                        </div>
+                    </div>
                 </div>
             </section>
             <section>
