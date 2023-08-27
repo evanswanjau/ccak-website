@@ -42,13 +42,13 @@ export const ProjectsPage = () => {
             </section>
             <div className="flex flex-row px-6 lg:px-16">
                 <div className="w-full lg:w-9/12">
-                    <div class="mb-4 border-b border-gray-200">
-                        <ul class="flex flex-nowrap -mb-px font-medium text-center font-manjari">
+                    <div className="mb-4 border-b border-gray-200">
+                        <ul className="flex flex-nowrap -mb-px font-medium text-center font-manjari">
                             {["all", "ongoing", "completed"].map((item) => {
                                 return (
-                                    <li class="mr-2" role="presentation">
+                                    <li className="mr-2" role="presentation">
                                         <button
-                                            class={`${
+                                            className={`${
                                                 current === item
                                                     ? "text-[#329E49] border-[#329E49]"
                                                     : "text-gray-500 border-transparent"
