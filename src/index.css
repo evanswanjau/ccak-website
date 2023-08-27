@@ -3,6 +3,28 @@
 @tailwind utilities;
 /* @import 'node_modules/react-modal-video/scss/modal-video.scss'; */
 
+/*ScrollBar*/
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(222, 222, 222);
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888888;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #134e4a;
+}
+
 body {
     padding: 0 !important;
     margin: 0 !important;
@@ -25,7 +47,7 @@ a {
 }
 
 #content * {
-    font-family: Manjari;
+    font-family: Manjari !important;
 }
 
 #content p {
