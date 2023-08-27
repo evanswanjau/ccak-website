@@ -4,6 +4,7 @@ import { OurMember } from "../../components/ourMember";
 import { CallToAction } from "../../components/callToAction";
 import { searchMember } from "../../api/api-calls";
 import { InputForm } from "../../components/forms/input-form";
+import { OurMemberModal } from "../../components/ourMemberModal";
 
 let technologies = [
     "cook stoves providers",
@@ -37,20 +38,17 @@ let categories = [
 
 export const OurMembersPage = () => {
     const [data, updateData] = useState([]);
+    const [member, setMember] = useState({ modal: false, member: {} });
 
     const [searchData, updateSearchData] = useState({
         keyword: "",
-        table: "members",
-        category: "",
         technology: "",
-        member_type: "",
-        project_status: "",
-        access: "public",
-        status: "published",
+        registration_status: "",
+        subscription_status: "",
+        subscription_category: "",
+        status: "",
         page: 1,
-        limit: 12,
-        ip_address: "",
-        created_by: 0,
+        limit: 21,
     });
 
     useEffect(() => {
@@ -59,6 +57,9 @@ export const OurMembersPage = () => {
 
     return (
         <div className="pt-[3.8rem] lg:pt-[6.6rem]">
+            {member.modal && (
+                <OurMemberModal member={member} setMember={setMember} />
+            )}
             <section className="text-center py-12">
                 <Slide bottom>
                     <h1 className="text-4xl font-semibold my-5">Members</h1>
@@ -76,7 +77,13 @@ export const OurMembersPage = () => {
             <section className="flex flex-row px-6 lg:px-16">
                 <div className="w-full lg:w-9/12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3 gap-y-6 sm:gap-6 py-10">
                     {data.map((item, i) => {
-                        return <OurMember key={i} data={item} />;
+                        return (
+                            <OurMember
+                                key={i}
+                                data={item}
+                                setMember={setMember}
+                    />
+                        );
                     })}
                 </div>
                 <div className="hidden lg:block w-4/12 pt-10 pl-10">
