@@ -12,13 +12,13 @@ export const MemberModal = ({
                 <div className="w-full flex justify-end">
                     <button
                         type="button"
-                        class="mb-3 hover:text-white bg-transparent hover:bg-black rounded-lg text-sm p-1.5 transition duration-300 ease-in-out"
+                        className="mb-3 hover:text-white bg-transparent hover:bg-black rounded-lg text-sm p-1.5 transition duration-300 ease-in-out"
                         onClick={() => {
                             setMember({ modal: false, member: {} });
                         }}
                     >
                         <XMarkIcon className="w-6 font-bold " />
-                        <span class="sr-only">Close menu</span>
+                        <span className="sr-only">Close menu</span>
                     </button>
                 </div>
 
