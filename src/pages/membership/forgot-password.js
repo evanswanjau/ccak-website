@@ -4,12 +4,15 @@ import { InputForm } from "../../components/forms/input-form";
 import { ButtonLoader } from "../../components/btnLoader";
 import { ErrorMessage } from "../../components/forms/error";
 import { FiArrowLeft } from "react-icons/fi";
+import { validateEmail } from "../../helpers/validation";
+import { resetPassword } from "../../api/member-api-calls";
 
 export const ForgotPasswordPage = () => {
     const [btnLoading, setBtnLoading] = useState(false);
     const [error, setError] = useState(false);
     const [data, updateData] = useState({
         email: "",
+        user_type: "member",
     });
 
     let disabled = data.email === "";
@@ -17,18 +20,26 @@ export const ForgotPasswordPage = () => {
     const { enqueueSnackbar } = useSnackbar();
 
     const handleReset = () => {
+        validateEmail(data.email);
         setBtnLoading(true);
-        enqueueSnackbar(
-            "Instrutions to reset your password have been sent to your email",
-            {
-                variant: "success",
-                anchorOrigin: {
-                    horizontal: "center",
-                    vertical: "top",
-                },
-            }
-        );
-        // TODO INTEGRATE API
+
+        resetPassword(data).finally(() => {
+            setBtnLoading(false);
+            updateData({
+                email: "",
+                user_type: "member",
+            });
+            enqueueSnackbar(
+                "Instrutions to reset your password have been sent to your email",
+                {
+                    variant: "success",
+                    anchorOrigin: {
+                        horizontal: "center",
+                        vertical: "top",
+                    },
+                }
+            );
+        });
     };
 
     return (
