@@ -3,7 +3,7 @@ import React from "react";
 export const TopBar = ({ setDropDown }) => {
     const links = [
         {
-            link: "/social-hub/home",
+            link: "/social-hub",
             name: "SOCIAL HUB",
         },
         {

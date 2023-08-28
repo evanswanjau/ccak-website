@@ -170,7 +170,7 @@ export const Drawer = ({ mobile, setMobile }) => {
         >
             <div
                 // prettier-ignore
-                class={`fixed top-0 left-0  font-manjari h-screen p-4 overflow-y-auto transition-translate duration-300 ease-in-out ${!mobile ? '-translate-x-full' : 'translate-x-0'} bg-[#FAD5BB] w-80`}
+                className={`fixed top-0 left-0  font-manjari h-screen p-4 overflow-y-auto transition-translate duration-300 ease-in-out ${!mobile ? '-translate-x-full' : 'translate-x-0'} bg-[#FAD5BB] w-80`}
                 tabindex="-1"
             >
                 <div className="flex flex-row items-center justify-between border-b border-black pb-5">
@@ -183,25 +183,25 @@ export const Drawer = ({ mobile, setMobile }) => {
                     </a>
                     <button
                         type="button"
-                        class="text-white bg-transparent hover:bg-black rounded-lg text-sm p-1.5 transition duration-300 ease-in-out"
+                        className="text-white bg-transparent hover:bg-black rounded-lg text-sm p-1.5 transition duration-300 ease-in-out"
                         onClick={() => {
                             setMobile(false);
                         }}
                     >
                         <XMarkIcon className="w-6 font-bold " />
-                        <span class="sr-only">Close menu</span>
+                        <span className="sr-only">Close menu</span>
                     </button>
                 </div>
 
-                <div class="py-4 overflow-y-auto">
-                    <ul class="space-y-2">
+                <div className="py-4 overflow-y-auto">
+                    <ul className="space-y-2">
                         {data.map((item) => {
                             return (
                                 <li key={item.links.title}>
                                     <a href={item.info.link}>
                                         <button
                                             type="button"
-                                            class="flex items-center w-full pt-3.5 pb-3 px-2.5 text-base font-bold font-montserrat text-black rounded-lg group hover:text-[#ED7423] transition duration-300 ease-in-out"
+                                            className="flex items-center w-full pt-3.5 pb-3 px-2.5 text-base font-bold font-montserrat text-black rounded-lg group hover:text-[#ED7423] transition duration-300 ease-in-out"
                                             onClick={() => {
                                                 setCurrent(
                                                     current === item.info.title
@@ -210,7 +210,7 @@ export const Drawer = ({ mobile, setMobile }) => {
                                                 );
                                             }}
                                         >
-                                            <span class="flex-1 ml-3 text-left whitespace-nowrap">
+                                            <span className="flex-1 ml-3 text-left whitespace-nowrap">
                                                 {item.info.title}
                                             </span>
                                             {item.links.length > 1 && (
@@ -220,7 +220,7 @@ export const Drawer = ({ mobile, setMobile }) => {
                                     </a>
                                     <ul
                                         id="dropdown-example"
-                                        class={`${
+                                        className={`${
                                             current !== item.info.title &&
                                             "hidden"
                                         } py-2 space-y-2`}
@@ -230,7 +230,7 @@ export const Drawer = ({ mobile, setMobile }) => {
                                                 <li key={link.name}>
                                                     <a
                                                         href={link.link}
-                                                        class="flex items-center w-full pt-3 pb-2 px-2 text-base font-bold font-montserrat text-black rounded-lg pl-11 group  hover:text-[#ED7423] transition duration-300 ease-in-out"
+                                                        className="flex items-center w-full pt-3 pb-2 px-2 text-base font-bold font-montserrat text-black rounded-lg pl-11 group  hover:text-[#ED7423] transition duration-300 ease-in-out"
                                                     >
                                                         {link.name}
                                                     </a>
