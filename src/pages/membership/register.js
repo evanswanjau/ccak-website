@@ -60,18 +60,63 @@ export const RegisterPage = () => {
                     })`,
                     backgroundSize: "cover",
                 }}
-                className="g-cover bg-center bg-no-repeat w-full hidden lg:block"
+                className="g-cover bg-center bg-no-repeat w-full hidden lg:block overflow-y-auto"
             >
-                <ul className="text-lg text-white flex space-x-2">
-                    <li className="m-2 hover:text-[#ED7423] transition duration-300 ease-in-out">
-                        <a href="/">Back to main site</a>
-                    </li>
-                    <li className="m-2 hover:text-[#ED7423] transition duration-300 ease-in-out">
-                        <a href="/membership/packages">Member packages</a>
-                    </li>
-                </ul>
+                <div className="h-full w-full bg-black bg-opacity-30 overflow-y-auto">
+                    <ul className="text-lg text-white flex space-x-2">
+                        <li className="m-3 hover:text-[#ED7423] transition duration-300 ease-in-out">
+                            <a href="/">Back to main site</a>
+                        </li>
+                        <li className="m-3 hover:text-[#ED7423] transition duration-300 ease-in-out">
+                            <a href="/membership/packages">Member packages</a>
+                        </li>
+                    </ul>
+                    <div className="py-10 px-10 lg:px-20">
+                        <h1 className="font-bold text-3xl text-white mb-10">
+                            Why Join Us?
+                        </h1>
+                        <ul>
+                            {[
+                                <p className="font-bold">
+                                    CCAK acts as your representative, addressing
+                                    legislative, regulatory, and tax challenges
+                                    on your behalf.
+                                </p>,
+                                <p className="font-bold">
+                                    CCAK engages in lobbying and advocacy to
+                                    achieve policy gains for its members.
+                                </p>,
+                                <p className="font-bold">
+                                    CCAK conceives public-private dialogues to
+                                    influence positive changes in policies and
+                                    regulations.
+                                </p>,
+                                <p className="font-bold">
+                                    CCAK facilitates discussions between members
+                                    and government bodies like the Ministry of
+                                    Energy and the Council of Governors.
+                                </p>,
+                                <p className="font-bold">
+                                    CCAK links members to new sources of finance
+                                    to support business growth.
+                                </p>,
+                            ].map((item, i) => {
+                                return (
+                                    <li className="bg-white p-5 my-2 rounded-lg flex space-x-4 items-center">
+                                        <h3 className="font-semibold text-xl w-1/12 text-center border-r">
+                                            {i + 1}
+                                        </h3>
+                                        <p className="text-sm w-11/12">
+                                            {item}
+                                        </p>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div className="w-full p-10 bg-white overflow-scroll flex flex-col justify-center">
+            <div className="w-full p-10 bg-white overflow-y-auto flex flex-col justify-center">
                 <h1 className="font-bold text-3xl">Register as a member</h1>
                 <p className="text-gray-400">
                     Already have an account{" "}
@@ -188,7 +233,7 @@ export const RegisterPage = () => {
                             }}
                         />
                         <label
-                            for="link-checkbox"
+                            htmlFor="link-checkbox"
                             className="ml-2 text-sm flex space-x-1 font-medium text-gray-900 dark:text-gray-300"
                         >
                             <p>I agree with the</p>
