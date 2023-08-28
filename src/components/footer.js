@@ -134,14 +134,14 @@ export const Footer = () => {
                 </p>
                 <p className="w-full lg:w-6/12 lg:text-right">
                     <a
-                        href="legal/terms-and-conditions"
+                        href="/legal/terms-and-conditions"
                         className="hover:text-[#ED7423] transition delay-100 ease-in-out"
                     >
                         Terms and Conditions
                     </a>
                     &nbsp; | &nbsp;
                     <a
-                        href="legal/privacy-policy"
+                        href="/legal/privacy-policy"
                         className="hover:text-[#ED7423]"
                     >
                         Privacy Policy
