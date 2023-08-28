@@ -64,15 +64,22 @@ export const LoginPage = () => {
                     <button
                         type="button"
                         disabled={disabled}
-                        class={`w-full tracking-widest ${
-                            disabled
+                        className={`w-full tracking-widest ${
+                            disabled || btnLoading
                                 ? "bg-gray-200"
-                                : "bg-[#329E49] hover:bg-[#3ab554] focus:outline-none focus:ring-4 focus:ring-green-300 "
-                        }  text-white  font-medium rounded-lg text-sm px-5 py-3 my-5 transition duration-700 ease-in-out`}
-                        onClick={() => handleLogin()}
+                                : "bg-[#329E49] hover:bg-[#3ab554]"
+                        }  text-white flex justify-center font-medium rounded-lg text-sm px-5 py-3 my-5 transition duration-700 ease-in-out`}
+                        onClick={() => {
+                            handleLogin();
+                        }}
                     >
-                        {btnLoading ? <ButtonLoader /> : "Login"}
+                        {btnLoading ? <ButtonLoader /> : "CONTINUE"}
                     </button>
+                    <div className="text-blue-600 hover:text-blue-800 flex justify-end">
+                        <a className="" href="/membership/forgot-password">
+                            Forgot Password
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
