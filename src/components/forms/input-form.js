@@ -14,8 +14,8 @@ export const InputForm = ({
     return (
         <div>
             <label
-                for={type}
-                class="block uppercase mb-2 text-[0.7em] font-bold text-gray-900 font-montserrat"
+                htmlFor={type}
+                className="block uppercase mb-2 text-[0.7em] font-bold text-gray-900 font-montserrat"
             >
                 {label}{" "}
                 {required && <span className="text-red-600 text-sm">*</span>}
@@ -24,7 +24,7 @@ export const InputForm = ({
                 <input
                     type={type === "password" && passType}
                     id={name}
-                    class={`border font-manjari text-gray-900 rounded-lg focus:outline-none focus:ring-[#ED7423] focus:border-[#ED7423] block w-full p-2 pt-3 ${
+                    className={`border font-manjari text-gray-900 rounded-lg focus:outline-none focus:ring-[#ED7423] focus:border-[#ED7423] block w-full p-2 pt-3 ${
                         name === "mpesaCode" && "uppercase tracking-wider"
                     }`}
                     maxLength={name === "mpesaCode" ? 10 : null}

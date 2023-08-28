@@ -1,9 +1,16 @@
-export const Select = ({ item, label, required = false, list, data, updateData }) => {
+export const Select = ({
+    item,
+    label,
+    required = false,
+    list,
+    data,
+    updateData,
+}) => {
     return (
         <div>
             <label
                 className="block uppercase mb-2 text-[0.7em] font-bold text-gray-900 font-montserrat"
-                for={item}
+                htmlFor={item}
             >
                 {label}{" "}
                 {required && <span className="text-red-600 text-sm">*</span>}
