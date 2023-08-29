@@ -127,13 +127,16 @@ export const Subscription = ({ data, updateData }) => {
                                 {item.name}
                             </h4>
                             <h3 className="text-2xl font-bold mt-3">
-                                {item.price}
+                                KES {item.price.toLocaleString("en-US")}
                             </h3>
                             <p>Per Year</p>
                             <ul className="text-left text-white my-2">
                                 {item.list.map((item, i) => {
                                     return (
-                                        <li key={i} className="flex my-4 text-md font-manjari">
+                                        <li
+                                            key={i}
+                                            className="flex my-4 text-md font-manjari"
+                                        >
                                             <PlayIcon className="w-4 mr-3 -mt-[5px] text-[#97DAAD]" />
                                             <span className="w-11/12">
                                                 {item}
