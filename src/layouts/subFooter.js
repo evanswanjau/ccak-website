@@ -10,8 +10,8 @@ export const SubFooter = () => {
             <CallToAction />
             <div className="flex">
                 <div className="w-full lg:w-8/12">
-                    <RecentNews limit={3} />
-                    <UpcomingEvents limit={3} />
+                    <RecentNews limit={4} />
+                    <UpcomingEvents limit={4} />
                 </div>
                 <div className="hidden lg:block w-4/12 p-6">
                     <Timeline
