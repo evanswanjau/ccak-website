@@ -204,54 +204,48 @@ export const HomePage = () => {
                     Our Achievements at a Glance
                 </h2>
                 <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-6 sm:gap-6 py-10">
-                    <div className="text-3xl font-bold text-center">
-                        <h3>Interministerial Commitees</h3>
-                        <div className="text-6xl my-5 text-black">
+                    <div className="text-xl font-bold text-center">
+                        <h3>Interministerial Committees</h3>
+                        <div className="text-4xl my-5 text-black">
+                            +<CountUp end={11} duration={5} />
+                        </div>
+                    </div>
+                    <div className="text-xl font-bold text-center">
+                        <h3>Projects Done</h3>
+                        <div className="text-4xl my-5 text-black">
+                            +<CountUp end={15} duration={5} />
+                        </div>
+                    </div>
+                    <div className="text-xl font-bold text-center">
+                        <h3>Members</h3>
+                        <div className="text-4xl my-5 text-black">
                             +<CountUp end={100} duration={5} />
                         </div>
                     </div>
-                    <div className="text-3xl font-bold text-center">
-                        <h3>Projects Done</h3>
-                        <div className="text-6xl my-5 text-black">
-                            +<CountUp end={32} duration={5} />
-                        </div>
-                    </div>
-                    <div className="text-3xl font-bold text-center">
-                        <h3>Members</h3>
-                        <div className="text-6xl my-5 text-black">
-                            +<CountUp end={400} duration={5} />
-                        </div>
-                    </div>
-                    <div className="text-3xl font-bold text-center">
+                    <div className="text-xl font-bold text-center">
                         <h3>Sector standards and guidelines</h3>
-                        <div className="text-6xl my-5 text-black">
-                            +<CountUp end={7} duration={5} />
+                        <div className="text-4xl my-5 text-black">
+                            <CountUp end={10} duration={5} />
                         </div>
                     </div>
                 </div>
                 <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-6 sm:gap-6 py-10">
-                    <div className="text-3xl font-bold text-center">
+                    <div className="text-xl font-bold text-center">
                         <h3>Clean Cooking Week</h3>
-                        <div className="text-6xl my-5 text-black">
-                            +<CountUp end={100} duration={5} />
+                        <div className="text-4xl my-5 text-black">
+                            <CountUp end={4} duration={5} />
                         </div>
                     </div>
-                    <div className="text-3xl font-bold text-center">
+                    <div className="text-xl font-bold text-center">
                         <h3>Resources Raised</h3>
-                        <div className="text-6xl my-5 text-black">
-                            <CountUp end={800000} duration={5} />M
+                        <div className="text-4xl my-5 text-black">
+                            +<CountUp end={140} duration={5} />M
                         </div>
                     </div>
-                    <div className="text-3xl font-bold text-center">
-                        <h3>Amount Raised</h3>
-                        <div className="text-6xl my-5 text-black">
-                            +<CountUp end={400} duration={5} />
-                        </div>
-                    </div>
-                    <div className="text-3xl font-bold text-center">
-                        <h3>Awards</h3>
-                        <div className="text-6xl my-5 text-black">
-                            +<CountUp end={100} duration={5} />
+                    <div className="text-xl font-bold text-center">
+                        <h3>Annual Clean Cooking Awards</h3>
+                        <div className="text-4xl my-5 text-black">
+                            +<CountUp end={4} duration={5} />
                         </div>
                     </div>
                 </div>
