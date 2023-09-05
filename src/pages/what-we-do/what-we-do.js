@@ -99,7 +99,7 @@ export const WhatWeDoPage = () => {
             <section className="p-6 lg:p-16  bg-[#ED7423]">
                 <Slide bottom>
                     <h2 className="text-white font-semibold text-2xl md:text-4xl flex my-6 justify-center">
-                        What we do in the clean cooking cector
+                        What we do in the clean cooking sector
                     </h2>
                 </Slide>
                 <div className="flex flex-row md:px-6 py-5">
