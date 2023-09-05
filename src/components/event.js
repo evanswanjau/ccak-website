@@ -24,7 +24,7 @@ export const Event = ({
     const getDay = () => event_date.split("T")[0].split("-")[2];
     const getMonth = () => {
         return months[
-            event_date.split("T")[0].split("-")[1].replace("0", "") - 1
+            parseInt(event_date.split("T")[0].split("-")[1])-1
         ];
     };
 
