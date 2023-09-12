@@ -2,10 +2,14 @@ import { useState, useEffect } from "react";
 import { Slide } from "react-reveal";
 import { Research } from "../../components/research";
 import { searchPosts } from "../../api/api-calls";
+import { SkeletonLoader } from "../../components/skeletonLoader";
+import { InputForm } from "../../components/forms/input-form";
 
 export const NewslettersPage = () => {
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
     const [data, updateData] = useState([]);
-    const [searchData] = useState({
+    const [searchData, updateSearchData] = useState({
         keyword: "",
         table: "posts",
         category: "newsletters",
@@ -20,7 +24,13 @@ export const NewslettersPage = () => {
     });
 
     useEffect(() => {
-        searchPosts(searchData, updateData);
+        searchPosts(searchData, updateData)
+            .catch(() => {
+                setError(true);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
     }, [searchData]); // eslint-disable-line
 
     return (
@@ -38,10 +48,69 @@ export const NewslettersPage = () => {
                     </p>
                 </Slide>
                 <div className="flex flex-row px-6 lg:px-16 py-5">
-                    <div className="w-full grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-y-6 sm:gap-6 py-10">
-                        {data.map((item, i) => {
-                            return <Research key={i} data={item} />;
-                        })}
+                    <div className="w-full">
+                        <div className="w-4/12 mx-auto my-10">
+                            <InputForm
+                                type="text"
+                                name="keyword"
+                                label={`Search Newsletters`}
+                                data={searchData}
+                                updateData={updateSearchData}
+                            />
+                        </div>
+
+                        {loading && (
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-y-6 sm:gap-6 py-10">
+                                {[1, 2, 3, 4, 5, 6].map((_, i) => {
+                                    return (
+                                        <SkeletonLoader
+                                            key={i}
+                                            type="careers"
+                                        />
+                                    );
+                                })}
+                            </div>
+                        )}
+
+                        {!loading &&
+                            !error &&
+                            searchData.keyword !== "" &&
+                            data.length < 1 && (
+                                <div className="flex justify-center mt-14">
+                                    <p className="text-xl text-gray-500">
+                                        No results found with the keyword{" "}
+                                        <b>{searchData.keyword}</b>
+                                    </p>
+                                </div>
+                            )}
+
+                        {!loading &&
+                            !error &&
+                            searchData.keyword === "" &&
+                            data.length < 1 && (
+                                <div className="flex justify-center mt-14">
+                                    <p className="text-xl text-gray-500">
+                                        No new publications at the moment
+                                    </p>
+                                </div>
+                            )}
+
+                        {error && !loading && (
+                            <div className="flex justify-center mt-14">
+                                <p className="text-xl text-gray-500">
+                                    Connection error, please try refreshing your
+                                    page.
+                                </p>
+                            </div>
+                        )}
+
+                        {!loading && data.length > 0 && (
+                            <div className="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-y-6 sm:gap-6 py-10">
+                                {data.map((item, i) => {
+                                    return <Research key={i} data={item} />;
+                                })}
+                            </div>
+                        )}
                     </div>
                 </div>
             </section>

@@ -30,9 +30,22 @@ export const SkeletonLoader = ({ type }) => {
                     <div className="w-8/12">
                         {" "}
                         <Skeleton width={"100%"} />
-                        <Skeleton width={"100%"} height="55px" className="mb-2" />
+                        <Skeleton
+                            width={"100%"}
+                            height="55px"
+                            className="mb-2"
+                        />
                         <Skeleton width={"100%"} height="55px" />
                     </div>
+                </div>
+            )}
+
+            {type === "careers" && (
+                <div className="text-left">
+                    <Skeleton />
+                    <Skeleton width="150px" />
+                    <div className="my-1"></div>
+                    <Skeleton height={"120px"} />
                 </div>
             )}
         </>
