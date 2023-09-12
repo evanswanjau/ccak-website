@@ -21,6 +21,20 @@ export const SkeletonLoader = ({ type }) => {
                     <Skeleton width={"120px"} />
                 </div>
             )}
+
+            {type === "publications" && (
+                <div className="flex space-x-4">
+                    <div className="w-4/12">
+                        <Skeleton width={"100%"} height="150px" />
+                    </div>
+                    <div className="w-8/12">
+                        {" "}
+                        <Skeleton width={"100%"} />
+                        <Skeleton width={"100%"} height="55px" className="mb-2" />
+                        <Skeleton width={"100%"} height="55px" />
+                    </div>
+                </div>
+            )}
         </>
     );
 };
