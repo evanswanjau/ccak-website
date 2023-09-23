@@ -28,7 +28,7 @@ export const CareerReadMore = () => {
     useEffect(() => {
         apiRequest("get", "post/" + params.id, data, updateData);
         searchPosts(searchData, updateRecentData);
-    }, [searchData]); // eslint-disable-line
+    }, []); // eslint-disable-line
 
     return (
         <div className="pt-[3.8rem] lg:pt-[6.6rem]">
