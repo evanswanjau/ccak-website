@@ -55,6 +55,10 @@ a {
     margin-bottom: 20px;
 }
 
+#content a {
+    color: #3771ee
+}
+
 @keyframes scroll {
     0% {
         left: 0;
