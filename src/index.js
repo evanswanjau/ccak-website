@@ -7,11 +7,8 @@ import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <SnackbarProvider>
-        <React.StrictMode>
-            {" "}
-            <App />
-        </React.StrictMode>
+    <SnackbarProvider maxSnack={1}>
+        <App />
     </SnackbarProvider>
 );
 
