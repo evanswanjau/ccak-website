@@ -11,7 +11,7 @@ export const News = ({
                     .replace(/ /g, "-")
                     .replace("'", "")
                     .toLowerCase()}`}
-                className="group"
+                className="group bg-white shadow-md hover:shadow-xl transition-shadow duration-300 rounded-b-xl "
             >
                 <div
                     style={{
@@ -22,17 +22,19 @@ export const News = ({
                             image
                         })`,
                     }}
-                    className={`bg-cover bg-center bg-no-repeat rounded-lg text-white h-40`}
+                    className={`bg-cover bg-center bg-no-repeat text-white h-48 rounded-t-xl`}
                 ></div>
-                <p className="text-sm py-2 text-gray-400">
-                    {simpleDate(published)}
-                </p>
-                <h3 className="text-black group-hover:text-[#ED7423] font-medium transition duration-300 ease-in-out">
-                    {title}
-                </h3>
-                <p className="text-gray-600 line-clamp-2" title={excerpt}>
-                    {excerpt}
-                </p>
+                <div className="bg-white p-3 rounded-lg">
+                    <p className="text-sm py-2 text-gray-400">
+                        Published: {simpleDate(published)}
+                    </p>
+                    <h3 className="mb-2 text-black group-hover:text-[#ED7423] font-medium transition duration-300 ease-in-out">
+                        {title}
+                    </h3>
+                    <p className="text-gray-600 line-clamp-2" title={excerpt}>
+                        {excerpt}
+                    </p>
+                </div>
             </a>
         </Fade>
     );
