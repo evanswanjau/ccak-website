@@ -10,7 +10,7 @@ export const MediaCentreSideBar = ({
     return (
         <div>
             <Fade>
-                <div className="mb-5">
+                <div className="lg:mb-5">
                     <InputForm
                         type="text"
                         name="keyword"
@@ -20,8 +20,9 @@ export const MediaCentreSideBar = ({
                     />
                 </div>
             </Fade>
-
-            <TwitterEmbedd />
+            <div className="hidden lg:block">
+                <TwitterEmbedd />
+            </div>
         </div>
     );
 };
