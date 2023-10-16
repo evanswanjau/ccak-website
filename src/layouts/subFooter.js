@@ -1,8 +1,7 @@
 import React from "react";
 import { CallToAction } from "../components/callToAction";
-import { RecentNews } from "./recentNews";
-import { UpcomingEvents } from "./upcomingEvents";
 import { Timeline } from "react-twitter-widgets";
+import { ShortPostsLayout } from "./shortPostsLayout";
 
 export const SubFooter = () => {
     return (
@@ -10,8 +9,16 @@ export const SubFooter = () => {
             <CallToAction />
             <div className="flex">
                 <div className="w-full lg:w-8/12">
-                    <RecentNews limit={4} />
-                    <UpcomingEvents limit={4} />
+                    <ShortPostsLayout
+                        title="Recent News"
+                        category="news"
+                        limit={3}
+                    />
+                    <ShortPostsLayout
+                        title="Upcoming Events"
+                        category="events"
+                        limit={3}
+                    />
                 </div>
                 <div className="hidden lg:block w-4/12 p-6">
                     <Timeline

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { apiRequest, getMember } from "../../api/api-calls";
+import { getMember, getMemberInvoices } from "../../api/member-api-calls";
 import jwt_decode from "jwt-decode";
 import { SideMenu } from "../../components/navBar/socialHub/sideMenu";
 import { TableData } from "../../components/table-data";
@@ -52,18 +52,21 @@ export const MyAccountBillingPage = () => {
     useEffect(() => {
         AuthMember(jwt_decode);
         getMember(setMember).then((data) => {
-            apiRequest(
-                "get",
-                "invoices/member/" + data.id,
-                invoices,
+            getMemberInvoices(
+                {
+                    keyword: "",
+                    member_id: data.id,
+                    type: "",
+                    status: "",
+                    page: 1,
+                    limit: 100,
+                },
                 setInvoices,
                 parseData
             ).finally(() => {
                 setLoading(false);
             });
         });
-
-        // apiRequest("get", "invoice/" + params.id, data, updateData);
     }, []); //eslint-disable-line
 
     return (
@@ -91,10 +94,12 @@ export const MyAccountBillingPage = () => {
                                     {member.subscription_category && (
                                         <h3>
                                             Package:{" "}
-                                            {member.subscription_category.replace(
-                                                /-/g,
-                                                " "
-                                            )}
+                                            <span className="font-bold">
+                                                {member.subscription_category.replace(
+                                                    /-/g,
+                                                    " "
+                                                )}
+                                            </span>
                                         </h3>
                                     )}
                                     <h3>
@@ -105,7 +110,7 @@ export const MyAccountBillingPage = () => {
                                                 "registered"
                                                     ? "text-green-400"
                                                     : "text-red-600"
-                                            } uppercase`}
+                                            } uppercase font-bold`}
                                         >
                                             {member.registration_status}
                                         </span>
@@ -118,7 +123,7 @@ export const MyAccountBillingPage = () => {
                                                 "active"
                                                     ? "text-green-400"
                                                     : "text-red-600"
-                                            } uppercase`}
+                                            } uppercase font-bold`}
                                         >
                                             {member.subscription_status}
                                         </span>

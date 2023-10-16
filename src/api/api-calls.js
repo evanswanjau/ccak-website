@@ -1,30 +1,73 @@
 import axios from "axios";
 import jwt from "jwt-decode";
 
-export const searchPosts = (searchData, updateData) => {
+export const searchPosts = (searchData, updateData, setPaginationData) => {
     return axios({
         method: "post",
-        url: process.env.REACT_APP_API_URL + "posts/search",
+        url: `${process.env.REACT_APP_API_URL}posts/search${
+            searchData.page > 1 ? "?page=" + searchData.page : ""
+        }`,
         data: searchData,
         headers: {
             "Content-Type": "application/json",
         },
     }).then(({ data }) => {
-        updateData(data);
+        updateData(data.results);
+
+        if (setPaginationData) {
+            delete data.results;
+            setPaginationData(data);
+        }
     });
 };
 
-export const searchMember = (searchData, updateData) => {
+export const search = (
+    searchType,
+    searchData,
+    updateData,
+    setPaginationData,
+    enqueueSnackbar,
+    setLoading
+) => {
     return axios({
         method: "post",
-        url: process.env.REACT_APP_API_URL + "members/search",
+        url: `${process.env.REACT_APP_API_URL}${searchType}/search${
+            searchData.page > 1 ? "?page=" + searchData.page : ""
+        }`,
         data: searchData,
         headers: {
             "Content-Type": "application/json",
         },
-    }).then(({ data }) => {
-        updateData(data);
-    });
+    })
+        .then(({ data }) => {
+            updateData(data.results);
+
+            if (setPaginationData) {
+                delete data.results;
+                setPaginationData(data);
+            }
+            setLoading(false);
+        })
+        .catch(() => {
+            enqueueSnackbar("Unknown error occurred. Please try reloading the page", {
+                variant: "error",
+                anchorOrigin: {
+                    horizontal: "center",
+                    vertical: "bottom",
+                },
+                autoHideDuration: null,
+                action: () => (
+                    <button
+                        className="bg-white text-gray-600 py-2 px-4 rounded-md shadow-lg"
+                        color="secondary"
+                        size="small"
+                        onClick={() => window.location.reload()}
+                    >
+                        Reload
+                    </button>
+                ),
+            });
+        });
 };
 
 export const subscribeUser = (data, setSuccess, setError) => {
@@ -82,9 +125,8 @@ export const paymentsByInvoice = (invoiceNumber) => {
         method: "post",
         url: process.env.REACT_APP_API_URL + "payments/search",
         data: {
-            transaction_id: "",
-            method: "mpesa",
-            invoice_number: invoiceNumber,
+            keyword: invoiceNumber,
+            method: "",
             page: 1,
             limit: 100,
         },
@@ -94,7 +136,18 @@ export const paymentsByInvoice = (invoiceNumber) => {
     });
 };
 
-export const apiRequest = (method, url, data, updateData, parseData = null) => {
+export const activateMpesaPayment = (data) => {
+    return axios({
+        method: "post",
+        url: process.env.REACT_APP_API_URL + "payments/mpesa/activate",
+        data: data,
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+};
+
+export const apiRequest = (method, url, data, updateData) => {
     return axios({
         method: method,
         url: process.env.REACT_APP_API_URL + url,
@@ -103,7 +156,6 @@ export const apiRequest = (method, url, data, updateData, parseData = null) => {
             "Content-Type": "application/json",
         },
     }).then(({ data }) => {
-        if (parseData) data = parseData(data);
         updateData(data);
         return data;
     });
@@ -131,43 +183,6 @@ export const registerMember = (data, setBtnLoading, setError) => {
         });
 };
 
-export const onboardMember = (data, updateData, setBtnLoading, setError) => {
-    return axios({
-        method: "post",
-        url: process.env.REACT_APP_API_URL + "member/update/" + data.id,
-        data: data,
-        headers: {
-            "Content-Type": "application/json",
-        },
-    })
-        .then(({ data }) => {
-            updateData(data);
-            setBtnLoading(false);
-        })
-        .catch(({ response }) => {
-            let errors = response.data;
-            let keys = Object.keys(response.data);
-
-            setError(errors[keys[0]][0]);
-            setBtnLoading(false);
-        });
-};
-
-export const getMember = (updateData) => {
-    let decodedToken = jwt(localStorage.getItem("token"));
-
-    return axios({
-        method: "get",
-        url: process.env.REACT_APP_API_URL + "member/" + decodedToken.user_id,
-        headers: {
-            "Content-Type": "application/json",
-        },
-    }).then(({ data }) => {
-        updateData(data);
-        return data;
-    });
-};
-
 export const getMemberPosts = () => {
     let decodedToken = jwt(localStorage.getItem("token"));
 
@@ -189,29 +204,34 @@ export const getMemberPosts = () => {
             throw error;
         });
 };
-export const getMemberProfile = () => {
-    let decodedToken = jwt(localStorage.getItem("token"));
 
-    return axios({
-        method: "get",
-        url: process.env.REACT_APP_API_URL + "member/" + decodedToken.user_id,
-        headers: {
-            "Content-Type": "application/json",
-        },
-    })
-        .then(({ data }) => {
-            return data;
-        })
-        .catch((error) => {
-            console.error("An error occurred:", error);
-            throw error;
+export const getMemberProfile = async () => {
+    try {
+        const token = localStorage.getItem("token");
+        const decodedToken = jwt(token);
+
+        const response = await axios({
+            method: "get",
+            url:
+                process.env.REACT_APP_API_URL +
+                "member/" +
+                decodedToken.user_id,
+            headers: {
+                "Content-Type": "application/json",
+            },
         });
+
+        return response.data;
+    } catch (error) {
+        console.error("An error occurred:", error);
+        throw error;
+    }
 };
 
 export const getMembers = () => {
     return axios({
         method: "get",
-        url: process.env.REACT_APP_API_URL + "members", // Update the URL according to your API endpoint
+        url: process.env.REACT_APP_API_URL + "members",
         headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -282,7 +302,8 @@ export const addSocialPost = (postData, setSuccess, setError) => {
         });
 };
 
-export const fetchSocialPosts = () => {
+/* -------------------- SOCIAL POSTS ------------------- */
+export const fetchSocialPosts = (setPosts, enqueueSnackbar) => {
     return axios({
         method: "get",
         url: process.env.REACT_APP_API_URL + "socialposts",
@@ -290,11 +311,17 @@ export const fetchSocialPosts = () => {
             "Content-Type": "application/json",
         },
     })
-        .then((response) => {
-            return response.data;
+        .then(({ data }) => {
+            return setPosts(data);
         })
         .catch(() => {
-            throw new Error("Error fetching social posts");
+            enqueueSnackbar("Error fetching social posts", {
+                variant: "error",
+                anchorOrigin: {
+                    horizontal: "center",
+                    vertical: "bottom",
+                },
+            });
         });
 };
 
@@ -309,7 +336,11 @@ export const loginMember = (data, setBtnLoading, setError) => {
     })
         .then(({ data }) => {
             localStorage.setItem("token", data.access);
-            window.location.replace("/social-hub/home");
+            window.location.replace("/");
+        })
+        .then(({ data }) => {
+            localStorage.setItem("token", data.access);
+            window.location.replace("/social-hub");
         })
         .catch((error) => {
             setError(error.response.data.error);
@@ -324,10 +355,11 @@ export const deletePost = (postId, setBtnLoading, setError) => {
         method: "post",
         url: process.env.REACT_APP_API_URL + "socialpost/delete/" + postId,
         headers: {
-            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
     })
-        .then(() => {
+        .then((res) => {
+            console.log(res);
             setBtnLoading(false);
         })
         .catch(({ response }) => {
@@ -359,28 +391,68 @@ export const getCommentsForPost = (postId, setError) => {
         });
 };
 
-export const addSocialPostComment = (commentData, setSuccess, setError) => {
-    return axios({
-        method: "post",
-        url: process.env.REACT_APP_API_URL + "comment",
-        data: commentData,
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-    })
-        .then(() => {
-            setSuccess("Your comment has been added successfully");
-            setError(false);
-        })
-        .catch(({ response }) => {
-            console.log(response);
-            let errors = response.data;
-            let keys = Object.keys(response.data);
-
-            setError(errors[keys[0]][0]);
-            setSuccess(false);
+export const addSocialPostComment = async (
+    commentData,
+    setSuccess,
+    setError
+) => {
+    try {
+        const response = await axios({
+            method: "post",
+            url: process.env.REACT_APP_API_URL + "comment",
+            data: commentData,
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
         });
+
+        setSuccess(response);
+        setError(false);
+
+        return response;
+    } catch (error) {
+        console.log(error.response);
+        if (error.response) {
+            const errors = error.response.data;
+            const keys = Object.keys(errors);
+            setError(errors[keys[0]][0]);
+        } else {
+            console.error("An error occurred:", error);
+        }
+        setSuccess(false);
+
+        throw error;
+    }
+};
+
+export const deleteSocialPostComment = async (
+    commentId,
+    setSuccess,
+    setError
+) => {
+    try {
+        const response = await axios({
+            method: "post",
+            url: process.env.REACT_APP_API_URL + `comment/delete/${commentId}`,
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+        });
+
+        setSuccess("Comment deleted successfully");
+        setError(false);
+    } catch (error) {
+        console.log(error.response);
+        if (error.response) {
+            const errors = error.response.data;
+            const keys = Object.keys(errors);
+            setError(errors[keys[0]][0]);
+        } else {
+            console.error("An error occurred:", error);
+        }
+        setSuccess(false);
+    }
 };
 
 export const updateSocialPost = (
@@ -409,4 +481,24 @@ export const updateSocialPost = (
         });
 };
 
-export const resetPassword = () => {};
+export const storeDonation = (data) => {
+    return axios({
+        method: "post",
+        url: process.env.REACT_APP_API_URL + "donation",
+        data: data,
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+};
+
+export const updateDonation = (data) => {
+    return axios({
+        method: "post",
+        url: process.env.REACT_APP_API_URL + "donation/update/" + data.id,
+        data: data,
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });
+};

@@ -4,7 +4,9 @@ import "react-loading-skeleton/dist/skeleton.css";
 export const SkeletonLoader = ({ type }) => {
     return (
         <>
-            {type === "news" && (
+            {(type === "news" ||
+                type === "blog" ||
+                type === "press-release") && (
                 <div>
                     <Skeleton height={"150px"} />
                     <div className="my-1"></div>
@@ -14,7 +16,11 @@ export const SkeletonLoader = ({ type }) => {
                 </div>
             )}
 
-            {type === "event" && (
+            {(type === "events" ||
+                type === "photo-gallery" ||
+                type === "careers" ||
+                type === "consultancy" ||
+                type === "funding-opportunities") && (
                 <div>
                     <Skeleton height={"220px"} />
                     <div className="my-1"></div>

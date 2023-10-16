@@ -48,23 +48,28 @@ import { LoginPage } from "./pages/membership/login";
 import { OnboardingPage } from "./pages/membership/onboarding";
 import { ForgotPasswordPage } from "./pages/membership/forgot-password";
 
-import { SocialHubHomePage } from "./pages/social-hub/home";
-import { SocialHubProfilePage } from "./pages/social-hub/profile";
-import { SocialHubBookmarksPage } from "./pages/social-hub/bookmarks";
-import { SocialHubBillingPage } from "./pages/social-hub/billing";
-import { SocialHubChangePasswordPage } from "./pages/social-hub/change-password";
+import { SocialHubHomePage } from "./pages/social-hub";
+import { MyAccountProfilePage } from "./pages/my-account/profile";
+import { MyAccountBookmarksPage } from "./pages/my-account/bookmarks";
+import { MyAccountBillingPage } from "./pages/my-account/billing";
+import { MyAccountChangePasswordPage } from "./pages/my-account/change-password";
 import { BlogPage } from "./pages/media-centre/blog";
 import { CheckoutInvoice } from "./pages/checkout";
+import { ActivateEmail } from "./pages/membership/activate";
+import { PrivacyPolicyPage } from "./pages/legal/privacy-policy";
+import { TermsAndConditionsPage } from "./pages/legal/terms-and-conditions";
 
 const viewFooter = (pathname) => {
     let footer = true;
 
     if (pathname.split("/")[1] === "social-hub") footer = false;
+    if (pathname.split("/")[1] === "my-account") footer = false;
     if (pathname.split("/")[2] === "register") footer = false;
     if (pathname.split("/")[2] === "login") footer = false;
     if (pathname.split("/")[2] === "onboarding") footer = false;
     if (pathname.split("/")[2] === "forgot-password") footer = false;
     if (pathname.split("/")[1] === "checkout") footer = false;
+    if (pathname.split("/")[3] === "activate") footer = false;
 
     return footer;
 };
@@ -77,6 +82,7 @@ const viewHeader = (pathname) => {
     if (pathname.split("/")[2] === "onboarding") footer = false;
     if (pathname.split("/")[2] === "forgot-password") footer = false;
     if (pathname.split("/")[1] === "checkout") footer = false;
+    if (pathname.split("/")[3] === "activate") footer = false;
 
     return footer;
 };
@@ -257,23 +263,28 @@ function App() {
                     path="/membership/forgot-password"
                     component={ForgotPasswordPage}
                 />
+                <Route
+                    exact
+                    path="/membership/email/activate/:token"
+                    component={ActivateEmail}
+                />
                 {/**--------------------- SOCIAL HUB ----------------------- */}
-                <Route path="/social-hub/home" component={SocialHubHomePage} />
+                <Route path="/social-hub" component={SocialHubHomePage} />
                 <Route
-                    path="/social-hub/profile"
-                    component={SocialHubProfilePage}
+                    path="/my-account/profile"
+                    component={MyAccountProfilePage}
                 />
                 <Route
-                    path="/social-hub/bookmarks"
-                    component={SocialHubBookmarksPage}
+                    path="/my-account/bookmarks"
+                    component={MyAccountBookmarksPage}
                 />
                 <Route
-                    path="/social-hub/billing"
-                    component={SocialHubBillingPage}
+                    path="/my-account/billing"
+                    component={MyAccountBillingPage}
                 />
                 <Route
-                    path="/social-hub/change-password"
-                    component={SocialHubChangePasswordPage}
+                    path="/my-account/change-password"
+                    component={MyAccountChangePasswordPage}
                 />
 
                 {/**--------------------- INVOICE ----------------------- */}
@@ -281,6 +292,16 @@ function App() {
                 <Route
                     path="/checkout/invoice/:id/:no"
                     component={CheckoutInvoice}
+                />
+
+                {/**--------------------- LEGAL ----------------------- */}
+                <Route
+                    path="/legal/privacy-policy"
+                    component={PrivacyPolicyPage}
+                />
+                <Route
+                    path="/legal/terms-and-conditions"
+                    component={TermsAndConditionsPage}
                 />
             </Switch>
             {viewFooter(window.location.pathname) && <Footer />}

@@ -15,7 +15,7 @@ export const RecentProjects = () => {
         access: "public",
         status: "published",
         page: 1,
-        limit: 4,
+        limit: 5,
         ip_address: "",
         created_by: 0,
     };
@@ -35,7 +35,7 @@ export const RecentProjects = () => {
                 <div className="lg:w-11/12">
                     <Slide bottom>
                         <h6 className="text-black font-bold text-xs">
-                            PROJECTS WE'VE DONE
+                            SOME OF OUR PROJECTS
                         </h6>
                     </Slide>
                     <Slide bottom>

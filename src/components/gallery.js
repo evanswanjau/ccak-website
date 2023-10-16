@@ -8,6 +8,7 @@ export const Gallery = ({ data: { id, title, excerpt, image, folder } }) => {
                     .replace(/ /g, "-")
                     .replace("'", "")
                     .toLowerCase()}`}
+                className="group bg-white shadow-md hover:shadow-xl transition-shadow duration-300 rounded-lg"
             >
                 <div
                     style={{
@@ -20,8 +21,10 @@ export const Gallery = ({ data: { id, title, excerpt, image, folder } }) => {
                     }}
                     className={`relative bg-cover bg-center bg-no-repeat rounded-lg text-white group flex flex-col min-h-[250px]`}
                 >
-                    <div className="absolute inset-0 flex flex-col justify-end h-full w-full bg-gradient-to-t from-black to-transparent px-3 pb-3 pt-36 rounded-lg group-hover:text-[#ED7423] transition duration-300 ease-in-out">
-                        <h3 className="font-semibold mb-1 text-left">{title}</h3>
+                    <div className="absolute inset-0 flex flex-col justify-end h-full w-full bg-gradient-to-t from-black to-transparent px-3 pb-3 pt-16 rounded-lg group-hover:text-[#ED7423] transition duration-300 ease-in-out">
+                        <h3 className="font-semibold mb-1 text-left">
+                            {title}
+                        </h3>
                         <p className="line-clamp-2" title={excerpt}>
                             {excerpt}
                         </p>

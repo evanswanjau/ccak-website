@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import { Slide, Fade } from "react-reveal";
 import { OurMember } from "../../components/ourMember";
 import { CallToAction } from "../../components/callToAction";
-import { searchMember } from "../../api/api-calls";
+import { search } from "../../api/api-calls";
 import { InputForm } from "../../components/forms/input-form";
 import { OurMemberModal } from "../../components/ourMemberModal";
+import { Pagination } from "../../components/pagination";
 
 let technologies = [
     "cook stoves providers",
@@ -39,6 +40,7 @@ let categories = [
 export const OurMembersPage = () => {
     const [data, updateData] = useState([]);
     const [member, setMember] = useState({ modal: false, member: {} });
+    const [paginationData, setPaginationData] = useState({});
 
     const [searchData, updateSearchData] = useState({
         keyword: "",
@@ -48,11 +50,11 @@ export const OurMembersPage = () => {
         subscription_category: "",
         status: "",
         page: 1,
-        limit: 21,
+        limit: 9,
     });
 
     useEffect(() => {
-        searchMember(searchData, updateData);
+        search("members", searchData, updateData, setPaginationData);
     }, [searchData]); // eslint-disable-line
 
     return (
@@ -75,17 +77,29 @@ export const OurMembersPage = () => {
                 </Slide>
             </section>
             <section className="flex flex-row px-6 lg:px-16">
-                <div className="w-full lg:w-9/12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3 gap-y-6 sm:gap-6 py-10">
-                    {data.map((item, i) => {
-                        return (
-                            <OurMember
-                                key={i}
-                                data={item}
-                                setMember={setMember}
-                    />
-                        );
-                    })}
+                <div className="flex flex-col w-full lg:w-9/12">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3 gap-y-6 sm:gap-6 py-10">
+                        {data.map((item, i) => {
+                            return (
+                                <OurMember
+                                    key={i}
+                                    data={item}
+                                    setMember={setMember}
+                                />
+                            );
+                        })}
+                    </div>
+                    {paginationData.count > searchData.limit && (
+                        <div className="my-5 text-center ">
+                            <Pagination
+                                paginationData={paginationData}
+                                search={searchData}
+                                updateSearch={updateSearchData}
+                            />
+                        </div>
+                    )}
                 </div>
+
                 <div className="hidden lg:block w-4/12 pt-10 pl-10">
                     <Fade>
                         <InputForm

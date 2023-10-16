@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { Project } from "../../components/project";
 import { MediaCentreSideBar } from "../../layouts/mediaCentreSideBar";
-import { RecentNews } from "../../layouts/recentNews";
 import { Slide } from "react-reveal";
 import { searchPosts } from "../../api/api-calls";
+import { ShortPostsLayout } from "../../layouts/shortPostsLayout";
 
 export const ProjectsPage = () => {
     const [data, updateData] = useState([]);
@@ -99,7 +99,11 @@ export const ProjectsPage = () => {
                 </div>
             </div>
             <section>
-                <RecentNews />
+                <ShortPostsLayout
+                    title="Upcoming Events"
+                    category="events"
+                    limit={3}
+                />
             </section>
         </div>
     );

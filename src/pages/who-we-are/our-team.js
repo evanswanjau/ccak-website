@@ -92,7 +92,7 @@ const data = [
                 position: "program officer",
                 image: "our_team/secretariat/philomena-mitalo.jpg",
                 brief: "",
-                bio: "Ms. Philomena Mitalo is a business management professional with considerable experience in administration, procurement, human resource and project management. She holds a Master of Business Administration Degree from Mahatma Gandhi University and a certified PRINCE-2 practitioner with experience working in both governmental and non-governmental sector since 2017. Prior to joining CCAK, Philomena worked at NEXO IT Services India Private Limited, Via-Phone Business Solutions and WAT Tech Services in India as an operations manager. She worked at Ministry of Public Service Youth and Gender Affairs-State Department of Gender Affairs as an administrative assistant. She joined CCAK in 2019 as an Operations Officer, she has understood the necessary policy, legal and regulatory frameworks and ensures adherence to the existing policies and procedures. She develops operating plans and objectives commensurate with organizational goals and ensures regulations are understood and implemented. As a program Officer she supports in sector research, innovation, grant proposal and fund raising, sustainability of associations’ operations through resolution to technical clean cooking sector issues as well as comprehensive sector monitoring and evaluation. While out of office Ms. Philomena likes exercising and healthcare, cooking and baking! ",
+                bio: "Ms. Philomena Mitalo is a business management professional with considerable experience in administration, procurement, human resource and project management. She holds a Master of Business Administration Degree from Mahatma Gandhi University – India  and is a certified PRINCE - 2 practitioner with experience working in both governmental and non-governmental sector since 2017. She is also a Certified Human Resource Professional. She joined CCAK in 2019 as an Operations Officer, she has understood the necessary policy, legal and regulatory frameworks and ensures adherence to the existing policies and procedures. She develops operating plans and objectives commensurate with organizational goals and ensures regulations are understood and implemented. As a program Officer she supports in sector research, innovation, project management and administration, grant proposal and fund raising, sustainability of associations’ operations through resolution to technical clean cooking sector issues as well as comprehensive sector monitoring and evaluation. While out of office Ms. Philomena likes exercising and healthcare, cooking and baking!",
             },
             {
                 name: "benjamin bosire",
@@ -102,11 +102,18 @@ const data = [
                 bio: "",
             },
             {
-                name: "brian murumba",
-                position: "communications and membership officer",
-                image: "our_team/secretariat/brian-murumba.jpg",
+                name: "fredrick eteye",
+                position: "programs assistant",
+                image: "our_team/secretariat/fredrick-eteye.jpg",
                 brief: "",
-                bio: "",
+                bio: "After graduating in Renewable Energy Technology and Management from JOOUST–Kenya, Fredrick has been engaged in both private and public energy sector players. Currently working at the Clean Cooking Association of Kenya, (CCAK) he supports the Programs Department to ensure that resolutions are implemented. He is passionate about becoming an individual progressing on towards excellence in offering needful services to the community.",
+            },
+            {
+                name: "lynn ngatia",
+                position: "communications officer",
+                image: "our_team/secretariat/lynn-ngatia.jpg",
+                brief: "",
+                bio: "Passionate about effective communication, I'm Lynn Wairimu Ngatia—a dynamic professional with a strong background in Communications and Public Relations. Holding a degree in Communications and Public Relations from Moi University, I've mastered crafting compelling messages and building connections with diverse audiences. My expertise extends to digital marketing and content creation, leveraging platforms like Instagram, TikTok, Facebook, Twitter, and LinkedIn for engaging campaigns. I'm also proficient in software like MS Office for tasks like data analysis and reporting, thriving in fast-paced environments. As a natural communicator, I excel in persuasion and engagement, while my creative problem-solving abilities drive successful PR strategies. My experience combines strong communication skills with graphic design proficiency to create impactful content. My role at CCAK seamlessly integrates with my expertise and aspirations, including updating social media messages, maintaining the website and YouTube channel, developing scripts for appearances, contributing to newsletters and bulletins, crafting policy briefs and press releases, capturing event media, and managing news items and meetings. With unwavering dedication to ethical and quality standards, I'm excited to leverage my communication passion and skills for positive results at CCAK.",
             },
             {
                 name: "christine muinde",

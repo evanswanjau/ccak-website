@@ -11,11 +11,11 @@ const lists = [
         link: "/social-hub",
         icon: <HomeIcon className="w-6 -mt-1" />,
     },
-    {
-        name: "Profile",
-        link: "/my-account/profile",
-        icon: <UserIcon className="w-6 -mt-1" />,
-    },
+    // {
+    //     name: "Profile",
+    //     link: "/my-account/profile",
+    //     icon: <UserIcon className="w-6 -mt-1" />,
+    // },
     {
         name: "Bookmarks",
         link: "/my-account/bookmarks",

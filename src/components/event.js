@@ -36,6 +36,7 @@ export const Event = ({
                     .replace("'", "")
                     .replace(":", "")
                     .toLowerCase()}`}
+                className="group shadow-md hover:shadow-xl transition-shadow duration-300 rounded-lg"
             >
                 <div
                     style={{
@@ -58,7 +59,7 @@ export const Event = ({
                     </div>
                     <div className="flex flex-col justify-end items-end absolute inset-0">
                         <div className="w-full rounded-b-lg bg-gradient-to-t from-black to-transparent p-3 pt-16 group-hover:text-[#ED7423] transition duration-300 ease-in-out">
-                            <h3 className="font-medium mb-1">{title}</h3>
+                            <h3 className="font-semibold mb-1">{title}</h3>
                             <p className="flex flex-row font-bold capitalize">
                                 <MapPinIcon className="h-4 w-4 mr-1" />
                                 {venue}

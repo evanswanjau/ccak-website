@@ -8,6 +8,7 @@ export const Pagination = ({
     paginationData: { previous, next, count },
     search,
     updateSearch,
+    setLoading,
 }) => {
     const pages = Math.ceil(count / search.limit);
 
@@ -22,6 +23,7 @@ export const Pagination = ({
                         : "bg-white text-gray-500 hover:bg-gray-100 hover:text-gray-700 "
                 } border border-gray-200 cursor-pointer rounded-lg`}
                 onClick={() => {
+                    setLoading(true);
                     updateSearch({
                         ...search,
                         page: i,
@@ -60,11 +62,13 @@ export const Pagination = ({
                             : "text-gray-300 bg-gray-100 cursor-pointer"
                     } flex items-center justify-center px-2 h-8 leading-tight border border-gray-200 rounded-lg `}
                     onClick={() => {
-                        if (next)
+                        if (next) {
                             updateSearch({
                                 ...search,
                                 page: parseInt(next.split("=")[1]) || 1,
                             });
+                            setLoading(true);
+                        }
                     }}
                 >
                     <ArrowSmallRightIcon className="w-4 text-center" />

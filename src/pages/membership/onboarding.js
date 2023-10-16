@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import jwt_decode from "jwt-decode";
 
 import { ErrorMessage } from "../../components/forms/error";
-import { getMember, onboardMember } from "../../api/api-calls";
+import { generateInvoice } from "../../api/api-calls";
+import { getMember } from "../../api/member-api-calls";
+import { updateMember } from "../../api/member-api-calls";
 import {
     validateEmail,
     validatePhoneNumber,
@@ -13,6 +16,109 @@ import { Stepper } from "../../layouts/forms/onboarding/stepper";
 import { ActionButtons } from "../../layouts/forms/onboarding/action-buttons";
 import { Subscription } from "../../layouts/forms/onboarding/subscription";
 import { ConfirmDetails } from "../../layouts/forms/onboarding/confirm";
+import { AuthMember } from "../../helpers/auth";
+
+const packages = [
+    {
+        name: "student",
+        category: "-",
+        value: "student",
+        price: 1000,
+        registration: 500,
+        list: ["Students", "Registration fee of Ksh. 500"],
+    },
+    {
+        name: "individual",
+        category: "-",
+        value: "individual",
+        price: 4000,
+        registration: 2000,
+        list: ["Individuals", "Registration fee of Ksh. 2,000"],
+    },
+    {
+        name: "institution",
+        category: "research",
+        value: "institution",
+        price: 20000,
+        registration: 10000,
+        list: ["Institution", "Registration fee of Ksh. 10,000"],
+    },
+    {
+        name: "cso",
+        category: "-",
+        value: "cso",
+        price: 20000,
+        registration: 10000,
+        list: ["CSO", "Registration fee of Ksh. 10,000"],
+    },
+    {
+        name: "association",
+        category: "membership",
+        value: "association-membership",
+        price: 20000,
+        registration: 10000,
+        list: ["Membership associations", "Registration fee of Ksh. 10,000"],
+    },
+    {
+        name: "ngo",
+        category: "local",
+        value: "ngo-local",
+        price: 20000,
+        registration: 10000,
+        list: ["Local NGO", "Registration fee of Ksh. 10,000"],
+    },
+    {
+        name: "ngo",
+        category: "international",
+        value: "ngo-international",
+        price: 50000,
+        registration: 25000,
+        list: ["International NGO", "Registration fee of Ksh. 25,000"],
+    },
+    {
+        name: "donor",
+        category: "-",
+        value: "donor",
+        price: 50000,
+        registration: 25000,
+        list: ["Donor supported", "Registration fee of Ksh. 25,000"],
+    },
+    {
+        name: "corporate",
+        category: "micro",
+        value: "corporate-micro",
+        price: 4000,
+        registration: 2000,
+        list: ["Sole proprietorship", "Registration fee of Ksh. 2,000"],
+    },
+    {
+        name: "corporate",
+        category: "small",
+        value: "corporate-small",
+        price: 10000,
+        registration: 5000,
+        list: ["Less than 50 employees", "Registration fee of Ksh. 5,000"],
+    },
+    {
+        name: "corporate",
+        category: "medium",
+        value: "corporate-medium",
+        price: 50000,
+        registration: 25000,
+        list: [
+            "Between 51 to 249 employees",
+            "Registration fee of Ksh. 25,000",
+        ],
+    },
+    {
+        name: "corporate",
+        category: "large",
+        value: "corporate-large",
+        price: 100000,
+        registration: 50000,
+        list: ["Over 250 employees", "Registration fee of Ksh. 50,000"],
+    },
+];
 
 export const OnboardingPage = () => {
     const [btnLoading, setBtnLoading] = useState(false);
@@ -45,7 +151,7 @@ export const OnboardingPage = () => {
         if (data.step === "personal") step = "company";
         if (data.step === "company") step = "subscription";
         if (data.step === "subscription") step = "confirm";
-        if (data.step === "confirm") step = "checkout";
+        if (data.step === "confirm") step = "confirm";
 
         return step;
     };
@@ -62,7 +168,8 @@ export const OnboardingPage = () => {
             if (data.website_link !== "") validateUrl(data.website_link);
 
             setError(false);
-            onboardMember(
+
+            updateMember(
                 { ...data, step: getStep(data.step) },
                 updateData,
                 setBtnLoading,
@@ -76,11 +183,67 @@ export const OnboardingPage = () => {
         }
     };
 
+    const getPaymentItems = () => {
+        let items = [];
+
+        packages.map((item) => {
+            if (data.subscription_category === item.value) {
+                if (data.registration_status === "unregistered")
+                    items.push({
+                        name: "Registration",
+                        quantity: 1,
+                        unit_price: item.registration,
+                    });
+                if (data.subscription_status === "inactive")
+                    items.push({
+                        name: "Annual Subscription",
+                        quantity: 1,
+                        unit_price: item.price,
+                    });
+            }
+
+            return item;
+        });
+
+        return items;
+    };
+
     const proceedToCheckout = () => {
-        console.log("we are ready to checkout");
+        let description = "";
+
+        if (
+            data.subscription_status === "inactive" &&
+            data.registration_status === "unregistered"
+        ) {
+            description = "Member Registration and Annual Subscription";
+        } else if (
+            data.subscription_status === "inactive" &&
+            data.registration_status === "registered"
+        ) {
+            description = "Annual Subscription";
+        }
+
+        const invoiceData = {
+            description: description,
+            items: getPaymentItems(),
+            member_id: data.id,
+            customer: {
+                name: data.first_name + " " + data.last_name,
+                email: data.email,
+                phone_number: data.phone_number,
+                address: data.postal_address,
+            },
+        };
+
+        generateInvoice(invoiceData).then(({ data }) => {
+            window.location.replace(
+                "/checkout/invoice/" + data.id + "/" + data.invoice_number
+            );
+        });
     };
 
     useEffect(() => {
+        AuthMember(jwt_decode);
         getMember(updateData);
     }, []);
 
@@ -104,7 +267,7 @@ export const OnboardingPage = () => {
 
     return (
         <div className="m-6 w-8/12 mx-auto rounded-lg shadow-lg">
-            <Stepper data={data} updateData={updateData} />
+            <Stepper disabled={disabled} data={data} updateData={updateData} />
             <div className="p-5">
                 {error && <ErrorMessage error={error} setError={setError} />}
                 {data.step === "personal" && (

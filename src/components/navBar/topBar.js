@@ -3,6 +3,10 @@ import React from "react";
 export const TopBar = ({ setDropDown }) => {
     const links = [
         {
+            link: "https://www.ccak-ics.or.ke",
+            name: "CCAK ICS",
+        },
+        {
             link: "/social-hub",
             name: "SOCIAL HUB",
         },
@@ -34,7 +38,7 @@ export const TopBar = ({ setDropDown }) => {
                             <li
                                 key={link.name}
                                 className={` ${
-                                    link.name !== "SOCIAL HUB" && "border-l"
+                                    link.name !== "CCAK ICS" && "border-l"
                                 }  px-5 cursor-pointer hover:text-[#ED7423]`}
                                 onMouseEnter={() => {
                                     setDropDown({
@@ -46,10 +50,19 @@ export const TopBar = ({ setDropDown }) => {
                                 {link.name}
                             </li>
                         ) : (
-                            <a href={link.link} key={link.name}>
+                            <a
+                                href={link.link}
+                                key={link.name}
+                                target={
+                                    link.link === "https://www.ccak-ics.or.ke"
+                                        ? "_blank"
+                                        : "_self"
+                                }
+                                rel="noreferrer"
+                            >
                                 <li
                                     className={` ${
-                                        link.name !== "SOCIAL HUB" && "border-l"
+                                        link.name !== "CCAK ICS" && "border-l"
                                     }  px-5 cursor-pointer hover:text-[#ED7423]`}
                                     onMouseEnter={() => {
                                         setDropDown({
