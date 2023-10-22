@@ -3,8 +3,20 @@ import React from "react";
 export const TopBar = ({ setDropDown }) => {
     const links = [
         {
-            link: "https://www.ccak-ics.or.ke",
-            name: "CCAK ICS",
+            link: "tel:*789*788#",
+            name: (
+                <div
+                    class="py-[0.2em]  px-2 bg-gray-200 items-center tracking-widest leading-none lg:rounded-full flex lg:inline-flex hover:bg-green-200 group transition-all duration-500"
+                    role="alert"
+                >
+                    <span class="flex rounded-full bg-yellow-200 uppercase px-2 pt-1 pb-[0.5] text-xs font-bold mr-3">
+                        New
+                    </span>
+                    <span class="font-semibold mr-2 pt-2 text-left flex-auto">
+                        *789*788#
+                    </span>
+                </div>
+            ),
         },
         {
             link: "/social-hub",
@@ -38,8 +50,9 @@ export const TopBar = ({ setDropDown }) => {
                             <li
                                 key={link.name}
                                 className={` ${
-                                    link.name !== "CCAK ICS" && "border-l"
-                                }  px-5 cursor-pointer hover:text-[#ED7423]`}
+                                    link.link !== "tel:*789*788#" &&
+                                    "border-l hover:text-[#ED7423]"
+                                }  px-5 cursor-pointer`}
                                 onMouseEnter={() => {
                                     setDropDown({
                                         show: true,
@@ -54,7 +67,7 @@ export const TopBar = ({ setDropDown }) => {
                                 href={link.link}
                                 key={link.name}
                                 target={
-                                    link.link === "https://www.ccak-ics.or.ke"
+                                    link.link === "tel:*789*788#"
                                         ? "_blank"
                                         : "_self"
                                 }
@@ -62,8 +75,9 @@ export const TopBar = ({ setDropDown }) => {
                             >
                                 <li
                                     className={` ${
-                                        link.name !== "CCAK ICS" && "border-l"
-                                    }  px-5 cursor-pointer hover:text-[#ED7423]`}
+                                        link.link !== "tel:*789*788#" &&
+                                        "border-l hover:text-[#ED7423]"
+                                    }  px-5 cursor-pointer`}
                                     onMouseEnter={() => {
                                         setDropDown({
                                             show: false,
