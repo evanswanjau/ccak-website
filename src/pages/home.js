@@ -73,6 +73,16 @@ export const HomePage = () => {
             link: "https://snv.org/",
             image: "/logos/snv.png",
         },
+        {
+            name: "japan oda",
+            link: "https://www.mofa.go.jp/policy/oda/index.html",
+            image: "/logos/japan-oda.jpg",
+        },
+        {
+            name: "undp",
+            link: "https://www.undp.org/",
+            image: "/logos/undp.jpg",
+        },
     ];
 
     return (
