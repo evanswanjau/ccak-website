@@ -12,7 +12,7 @@ export const TopBar = ({ setDropDown }) => {
                     <span class="flex rounded-full bg-yellow-200 uppercase px-2 pt-1 pb-[0.5] text-xs font-bold mr-3">
                         New
                     </span>
-                    <span class="font-semibold mr-2 pt-2 text-left flex-auto">
+                    <span class="font-bold mr-2 text-left flex-auto font-montserrat text-black">
                         *789*788#
                     </span>
                 </div>
