@@ -82,7 +82,7 @@ const data = [
         members: [
             {
                 name: "simon kiragu",
-                position: "programe manager",
+                position: "programme manager",
                 image: "our_team/secretariat/simon-kiragu.jpg",
                 brief: "",
                 bio: "Simon Kiragu is the Programme Manager for the Clean Cookstoves Association of Kenya (CCAK). He formerly served as a Center Manager at the AJIRA Digital Program in the Ministry of ICT and Youth Affairs. A social advocate, Simon has served strategic and advocacy roles in sustainable development towards global issues such as sustainable energy, climate change, youth leadership, gig & freelance economy and social-economic empowerment at Women Entrepreneurship in Renewables (wPOWER), SNV, Integral Advisory and Barefoot Power. Simon holds an MBA in Project Management, an Energy Engineering Degree and Young Leader in Energy Access Awardee (awarded by the E.U) motivated by a strong sense of duty to impact society positively.",
@@ -102,6 +102,45 @@ const data = [
                 bio: "",
             },
             {
+                name: "elly odhiambo",
+                position: "MEAL officer",
+                image: "our_team/secretariat/elly-odhiambo.jpg",
+                brief: "",
+                bio: (
+                    <p>
+                        (MA. Social Development and Management - Maseno
+                        University, Kenya; PGCert. Enterprise Promotion,
+                        Empowerment and Sustainable Human Development - NISPED,
+                        State of Israel; BSc. Agricultural Economics – Egerton
+                        University, Kenya).
+                        <br />
+                        <br />
+                        Elly is a social development, agricultural economics and
+                        enterprise development professional with 22 years’ work
+                        experience in agriculture and renewable energy
+                        enterprises development. He is highly experienced in
+                        designing, implementing and monitoring Business
+                        Development Support Services (BDSS) for MSMEs, having
+                        worked with CARE Kenya, VI Agroforestry, Swedish
+                        Cooperative Centre, Energy 4 Impact and Graton Agro
+                        Enterprise Consultants on various roles. He is a
+                        certified and seasoned business trainer and mentor.
+                        <br />
+                        <br />
+                        For over five years, Elly has also been involved in
+                        designing and implementing M&E systems. Specifically, he
+                        has conducted meaningful baseline surveys, mid-line
+                        evaluations and end-line evaluations of various projects
+                        implemented by different organizations namely; World
+                        Vision Kenya, Norwegian Refugee Council and the County
+                        Government of Garissa in the SETA project. This involved
+                        selection of appropriate methodological approaches which
+                        successfully delivered quality, sound and objective
+                        project evaluation reports.
+                    </p>
+                ),
+            },
+            {
                 name: "fredrick eteye",
                 position: "programs assistant",
                 image: "our_team/secretariat/fredrick-eteye.jpg",
@@ -116,15 +155,8 @@ const data = [
                 bio: "Passionate about effective communication, I'm Lynn Wairimu Ngatia—a dynamic professional with a strong background in Communications and Public Relations. Holding a degree in Communications and Public Relations from Moi University, I've mastered crafting compelling messages and building connections with diverse audiences. My expertise extends to digital marketing and content creation, leveraging platforms like Instagram, TikTok, Facebook, Twitter, and LinkedIn for engaging campaigns. I'm also proficient in software like MS Office for tasks like data analysis and reporting, thriving in fast-paced environments. As a natural communicator, I excel in persuasion and engagement, while my creative problem-solving abilities drive successful PR strategies. My experience combines strong communication skills with graphic design proficiency to create impactful content. My role at CCAK seamlessly integrates with my expertise and aspirations, including updating social media messages, maintaining the website and YouTube channel, developing scripts for appearances, contributing to newsletters and bulletins, crafting policy briefs and press releases, capturing event media, and managing news items and meetings. With unwavering dedication to ethical and quality standards, I'm excited to leverage my communication passion and skills for positive results at CCAK.",
             },
             {
-                name: "christine muinde",
-                position: "office assistant",
-                image: "our_team/secretariat/christine-muinde.jpg",
-                brief: "",
-                bio: "",
-            },
-            {
                 name: "ruth wambui",
-                position: "membership officer",
+                position: "partnerships officer",
                 image: "our_team/secretariat/ruth-wambui.jpg",
                 brief: "",
                 bio: (
@@ -138,14 +170,22 @@ const data = [
                         and government sectors - having contributed to
                         stakeholder & media engagement, partnerships, strategic,
                         corporate & advocacy communications and public
-                        relations. <br/><br/>I am an advocate for youth and women
-                        empowerment initiatives. My goal is to create a more
-                        equitable society where everyone has the opportunity to
-                        thrive by championing poverty alleviation through
-                        quality education, clean energy access, food security,
-                        and gender equity.
+                        relations. <br />
+                        <br />I am an advocate for youth and women empowerment
+                        initiatives. My goal is to create a more equitable
+                        society where everyone has the opportunity to thrive by
+                        championing poverty alleviation through quality
+                        education, clean energy access, food security, and
+                        gender equity.
                     </p>
                 ),
+            },
+            {
+                name: "christine muinde",
+                position: "office assistant",
+                image: "our_team/secretariat/christine-muinde.jpg",
+                brief: "",
+                bio: "",
             },
         ],
     },

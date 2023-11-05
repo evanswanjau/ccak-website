@@ -7,8 +7,8 @@ export const MemberModal = ({
     setMember,
 }) => {
     return (
-        <div className="fixed bg-black bg-opacity-50 h-screen -mt-[6.6em] z-50 w-full overflow-y-scroll">
-            <div className="w-11/12 sm:8/12 md:w-7/12 lg:w-6/12 mx-auto bg-white pt-3 mt-8 pb-6 px-3 shadow-2xl rounded-lg overflow-y-scroll">
+        <div className="fixed bg-black bg-opacity-50 h-screen -mt-[6.6em] z-50 w-full overflow-y-auto">
+            <div className="w-11/12 sm:8/12 md:w-7/12 lg:w-6/12 mx-auto bg-white pt-3 mt-8 pb-6 px-3 shadow-2xl rounded-lg overflow-y-auto">
                 <div className="w-full flex justify-end">
                     <button
                         type="button"
