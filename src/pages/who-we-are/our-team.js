@@ -82,10 +82,10 @@ const data = [
         members: [
             {
                 name: "simon kiragu",
-                position: "programme manager",
+                position: "program manager",
                 image: "our_team/secretariat/simon-kiragu.jpg",
                 brief: "",
-                bio: "Simon Kiragu is the Programme Manager for the Clean Cookstoves Association of Kenya (CCAK). He formerly served as a Center Manager at the AJIRA Digital Program in the Ministry of ICT and Youth Affairs. A social advocate, Simon has served strategic and advocacy roles in sustainable development towards global issues such as sustainable energy, climate change, youth leadership, gig & freelance economy and social-economic empowerment at Women Entrepreneurship in Renewables (wPOWER), SNV, Integral Advisory and Barefoot Power. Simon holds an MBA in Project Management, an Energy Engineering Degree and Young Leader in Energy Access Awardee (awarded by the E.U) motivated by a strong sense of duty to impact society positively.",
+                bio: "Simon Kiragu is the Program Manager for the Clean Cooking Association of Kenya (CCAK). He formerly served as a Center Manager at the AJIRA Digital Program in the Ministry of ICT and Youth Affairs. A social advocate, Simon has served strategic and advocacy roles in sustainable development towards global issues such as sustainable energy, climate change, youth leadership, gig & freelance economy, and social-economic empowerment at Women Entrepreneurship in Renewables (wPOWER), SNV, Integral Advisory, and Barefoot Power. Simon holds an MBA in Project Management, an Energy Engineering Degree, and Young Leader in Energy Access Awardee (awarded by the E.U) motivated by a strong sense of duty to impact society positively.",
             },
             {
                 name: "philomena mitalo",
@@ -93,13 +93,6 @@ const data = [
                 image: "our_team/secretariat/philomena-mitalo.jpg",
                 brief: "",
                 bio: "Ms. Philomena Mitalo is a business management professional with considerable experience in administration, procurement, human resource and project management. She holds a Master of Business Administration Degree from Mahatma Gandhi University – India  and is a certified PRINCE - 2 practitioner with experience working in both governmental and non-governmental sector since 2017. She is also a Certified Human Resource Professional. She joined CCAK in 2019 as an Operations Officer, she has understood the necessary policy, legal and regulatory frameworks and ensures adherence to the existing policies and procedures. She develops operating plans and objectives commensurate with organizational goals and ensures regulations are understood and implemented. As a program Officer she supports in sector research, innovation, project management and administration, grant proposal and fund raising, sustainability of associations’ operations through resolution to technical clean cooking sector issues as well as comprehensive sector monitoring and evaluation. While out of office Ms. Philomena likes exercising and healthcare, cooking and baking!",
-            },
-            {
-                name: "benjamin bosire",
-                position: "finance officer",
-                image: "our_team/secretariat/benjamin-bosire.jpg",
-                brief: "",
-                bio: "",
             },
             {
                 name: "elly odhiambo",
@@ -146,6 +139,36 @@ const data = [
                 image: "our_team/secretariat/fredrick-eteye.jpg",
                 brief: "",
                 bio: "After graduating in Renewable Energy Technology and Management from JOOUST–Kenya, Fredrick has been engaged in both private and public energy sector players. Currently working at the Clean Cooking Association of Kenya, (CCAK) he supports the Programs Department to ensure that resolutions are implemented. He is passionate about becoming an individual progressing on towards excellence in offering needful services to the community.",
+            },
+            {
+                name: "benjamin bosire",
+                position: "finance officer",
+                image: "our_team/secretariat/benjamin-bosire.jpg",
+                brief: "",
+                bio: "",
+            },
+            {
+                name: "victor ngeno",
+                position: "finance & operations intern",
+                image: "our_team/secretariat/victor-ngeno.jpg",
+                brief: "",
+                bio: (
+                    <p>
+                        I am an enthusiastic, optimistic, and self-motivated
+                        person with a solid foundation in Accounting, holding a
+                        degree in Accounting from Kenyatta University. With a
+                        background as an Accountant and Payroll Assistant, I
+                        bring a wealth of experience to the table. My primary
+                        responsibility revolves around guaranteeing
+                        accountability and operational stability within the
+                        organization. <br />
+                        <br />I take immense satisfaction in my role and
+                        consistently strive to uphold the highest standards of
+                        compliance, thoroughness, reliability, accessibility,
+                        and steadfastness in all aspects of the organization's
+                        activities and operations.
+                    </p>
+                ),
             },
             {
                 name: "lynn ngatia",

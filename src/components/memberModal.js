@@ -33,7 +33,7 @@ export const MemberModal = ({
                     ></div>
                     <h6 className="text font-semibold capitalize">{name}</h6>
                     <p className="text-gray-600 capitalize">{position}</p>
-                    <p className="text-gray-600 my-2">{bio}</p>
+                    <p className="text-gray-600 my-2 text-sm">{bio}</p>
                 </div>
             </div>
         </div>
