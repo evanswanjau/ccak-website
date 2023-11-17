@@ -1,17 +1,17 @@
 module.exports.simpleDate = (date) => {
   if (date) {
-    let newDate = new Date(date).toString();
-
-    newDate = newDate.split(" ");
-
-    return (
-      newDate[2].replace(/^0+/, "") +
-      nth(newDate[2]) +
-      " " +
-      newDate[1] +
-      " " +
-      newDate[3]
-    );
+    let eventDate = new Date(date);
+    let day = eventDate.getDate();
+    let month = eventDate.toString().split(" ")[1];
+    let year = eventDate.getFullYear();
+    let hours = eventDate.getHours();
+    let minutes = eventDate.getMinutes();
+    let ampm = hours >= 12 ? "PM" : "AM";
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    let strTime = hours + ":" + minutes + " " + ampm;
+    return day + nth(day) + " " + month + " " + year + ", " + strTime;
   } else {
     return "__:__:__";
   }

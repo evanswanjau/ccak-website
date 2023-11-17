@@ -38,11 +38,7 @@ export const ReadMoreHeader = ({
                                 <p className="justify-center flex flex-row space-x-1">
                                     <CalendarDaysIcon className="-mt-2 w-6 text-[#329E49]" />
                                     <span>
-                                        {simpleDate(event_date) +
-                                            " " +
-                                            event_date
-                                                .split("T")[1]
-                                                .slice(0, -4)}
+                                        {simpleDate(event_date)}
                                     </span>
                                 </p>
                             </div>
