@@ -149,7 +149,7 @@ const data = [
             },
             {
                 name: "victor ngeno",
-                position: "finance & operations intern",
+                position: "finance & operations support",
                 image: "our_team/secretariat/victor-ngeno.jpg",
                 brief: "",
                 bio: (
