@@ -155,6 +155,25 @@ const data = [
         },
         image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
     },
+    {
+        links: [],
+        info: {
+            title: (
+                <div
+                    class="py-[0.2em] items-center tracking-widest leading-none lg:rounded-full flex lg:inline-flex"
+                    role="alert"
+                >
+                    <span class="flex rounded-full bg-yellow-200 uppercase px-2 pt-1 pb-[0.5] text-xs font-bold mr-3">
+                        USSD
+                    </span>
+                    <span class="font-bold mr-2 text-left flex-auto font-montserrat text-black">
+                        *789*788#
+                    </span>
+                </div>
+            ),
+            link: "tel:*789*788#",
+        },
+    },
 ];
 
 export const Drawer = ({ mobile, setMobile }) => {
