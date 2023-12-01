@@ -1,49 +1,63 @@
-export const LogoCarousel = ({ logos }) => {
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+export const LogoCarousel = ({
+    logos,
+    show = 6,
+    reverse = false,
+    size = '4em',
+}) => {
+    const settings = {
+        infinite: true,
+        speed: 2000,
+        slidesToShow: show,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        rtl: reverse,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                },
+            },
+        ],
+    };
+
     return (
-        <div className=" flex items-center justify-center">
-            {/* 1. */}
-            <div className="w-[230%] h-44 overflow-hidden relative">
-                {/* 2. */}
-                <div className="w-[230%] flex items-center h-44 justify-around absolute left-0 animate gap-5 sm:gap-16 md:gap-20 lg:gap-32 animate">
-                    {/* 3 */}
-                    {logos.map((logo, i) => {
-                        return (
-                            <div
-                                key={i}
-                                className="flex justify-center items-start w-56 hover:scale-[1.1] duration-300 ease-in-out]"
-                            >
-                                <a
-                                    href={logo.link}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                >
-                                    <img src={logo.image} alt={logo.name} className="max-h-48" />
-                                </a>
-                            </div>
-                        );
-                    })}
-                    {logos.map((logo, i) => {
-                        return (
-                            <div
-                                key={i}
-                                className="flex justify-center items-start w-48 hover:scale-[1.1] duration-300 ease-in-out"
-                            >
-                                <a
-                                    href={logo.link}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                >
-                                    <img
-                                        src={logo.image}
-                                        alt={logo.name}
-                                        className="max-h-48"
-                                    />
-                                </a>
-                            </div>
-                        );
-                    })}
-                </div>
-            </div>
-        </div>
+        <Slider {...settings}>
+            {logos.map((logo, i) => {
+                return (
+                    <div
+                        key={i}
+                        className="hover:scale-[1.1] duration-300 ease-in-out border-none"
+                        title={logo.name}
+                    >
+                        <a
+                            href={logo.link}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="flex justify-center items-center border-none"
+                        >
+                            <img
+                                src={logo.image}
+                                alt={logo.name}
+                                style={{ maxHeight: size }}
+                            />
+                        </a>
+                    </div>
+                );
+            })}
+        </Slider>
     );
 };

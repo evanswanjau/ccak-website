@@ -48,6 +48,16 @@ const partners = [
         link: "https://snv.org/",
         image: "/logos/snv.png",
     },
+    {
+        name: "japan oda",
+        link: "https://www.mofa.go.jp/policy/oda/index.html",
+        image: "/logos/japan-oda.jpg",
+    },
+    {
+        name: "undp",
+        link: "https://www.undp.org/",
+        image: "/logos/undp.jpg",
+    },
 ];
 
 const affiliations = [
@@ -230,7 +240,11 @@ export const AboutUsPage = () => {
                             OUR AFFILIATIONS
                         </h6>
                     </Fade>
-                    <LogoCarousel logos={affiliations} />
+                    <LogoCarousel
+                        logos={affiliations}
+                        show={4}
+                        reverse={true}
+                    />
                 </div>
             </section>
             <section className="p-6 lg:p-16">

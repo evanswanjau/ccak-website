@@ -85,6 +85,69 @@ export const HomePage = () => {
         },
     ];
 
+    const counties = [
+        {
+            name: "nairobi",
+            link: "https://nairobi.go.ke/",
+            image: "/logos/counties/nairobi.jpeg",
+        },
+        {
+            name: "kisumu",
+            link: "https://www.kisumu.go.ke/",
+            image: "/logos/counties/kisumu.jpg",
+        },
+        {
+            name: "tanariver",
+            link: "https://tanariver.go.ke/",
+            image: "/logos/counties/tanariver.png",
+        },
+        {
+            name: "kwale",
+            link: "https://kwalecountygov.com/kwale/",
+            image: "/logos/counties/kwale.jpeg",
+        },
+        {
+            name: "nakuru",
+            link: "https://nakuru.go.ke/",
+            image: "/logos/counties/nakuru.png",
+        },
+        {
+            name: "machakos",
+            link: "https://machakos.go.ke/",
+            image: "/logos/counties/machakos.png",
+        },
+        {
+            name: "laikipia",
+            link: "https://laikipia.go.ke/",
+            image: "/logos/counties/laikipia.png",
+        },
+        {
+            name: "kajiado",
+            link: "https://www.kajiado.go.ke/",
+            image: "/logos/counties/kajiado.png",
+        },
+        {
+            name: "kakamega",
+            link: "https://kakamega.go.ke/",
+            image: "/logos/counties/kakamega.png",
+        },
+        {
+            name: "kitui",
+            link: "https://kitui.go.ke/",
+            image: "/logos/counties/kitui.png",
+        },
+        {
+            name: "kiambu",
+            link: "https://kiambu.go.ke/",
+            image: "/logos/counties/kiambu.png",
+        },
+        {
+            name: "kilifi",
+            link: "https://kilifi.go.ke/22-27/",
+            image: "/logos/counties/kilifi.png",
+        },
+    ];
+
     return (
         <div className="text-gray-600 pt-[3.8rem] lg:pt-[6.6rem]">
             <section>
@@ -154,6 +217,14 @@ export const HomePage = () => {
                         </h6>
                     </Fade>
                     <LogoCarousel logos={partners} />
+                </div>
+                <div className="py-3">
+                    <Fade>
+                        <h6 className="text-black text-sm font-semibold my-5">
+                            OUR PARTNERS AND DONORS
+                        </h6>
+                    </Fade>
+                    <LogoCarousel logos={counties} reverse={true} size='8em' />
                 </div>
             </section>
             <section className="flex flex-col lg:flex-row w-full p-6 lg:py-20 lg:p-12 bg-[#EC7422]">
