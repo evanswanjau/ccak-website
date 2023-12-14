@@ -80,7 +80,7 @@ export const HomeSlider = () => {
                                     process.env.REACT_APP_IMAGEKIT_URL +
                                     "sliders/slider" +
                                     (i + 1) +
-                                    ".jpg"
+                                    ".jpg?tr=w-1204"
                                 })`,
                                 backgroundSize: "cover",
                                 backgroundPosition: "center center",
