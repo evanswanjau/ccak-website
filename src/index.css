@@ -56,8 +56,12 @@ a {
     margin-bottom: 20px;
 }
 
+#content p img {
+    margin: 0 auto;
+}
+
 #content a {
-    color: #3771ee
+    color: #3771ee;
 }
 
 @keyframes scroll {
