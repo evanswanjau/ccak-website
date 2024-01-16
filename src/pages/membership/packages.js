@@ -16,7 +16,7 @@ const data = [
     },
     {
         name: "institution",
-        category: "reasearch",
+        category: "research",
         price: "KSH. 20,000",
         list: ["Institution", "Registration fee of Ksh. 10,000"],
     },
