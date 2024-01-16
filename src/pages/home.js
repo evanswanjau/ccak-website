@@ -221,7 +221,7 @@ export const HomePage = () => {
                 <div className="py-3">
                     <Fade>
                         <h6 className="text-black text-sm font-semibold my-5">
-                            OUR PARTNERS AND DONORS
+                            COUNTY PARTNERSHIPS
                         </h6>
                     </Fade>
                     <LogoCarousel logos={counties} reverse={true} size='8em' />
