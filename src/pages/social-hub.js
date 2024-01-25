@@ -37,13 +37,12 @@ export const SocialHubHomePage = () => {
         setIsUpdatePostModalOpen(true);
     };
 
-
     const handleCloseModal = () => {
         setSelectedPost(null);
         setIsAddPostModalOpen(false);
         setIsUpdatePostModalOpen(false);
         setIsSharePostModalOpen(false);
-        setIsViewPostModalOpen(false)
+        setIsViewPostModalOpen(false);
     };
 
     useEffect(() => {
@@ -62,6 +61,8 @@ export const SocialHubHomePage = () => {
             setUserId(decodedToken.user_id);
         }
     }, []);
+
+    console.log(posts);
 
     return (
         <div className="pt-[3.8rem] lg:pt-[6.8rem]">

@@ -49,24 +49,27 @@ export const search = (
             setLoading(false);
         })
         .catch(() => {
-            enqueueSnackbar("Unknown error occurred. Please try reloading the page", {
-                variant: "error",
-                anchorOrigin: {
-                    horizontal: "center",
-                    vertical: "bottom",
-                },
-                autoHideDuration: null,
-                action: () => (
-                    <button
-                        className="bg-white text-gray-600 py-2 px-4 rounded-md shadow-lg"
-                        color="secondary"
-                        size="small"
-                        onClick={() => window.location.reload()}
-                    >
-                        Reload
-                    </button>
-                ),
-            });
+            enqueueSnackbar(
+                "Unknown error occurred. Please try reloading the page",
+                {
+                    variant: "error",
+                    anchorOrigin: {
+                        horizontal: "center",
+                        vertical: "bottom",
+                    },
+                    autoHideDuration: null,
+                    action: () => (
+                        <button
+                            className="bg-white text-gray-600 py-2 px-4 rounded-md shadow-lg"
+                            color="secondary"
+                            size="small"
+                            onClick={() => window.location.reload()}
+                        >
+                            Reload
+                        </button>
+                    ),
+                }
+            );
         });
 };
 
@@ -305,14 +308,20 @@ export const addSocialPost = (postData, setSuccess, setError) => {
 /* -------------------- SOCIAL POSTS ------------------- */
 export const fetchSocialPosts = (setPosts, enqueueSnackbar) => {
     return axios({
-        method: "get",
-        url: process.env.REACT_APP_API_URL + "socialposts",
+        method: "post",
+        url: process.env.REACT_APP_API_URL + "socialposts/search",
+        data: {
+            keyword: "",
+            status: "",
+            page: 1,
+            limit: 15,
+        },
         headers: {
             "Content-Type": "application/json",
         },
     })
         .then(({ data }) => {
-            return setPosts(data);
+            return setPosts(data.results);
         })
         .catch(() => {
             enqueueSnackbar("Error fetching social posts", {
