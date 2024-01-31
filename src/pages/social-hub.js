@@ -3,11 +3,10 @@ import jwt from "jwt-decode";
 import { useSnackbar } from "notistack";
 import { SocialHubPost } from "../components/socialHub/post";
 import { SideMenu } from "../components/navBar/socialHub/sideMenu";
-import { AddPostModal } from "../components/addPostModal";
+import { AddPostModal } from "../components/socialHub/addPostModal";
 import { SharePostModal } from "../components/socialHub/sharePostModal";
 import { UpdatePostModal } from "../components/updatePostModal";
 import { ViewPostModal } from "../components/socialHub/viewPostModal.js";
-
 import { fetchSocialPosts } from "../api/api-calls";
 import { getMember } from "../api/member-api-calls";
 import { HiPlus } from "react-icons/hi2";
@@ -19,7 +18,6 @@ export const SocialHubHomePage = () => {
     const [userId, setUserId] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
     const [isAddPostModalOpen, setIsAddPostModalOpen] = useState(false);
     const [isUpdatePostModalOpen, setIsUpdatePostModalOpen] = useState(false);
     const [isSharePostModalOpen, setIsSharePostModalOpen] = useState(false);
@@ -28,9 +26,9 @@ export const SocialHubHomePage = () => {
 
     const { enqueueSnackbar } = useSnackbar();
 
-    const handleOpenAddPostModal = () => {
-        setIsAddPostModalOpen(true);
-    };
+    // const handleOpenAddPostModal = () => {
+    //     setIsAddPostModalOpen(true);
+    // };
 
     const handleOpenUpdatePostModal = (post) => {
         setSelectedPost(post);
@@ -39,7 +37,7 @@ export const SocialHubHomePage = () => {
 
     const handleCloseModal = () => {
         setSelectedPost(null);
-        setIsAddPostModalOpen(false);
+        // setIsAddPostModalOpen(false);
         setIsUpdatePostModalOpen(false);
         setIsSharePostModalOpen(false);
         setIsViewPostModalOpen(false);
@@ -62,7 +60,6 @@ export const SocialHubHomePage = () => {
         }
     }, []);
 
-    console.log(posts);
 
     return (
         <div className="pt-[3.8rem] lg:pt-[6.8rem]">
@@ -113,7 +110,7 @@ export const SocialHubHomePage = () => {
                         <div className="absolute bottom-5 right-5 rounded-full cursor-pointer">
                             <button
                                 className="bg-[#ED7423] rounded-full p-3 shadow-lg"
-                                onClick={handleOpenAddPostModal}
+                                onClick={() => setIsAddPostModalOpen(true)}
                             >
                                 <HiPlus className="text-3xl text-white" />
                             </button>
@@ -121,7 +118,10 @@ export const SocialHubHomePage = () => {
                     )}
                 </div>
                 {isAddPostModalOpen && (
-                    <AddPostModal onClose={handleCloseModal} />
+                    <AddPostModal
+                        isPostModalOpen={isAddPostModalOpen}
+                        setIsAddPostModalOpen={setIsAddPostModalOpen}
+                    />
                 )}
                 {isSharePostModalOpen && (
                     <SharePostModal

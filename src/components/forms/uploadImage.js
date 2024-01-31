@@ -62,7 +62,7 @@ export const ImageUpload = ({ data, updateData, setError, folder }) => {
                 >
                     <IKUpload
                         id="image"
-                        className="bg-red-400 opacity-0 h-32 -mt-[9em] w-[54em]"
+                        className="opacity-0 h-32 -mt-[9em] w-full"
                         useUniqueFileName={true}
                         folder={folder}
                         onChange={() => {
