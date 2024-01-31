@@ -8,7 +8,7 @@ import { PencilSquareIcon, TrashIcon } from "@heroicons/react/20/solid";
 
 import { BookMark } from "./bookmark";
 import { Likes } from "./likes";
-import { fetchComments } from "../../api/member-api-calls";
+import { apiRequest, fetchComments } from "../../api/member-api-calls";
 
 export const SocialHubPost = ({
     member,
@@ -17,6 +17,11 @@ export const SocialHubPost = ({
     setIsSharePostModalOpen,
     setIsViewPostModalOpen,
     setSelectedPost,
+    postId,
+    posts,
+    setPosts,
+    getSocialPosts,
+    setLoading,
 }) => {
     const [error, setError] = useState(false);
     const [comments, setComments] = useState([]);
@@ -28,8 +33,11 @@ export const SocialHubPost = ({
     }, []);
 
     const deletePost = () => {
-        // TODO 1. POP POST FROM ARRAY
-        enqueueSnackbar("Your post has been deleted", {
+        const newPosts = posts.filter((post) => post.id !== postId);
+
+        setPosts([...newPosts]);
+
+        enqueueSnackbar("Post deleted succesfully", {
             variant: "error",
             anchorOrigin: {
                 horizontal: "center",
@@ -39,12 +47,19 @@ export const SocialHubPost = ({
                 <button
                     className="px-2 py-1 rounded bg-white text-black"
                     onClick={() => {
-                        // TODO 2. RETURN OLD ARRAY
+                        setPosts([...posts]);
                     }}
                 >
                     Undo
                 </button>
             ),
+            onClose: () => {
+                apiRequest(
+                    "socialpost/delete/" + postId,
+                    enqueueSnackbar,
+                    "Post deleted successfully"
+                ).then(() => getSocialPosts());
+            },
         });
     };
 

@@ -7,7 +7,10 @@ import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <SnackbarProvider maxSnack={1}>
+    <SnackbarProvider
+        maxSnack={1}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+    >
         <App />
     </SnackbarProvider>
 );
