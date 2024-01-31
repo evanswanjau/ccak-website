@@ -1,18 +1,20 @@
 import axios from "axios";
 import jwt from "jwt-decode";
 
-/** */
+/** These enpoints include enpoints that relate to the logged member */
 export const submitData = (
+    url,
     data,
     updateData,
-    setError,
-    enqueueSnackbar,
+    setError = null,
+    enqueueSnackbar = null,
+    setLoading = null,
     setBtnLoading = null,
-    message
+    message = null
 ) => {
     return axios({
         method: "post",
-        url: process.env.REACT_APP_API_URL + "socialpost",
+        url: process.env.REACT_APP_API_URL + url,
         data: data,
         headers: {
             "Content-Type": "application/json",
@@ -20,18 +22,34 @@ export const submitData = (
         },
     })
         .then(({ data }) => {
-            updateData(data);
-            enqueueSnackbar(message, { variant: "success" });
+            updateData(data.results ? data.results : data);
+            if (message)
+                enqueueSnackbar(message, {
+                    variant: "success",
+                    anchorOrigin: {
+                        horizontal: "center",
+                        vertical: "bottom",
+                    },
+                });
         })
         .catch(({ response }) => {
-            setError(
-                response.data.message
-                    ? response.data.message
-                    : "Unknown error ocurred! Please try again later."
-            );
+            if (setError)
+                setError(
+                    response.data.message
+                        ? response.data.message
+                        : "Unknown error ocurred! Please try again later."
+                );
+            if (enqueueSnackbar)
+                enqueueSnackbar(
+                    response.data.message
+                        ? response.data.message
+                        : "Unknown error ocurred! Please try again later.",
+                    { variant: "error" }
+                );
         })
         .finally(() => {
             if (setBtnLoading) setBtnLoading(false);
+            if (setLoading) setLoading(false);
         });
 };
 

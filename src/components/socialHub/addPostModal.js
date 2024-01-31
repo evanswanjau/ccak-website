@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSnackbar } from "notistack";
 import { IKImage } from "imagekitio-react";
 import { ImageUpload } from "../forms/uploadImage";
 import { XMarkIcon } from "@heroicons/react/24/outline";
@@ -6,7 +7,11 @@ import { ButtonLoader } from "../../components/btnLoader";
 import { ErrorMessage } from "../forms/error";
 import { submitData } from "../../api/member-api-calls";
 
-export const AddPostModal = ({ isPostModalOpen, setIsAddPostModalOpen }) => {
+export const AddPostModal = ({
+    isPostModalOpen,
+    setIsAddPostModalOpen,
+    getSocialPosts,
+}) => {
     const [data, setData] = useState({
         post: "",
         image: "",
@@ -15,14 +20,21 @@ export const AddPostModal = ({ isPostModalOpen, setIsAddPostModalOpen }) => {
     const [btnLoading, setBtnLoading] = useState(false);
     const modalClasses = isPostModalOpen ? "block" : "hidden";
 
+    const { enqueueSnackbar } = useSnackbar();
+
     const createPost = () => {
+        setBtnLoading(true);
         submitData(
+            "socialpost",
             data,
             setData,
             setError,
+            enqueueSnackbar,
+            null,
             setBtnLoading,
-            "Social Post created successfully!"
+            "Post created successfully!"
         ).finally(() => {
+            getSocialPosts();
             setIsAddPostModalOpen(false);
         });
     };
