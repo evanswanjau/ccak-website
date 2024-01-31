@@ -53,6 +53,28 @@ export const submitData = (
         });
 };
 
+export const apiRequest = (url, enqueueSnackbar, message) => {
+    return axios({
+        method: "post",
+        url: process.env.REACT_APP_API_URL + url,
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+    })
+        .then(() => {
+            if (message) enqueueSnackbar(message, { variant: "success" });
+        })
+        .catch(({ response }) => {
+            enqueueSnackbar(
+                response.data.message
+                    ? response.data.message
+                    : "Unknown error ocurred! Please try again later.",
+                { variant: "error" }
+            );
+        });
+};
+
 /* ---------------- MEMBER --------------------- */
 export const resetPassword = (data) => {
     return axios({
