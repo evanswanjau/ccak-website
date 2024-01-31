@@ -1,6 +1,40 @@
 import axios from "axios";
 import jwt from "jwt-decode";
 
+/** */
+export const submitData = (
+    data,
+    updateData,
+    setError,
+    enqueueSnackbar,
+    setBtnLoading = null,
+    message
+) => {
+    return axios({
+        method: "post",
+        url: process.env.REACT_APP_API_URL + "socialpost",
+        data: data,
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+    })
+        .then(({ data }) => {
+            updateData(data);
+            enqueueSnackbar(message, { variant: "success" });
+        })
+        .catch(({ response }) => {
+            setError(
+                response.data.message
+                    ? response.data.message
+                    : "Unknown error ocurred! Please try again later."
+            );
+        })
+        .finally(() => {
+            if (setBtnLoading) setBtnLoading(false);
+        });
+};
+
 /* ---------------- MEMBER --------------------- */
 export const resetPassword = (data) => {
     return axios({
