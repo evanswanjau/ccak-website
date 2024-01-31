@@ -42,10 +42,10 @@ export const AddPostModal = ({
     const disabled = data.postText === "";
 
     return (
-        <div className={`fixed inset-0 overflow-y-auto ${modalClasses}`}>
+        <div className={`fixed inset-0 overflow-y-auto ${modalClasses} z-50`}>
             <div className="flex items-center justify-center min-h-screen">
                 <div className="fixed inset-0 bg-black opacity-50"></div>
-                <div className="relative bg-white rounded-lg w-full md:6/12 lg:w-5/12 m-5 z-50">
+                <div className="relative bg-white rounded-lg w-full md:6/12 lg:w-5/12 m-5">
                     <div className="flex flex-row p-4 justify-between items-center shadow-sm">
                         <h2 className="text-xl font-semibold">
                             Create social post
