@@ -67,6 +67,15 @@ export const SocialHubPost = ({
         });
     };
 
+    const formatPost = (post) => {
+        const urlRegex = /(https?:\/\/[^\s]+)/g;
+        return post.replace(
+            urlRegex,
+            (url) =>
+                `<a href="${url}" class="text-blue-600" target="_blank" rel="noopener noreferrer">${url}</a>`
+        );
+    };
+
     return (
         <div className="rounded-lg shadow-lg px-5 pt-5 pb-2 mb-2">
             <div className="flex justify-between">
@@ -114,7 +123,12 @@ export const SocialHubPost = ({
                     setIsViewPostModalOpen(true);
                 }}
             >
-                <p className="rounded-lg w-full">{data.post}</p>
+                <p
+                    className="rounded-lg w-full"
+                    dangerouslySetInnerHTML={{
+                        __html: formatPost(data.post),
+                    }}
+                />
                 {data.image !== "" && (
                     <img
                         src={`${process.env.REACT_APP_IMAGEKIT_URL}socialpost/${data.image}`}
