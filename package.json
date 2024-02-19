@@ -1,7 +1,7 @@
 {
   "name": "ccak",
   "version": "0.1.0",
-  "main":"index.js",
+  "main": "index.js",
   "private": true,
   "dependencies": {
     "@heroicons/react": "^2.0.16",
@@ -15,6 +15,7 @@
     "axios": "^1.4.0",
     "buffer": "^6.0.3",
     "caniuse-lite": "^1.0.30001533",
+    "date-fns": "^3.3.1",
     "imagekitio-react": "^2.0.0",
     "jwt-decode": "^3.1.2",
     "nivo": "^0.31.0",

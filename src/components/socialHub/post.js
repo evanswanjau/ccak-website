@@ -55,6 +55,7 @@ export const SocialHubPost = ({
             ),
             onClose: () => {
                 apiRequest(
+                    "post",
                     "socialpost/delete/" + postId,
                     enqueueSnackbar,
                     "Post deleted successfully"
@@ -130,7 +131,7 @@ export const SocialHubPost = ({
                         <ChatBubbleLeftEllipsisIcon
                             className="w-6 text-black cursor-pointer"
                             onClick={() => {
-                                if (member.id !== "") {
+                                if (member.id !== "" && member.id !== null) {
                                     setSelectedPost(data);
                                     setIsViewPostModalOpen(true);
                                 }

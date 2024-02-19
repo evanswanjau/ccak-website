@@ -53,16 +53,17 @@ export const submitData = (
         });
 };
 
-export const apiRequest = (url, enqueueSnackbar, message) => {
+export const apiRequest = (method, url, enqueueSnackbar, message, setData) => {
     return axios({
-        method: "post",
+        method: method,
         url: process.env.REACT_APP_API_URL + url,
         headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
     })
-        .then(() => {
+        .then(({ data }) => {
+            if (setData) setData(data);
             if (message) enqueueSnackbar(message, { variant: "success" });
         })
         .catch(({ response }) => {
