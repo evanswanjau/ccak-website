@@ -168,11 +168,10 @@ export const ViewPostModal = ({
                                                 return (
                                                     <div
                                                         key={comment.id}
-                                                        className="flex gap-0 flex-col pr-2 bg-gray-100 my-2 rounded-lg p-3"
+                                                        className="bg-gray-200 my-1 rounded-lg p-3"
                                                     >
-                                                        <span className="flex justify-between">
+                                                        <span className="flex justify-between items-start">
                                                             <p className="flex-1">
-                                                                {" "}
                                                                 {
                                                                     comment.comment
                                                                 }
@@ -180,7 +179,7 @@ export const ViewPostModal = ({
                                                             {member.id ===
                                                                 comment.created_by && (
                                                                 <span
-                                                                    className="flex text-sm justify-center items-center gap-1"
+                                                                    className="flex text-sm"
                                                                     onClick={() =>
                                                                         deleteComment(
                                                                             comment.id

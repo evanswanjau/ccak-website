@@ -7,7 +7,6 @@ import { AddPostModal } from "../components/socialHub/addPostModal";
 import { SharePostModal } from "../components/socialHub/sharePostModal";
 import { UpdatePostModal } from "../components/updatePostModal";
 import { ViewPostModal } from "../components/socialHub/viewPostModal.js";
-import { fetchSocialPosts } from "../api/api-calls";
 import { submitData, getMember } from "../api/member-api-calls";
 import { HiPlus } from "react-icons/hi2";
 import { Loader } from "../components/loader";
@@ -29,6 +28,7 @@ export const SocialHubHomePage = () => {
     const [isSharePostModalOpen, setIsSharePostModalOpen] = useState(false);
     const [isViewPostModalOpen, setIsViewPostModalOpen] = useState(false);
     const [selectedPost, setSelectedPost] = useState(null);
+    const [isEditPost, setIsEditPost] = useState(false);
 
     const { enqueueSnackbar } = useSnackbar();
 
@@ -115,6 +115,10 @@ export const SocialHubHomePage = () => {
                                         setPosts={setPosts}
                                         getSocialPosts={getSocialPosts}
                                         setLoading={setLoading}
+                                        setIsEditPost={setIsEditPost}
+                                        setIsAddPostModalOpen={
+                                            setIsAddPostModalOpen
+                                        }
                                     />
                                 );
                             })
@@ -136,6 +140,10 @@ export const SocialHubHomePage = () => {
                         isPostModalOpen={isAddPostModalOpen}
                         setIsAddPostModalOpen={setIsAddPostModalOpen}
                         getSocialPosts={getSocialPosts}
+                        isEditPost={isEditPost}
+                        setIsEditPost={setIsEditPost}
+                        selectedPost={selectedPost}
+                        setSelectedPost={setSelectedPost}
                     />
                 )}
                 {isSharePostModalOpen && (

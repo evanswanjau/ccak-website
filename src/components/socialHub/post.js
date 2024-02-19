@@ -9,6 +9,7 @@ import { PencilSquareIcon, TrashIcon } from "@heroicons/react/20/solid";
 import { BookMark } from "./bookmark";
 import { Likes } from "./likes";
 import { apiRequest, fetchComments } from "../../api/member-api-calls";
+import { set } from "date-fns";
 
 export const SocialHubPost = ({
     member,
@@ -22,6 +23,8 @@ export const SocialHubPost = ({
     setPosts,
     getSocialPosts,
     setLoading,
+    setIsEditPost,
+    setIsAddPostModalOpen,
 }) => {
     const [error, setError] = useState(false);
     const [comments, setComments] = useState([]);
@@ -88,19 +91,14 @@ export const SocialHubPost = ({
 
                     {member.id === data.created_by && (
                         <>
-                            {/* <PencilSquareIcon
+                            <PencilSquareIcon
                                 className="h-6 w-5 text-black cursor-pointer hover:text-green-600 transition-all duration-300"
-                                onClick={() =>
-                                    onUpdateClick(
-                                        logo,
-                                        name,
-                                        post,
-                                        image,
-                                        comments,
-                                        likes
-                                    )
-                                }
-                            /> */}
+                                onClick={() => {
+                                    setSelectedPost(data);
+                                    setIsEditPost(true);
+                                    setIsAddPostModalOpen(true);
+                                }}
+                            />
                             <TrashIcon
                                 className="w-6 text-gray-600 hover:text-black cursor-pointer transition-all duration-300"
                                 onClick={() => deletePost()}

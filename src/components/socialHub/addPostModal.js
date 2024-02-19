@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSnackbar } from "notistack";
 import { IKImage } from "imagekitio-react";
 import { ImageUpload } from "../forms/uploadImage";
@@ -11,6 +11,10 @@ export const AddPostModal = ({
     isPostModalOpen,
     setIsAddPostModalOpen,
     getSocialPosts,
+    isEditPost,
+    setIsEditPost,
+    selectedPost,
+    setSelectedPost,
 }) => {
     const [data, setData] = useState({
         post: "",
@@ -25,19 +29,30 @@ export const AddPostModal = ({
     const createPost = () => {
         setBtnLoading(true);
         submitData(
-            "socialpost",
+            `socialpost${isEditPost ? `/update/${selectedPost.id}` : ""}`,
             data,
             setData,
             setError,
             enqueueSnackbar,
             null,
             setBtnLoading,
-            "Post created successfully!"
+            `Post ${isEditPost ? "updated" : "created"} successfully!}`
         ).finally(() => {
+            setSelectedPost(null);
+            setIsEditPost(false);
             getSocialPosts();
             setIsAddPostModalOpen(false);
         });
     };
+
+    useEffect(() => {
+        if (isEditPost) {
+            setData({
+                post: selectedPost.post,
+                image: selectedPost.image,
+            });
+        }
+    }, [isEditPost, selectedPost]);
 
     const disabled = data.postText === "";
 
@@ -48,10 +63,14 @@ export const AddPostModal = ({
                 <div className="relative bg-white rounded-lg w-full md:6/12 lg:w-5/12 m-5">
                     <div className="flex flex-row p-4 justify-between items-center shadow-sm">
                         <h2 className="text-xl font-semibold">
-                            Create social post
+                            {isEditPost ? "Update" : "Create"} social post
                         </h2>
                         <button
-                            onClick={() => setIsAddPostModalOpen(false)}
+                            onClick={() => {
+                                setIsAddPostModalOpen(false);
+                                setIsEditPost(false);
+                                setSelectedPost(null);
+                            }}
                             className="text-gray-500 hover:text-gray-700"
                         >
                             <XMarkIcon className="w-6" />
@@ -65,7 +84,7 @@ export const AddPostModal = ({
                             rows="3"
                             placeholder="Start writing your post..."
                             className="border-2 font-manjari text-gray-900 rounded-lg focus:outline-none focus:ring-teal-900 focus:border-teal-900 block w-full p-2 pt-3"
-                            value={data.postText}
+                            value={data.post}
                             maxLength="480"
                             onChange={(event) => {
                                 setData({
@@ -119,7 +138,11 @@ export const AddPostModal = ({
                                 createPost();
                             }}
                         >
-                            {btnLoading ? <ButtonLoader /> : "CREATE POST"}
+                            {btnLoading ? (
+                                <ButtonLoader />
+                            ) : (
+                                `${isEditPost ? "UPDATE" : "CREATE"}`
+                            )}
                         </button>
                     </div>
                 </div>
