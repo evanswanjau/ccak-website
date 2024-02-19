@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { getMember, getMemberInvoices } from "../../api/member-api-calls";
 import jwt_decode from "jwt-decode";
+import { useSnackbar } from "notistack";
+import { getMember, submitData } from "../../api/member-api-calls";
 import { SideMenu } from "../../components/navBar/socialHub/sideMenu";
 import { TableData } from "../../components/table-data";
 import { Loader } from "../../components/loader";
@@ -34,6 +35,8 @@ const parseData = (invoices) => {
                 <a
                     className="text-blue-400 hover:text-blue-600 text-center"
                     href={`/checkout/invoice/${invoice.id}/${invoice.invoice_number}`}
+                    target="_blank"
+                    rel="noreferrer noopener"
                 >
                     VIEW
                 </a>
@@ -49,21 +52,30 @@ export const MyAccountBillingPage = () => {
     const [member, setMember] = useState({ id: "" });
     const [invoices, setInvoices] = useState([]);
 
+    const { enqueueSnackbar } = useSnackbar();
+
+    const getMemberInvoices = (id) => {
+        return submitData(
+            "invoices/search",
+            {
+                keyword: "",
+                member_id: id,
+                type: "",
+                status: "",
+                page: 1,
+                limit: 100,
+            },
+            setInvoices,
+            null,
+            enqueueSnackbar,
+            setLoading
+        );
+    };
+
     useEffect(() => {
         AuthMember(jwt_decode);
         getMember(setMember).then((data) => {
-            getMemberInvoices(
-                {
-                    keyword: "",
-                    member_id: data.id,
-                    type: "",
-                    status: "",
-                    page: 1,
-                    limit: 100,
-                },
-                setInvoices,
-                parseData
-            ).finally(() => {
+            getMemberInvoices(data.id).finally(() => {
                 setLoading(false);
             });
         });
@@ -131,7 +143,10 @@ export const MyAccountBillingPage = () => {
                                 </div>
                             </div>
                             {invoices.length > 0 && (
-                                <TableData titles={titles} data={invoices} />
+                                <TableData
+                                    titles={titles}
+                                    data={parseData(invoices)}
+                                />
                             )}
                         </div>
                     )}

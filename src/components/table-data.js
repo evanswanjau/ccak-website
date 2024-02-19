@@ -20,7 +20,10 @@ export const TableData = ({ titles, data }) => {
                 <tbody>
                     {data.map((item, i) => {
                         return (
-                            <tr className="bg-white border-b border-gray-100">
+                            <tr
+                                className="bg-white border-b border-gray-100"
+                                key={i}
+                            >
                                 <td className="px-3 py-4 border-r">{i + 1}</td>
                                 {titles.map((title) => {
                                     return (
