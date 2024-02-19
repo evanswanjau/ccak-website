@@ -98,7 +98,7 @@ export const SocialHubPost = ({
                         />
                     )}
 
-                    {member.id === data.created_by && (
+                    {member.id === data.created_by && setSelectedPost && (
                         <>
                             <PencilSquareIcon
                                 className="h-6 w-5 text-black cursor-pointer hover:text-green-600 transition-all duration-300"
@@ -119,8 +119,10 @@ export const SocialHubPost = ({
             <div
                 className="px-2 py-2 my-3 rounded-lg cursor-pointer"
                 onClick={() => {
-                    setSelectedPost(data);
-                    setIsViewPostModalOpen(true);
+                    if (setSelectedPost) {
+                        setSelectedPost(data);
+                        setIsViewPostModalOpen(true);
+                    }
                 }}
             >
                 <p
@@ -140,18 +142,25 @@ export const SocialHubPost = ({
             <div className="flex justify-between">
                 <div className="flex gap-2 justify-center items-center">
                     <div className="flex space-x-2 w-fit justify-center items-center">
-                        <ChatBubbleLeftEllipsisIcon
-                            className="w-6 text-black cursor-pointer"
-                            onClick={() => {
-                                if (member.id !== "" && member.id !== null) {
-                                    setSelectedPost(data);
-                                    setIsViewPostModalOpen(true);
-                                }
-                            }}
-                        />
-                        <span className="flex items-center justify-center">
-                            {comments.length}
-                        </span>
+                        {setSelectedPost && (
+                            <>
+                                <ChatBubbleLeftEllipsisIcon
+                                    className="w-6 text-black cursor-pointer"
+                                    onClick={() => {
+                                        if (
+                                            member.id !== "" &&
+                                            member.id !== null
+                                        ) {
+                                            setSelectedPost(data);
+                                            setIsViewPostModalOpen(true);
+                                        }
+                                    }}
+                                />
+                                <span className="flex items-center justify-center">
+                                    {comments.length}
+                                </span>
+                            </>
+                        )}
                     </div>
                     <Likes
                         id={data.id}
@@ -162,13 +171,15 @@ export const SocialHubPost = ({
                     />
                 </div>
                 <div className="flex space-x-2 w-full justify-end">
-                    <ShareIcon
-                        className="w-6 -mt-1 cursor-pointer"
-                        onClick={() => {
-                            setSelectedPost(data);
-                            setIsSharePostModalOpen(true);
-                        }}
-                    />
+                    {setSelectedPost && (
+                        <ShareIcon
+                            className="w-6 -mt-1 cursor-pointer"
+                            onClick={() => {
+                                setSelectedPost(data);
+                                setIsSharePostModalOpen(true);
+                            }}
+                        />
+                    )}
                 </div>
             </div>
         </div>
