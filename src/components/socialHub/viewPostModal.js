@@ -70,12 +70,22 @@ export const ViewPostModal = ({
             "Comment deleted successfully!"
         ).finally(() => {
             getComments();
+            getSocialPosts();
         });
     };
 
     useEffect(() => {
         getComments();
     }, []); // eslint-disable-line
+
+    const formatPost = (post) => {
+        const urlRegex = /(https?:\/\/[^\s]+)/g;
+        return post.replace(
+            urlRegex,
+            (url) =>
+                `<a href="${url}" class="text-blue-600" target="_blank" rel="noopener noreferrer">${url}</a>`
+        );
+    };
 
     const disabled = data.comment === "";
 
@@ -123,10 +133,15 @@ export const ViewPostModal = ({
 
                         <div className="max-h-[60vh] overflow-y-auto">
                             <div className="m-3 rounded-lg">
-                                <p className="rounded-lg w-full">{post.post}</p>
+                                <p
+                                    className="rounded-lg w-full"
+                                    dangerouslySetInnerHTML={{
+                                        __html: formatPost(post.post),
+                                    }}
+                                />
                                 {post.image !== "" && (
                                     <img
-                                        src={post.image}
+                                        src={`${process.env.REACT_APP_IMAGEKIT_URL}socialpost/${post.image}`}
                                         alt="post"
                                         className="rounded-lg my-3 w-full"
                                     />
