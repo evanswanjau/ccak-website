@@ -17,11 +17,16 @@ export const BookMark = ({ member, setMember, id }) => {
             newBookmarks = newBookmarks.filter((likeId) => likeId !== id);
         }
 
+        const message =
+            action === "add"
+                ? "Post added to bookmarks"
+                : "Post removed from bookmarks";
+
         setMember({ ...member, bookmarks: newBookmarks });
 
         updateMember({ ...member, bookmarks: newBookmarks }, setMember).then(
             () => {
-                enqueueSnackbar(`Post ${action}ed to bookmarks`, {
+                enqueueSnackbar(message, {
                     variant: "success",
                     anchorOrigin: {
                         horizontal: "center",

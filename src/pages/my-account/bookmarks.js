@@ -13,13 +13,25 @@ export const MyAccountBookmarksPage = () => {
     useEffect(() => {
         AuthMember(jwt_decode);
         getMember(setMember).then(async (data) => {
-            let res = await Promise.all(
-                data.bookmarks.map(async (postID) => {
-                    return await getSocialPost(postID).then(({ data }) => {
-                        return data;
-                    });
-                })
-            );
+            let res = (
+                await Promise.all(
+                    data.bookmarks.map(async (postID) => {
+                        try {
+                            return await getSocialPost(postID).then(
+                                ({ data }) => {
+                                    console.log("data", data);
+                                    if (data) return data;
+                                }
+                            );
+                        } catch (error) {
+                            console.error(
+                                `Failed to get social post with ID ${postID}:`,
+                                error
+                            );
+                        }
+                    })
+                )
+            ).filter((item) => item !== undefined);
 
             setPosts(res);
         });
@@ -35,7 +47,7 @@ export const MyAccountBookmarksPage = () => {
                 </div>
                 <div className="md:w-6/12 pt-10 lg:px-10">
                     <div className="space-y-6 mb-5">
-                        {member.first_name && member.bookmarks.length > 0 ? (
+                        {member.first_name && posts.length > 0 ? (
                             <>
                                 {posts.map((post) => {
                                     return (
