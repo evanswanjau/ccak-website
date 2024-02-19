@@ -152,10 +152,11 @@ export const SocialHubHomePage = () => {
                 )}
                 {isViewPostModalOpen && (
                     <ViewPostModal
-                        onClose={handleCloseModal}
                         post={selectedPost}
+                        isViewPostModalOpen={isViewPostModalOpen}
+                        setIsViewPostModalOpen={setIsViewPostModalOpen}
+                        getSocialPosts={getSocialPosts}
                         member={member}
-                        setMember={setMember}
                     />
                 )}
             </div>
