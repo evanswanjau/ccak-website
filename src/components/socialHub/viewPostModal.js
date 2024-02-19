@@ -10,6 +10,7 @@ import { TrashIcon } from "@heroicons/react/20/solid";
 import { ButtonLoader } from "../../components/btnLoader";
 import { ErrorMessage } from "../forms/error";
 import { apiRequest, submitData } from "../../api/member-api-calls";
+import { Likes } from "./likes";
 
 export const ViewPostModal = ({
     post,
@@ -17,6 +18,7 @@ export const ViewPostModal = ({
     setIsViewPostModalOpen,
     getSocialPosts,
     member,
+    setMember,
 }) => {
     const [data, setData] = useState({
         comment: "",
@@ -137,13 +139,13 @@ export const ViewPostModal = ({
                                                 {comments.length}
                                             </span>
                                         </div>
-                                        {/* <Likes
-                                    id={data.id}
-                                    post={data.post}
-                                    likes={data.likes}
-                                    member={member}
-                                    setMember={setMember}
-                                /> */}
+                                        <Likes
+                                            id={post.id}
+                                            post={post.post}
+                                            likes={post.likes}
+                                            member={member}
+                                            setMember={setMember}
+                                        />
                                     </div>
                                     <div className="flex space-x-2 w-full justify-end">
                                         <ShareIcon

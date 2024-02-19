@@ -435,60 +435,6 @@ export const addSocialPostComment = async (
     }
 };
 
-export const deleteSocialPostComment = async (
-    commentId,
-    setSuccess,
-    setError
-) => {
-    try {
-        const response = await axios({
-            method: "post",
-            url: process.env.REACT_APP_API_URL + `comment/delete/${commentId}`,
-            headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-        });
-
-        setSuccess("Comment deleted successfully");
-        setError(false);
-    } catch (error) {
-        console.log(error.response);
-        if (error.response) {
-            const errors = error.response.data;
-            const keys = Object.keys(errors);
-            setError(errors[keys[0]][0]);
-        } else {
-            console.error("An error occurred:", error);
-        }
-        setSuccess(false);
-    }
-};
-
-export const updateSocialPost = (
-    postId,
-    updatedData,
-    setBtnLoading,
-    setError
-) => {
-    return axios({
-        method: "post",
-        url: process.env.REACT_APP_API_URL + "socialpost/update/" + postId,
-        data: updatedData,
-        headers: {
-            "Content-Type": "application/json",
-        },
-    })
-        .then(() => {
-            setBtnLoading(false);
-        })
-        .catch(({ response }) => {
-            let errors = response.data;
-            let keys = Object.keys(response.data);
-
-            setError(errors[keys[0]][0]);
-            setBtnLoading(false);
-        });
-};
 
 export const storeDonation = (data) => {
     return axios({
