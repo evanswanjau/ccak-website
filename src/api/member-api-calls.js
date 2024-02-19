@@ -193,17 +193,6 @@ export const getSocialPost = (id) => {
     });
 };
 
-export const updateSocialPost = (data) => {
-    return axios({
-        method: "post",
-        url: process.env.REACT_APP_API_URL + "socialpost/update/" + data.id,
-        data: data,
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-    });
-};
 
 export const fetchComments = (postID, updateComments) => {
     return axios({

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { HeartIcon as HeartIconOutline } from "@heroicons/react/24/outline";
 import { HeartIcon as HeartIconSolid } from "@heroicons/react/24/solid";
-import { updateMember, updateSocialPost } from "../../api/member-api-calls";
+import { submitData } from "../../api/member-api-calls";
 
 export const Likes = ({ id, post, likes, member, setMember }) => {
     const [likeCount, setLikeCount] = useState(likes);
@@ -20,12 +20,19 @@ export const Likes = ({ id, post, likes, member, setMember }) => {
             newCount -= 1;
         }
 
-        setLikeCount(newCount)
+        setLikeCount(newCount);
         setMember({ ...member, likes: newLikes });
 
-        if (member.id !== "") {
-            updateMember({ ...member, likes: newLikes }, setMember);
-            updateSocialPost({ id: id, likes: newCount, post: post });
+        if (member.id) {
+            submitData(
+                "member/update/" + member.id,
+                { ...member, likes: newLikes },
+                setMember
+            );
+            submitData("socialpost/update/" + id, {
+                likes: newCount,
+                post: post,
+            });
         }
     };
 

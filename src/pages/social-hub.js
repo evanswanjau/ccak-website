@@ -5,7 +5,6 @@ import { SocialHubPost } from "../components/socialHub/post";
 import { SideMenu } from "../components/navBar/socialHub/sideMenu";
 import { AddPostModal } from "../components/socialHub/addPostModal";
 import { SharePostModal } from "../components/socialHub/sharePostModal";
-import { UpdatePostModal } from "../components/updatePostModal";
 import { ViewPostModal } from "../components/socialHub/viewPostModal.js";
 import { submitData, getMember } from "../api/member-api-calls";
 import { HiPlus } from "react-icons/hi2";
@@ -24,25 +23,12 @@ export const SocialHubHomePage = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [isAddPostModalOpen, setIsAddPostModalOpen] = useState(false);
-    const [isUpdatePostModalOpen, setIsUpdatePostModalOpen] = useState(false);
     const [isSharePostModalOpen, setIsSharePostModalOpen] = useState(false);
     const [isViewPostModalOpen, setIsViewPostModalOpen] = useState(false);
     const [selectedPost, setSelectedPost] = useState(null);
     const [isEditPost, setIsEditPost] = useState(false);
 
     const { enqueueSnackbar } = useSnackbar();
-
-    const handleOpenUpdatePostModal = (post) => {
-        setSelectedPost(post);
-        setIsUpdatePostModalOpen(true);
-    };
-
-    const handleCloseModal = () => {
-        setSelectedPost(null);
-        setIsUpdatePostModalOpen(false);
-        setIsSharePostModalOpen(false);
-        setIsViewPostModalOpen(false);
-    };
 
     const getSocialPosts = () => {
         submitData(
@@ -107,9 +93,6 @@ export const SocialHubHomePage = () => {
                                             setIsSharePostModalOpen
                                         }
                                         setSelectedPost={setSelectedPost}
-                                        onUpdateClick={() =>
-                                            handleOpenUpdatePostModal(post)
-                                        }
                                         postId={post.id}
                                         posts={posts}
                                         setPosts={setPosts}
@@ -152,12 +135,6 @@ export const SocialHubHomePage = () => {
                         post={selectedPost}
                     />
                 )}
-                {isUpdatePostModalOpen && (
-                    <UpdatePostModal
-                        onClose={handleCloseModal}
-                        post={selectedPost}
-                    />
-                )}
                 {isViewPostModalOpen && (
                     <ViewPostModal
                         post={selectedPost}
@@ -165,6 +142,7 @@ export const SocialHubHomePage = () => {
                         setIsViewPostModalOpen={setIsViewPostModalOpen}
                         getSocialPosts={getSocialPosts}
                         member={member}
+                        setMember={setMember}
                     />
                 )}
             </div>

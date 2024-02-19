@@ -100,7 +100,7 @@ export const SocialHubPost = ({
                                 }}
                             />
                             <TrashIcon
-                                className="w-6 text-gray-600 hover:text-black cursor-pointer transition-all duration-300"
+                                className="w-6 text-red-600 hover:text-black cursor-pointer transition-all duration-300"
                                 onClick={() => deletePost()}
                             />
                         </>
@@ -117,7 +117,7 @@ export const SocialHubPost = ({
                 <p className="rounded-lg w-full">{data.post}</p>
                 {data.image !== "" && (
                     <img
-                        src={data.image}
+                        src={`${process.env.REACT_APP_IMAGEKIT_URL}socialpost/${data.image}`}
                         alt="post"
                         className="rounded-lg my-3 w-full"
                     />
