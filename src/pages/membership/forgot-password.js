@@ -30,7 +30,7 @@ export const ForgotPasswordPage = () => {
                 user_type: "member",
             });
             enqueueSnackbar(
-                "Instrutions to reset your password have been sent to your email",
+                "Instructions to reset your password have been sent to your email",
                 {
                     variant: "success",
                     anchorOrigin: {

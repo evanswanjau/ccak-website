@@ -4,7 +4,10 @@ import {
     CreditCardIcon,
     LockClosedIcon,
     HomeIcon,
+    ArrowLeftOnRectangleIcon,
 } from "@heroicons/react/24/outline";
+import { logout } from "../../../helpers/auth";
+
 const lists = [
     {
         name: "Home",
@@ -31,6 +34,11 @@ const lists = [
         link: "/my-account/change-password",
         icon: <LockClosedIcon className="w-6 -mt-1" />,
     },
+    {
+        name: "Logout",
+        link: "#",
+        icon: <ArrowLeftOnRectangleIcon className="w-6 -mt-1" />,
+    },
 ];
 
 export const SideMenu = () => {
@@ -46,9 +54,14 @@ export const SideMenu = () => {
                         } ${
                             window.location.pathname.split("/")[2] ===
                             list.link.split("/")[2]
-                                ? "text-[#329E49]"
+                                ? list.link === "#"
+                                    ? "text-red-600"
+                                    : "text-[#329E49]"
                                 : "text-gray-600"
                         } hover:text-[#329E49] transition duration-300 ease-in-out`}
+                        onClick={() => {
+                            if (list.name === "Logout") logout();
+                        }}
                     >
                         {list.icon}
                         <p>{list.name}</p>

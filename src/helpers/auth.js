@@ -14,7 +14,7 @@ export const AuthMember = (jwt_decode, emailToken = null) => {
 
 export const logout = () => {
     localStorage.setItem("token", "");
-    window.location.replace("/login");
+    window.location.replace("/membership/login");
 };
 
 const isTokenExpired = (decodedToken) => {
