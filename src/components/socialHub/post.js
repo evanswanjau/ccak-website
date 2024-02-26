@@ -9,7 +9,6 @@ import { PencilSquareIcon, TrashIcon } from "@heroicons/react/20/solid";
 import { BookMark } from "./bookmark";
 import { Likes } from "./likes";
 import { apiRequest, fetchComments } from "../../api/member-api-calls";
-import { set } from "date-fns";
 
 export const SocialHubPost = ({
     member,
@@ -22,18 +21,16 @@ export const SocialHubPost = ({
     posts,
     setPosts,
     getSocialPosts,
-    setLoading,
     setIsEditPost,
     setIsAddPostModalOpen,
 }) => {
-    const [error, setError] = useState(false);
     const [comments, setComments] = useState([]);
 
     const { enqueueSnackbar } = useSnackbar();
 
     useEffect(() => {
         fetchComments(data.id, setComments);
-    }, []);
+    }, []); //eslint-disable-line
 
     const deletePost = () => {
         const newPosts = posts.filter((post) => post.id !== postId);
@@ -77,17 +74,22 @@ export const SocialHubPost = ({
     };
 
     return (
-        <div className="rounded-lg shadow-lg px-5 pt-5 pb-2 mb-2">
+        <div className="rounded-lg shadow-lg px-5 pt-5 pb-2 mb-2 bg-white">
             <div className="flex justify-between">
-                <div className="flex items-end space-x-6">
+                <div className="flex items-center space-x-6">
                     <img
                         src={`${process.env.REACT_APP_IMAGEKIT_URL}members/${data.logo}`}
                         alt="member logo"
                         className="h-9 w-auto"
                     />
-                    <p className="capitalize text-xl font-semibold">
-                        {data.author}, {data.company}
-                    </p>
+                    <div>
+                        <p className="capitalize text-lg font-semibold">
+                            {data.author}
+                        </p>
+                        <p className="capitalize text-md text-gray-600 font-semibold">
+                            {data.company}
+                        </p>
+                    </div>
                 </div>
                 <div className="flex items-center space-x-4">
                     {member.id !== "" && (
