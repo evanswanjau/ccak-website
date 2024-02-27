@@ -64,21 +64,19 @@ export const MyAccountChangePasswordPage = () => {
             localStorage.setItem("token", params.token);
             getMember(setMember);
         } else {
-            // AuthMember(jwt_decode);
-            // getMember(setMember);
+            AuthMember(jwt_decode);
+            getMember(setMember);
         }
     }, []);
 
     return (
-        <div className="pt-[3.8rem] lg:pt-[6.6rem]">
-            <div className="flex flex-col md:flex-row px-6 lg:px-16 space-x-8">
+        <div className="pt-[3.8rem] md:pt-[6.8rem] bg-slate-100 h-screen">
+            <div className="flex flex-col md:flex-row md:space-x-8 px-6 lg:px-16">
                 <div className="md:w-3/12 py-10">
-                    <div className="fixed md:w-3/12">
-                        <SideMenu />
-                    </div>
+                    <SideMenu />
                 </div>
-                <div className="md:w-6/12 pt-10 lg:px-10">
-                    <div className="space-y-6">
+                <div className="w-full md:w-8/12 lg:w-5/12 bg-white mb-10 md:my-10 shadow-lg rounded-lg">
+                    <div className="space-y-6 p-5">
                         <h3 className="font-semibold text-2xl my-5">
                             Change Password
                         </h3>

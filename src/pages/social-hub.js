@@ -57,17 +57,13 @@ export const SocialHubHomePage = () => {
     }, []);
 
     return (
-        <div className="pt-[3.8rem] lg:pt-[6.8rem]">
-            <div className="flex flex-col md:flex-row px-6 lg:px-16">
-                <div className="w-3/12 py-10">
-                    {member.id !== "" && (
-                        <div className="fixed md:w-3/12">
-                            <SideMenu />
-                        </div>
-                    )}
+        <div className="pt-[3.8rem] md:pt-[6.8rem]">
+            <div className="flex flex-col md:space-x-8 md:flex-row px-6 lg:px-16 bg-slate-100">
+                <div className="md:w-3/12 py-10">
+                    {member.id !== "" && <SideMenu />}
                 </div>
-                <div className="w-5/12 mx-16 my-4 overflow-hidden relative h-[80vh] rounded-md">
-                    <div className="space-y-8 px-6 pb-32 overflow-y-auto max-h-[88vh]">
+                <div className="w-full md:w-8/12 lg:w-5/12 mb-10 md:my-10 overflow-hidden rounded-lg">
+                    <div className="space-y-8 md:pb-32 md:overflow-y-auto md:max-h-[88vh]">
                         {loading ? (
                             <div className="flex justify-center items-center h-[60vh]">
                                 <Loader />

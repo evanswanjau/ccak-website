@@ -82,22 +82,20 @@ export const MyAccountBillingPage = () => {
     }, []); //eslint-disable-line
 
     return (
-        <div className="pt-[3.8rem] lg:pt-[6.6rem]">
-            <div className="flex flex-col md:flex-row px-6 lg:px-16 space-x-8">
+        <div className="pt-[3.8rem] md:pt-[6.8rem] bg-slate-100 h-screen">
+            <div className="flex flex-col md:flex-row md:space-x-8 px-6 lg:px-16">
                 <div className="md:w-3/12 py-10">
-                    <div className="fixed md:w-3/12">
-                        <SideMenu />
-                    </div>
+                    <SideMenu />
                 </div>
 
-                <div className="md:w-9/12 py-10 lg:px-10">
+                <div className="w-full md:w-8/12 lg:w-5/12">
                     {loading ? (
                         <div className="my-40">
                             <Loader />
                         </div>
                     ) : (
                         <div className="space-y-6">
-                            <div className="rounded-lg shadow-md p-5 space-y-6 uppercase">
+                            <div className="rounded-lg shadow-md p-5 space-y-6 capitalize bg-white">
                                 <div className="space-y-6">
                                     <h3 className="font-semibold text-md">
                                         Account Name: {member.first_name}{" "}
@@ -122,7 +120,7 @@ export const MyAccountBillingPage = () => {
                                                 "registered"
                                                     ? "text-green-400"
                                                     : "text-red-600"
-                                            } uppercase font-bold`}
+                                            } font-bold`}
                                         >
                                             {member.registration_status}
                                         </span>
@@ -135,7 +133,7 @@ export const MyAccountBillingPage = () => {
                                                 "active"
                                                     ? "text-green-400"
                                                     : "text-red-600"
-                                            } uppercase font-bold`}
+                                            } font-bold`}
                                         >
                                             {member.subscription_status}
                                         </span>
