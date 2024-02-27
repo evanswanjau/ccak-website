@@ -19,7 +19,9 @@ export const DynamicPageLayout = ({ pageData: { page, description } }) => {
 
     return (
         <Page
-            title={`${page.replace(/-/, " ")} Page`}
+            title={`${
+                page.charAt(0).toUpperCase() + page.slice(1).replace(/-/, " ")
+            }`}
             description={description}
         >
             <div className="pt-[3.8rem] lg:pt-[6.6rem]">
