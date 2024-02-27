@@ -9,6 +9,7 @@ import { ViewPostModal } from "../components/socialHub/viewPostModal.js";
 import { submitData, getMember } from "../api/member-api-calls";
 import { HiPlus } from "react-icons/hi2";
 import { Loader } from "../components/loader";
+import { Page } from "../layouts/page.js";
 
 export const SocialHubHomePage = () => {
     const [posts, setPosts] = useState([]);
@@ -57,91 +58,96 @@ export const SocialHubHomePage = () => {
     }, []);
 
     return (
-        <div className="pt-[3.8rem] md:pt-[6.8rem]">
-            <div className="flex flex-col md:space-x-8 md:flex-row px-6 lg:px-16 bg-slate-100">
-                <div className="md:w-3/12 py-10">
-                    {member.id !== "" && <SideMenu />}
-                </div>
-                <div className="w-full md:w-8/12 lg:w-5/12 mb-10 md:my-10 overflow-hidden rounded-lg">
-                    <div className="space-y-8 md:pb-32 md:overflow-y-auto md:max-h-[88vh]">
-                        {loading ? (
-                            <div className="flex justify-center items-center h-[60vh]">
-                                <Loader />
+        <Page
+            title="Social Hub"
+            description="Welcome to the CCAK Social Hub. This is where you can find and share social posts about clean cooking and the sector."
+        >
+            <div className="pt-[3.8rem] md:pt-[6.8rem]">
+                <div className="flex flex-col md:space-x-8 md:flex-row px-6 lg:px-16 bg-slate-100">
+                    <div className="md:w-3/12 py-10">
+                        {member.id !== "" && <SideMenu />}
+                    </div>
+                    <div className="w-full md:w-8/12 lg:w-5/12 mb-10 md:my-10 overflow-hidden rounded-lg">
+                        <div className="space-y-8 md:pb-32 md:overflow-y-auto md:max-h-[88vh]">
+                            {loading ? (
+                                <div className="flex justify-center items-center h-[60vh]">
+                                    <Loader />
+                                </div>
+                            ) : posts.length < 1 ? (
+                                <div className="flex justify-center items-center h-[60vh]">
+                                    <p className="text-gray-400">
+                                        No social posts at the moment
+                                    </p>
+                                </div>
+                            ) : (
+                                posts.map((post) => {
+                                    return (
+                                        <SocialHubPost
+                                            data={post}
+                                            member={member}
+                                            setMember={setMember}
+                                            key={post.id}
+                                            setIsViewPostModalOpen={
+                                                setIsViewPostModalOpen
+                                            }
+                                            setIsSharePostModalOpen={
+                                                setIsSharePostModalOpen
+                                            }
+                                            setSelectedPost={setSelectedPost}
+                                            postId={post.id}
+                                            posts={posts}
+                                            setPosts={setPosts}
+                                            getSocialPosts={getSocialPosts}
+                                            setLoading={setLoading}
+                                            setIsEditPost={setIsEditPost}
+                                            setIsAddPostModalOpen={
+                                                setIsAddPostModalOpen
+                                            }
+                                        />
+                                    );
+                                })
+                            )}
+                        </div>
+                        {member.subscription_status === "active" && (
+                            <div className="absolute bottom-5 right-5 rounded-full cursor-pointer">
+                                <button
+                                    className="bg-[#ED7423] rounded-full p-3 shadow-lg"
+                                    onClick={() => setIsAddPostModalOpen(true)}
+                                >
+                                    <HiPlus className="text-3xl text-white" />
+                                </button>
                             </div>
-                        ) : posts.length < 1 ? (
-                            <div className="flex justify-center items-center h-[60vh]">
-                                <p className="text-gray-400">
-                                    No social posts at the moment
-                                </p>
-                            </div>
-                        ) : (
-                            posts.map((post) => {
-                                return (
-                                    <SocialHubPost
-                                        data={post}
-                                        member={member}
-                                        setMember={setMember}
-                                        key={post.id}
-                                        setIsViewPostModalOpen={
-                                            setIsViewPostModalOpen
-                                        }
-                                        setIsSharePostModalOpen={
-                                            setIsSharePostModalOpen
-                                        }
-                                        setSelectedPost={setSelectedPost}
-                                        postId={post.id}
-                                        posts={posts}
-                                        setPosts={setPosts}
-                                        getSocialPosts={getSocialPosts}
-                                        setLoading={setLoading}
-                                        setIsEditPost={setIsEditPost}
-                                        setIsAddPostModalOpen={
-                                            setIsAddPostModalOpen
-                                        }
-                                    />
-                                );
-                            })
                         )}
                     </div>
-                    {member.subscription_status === "active" && (
-                        <div className="absolute bottom-5 right-5 rounded-full cursor-pointer">
-                            <button
-                                className="bg-[#ED7423] rounded-full p-3 shadow-lg"
-                                onClick={() => setIsAddPostModalOpen(true)}
-                            >
-                                <HiPlus className="text-3xl text-white" />
-                            </button>
-                        </div>
+                    {isAddPostModalOpen && (
+                        <AddPostModal
+                            isPostModalOpen={isAddPostModalOpen}
+                            setIsAddPostModalOpen={setIsAddPostModalOpen}
+                            getSocialPosts={getSocialPosts}
+                            isEditPost={isEditPost}
+                            setIsEditPost={setIsEditPost}
+                            selectedPost={selectedPost}
+                            setSelectedPost={setSelectedPost}
+                        />
+                    )}
+                    {isSharePostModalOpen && (
+                        <SharePostModal
+                            setIsSharePostModalOpen={setIsSharePostModalOpen}
+                            post={selectedPost}
+                        />
+                    )}
+                    {isViewPostModalOpen && (
+                        <ViewPostModal
+                            post={selectedPost}
+                            isViewPostModalOpen={isViewPostModalOpen}
+                            setIsViewPostModalOpen={setIsViewPostModalOpen}
+                            getSocialPosts={getSocialPosts}
+                            member={member}
+                            setMember={setMember}
+                        />
                     )}
                 </div>
-                {isAddPostModalOpen && (
-                    <AddPostModal
-                        isPostModalOpen={isAddPostModalOpen}
-                        setIsAddPostModalOpen={setIsAddPostModalOpen}
-                        getSocialPosts={getSocialPosts}
-                        isEditPost={isEditPost}
-                        setIsEditPost={setIsEditPost}
-                        selectedPost={selectedPost}
-                        setSelectedPost={setSelectedPost}
-                    />
-                )}
-                {isSharePostModalOpen && (
-                    <SharePostModal
-                        setIsSharePostModalOpen={setIsSharePostModalOpen}
-                        post={selectedPost}
-                    />
-                )}
-                {isViewPostModalOpen && (
-                    <ViewPostModal
-                        post={selectedPost}
-                        isViewPostModalOpen={isViewPostModalOpen}
-                        setIsViewPostModalOpen={setIsViewPostModalOpen}
-                        getSocialPosts={getSocialPosts}
-                        member={member}
-                        setMember={setMember}
-                    />
-                )}
-            </div>
-        </div>
+            </div>{" "}
+        </Page>
     );
 };

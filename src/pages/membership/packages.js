@@ -1,5 +1,6 @@
 import { Slide } from "react-reveal";
 import { Package } from "../../components/package";
+import { Page } from "../../layouts/page";
 
 const data = [
     {
@@ -81,30 +82,37 @@ const data = [
 
 export const PackagesPage = () => {
     return (
-        <div className="pt-[3.8rem] lg:pt-[6.6rem]">
-            <section className="text-center py-12">
-                <Slide bottom>
-                    <h1 className="text-4xl font-semibold my-5">Packages</h1>
-                </Slide>
-                <Slide bottom>
-                    <p className="w-full text-gray-600 px-6 lg:w-6/12 mx-auto">
-                        Clean Cooking Association of Kenya exists to serve its
-                        Members; as its main priority, it intends to be the
-                        preferred organization through which players in the
-                        clean cooking sector will engage. CCAK’s membership
-                        comprises of members from the government, academia,
-                        private sector, NGOs and individuals active in the clean
-                        cooking sector
-                    </p>
-                </Slide>
-                <div className="flex flex-row px-6 lg:px-16 py-5">
-                    <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5 gap-6 py-10">
-                        {data.map((item, i) => {
-                            return <Package key={i} data={item} />;
-                        })}
+        <Page
+            title="Packages"
+            description="Clean Cooking Association of Kenya exists to serve its Members; as its main priority, it intends to be the preferred organization through which players in the clean cooking sector will engage. CCAK’s membership comprises of members from the government, academia, private sector, NGOs and individuals active in the clean cooking sector"
+        >
+            <div className="pt-[3.8rem] lg:pt-[6.6rem]">
+                <section className="text-center py-12">
+                    <Slide bottom>
+                        <h1 className="text-4xl font-semibold my-5">
+                            Packages
+                        </h1>
+                    </Slide>
+                    <Slide bottom>
+                        <p className="w-full text-gray-600 px-6 lg:w-6/12 mx-auto">
+                            Clean Cooking Association of Kenya exists to serve
+                            its Members; as its main priority, it intends to be
+                            the preferred organization through which players in
+                            the clean cooking sector will engage. CCAK’s
+                            membership comprises of members from the government,
+                            academia, private sector, NGOs and individuals
+                            active in the clean cooking sector
+                        </p>
+                    </Slide>
+                    <div className="flex flex-row px-6 lg:px-16 py-5">
+                        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5 gap-6 py-10">
+                            {data.map((item, i) => {
+                                return <Package key={i} data={item} />;
+                            })}
+                        </div>
                     </div>
-                </div>
-            </section>
-        </div>
+                </section>
+            </div>
+        </Page>
     );
 };

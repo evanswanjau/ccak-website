@@ -4,6 +4,7 @@ import { searchPosts } from "../../api/api-calls";
 import { ResearchRead } from "../../components/research-read";
 import { SkeletonLoader } from "../../components/skeletonLoader";
 import { InputForm } from "../../components/forms/input-form";
+import { Page } from "../../layouts/page";
 
 export const ExternalPublicationsPage = () => {
     const [loading, setLoading] = useState(true);
@@ -35,7 +36,10 @@ export const ExternalPublicationsPage = () => {
     }, [searchData]); // eslint-disable-line
 
     return (
-        <div className="pt-[3.8rem] lg:pt-[6.6rem]">
+        <Page
+            title="External Publications"
+            description="Welcome to our external publications page! This is the place where you can find a collection of the latest and most innovative research in the clean cooking sector."
+        ><div className="pt-[3.8rem] lg:pt-[6.6rem]">
             <section className="text-center py-12">
                 <Slide bottom>
                     <h1 className="text-4xl font-semibold my-5">
@@ -116,6 +120,7 @@ export const ExternalPublicationsPage = () => {
                     </div>
                 </div>
             </section>
-        </div>
+        </div></Page>
+        
     );
 };
