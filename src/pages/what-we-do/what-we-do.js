@@ -10,6 +10,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { SubFooter } from "../../layouts/subFooter";
 import { RecentProjects } from "../../layouts/recentProjects";
+import { Page } from "../../layouts/page";
 
 const items = [
     {
@@ -52,86 +53,91 @@ const items = [
 
 export const WhatWeDoPage = () => {
     return (
-        <div className="pt-[3.8rem] lg:pt-[6.6rem]">
-            <section className="flex flex-col md:flex-row w-full py-6 md:py-20 px-6 md:px-12">
-                <div className="hidden w-full lg:block md:w-1/12">
-                    <Fade>
-                        <div className="border-t-2 border-black mx-5 my-1"></div>
-                    </Fade>
-                </div>
-                <div className="w-full lg:w-6/12 md:pr-10">
-                    <Fade>
-                        <h6 className="text-black text-xs font-bold">
-                            WHAT WE DO
-                        </h6>
-                    </Fade>
+        <Page
+            title="What We Do"
+            description="Our primary objective is to advocate for an enabling environment at both national and county levels to catalyze the growth of the clean cooking sector. We aim to promote the adoption of clean cooking technologies, build capacity within the sector, and coordinate with stakeholders to advocate for the sector."
+        >
+            <div className="pt-[3.8rem] lg:pt-[6.6rem]">
+                <section className="flex flex-col md:flex-row w-full py-6 md:py-20 px-6 md:px-12">
+                    <div className="hidden w-full lg:block md:w-1/12">
+                        <Fade>
+                            <div className="border-t-2 border-black mx-5 my-1"></div>
+                        </Fade>
+                    </div>
+                    <div className="w-full lg:w-6/12 md:pr-10">
+                        <Fade>
+                            <h6 className="text-black text-xs font-bold">
+                                WHAT WE DO
+                            </h6>
+                        </Fade>
+                        <Slide bottom>
+                            <h2 className="text-black text-4xl lg:text-5xl my-8 font-bold">
+                                Collaborating at all levels for change in clean
+                                cooking
+                            </h2>
+                        </Slide>
+                        <Slide bottom>
+                            <p className="my-5 text-gray-600">
+                                Our primary objective is to advocate for an
+                                enabling environment at both national and county
+                                levels to catalyze the growth of the clean
+                                cooking sector. We aim to promote the adoption
+                                of clean cooking technologies, build capacity
+                                within the sector, and coordinate with
+                                stakeholders to advocate for the sector.
+                            </p>
+                        </Slide>
+                    </div>
+                    <div className="w-full mt-5 md:mt-0 lg:w-5/12 flex justify-center">
+                        <Fade>
+                            <img
+                                className="rounded-lg"
+                                src={
+                                    process.env.REACT_APP_IMAGEKIT_URL +
+                                    "what_we_do_section_1_celebrating_change.jpg"
+                                }
+                                alt="Collaborating for change through clean cooking"
+                            />
+                        </Fade>
+                    </div>
+                </section>
+                <section className="p-6 lg:p-16  bg-[#ED7423]">
                     <Slide bottom>
-                        <h2 className="text-black text-4xl lg:text-5xl my-8 font-bold">
-                            Collaborating at all levels for change in clean
-                            cooking
+                        <h2 className="text-white font-semibold text-2xl md:text-4xl flex my-6 justify-center">
+                            What we do in the clean cooking sector
                         </h2>
                     </Slide>
-                    <Slide bottom>
-                        <p className="my-5 text-gray-600">
-                            Our primary objective is to advocate for an enabling
-                            environment at both national and county levels to
-                            catalyze the growth of the clean cooking sector. We
-                            aim to promote the adoption of clean cooking
-                            technologies, build capacity within the sector, and
-                            coordinate with stakeholders to advocate for the
-                            sector.
-                        </p>
-                    </Slide>
-                </div>
-                <div className="w-full mt-5 md:mt-0 lg:w-5/12 flex justify-center">
-                    <Fade>
-                        <img
-                            className="rounded-lg"
-                            src={
-                                process.env.REACT_APP_IMAGEKIT_URL +
-                                "what_we_do_section_1_celebrating_change.jpg"
-                            }
-                            alt="Collaborating for change through clean cooking"
-                        />
-                    </Fade>
-                </div>
-            </section>
-            <section className="p-6 lg:p-16  bg-[#ED7423]">
-                <Slide bottom>
-                    <h2 className="text-white font-semibold text-2xl md:text-4xl flex my-6 justify-center">
-                        What we do in the clean cooking sector
-                    </h2>
-                </Slide>
-                <div className="flex flex-row md:px-6 py-5">
-                    <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-10 sm:gap-12 lg:px-12 lg:py-16">
-                        {items.map((item) => {
-                            return (
-                                <Slide bottom key={item.name}>
-                                    <div className="w-full flex flex-col md:flex-row space-y-3 md:space-y-0">
-                                        <div className="w-2/12">
-                                            {item.icon}
+                    <div className="flex flex-row md:px-6 py-5">
+                        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-10 sm:gap-12 lg:px-12 lg:py-16">
+                            {items.map((item) => {
+                                return (
+                                    <Slide bottom key={item.name}>
+                                        <div className="w-full flex flex-col md:flex-row space-y-3 md:space-y-0">
+                                            <div className="w-2/12">
+                                                {item.icon}
+                                            </div>
+                                            <div className="sm:w-10/12">
+                                                <h6 className="font-semibold text-white text-lg capitalize mb-2">
+                                                    {item.name}
+                                                </h6>
+                                                <p className="text-white">
+                                                    {item.description}
+                                                </p>
+                                            </div>
                                         </div>
-                                        <div className="sm:w-10/12">
-                                            <h6 className="font-semibold text-white text-lg capitalize mb-2">
-                                                {item.name}
-                                            </h6>
-                                            <p className="text-white">
-                                                {item.description}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </Slide>
-                            );
-                        })}
+                                    </Slide>
+                                );
+                            })}
+                        </div>
                     </div>
-                </div>
-            </section>
-            <section>
-                <RecentProjects />
-            </section>
-            <section>
-                <SubFooter />
-            </section>
-        </div>
+                </section>
+                <section>
+                    <RecentProjects />
+                </section>
+                <section>
+                    <SubFooter />
+                </section>
+            </div>
+        </Page>
     );
 };

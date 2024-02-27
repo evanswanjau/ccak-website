@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Gallery from "react-photo-gallery";
 import { apiRequest } from "../../api/api-calls";
 import Carousel, { Modal, ModalGateway } from "react-images";
+import { Page } from "../../layouts/page";
 
 export const PhotoGalleryReadMore = () => {
     const params = useParams();
@@ -39,22 +40,30 @@ export const PhotoGalleryReadMore = () => {
     }, []); // eslint-disable-line
 
     return (
-        <div className="pt-[3.8rem] lg:pt-[6.6rem]">
-            <Gallery photos={photos} onClick={openLightbox} />
-            <ModalGateway>
-                {viewerIsOpen ? (
-                    <Modal onClose={closeLightbox}>
-                        <Carousel
-                            currentIndex={currentImage}
-                            views={photos.map((x) => ({
-                                ...x,
-                                srcset: x.srcSet,
-                                caption: x.title,
-                            }))}
-                        />
-                    </Modal>
-                ) : null}
-            </ModalGateway>
-        </div>
+        <Page
+            title={photos.title}
+            description={photos.excerpt}
+            image={
+                process.env.REACT_APP_IMAGEKIT_URL + "gallery/" + photos.image
+            }
+        >
+            <div className="pt-[3.8rem] lg:pt-[6.6rem]">
+                <Gallery photos={photos} onClick={openLightbox} />
+                <ModalGateway>
+                    {viewerIsOpen ? (
+                        <Modal onClose={closeLightbox}>
+                            <Carousel
+                                currentIndex={currentImage}
+                                views={photos.map((x) => ({
+                                    ...x,
+                                    srcset: x.srcSet,
+                                    caption: x.title,
+                                }))}
+                            />
+                        </Modal>
+                    ) : null}
+                </ModalGateway>
+            </div>
+        </Page>
     );
 };

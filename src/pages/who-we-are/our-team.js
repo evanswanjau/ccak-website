@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Slide } from "react-reveal";
 import { Member } from "../../components/member";
 import { MemberModal } from "../../components/memberModal";
+import { Page } from "../../layouts/page";
 
 const data = [
     {
@@ -218,46 +219,53 @@ export const OurTeamPage = () => {
     const [member, setMember] = useState({ modal: false, member: {} });
 
     return (
-        <div className="pt-[3.8rem] lg:pt-[6.6rem]">
-            {member.modal && (
-                <MemberModal member={member} setMember={setMember} />
-            )}
-            <section className="text-center py-12">
-                <Slide bottom>
-                    <h1 className="text-4xl font-semibold my-5">Our Team</h1>
-                </Slide>
-                <Slide bottom>
-                    <p className="w-full px-5 md:w-6/12 mx-auto">
-                        Our team is composed of individuals with diverse
-                        backgrounds and skill sets, united by a shared passion
-                        for excellence and a commitment to delivering
-                        high-quality work.
-                    </p>
-                </Slide>
-            </section>
-            {data.map((team) => {
-                return (
-                    <section className="text-center px-6 lg:px-12">
-                        <Slide bottom>
-                            <h3 className="text-4xl font-semibold my-5 capitalize">
-                                {team.name}
-                            </h3>
-                        </Slide>
-                        <div className="flex flex-row px-6 lg:px-16">
-                            <div className="w-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 sm:gap-10 py-10">
-                                {team.members.map((member) => {
-                                    return (
-                                        <Member
-                                            data={member}
-                                            setMember={setMember}
-                                        />
-                                    );
-                                })}
+        <Page
+            title="Our Team"
+            description="Our team is composed of individuals with diverse backgrounds and skill sets, united by a shared passion for excellence and a commitment to delivering high-quality work."
+        >
+            <div className="pt-[3.8rem] lg:pt-[6.6rem]">
+                {member.modal && (
+                    <MemberModal member={member} setMember={setMember} />
+                )}
+                <section className="text-center py-12">
+                    <Slide bottom>
+                        <h1 className="text-4xl font-semibold my-5">
+                            Our Team
+                        </h1>
+                    </Slide>
+                    <Slide bottom>
+                        <p className="w-full px-5 md:w-6/12 mx-auto">
+                            Our team is composed of individuals with diverse
+                            backgrounds and skill sets, united by a shared
+                            passion for excellence and a commitment to
+                            delivering high-quality work.
+                        </p>
+                    </Slide>
+                </section>
+                {data.map((team) => {
+                    return (
+                        <section className="text-center px-6 lg:px-12">
+                            <Slide bottom>
+                                <h3 className="text-4xl font-semibold my-5 capitalize">
+                                    {team.name}
+                                </h3>
+                            </Slide>
+                            <div className="flex flex-row px-6 lg:px-16">
+                                <div className="w-full grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 sm:gap-10 py-10">
+                                    {team.members.map((member) => {
+                                        return (
+                                            <Member
+                                                data={member}
+                                                setMember={setMember}
+                                            />
+                                        );
+                                    })}
+                                </div>
                             </div>
-                        </div>
-                    </section>
-                );
-            })}
-        </div>
+                        </section>
+                    );
+                })}
+            </div>
+        </Page>
     );
 };
