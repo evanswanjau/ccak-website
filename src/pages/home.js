@@ -91,7 +91,11 @@ export const HomePage = () => {
                                             className="flex justify-center items-center border-none"
                                         >
                                             <img
-                                                src={logo.image}
+                                                src={
+                                                    process.env
+                                                        .REACT_APP_IMAGEKIT_URL +
+                                                    logo.image
+                                                }
                                                 alt={logo.name}
                                                 style={{ maxHeight: "8em" }}
                                             />
@@ -127,7 +131,11 @@ export const HomePage = () => {
                                             className="flex justify-center items-center border-none"
                                         >
                                             <img
-                                                src={logo.image}
+                                                src={
+                                                    process.env
+                                                        .REACT_APP_IMAGEKIT_URL +
+                                                    logo.image
+                                                }
                                                 alt={logo.name}
                                                 style={{ maxHeight: "8em" }}
                                             />

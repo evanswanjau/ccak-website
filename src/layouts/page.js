@@ -3,6 +3,37 @@ import { useSnackbar } from "notistack";
 import { Helmet } from "react-helmet";
 import ReactGA from "react-ga";
 import { searchData } from "../api/api-calls";
+import { NavBar } from "./navBar";
+import { Footer } from "../components/footer";
+
+const viewFooter = (pathname) => {
+    let footer = true;
+
+    if (pathname.split("/")[1] === "social-hub") footer = false;
+    if (pathname.split("/")[1] === "my-account") footer = false;
+    if (pathname.split("/")[2] === "register") footer = false;
+    if (pathname.split("/")[2] === "login") footer = false;
+    if (pathname.split("/")[2] === "onboarding") footer = false;
+    if (pathname.split("/")[2] === "forgot-password") footer = false;
+    if (pathname.split("/")[1] === "checkout") footer = false;
+    if (pathname.split("/")[3] === "activate") footer = false;
+
+    return footer;
+};
+
+const viewHeader = (pathname) => {
+    let footer = true;
+
+    if (pathname.split("/")[2] === "register") footer = false;
+    if (pathname.split("/")[2] === "login") footer = false;
+    if (pathname.split("/")[2] === "onboarding") footer = false;
+    if (pathname.split("/")[2] === "forgot-password") footer = false;
+    if (pathname.split("/")[1] === "checkout") footer = false;
+    if (pathname.split("/")[3] === "activate") footer = false;
+
+    return footer;
+};
+
 
 export const Page = ({
     title,
@@ -46,10 +77,20 @@ export const Page = ({
                 <meta property="og:image" content={image} />
             </Helmet>
             {data && data.length > 0 && !loading ? (
-                <div>{children}</div>
+                <div>
+                    {viewHeader(window.location.pathname) && <NavBar />}
+                    {children}
+                    {viewFooter(window.location.pathname) && <Footer />}
+                </div>
             ) : (
                 <div className="flex justify-center items-center h-screen">
-                    <div className="text-2xl font-bold">Loading...</div>
+                    <img
+                        src={
+                            process.env.REACT_APP_IMAGEKIT_URL + "ccak_logo.png"
+                        }
+                        alt="The Clean Cooking Association of Kenya"
+                        className="w-52 mx-auto my-5 animate-zoom"
+                    />
                 </div>
             )}
         </div>

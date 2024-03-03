@@ -19,6 +19,15 @@ module.exports = {
                 manjari: ['"Manjari"'],
                 poppins: ['"Poppins"'],
             },
+            keyframes: {
+                zoom: {
+                    "0%, 100%": { transform: "scale(1)" },
+                    "50%": { transform: "scale(1.1)" },
+                },
+            },
+            animation: {
+                zoom: "zoom 2s infinite",
+            },
         },
     },
     plugins: [require("@tailwindcss/line-clamp"), capitalizeFirst],
