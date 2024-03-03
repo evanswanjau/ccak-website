@@ -1,12 +1,38 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useSnackbar } from "notistack";
 import { Helmet } from "react-helmet";
 import ReactGA from "react-ga";
+import { searchData } from "../api/api-calls";
 
-export const Page = ({ title, description, image, children }) => {
+export const Page = ({
+    title,
+    description,
+    image,
+    data,
+    updateData,
+    children,
+}) => {
+    const [loading, setLoading] = useState(false);
     useEffect(() => {
         ReactGA.initialize(process.env.REACT_APP_API_URL);
         ReactGA.pageview(window.location.pathname + window.location.search);
     }, []);
+
+    const { enqueueSnackbar } = useSnackbar();
+
+    useEffect(() => {
+        searchData(
+            "content",
+            {
+                page: "home",
+            },
+            updateData,
+            null,
+            enqueueSnackbar,
+            null,
+            setLoading
+        );
+    }, []); //eslint-disable-line
 
     return (
         <div>
@@ -19,7 +45,13 @@ export const Page = ({ title, description, image, children }) => {
                 />
                 <meta property="og:image" content={image} />
             </Helmet>
-            {children}
+            {data && data.length > 0 && !loading ? (
+                <div>{children}</div>
+            ) : (
+                <div className="flex justify-center items-center h-screen">
+                    <div className="text-2xl font-bold">Loading...</div>
+                </div>
+            )}
         </div>
     );
 };

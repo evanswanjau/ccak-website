@@ -38,13 +38,14 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: Montserrat;
+    font-family: Poppins;
+    line-height: 1.3em !important;
 }
 
 p,
 a {
     font-family: Manjari;
-    line-height: 1.8;
+    line-height: 2em;
 }
 
 #content * {

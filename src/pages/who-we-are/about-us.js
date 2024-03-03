@@ -234,7 +234,7 @@ export const AboutUsPage = () => {
                             </Slide>
                         </div>
                     </div>
-                    <div id="our-partners" className="py-3">
+                    {/* <div id="our-partners" className="py-3">
                         <Fade>
                             <h6 className="text-black text-sm font-semibold my-5">
                                 OUR PARTNERS AND DONORS
@@ -253,7 +253,7 @@ export const AboutUsPage = () => {
                             show={4}
                             reverse={true}
                         />
-                    </div>
+                    </div> */}
                 </section>
                 <section className="p-6 lg:p-16">
                     <Slide bottom>

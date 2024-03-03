@@ -96,7 +96,7 @@ export const CompanyDetails = ({ data, updateData, setError }) => {
                     />
                 </div>
             </div>
-            <h3 className="block uppercase mb-2 text-[0.7em] font-bold text-gray-900 font-montserrat">
+            <h3 className="block uppercase mb-2 text-[0.7em] font-bold text-gray-900 font-poppins">
                 COMPANY LOGO
             </h3>
             <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 my-5">

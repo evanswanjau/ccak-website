@@ -3,21 +3,23 @@ import { CallToAction } from "../components/callToAction";
 import { Timeline } from "react-twitter-widgets";
 import { ShortPostsLayout } from "./shortPostsLayout";
 
-export const SubFooter = () => {
+export const SubFooter = ({ data }) => {
     return (
         <div>
-            <CallToAction />
+            <CallToAction data={data} />
             <div className="flex">
                 <div className="w-full lg:w-8/12">
                     <ShortPostsLayout
                         title="Recent News"
                         category="news"
-                        limit={3}
+                        limit={9}
+                        carousel={true}
                     />
                     <ShortPostsLayout
                         title="Upcoming Events"
                         category="events"
-                        limit={3}
+                        limit={9}
+                        carousel={true}
                     />
                 </div>
                 <div className="hidden lg:block w-4/12 p-6">

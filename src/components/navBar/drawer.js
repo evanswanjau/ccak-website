@@ -166,7 +166,7 @@ const data = [
                     <span class="flex rounded-full bg-yellow-200 uppercase px-2 pt-1 pb-[0.5] text-xs font-bold mr-3">
                         USSD
                     </span>
-                    <span class="font-bold mr-2 text-left flex-auto font-montserrat text-black">
+                    <span class="font-bold mr-2 text-left flex-auto font-poppins text-black">
                         *789*788#
                     </span>
                 </div>
@@ -220,7 +220,7 @@ export const Drawer = ({ mobile, setMobile }) => {
                                     <a href={item.info.link}>
                                         <button
                                             type="button"
-                                            className="flex items-center w-full pt-3.5 pb-3 px-2.5 text-base font-bold font-montserrat text-black rounded-lg group hover:text-[#ED7423] transition duration-300 ease-in-out"
+                                            className="flex items-center w-full pt-3.5 pb-3 px-2.5 text-base font-bold font-poppins text-black rounded-lg group hover:text-[#ED7423] transition duration-300 ease-in-out"
                                             onClick={() => {
                                                 setCurrent(
                                                     current === item.info.title
@@ -249,7 +249,7 @@ export const Drawer = ({ mobile, setMobile }) => {
                                                 <li key={link.name}>
                                                     <a
                                                         href={link.link}
-                                                        className="flex items-center w-full pt-3 pb-2 px-2 text-base font-bold font-montserrat text-black rounded-lg pl-11 group  hover:text-[#ED7423] transition duration-300 ease-in-out"
+                                                        className="flex items-center w-full pt-3 pb-2 px-2 text-base font-bold font-poppins text-black rounded-lg pl-11 group  hover:text-[#ED7423] transition duration-300 ease-in-out"
                                                     >
                                                         {link.name}
                                                     </a>
