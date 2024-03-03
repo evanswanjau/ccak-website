@@ -34,11 +34,11 @@ const viewHeader = (pathname) => {
     return footer;
 };
 
-
 export const Page = ({
     title,
     description,
     image,
+    page,
     data,
     updateData,
     children,
@@ -55,7 +55,7 @@ export const Page = ({
         searchData(
             "content",
             {
-                page: "home",
+                page,
             },
             updateData,
             null,

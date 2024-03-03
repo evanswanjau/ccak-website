@@ -21,6 +21,7 @@ export const HomePage = () => {
         <Page
             title="Clean Cooking Association of Kenya (CCAK)"
             description="CCAK advocates for an enabling environment to catalyze growth in the clean cooking sector and promote adoption of clean technologies."
+            page="home"
             data={data}
             updateData={updateData}
         >
@@ -97,7 +98,7 @@ export const HomePage = () => {
                                                     logo.image
                                                 }
                                                 alt={logo.name}
-                                                style={{ maxHeight: "8em" }}
+                                                style={{ maxHeight: "4em" }}
                                             />
                                         </a>
                                     </div>
