@@ -31,8 +31,8 @@ export const DynamicPageLayout = ({ pageData: { page, description } }) => {
             <div className="pt-[3.8rem] lg:pt-[6.6rem]">
                 <section className="text-center py-12">
                     <Slide bottom>
-                        <h1 className="text-4xl font-semibold my-5 capitalize">
-                            {page.replace(/-/, " ")} Page
+                        <h1 className="text-5xl font-bold my-5 capitalize">
+                            {page.replace(/-/, " ")}
                         </h1>
                     </Slide>
                     <Slide bottom>
@@ -41,15 +41,39 @@ export const DynamicPageLayout = ({ pageData: { page, description } }) => {
                         </p>
                     </Slide>
                 </section>
-                <div className="flex flex-col-reverse lg:flex-row px-6 lg:px-16">
-                    <div className="w-full lg:w-9/12">
+                <div
+                    className={`flex lg:${
+                        ![
+                            "external-publications",
+                            "internal-publications",
+                            "newsletters",
+                        ].includes(searchData.category) && "flex-row"
+                    } flex-col-reverse px-6 lg:px-16`}
+                >
+                    <div
+                        className={`w-full lg:${
+                            ![
+                                "external-publications",
+                                "internal-publications",
+                                "newsletters",
+                            ].includes(searchData.category) && "w-9/12"
+                        }`}
+                    >
                         <PostsWidget
                             category={page}
                             searchData={searchData}
                             updateSearchData={updateSearchData}
                         />
                     </div>
-                    <div className="w-full lg:w-4/12 lg:pt-10 lg:pl-10">
+                    <div
+                        className={`w-full lg:${
+                            ![
+                                "external-publications",
+                                "internal-publications",
+                                "newsletters",
+                            ].includes(searchData.category) && "w-4/12"
+                        } lg:pt-10 lg:pl-10`}
+                    >
                         <MediaCentreSideBar
                             category={page}
                             searchData={searchData}

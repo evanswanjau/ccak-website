@@ -8,6 +8,8 @@ import { Gallery } from "../components/gallery";
 import { Career } from "../components/career";
 import { Pagination } from "../components/pagination";
 import { Carousel } from "../components/carousel";
+import { ResearchRead } from "../components/research-read";
+import { Research } from "../components/research";
 
 export const PostsWidget = ({
     category,
@@ -74,6 +76,12 @@ export const PostsWidget = ({
             category === "funding-opportunities"
         )
             return <Career key={item.id} data={item} />;
+
+        if (category === "external-publications")
+            return <ResearchRead key={item.id} data={item} />;
+
+        if (category === "internal-publications" || category === "newsletters")
+            return <Research key={item.id} data={item} />;
     };
 
     return (
@@ -82,7 +90,7 @@ export const PostsWidget = ({
                 <div
                     className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-${
                         searchData.limit === 4 ? 4 : 3
-                    } gap-y-6 sm:gap-6 py-10`}
+                    } gap-6 py-10`}
                 >
                     {Array.from({ length: searchData.limit }).map((_, i) => {
                         return <SkeletonLoader key={i} type={category} />;
@@ -108,7 +116,7 @@ export const PostsWidget = ({
                     <div
                         className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-${
                             searchData.limit === 4 ? 4 : 3
-                        } gap-y-6 sm:gap-4 py-10`}
+                        } gap-6 py-10`}
                     >
                         {data.map((item) => {
                             return getContent(item);

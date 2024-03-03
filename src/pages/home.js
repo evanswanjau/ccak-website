@@ -73,7 +73,7 @@ export const HomePage = () => {
                 <section className="py-10 px-6 lg:px-16">
                     <div className="py-3">
                         <Fade>
-                            <h6 className="text-black text-sm font-semibold my-5">
+                            <h6 className="text-black text-sm font-semibold my-5 uppercase">
                                 {data[3]?.content?.title}
                             </h6>
                         </Fade>
@@ -113,7 +113,7 @@ export const HomePage = () => {
                     </div>
                     <div className="py-3">
                         <Fade>
-                            <h6 className="text-black text-sm font-semibold my-5">
+                            <h6 className="text-black text-sm font-semibold my-5 uppercase">
                                 {data[4]?.content?.title}
                             </h6>
                         </Fade>

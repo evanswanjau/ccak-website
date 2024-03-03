@@ -12,7 +12,7 @@ export const InputForm = ({
     const [pass, setPass] = useState(false);
     const [passType, setType] = useState(type);
     return (
-        <div>
+        <div className="w-full">
             <label
                 htmlFor={type}
                 className="block uppercase mb-2 text-[0.7em] font-bold text-gray-900 font-poppins"
