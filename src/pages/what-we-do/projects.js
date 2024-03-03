@@ -1,14 +1,22 @@
 import { useState, useEffect } from "react";
+import { useSnackbar } from "notistack";
 import { Project } from "../../components/project";
 import { MediaCentreSideBar } from "../../layouts/mediaCentreSideBar";
 import { Slide } from "react-reveal";
-import { searchPosts } from "../../api/api-calls";
+import { search } from "../../api/api-calls";
 import { ShortPostsLayout } from "../../layouts/shortPostsLayout";
 import { Page } from "../../layouts/page";
+import { Pagination } from "../../components/pagination";
+import { SkeletonLoader } from "../../components/skeletonLoader";
 
 export const ProjectsPage = () => {
+    const [pageData, updatePageData] = useState([]);
     const [data, updateData] = useState([]);
     const [current, setCurrent] = useState("all");
+    const [paginationData, setPaginationData] = useState({});
+    const [loading, setLoading] = useState(true);
+
+    const { enqueueSnackbar } = useSnackbar();
 
     const [searchData, updateSearchData] = useState({
         keyword: "",
@@ -20,18 +28,26 @@ export const ProjectsPage = () => {
         status: "published",
         page: 1,
         limit: 12,
-        ip_address: "",
-        created_by: 0,
     });
 
     useEffect(() => {
-        searchPosts(searchData, updateData);
+        search(
+            "posts",
+            searchData,
+            updateData,
+            setPaginationData,
+            enqueueSnackbar,
+            setLoading
+        );
     }, [searchData]); // eslint-disable-line
 
     return (
         <Page
             title="Projects"
             description="Welcome to our projects page! This is where we display our our ongoing and completed projects."
+            page="projects"
+            data={pageData}
+            updateData={updatePageData}
         >
             <div className="pt-[3.8rem] lg:pt-[6.6rem]">
                 <section className="text-center py-12">
@@ -42,8 +58,7 @@ export const ProjectsPage = () => {
                     </Slide>
                     <Slide bottom>
                         <p className="w-full px-5 md:w-6/12 mx-auto">
-                            Welcome to our projects page! This is where we
-                            display our our ongoing and completed projects.
+                            {pageData[0]?.content.header}
                         </p>
                     </Slide>
                 </section>
@@ -82,22 +97,70 @@ export const ProjectsPage = () => {
                             </ul>
                         </div>
 
-                        {searchData.keyword !== "" && data.length < 1 && (
-                            <div className="flex justify-center mt-14">
-                                <p className="text-xl text-gray-500">
-                                    No results found with the keyword{" "}
-                                    <b>{searchData.keyword}</b>
-                                </p>
-                            </div>
-                        )}
-
-                        {data.length > 0 && (
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-y-6 sm:gap-6 py-10">
-                                {data.map((item, i) => {
-                                    return <Project key={i} data={item} />;
-                                })}
-                            </div>
-                        )}
+                        <div className="w-full">
+                            {loading ? (
+                                <div
+                                    className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-${
+                                        searchData.limit === 4 ? 4 : 3
+                                    } gap-y-6 sm:gap-6 py-10`}
+                                >
+                                    {Array.from({
+                                        length: searchData.limit,
+                                    }).map((_, i) => {
+                                        return (
+                                            <SkeletonLoader
+                                                key={i}
+                                                type="events"
+                                            />
+                                        );
+                                    })}
+                                </div>
+                            ) : data.length < 1 ? (
+                                <div className="text-center py-24">
+                                    <img
+                                        src="/empty.png"
+                                        alt="empty"
+                                        className="w-52 mx-auto my-5 opacity-60"
+                                    />
+                                    <p className="text-xl text-gray-500">
+                                        {searchData.keyword === "" ? (
+                                            <>No new posts at the moment</>
+                                        ) : (
+                                            <>
+                                                No results found with the
+                                                keyword{" "}
+                                                <b>{searchData.keyword}</b>
+                                            </>
+                                        )}
+                                    </p>
+                                </div>
+                            ) : (
+                                <>
+                                    <div
+                                        className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-${
+                                            searchData.limit === 4 ? 4 : 3
+                                        } gap-y-6 sm:gap-4 py-10`}
+                                    >
+                                        {data.map((item, i) => {
+                                            return (
+                                                <Project key={i} data={item} />
+                                            );
+                                        })}
+                                    </div>
+                                    {paginationData.count >
+                                        searchData.limit && (
+                                        <div className="my-5 text-center">
+                                            <Pagination
+                                                paginationData={paginationData}
+                                                search={searchData}
+                                                updateSearch={updateSearchData}
+                                                setLoading={setLoading}
+                                            />
+                                        </div>
+                                    )}
+                                </>
+                            )}
+                        </div>
                     </div>
 
                     <div className="hidden lg:block w-4/12 pt-10 pl-10">
@@ -112,7 +175,7 @@ export const ProjectsPage = () => {
                     <ShortPostsLayout
                         title="Upcoming Events"
                         category="events"
-                        limit={3}
+                        limit={4}
                     />
                 </section>
             </div>{" "}

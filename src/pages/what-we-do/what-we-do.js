@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useState } from "react";
+import ReactHtmlParser from "react-html-parser";
 import { Slide, Fade } from "react-reveal";
 import {
     UsersIcon,
@@ -12,130 +12,81 @@ import { SubFooter } from "../../layouts/subFooter";
 import { RecentProjects } from "../../layouts/recentProjects";
 import { Page } from "../../layouts/page";
 
-const items = [
-    {
-        icon: <ScaleIcon className="w-8 text-white" />,
-        name: "environment advocacy",
-        description:
-            "We work to create policies and regulatory frameworks that enable the growth of the clean cooking sector.",
-    },
-    {
-        icon: <UsersIcon className="w-8 text-white" />,
-        name: "capacity building",
-        description:
-            "We promote training and capacity building initiatives to improve the skills of those working in the clean cooking sector.",
-    },
-    {
-        icon: <CubeTransparentIcon className="w-8 text-white" />,
-        name: "stakeholder coordination",
-        description:
-            "We collaborate with government, private sector, and other partners to coordinate efforts and advocate for the sector.",
-    },
-    {
-        icon: <Squares2X2Icon className="w-8 text-white" />,
-        name: "clean cooking promotion",
-        description:
-            "We encourage the adoption of clean cooking technologies and solutions to reduce the negative impacts of traditional cooking methods.",
-    },
-    {
-        icon: <WrenchScrewdriverIcon className="w-8 text-white" />,
-        name: "research and development",
-        description:
-            "We promote innovation and research in the clean cooking sector to drive advancements and improvements.",
-    },
-    {
-        icon: <WrenchScrewdriverIcon className="w-8 text-white" />,
-        name: "impacting lives",
-        description:
-            "We promote clean cooking solutions that reduce health impacts, improve livelihoods, and mitigate climate change. ",
-    },
-];
 
 export const WhatWeDoPage = () => {
+    const [data, updateData] = useState([]);
+
     return (
         <Page
             title="What We Do"
             description="Our primary objective is to advocate for an enabling environment at both national and county levels to catalyze the growth of the clean cooking sector. We aim to promote the adoption of clean cooking technologies, build capacity within the sector, and coordinate with stakeholders to advocate for the sector."
+            page="what-we-do"
+            data={data}
+            updateData={updateData}
         >
             <div className="pt-[3.8rem] lg:pt-[6.6rem]">
-                <section className="flex flex-col md:flex-row w-full py-6 md:py-20 px-6 md:px-12">
-                    <div className="hidden w-full lg:block md:w-1/12">
-                        <Fade>
-                            <div className="border-t-2 border-black mx-5 my-1"></div>
-                        </Fade>
-                    </div>
-                    <div className="w-full lg:w-6/12 md:pr-10">
+                <section className="flex flex-col md:flex-row w-full p-6 md:p-32 space-x-8 items-center">
+                    <div className="w-full lg:w-6/12">
                         <Fade>
                             <h6 className="text-black text-xs font-bold">
                                 WHAT WE DO
                             </h6>
                         </Fade>
                         <Slide bottom>
-                            <h2 className="text-black text-4xl lg:text-5xl my-8 font-bold">
-                                Collaborating at all levels for change in clean
-                                cooking
+                            <h2 className="text-gray-800 text-4xl lg:text-5xl mt-1 mb-8 font-bold">
+                                {data[0]?.content.title}
                             </h2>
                         </Slide>
                         <Slide bottom>
                             <p className="my-5 text-gray-600">
-                                Our primary objective is to advocate for an
-                                enabling environment at both national and county
-                                levels to catalyze the growth of the clean
-                                cooking sector. We aim to promote the adoption
-                                of clean cooking technologies, build capacity
-                                within the sector, and coordinate with
-                                stakeholders to advocate for the sector.
+                                {data[0]?.content.content}
                             </p>
                         </Slide>
                     </div>
-                    <div className="w-full mt-5 md:mt-0 lg:w-5/12 flex justify-center">
+                    <div className="w-full lg:w-6/12">
                         <Fade>
                             <img
-                                className="rounded-lg"
+                                className="rounded-lg mx-auto"
                                 src={
                                     process.env.REACT_APP_IMAGEKIT_URL +
-                                    "what_we_do_section_1_celebrating_change.jpg"
+                                    data[0]?.content.image
                                 }
-                                alt="Collaborating for change through clean cooking"
+                                alt={data[0]?.content.title}
                             />
                         </Fade>
                     </div>
                 </section>
-                <section className="p-6 lg:p-16  bg-[#ED7423]">
+                <section className="p-6 lg:p-32 bg-[#dbefdf]">
                     <Slide bottom>
-                        <h2 className="text-white font-semibold text-2xl md:text-4xl flex my-6 justify-center">
-                            What we do in the clean cooking sector
+                        <h2 className="font-semibold text-gray-800 text-2xl lg:text-5xl mb-24 flex justify-center">
+                            {data[1]?.content.title}
                         </h2>
                     </Slide>
-                    <div className="flex flex-row md:px-6 py-5">
-                        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-10 sm:gap-12 lg:px-12 lg:py-16">
-                            {items.map((item) => {
-                                return (
-                                    <Slide bottom key={item.name}>
-                                        <div className="w-full flex flex-col md:flex-row space-y-3 md:space-y-0">
-                                            <div className="w-2/12">
-                                                {item.icon}
-                                            </div>
-                                            <div className="sm:w-10/12">
-                                                <h6 className="font-semibold text-white text-lg capitalize mb-2">
-                                                    {item.name}
-                                                </h6>
-                                                <p className="text-white">
-                                                    {item.description}
-                                                </p>
-                                            </div>
+                    <div className="w-full text-gray-800  grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-10 sm:gap-12 my-12">
+                        {data[1]?.content?.items.map((item) => {
+                            return (
+                                <Slide bottom key={item.name}>
+                                    <div className="w-full flex flex-col md:flex-row space-y-3 md:space-y-0">
+                                        <div className="w-2/12">
+                                            {ReactHtmlParser(item.icon)}
                                         </div>
-                                    </Slide>
-                                );
-                            })}
-                        </div>
+                                        <div className="sm:w-10/12">
+                                            <h6 className="font-bold text-xl mb-2 capitalize">
+                                                {item.name}
+                                            </h6>
+                                            <p>{item.description}</p>
+                                        </div>
+                                    </div>
+                                </Slide>
+                            );
+                        })}
                     </div>
                 </section>
                 <section>
-                    <RecentProjects />
+                    <RecentProjects title={data[2]?.content?.title} />
                 </section>
                 <section>
-                    <SubFooter />
+                    <SubFooter data={data[3]?.content} />
                 </section>
             </div>
         </Page>

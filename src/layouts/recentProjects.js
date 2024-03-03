@@ -35,7 +35,7 @@ export const RecentProjects = ({ title }) => {
                         </h6>
                     </Slide>
                     <Slide bottom>
-                        <h2 className="text-black text-2xl lg:text-4xl font-semibold mt-1 mb-8 capitalize-first">
+                        <h2 className="text-gray-700 text-2xl lg:text-5xl font-semibold mt-1 capitalize-first">
                             {title}
                         </h2>
                     </Slide>
