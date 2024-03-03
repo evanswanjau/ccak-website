@@ -6,6 +6,7 @@ import { PostsWidget } from "./postsWidget";
 import { Page } from "./page";
 
 export const DynamicPageLayout = ({ pageData: { page, description } }) => {
+    const [data, updateData] = useState([]);
     const [searchData, updateSearchData] = useState({
         keyword: "",
         table: "posts",
@@ -23,6 +24,9 @@ export const DynamicPageLayout = ({ pageData: { page, description } }) => {
                 page.charAt(0).toUpperCase() + page.slice(1).replace(/-/, " ")
             }`}
             description={description}
+            page={page}
+            data={data}
+            updateData={updateData}
         >
             <div className="pt-[3.8rem] lg:pt-[6.6rem]">
                 <section className="text-center py-12">
@@ -33,7 +37,7 @@ export const DynamicPageLayout = ({ pageData: { page, description } }) => {
                     </Slide>
                     <Slide bottom>
                         <p className="w-full px-5 md:w-6/12 mx-auto">
-                            {description}
+                            {data[0]?.content.header}
                         </p>
                     </Slide>
                 </section>

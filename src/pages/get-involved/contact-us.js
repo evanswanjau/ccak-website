@@ -8,7 +8,6 @@ import {
     BsTiktok,
     BsInstagram,
 } from "react-icons/bs";
-// import { BsTwitterX } from "react-icons/bs";
 import { useState } from "react";
 import { InputForm } from "../../components/forms/input-form";
 import { TextArea } from "../../components/forms/text-area";
@@ -20,10 +19,11 @@ import { sendMail } from "../../api/api-calls";
 import { Page } from "../../layouts/page";
 
 export const ContactUsPage = () => {
+    const [data, updateData] = useState([]);
     const [btnLoading, setBtnLoading] = useState(false);
     const [error, setError] = useState(false);
     const [success, setSuccess] = useState(false);
-    const [data, updateData] = useState({
+    const [formData, updateFormData] = useState({
         first_name: "",
         last_name: "",
         email: "",
@@ -34,11 +34,11 @@ export const ContactUsPage = () => {
     const sendMessage = () => {
         try {
             setBtnLoading(true);
-            validateEmail(data.email);
-            validatePhoneNumber(data.phone_number);
+            validateEmail(formData.email);
+            validatePhoneNumber(formData.phone_number);
 
             setError(false);
-            sendMail(data, setBtnLoading, setError, setSuccess);
+            sendMail(formData, setBtnLoading, setError, setSuccess);
         } catch (error) {
             setBtnLoading(false);
             setError(error.message);
@@ -46,11 +46,11 @@ export const ContactUsPage = () => {
     };
 
     let disabled =
-        data.first_name === "" ||
-        data.last_name === "" ||
-        data.email === "" ||
-        data.phone_number === "" ||
-        data.message === "";
+        formData.first_name === "" ||
+        formData.last_name === "" ||
+        formData.email === "" ||
+        formData.phone_number === "" ||
+        formData.message === "";
 
     return (
         <Page
@@ -243,8 +243,8 @@ export const ContactUsPage = () => {
                                             name="first_name"
                                             label="First Name"
                                             required={true}
-                                            data={data}
-                                            updateData={updateData}
+                                            data={formData}
+                                            updateData={updateFormData}
                                         />
                                     </div>
                                     <div className="w-full">
@@ -253,8 +253,8 @@ export const ContactUsPage = () => {
                                             name="last_name"
                                             label="Last Name"
                                             required={true}
-                                            data={data}
-                                            updateData={updateData}
+                                            data={formData}
+                                            updateData={updateFormData}
                                         />
                                     </div>
                                 </div>
@@ -265,8 +265,8 @@ export const ContactUsPage = () => {
                                             name="email"
                                             label="Email Address"
                                             required={true}
-                                            data={data}
-                                            updateData={updateData}
+                                            data={formData}
+                                            updateData={updateFormData}
                                         />
                                     </div>
                                     <div className="w-full">
@@ -275,8 +275,8 @@ export const ContactUsPage = () => {
                                             name="phone_number"
                                             label="Phone Number"
                                             required={true}
-                                            data={data}
-                                            updateData={updateData}
+                                            data={formData}
+                                            updateData={updateFormData}
                                         />
                                     </div>
                                 </div>
@@ -286,8 +286,8 @@ export const ContactUsPage = () => {
                                         name="message"
                                         label="Write your message here"
                                         required={true}
-                                        data={data}
-                                        updateData={updateData}
+                                        data={formData}
+                                        updateData={updateFormData}
                                     />
                                 </div>
                             </div>
