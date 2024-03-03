@@ -4,6 +4,7 @@ import { PostsWidget } from "../../layouts/postsWidget";
 import { Page } from "../../layouts/page";
 
 export const FundingOpportunitiesPage = () => {
+    const [data, updateData] = useState([]);
     const [searchData, updateSearchData] = useState({
         keyword: "",
         table: "posts",
@@ -19,20 +20,20 @@ export const FundingOpportunitiesPage = () => {
         <Page
             title="Funding Opportunities"
             description="Joining our team at the Clean Cooking Association of Kenya (CCAK) is an opportunity to make a meaningful impact in the clean cooking sector."
+            page="consultancy"
+            data={data}
+            updateData={updateData}
         >
             <div className="pt-[3.8rem] lg:pt-[6.6rem]">
                 <section className="text-center py-12">
                     <Slide bottom>
-                        <h1 className="text-4xl px-6 font-semibold my-5">
+                        <h1 className="text-5xl px-6 font-semibold my-5">
                             Funding Opportunities
                         </h1>
                     </Slide>
                     <Slide bottom>
                         <p className="w-full text-gray-600 px-6 lg:w-6/12 mx-auto">
-                            CCAK regularly shares funding opportunities from
-                            various sources such as government agencies, private
-                            foundations, and other organizations with the public
-                            and its members.
+                            {data[0]?.content?.header}
                         </p>
                     </Slide>
                     <div className="flex flex-row px-6 lg:px-16 py-5">

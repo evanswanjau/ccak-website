@@ -29,58 +29,28 @@ const chart = [
     },
 ];
 
-const statistics = [
-    {
-        name: "Representation and advocacy",
-        percentage: "40%",
-        color: "bg-[#BEF3C0]",
-    },
-    {
-        name: "Membership and member oriented services",
-        percentage: "35%",
-        color: "bg-[#AC94F1]",
-    },
-    {
-        name: "Standards and technical issues",
-        percentage: "10%",
-        color: "bg-[#FFF0CA]",
-    },
-    {
-        name: "Knowledge and information management",
-        percentage: "10%",
-        color: "bg-[#F9CF64]",
-    },
-    {
-        name: "Institution strengthening and resourcing",
-        percentage: "5%",
-        color: "bg-[#F38FBF]",
-    },
-];
-
-export const DonationStats = () => {
+export const DonationStats = ({data}) => {
     return (
-        <section className="flex flex-col lg:flex-row text-white bg-black py-20 p-6 lg:p-16">
+        <section className="flex flex-col lg:flex-row text-white bg-gray-500 py-20 p-6 lg:p-32">
             <div className="lg:w-7/12 space-y-8">
                 <Slide bottom>
-                    <h3 className="text-5xl">
-                        How we spend your donations
+                    <h3 className="font-bold text-white text-5xl">
+                        {data?.title}
                     </h3>
                 </Slide>
 
                 <Slide bottom>
-                    <p className="text-gray-400">
-                        We are committed to transparency and understand that
-                        when you make a donation, it requires proper
-                        accountability.
+                    <p className="text-white">
+                        {data?.content}
                     </p>
                 </Slide>
 
                 <div className="grid-cols-1 md:grid-cols-2 grid gap-3">
-                    {statistics.map((stat, i) => (
+                    {data?.stats.map((stat, i) => (
                         <Slide bottom key={i}>
-                            <div className="flex items-center space-x-2 ">
+                            <div className="flex items-center space-x-2 space-y-4">
                                 <div
-                                    className={`w-5 h-5 rounded-md aspect-square ${stat.color} `}
+                                    className={`w-5 h-5 rounded-md aspect-square mt-3 ${stat.color} `}
                                 ></div>
                                 <p>{stat.name}</p>
                             </div>

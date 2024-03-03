@@ -33,7 +33,7 @@ export const WhatWeDoPage = () => {
                             </h6>
                         </Fade>
                         <Slide bottom>
-                            <h2 className="text-gray-800 text-4xl lg:text-5xl mt-1 mb-8 font-bold">
+                            <h2 className="text-gray-800 text-4xl lg:text-6xl mt-1 mb-8 font-bold">
                                 {data[0]?.content.title}
                             </h2>
                         </Slide>
