@@ -47,15 +47,15 @@ const PrevArrow = ({ className, onClick }) => {
 };
 
 export const Carousel = ({ items, autoplay, slides, show, reverse, arrow }) => {
-    const settings = {
+    let settings = {
         infinite: true,
         speed: 2000,
+        autoplaySpeed: 5000,
         slidesToShow: show,
         slidesToScroll: slides,
         autoplay: autoplay,
         rtl: reverse,
-        nextArrow: arrow ? <NextArrow /> : false,
-        prevArrow: arrow ? <PrevArrow /> : false,
+        arrows: false,
         responsive: [
             {
                 breakpoint: 1024,
@@ -80,6 +80,14 @@ export const Carousel = ({ items, autoplay, slides, show, reverse, arrow }) => {
             },
         ],
     };
+
+    if (arrow)
+        settings = {
+            ...settings,
+            arrows: true,
+            nextArrow: <NextArrow />,
+            prevArrow: <PrevArrow />,
+        };
 
     return <Slider {...settings}>{items}</Slider>;
 };

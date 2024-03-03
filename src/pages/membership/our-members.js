@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
+import { useSnackbar } from "notistack";
 import { Slide, Fade } from "react-reveal";
 import { OurMember } from "../../components/ourMember";
-import { CallToAction } from "../../components/callToAction";
 import { search } from "../../api/api-calls";
 import { InputForm } from "../../components/forms/input-form";
 import { OurMemberModal } from "../../components/ourMemberModal";
 import { Pagination } from "../../components/pagination";
 import { Page } from "../../layouts/page";
+import { SkeletonLoader } from "../../components/skeletonLoader";
 
 let technologies = [
     "cook stoves providers",
@@ -39,29 +40,46 @@ let categories = [
 ];
 
 export const OurMembersPage = () => {
+    const [pageData, updatePageData] = useState([]);
     const [data, updateData] = useState([]);
     const [member, setMember] = useState({ modal: false, member: {} });
     const [paginationData, setPaginationData] = useState({});
+    const [loading, setLoading] = useState(true);
+    const [technology, setTechnology] = useState("");
+    const [category, setCategory] = useState("");
+
+    const { enqueueSnackbar } = useSnackbar();
 
     const [searchData, updateSearchData] = useState({
         keyword: "",
-        technology: "",
+        technology: technology,
         registration_status: "",
         subscription_status: "",
-        subscription_category: "",
+        subscription_category: category,
         status: "",
         page: 1,
-        limit: 9,
+        limit: 12,
     });
 
     useEffect(() => {
-        search("members", searchData, updateData, setPaginationData);
+        window.scrollTo(0, 350);
+        search(
+            "members",
+            searchData,
+            updateData,
+            setPaginationData,
+            enqueueSnackbar,
+            setLoading
+        );
     }, [searchData]); // eslint-disable-line
 
     return (
         <Page
             title="Our Members"
             description="Our members are committed to promoting adoption of clean cooking technologies, capacity building of the sector, and sector coordination, and work together towards an enabling environment at both national and county levels to catalyze the growth of the clean cooking sector."
+            page="our-members"
+            data={pageData}
+            updateData={updatePageData}
         >
             <div className="pt-[3.8rem] lg:pt-[6.6rem]">
                 {member.modal && (
@@ -69,44 +87,118 @@ export const OurMembersPage = () => {
                 )}
                 <section className="text-center py-12">
                     <Slide bottom>
-                        <h1 className="text-4xl font-semibold my-5">Members</h1>
+                        <h1 className="text-5xl font-bold my-5">Members</h1>
                     </Slide>
                     <Slide bottom>
                         <p className="w-full text-gray-600 px-6 lg:w-6/12 mx-auto">
-                            Our members are committed to promoting adoption of
-                            clean cooking technologies, capacity building of the
-                            sector, and sector coordination, and work together
-                            towards an enabling environment at both national and
-                            county levels to catalyze the growth of the clean
-                            cooking sector.
+                            {pageData[0]?.content?.header}
                         </p>
                     </Slide>
                 </section>
-                <section className="flex flex-row px-6 lg:px-16">
-                    <div className="flex flex-col w-full lg:w-9/12">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3 gap-y-6 sm:gap-6 py-10">
-                            {data.map((item, i) => {
+                <section className="flex flex-row p-6 lg:p-16">
+                    <div className="flex flex-col w-full lg:w-9/12 md:pt-16">
+                        <ul className="flex flex-wrap font-manjari bg-">
+                            <li
+                                className={`${
+                                    technology === ""
+                                        ? "bg-gray-800"
+                                        : "bg-[#ED7423]"
+                                } text-white rounded-[3em] px-3 pt-1 mb-1 mr-1 transition duration-150 ease-in-out capitalize cursor-pointer`}
+                                onClick={() => {
+                                    updateSearchData({
+                                        ...searchData,
+                                        technology: "",
+                                        page: 1,
+                                        limit: 12,
+                                    });
+                                    setTechnology("");
+                                }}
+                            >
+                                All
+                            </li>
+                            {technologies.map((item) => {
+                                console.log(item, technology);
                                 return (
-                                    <OurMember
-                                        key={i}
-                                        data={item}
-                                        setMember={setMember}
-                                    />
+                                    <li
+                                        className={`${
+                                            technology === item
+                                                ? "bg-gray-800"
+                                                : "bg-[#ED7423]"
+                                        } text-white rounded-[3em] px-3 pt-1 mb-1 mr-1 transition duration-150 ease-in-out capitalize cursor-pointer`}
+                                        onClick={() => {
+                                            updateSearchData({
+                                                ...searchData,
+                                                technology: item,
+                                                page: 1,
+                                                limit: 12,
+                                            });
+                                            setTechnology(item);
+                                        }}
+                                    >
+                                        {item.replace(/-/g, " ")}
+                                    </li>
                                 );
                             })}
-                        </div>
-                        {paginationData.count > searchData.limit && (
-                            <div className="my-5 text-center ">
-                                <Pagination
-                                    paginationData={paginationData}
-                                    search={searchData}
-                                    updateSearch={updateSearchData}
-                                />
+                        </ul>
+                        {loading ? (
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3 gap-y-6 sm:gap-6 pt-5 pb-10">
+                                {Array.from({
+                                    length: searchData.limit,
+                                }).map((_, i) => {
+                                    return (
+                                        <SkeletonLoader key={i} type="events" />
+                                    );
+                                })}
                             </div>
+                        ) : data.length < 1 ? (
+                            <div className="text-center py-24">
+                                <img
+                                    src="/empty.png"
+                                    alt="empty"
+                                    className="w-52 mx-auto my-5 opacity-60"
+                                />
+                                <p className="text-xl text-gray-500">
+                                    {searchData.keyword === "" ? (
+                                        <>
+                                            No members available with that
+                                            request
+                                        </>
+                                    ) : (
+                                        <>
+                                            No members found with the keyword{" "}
+                                            <b>{searchData.keyword}</b>
+                                        </>
+                                    )}
+                                </p>
+                            </div>
+                        ) : (
+                            <>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3 gap-y-6 sm:gap-6 pt-5 pb-10">
+                                    {data.map((item, i) => {
+                                        return (
+                                            <OurMember
+                                                key={i}
+                                                data={item}
+                                                setMember={setMember}
+                                            />
+                                        );
+                                    })}
+                                </div>
+                                {paginationData.count > searchData.limit && (
+                                    <div className="my-5 text-center">
+                                        <Pagination
+                                            paginationData={paginationData}
+                                            search={searchData}
+                                            updateSearch={updateSearchData}
+                                            setLoading={setLoading}
+                                        />
+                                    </div>
+                                )}
+                            </>
                         )}
                     </div>
 
-                    <div className="hidden lg:block w-4/12 pt-10 pl-10">
+                    <div className="hidden lg:block w-3/12 pt-10 pl-10">
                         <Fade>
                             <InputForm
                                 type="text"
@@ -116,50 +208,55 @@ export const OurMembersPage = () => {
                                 updateData={updateSearchData}
                             />
                         </Fade>
-                        <div className="bg-[#F3F3F3] p-5 rounded-lg my-5">
-                            <h3 className="border-b pb-2">MEMBERSHIP TYPES</h3>
+
+                        <div className="p-5 shadow-lg rounded-lg my-5">
+                            <h3 className="border-b pb-2 text-xl font-bold">
+                                CATEGORIES
+                            </h3>
                             <ul className="font-manjari space-y-2 my-5">
-                                {categories.map((category) => {
+                                <li
+                                    className={`${
+                                        category === ""
+                                            ? "bg-gray-800"
+                                            : "bg-[#ED7423]"
+                                    } rounded-[3em] text-white w-fit px-3 pt-1 mb-1 mr-1 transition duration-150 ease-in-out capitalize cursor-pointer`}
+                                    onClick={() => {
+                                        updateSearchData({
+                                            ...searchData,
+                                            subscription_category: "",
+                                            page: 1,
+                                            limit: 12,
+                                        });
+                                        setCategory("");
+                                    }}
+                                >
+                                    All
+                                </li>
+                                {categories.map((item) => {
                                     return (
                                         <li
-                                            className="hover:text-[#ED7423] transition duration-150 ease-in-out capitalize cursor-pointer"
+                                            className={`${
+                                                category === item
+                                                    ? "bg-gray-800"
+                                                    : "bg-[#ED7423]"
+                                            } rounded-[3em] text-white w-fit px-3 pt-1 mb-1 mr-1 transition duration-150 ease-in-out capitalize cursor-pointer`}
                                             onClick={() => {
                                                 updateSearchData({
                                                     ...searchData,
-                                                    member_type: category,
+                                                    subscription_category: item,
+                                                    page: 1,
+                                                    limit: 12,
                                                 });
+                                                setCategory(item);
                                             }}
                                         >
-                                            {category.replace(/-/g, " ")}
-                                        </li>
-                                    );
-                                })}
-                            </ul>
-                        </div>
-                        <div className="bg-[#F3F3F3] p-5 rounded-lg my-5">
-                            <h3 className="border-b pb-2">CATEGORIES</h3>
-                            <ul className="font-manjari space-y-2 my-5">
-                                {technologies.map((technology) => {
-                                    return (
-                                        <li
-                                            className="hover:text-[#ED7423] transition duration-150 ease-in-out capitalize cursor-pointer"
-                                            onClick={() => {
-                                                updateSearchData({
-                                                    ...searchData,
-                                                    technology: technology,
-                                                });
-                                            }}
-                                        >
-                                            {technology.replace(/-/g, " ")}
+                                            {item.replace(/-/g, " ")}
                                         </li>
                                     );
                                 })}
                             </ul>
                         </div>
                     </div>
-                </section>
-                <section className="my-10">
-                    <CallToAction />
                 </section>
             </div>
         </Page>

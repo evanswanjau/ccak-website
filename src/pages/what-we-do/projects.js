@@ -31,6 +31,7 @@ export const ProjectsPage = () => {
     });
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         search(
             "posts",
             searchData,
