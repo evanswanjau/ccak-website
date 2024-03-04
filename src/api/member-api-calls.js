@@ -18,7 +18,9 @@ export const submitData = (
         data: data,
         headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            ...(url !== "socialposts/search" && {
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+            }),
         },
     })
         .then(({ data }) => {
@@ -192,7 +194,6 @@ export const getSocialPost = (id) => {
         },
     });
 };
-
 
 export const fetchComments = (postID, updateComments) => {
     return axios({

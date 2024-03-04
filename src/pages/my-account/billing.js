@@ -6,6 +6,7 @@ import { SideMenu } from "../../components/navBar/socialHub/sideMenu";
 import { TableData } from "../../components/table-data";
 import { Loader } from "../../components/loader";
 import { AuthMember } from "../../helpers/auth";
+import { NavBar } from "../../layouts/navBar";
 
 const titles = [
     { name: "Invoice No", key: "invoice_number" },
@@ -82,74 +83,77 @@ export const MyAccountBillingPage = () => {
     }, []); //eslint-disable-line
 
     return (
-        <div className="pt-[3.8rem] md:pt-[6.8rem] bg-slate-100 h-screen">
-            <div className="flex flex-col md:flex-row md:space-x-8 px-6 lg:px-16">
-                <div className="md:w-3/12 py-10">
-                    <SideMenu />
-                </div>
+        <>
+            <NavBar />
+            <div className="pt-[3.8rem] md:pt-[6.8rem] bg-slate-100 h-screen">
+                <div className="flex flex-col md:flex-row md:space-x-8 px-6 lg:px-16">
+                    <div className="md:w-3/12 py-10">
+                        <SideMenu />
+                    </div>
 
-                <div className="w-full md:w-8/12 lg:w-5/12">
-                    {loading ? (
-                        <div className="my-40">
-                            <Loader />
-                        </div>
-                    ) : (
-                        <div className="space-y-6">
-                            <div className="rounded-lg shadow-md p-5 space-y-6 capitalize bg-white">
-                                <div className="space-y-6">
-                                    <h3 className="font-semibold text-md">
-                                        Account Name: {member.first_name}{" "}
-                                        {member.last_name}
-                                    </h3>
-                                    {member.subscription_category && (
+                    <div className="w-full md:w-8/12 lg:w-5/12  mb-10 md:my-10">
+                        {loading ? (
+                            <div className="my-40">
+                                <Loader />
+                            </div>
+                        ) : (
+                            <div className="space-y-6">
+                                <div className="rounded-lg shadow-md p-5 space-y-6 capitalize bg-white">
+                                    <div className="space-y-6">
+                                        <h3 className="font-semibold text-md">
+                                            Account Name: {member.first_name}{" "}
+                                            {member.last_name}
+                                        </h3>
+                                        {member.subscription_category && (
+                                            <h3>
+                                                Package:{" "}
+                                                <span className="font-bold">
+                                                    {member.subscription_category.replace(
+                                                        /-/g,
+                                                        " "
+                                                    )}
+                                                </span>
+                                            </h3>
+                                        )}
                                         <h3>
-                                            Package:{" "}
-                                            <span className="font-bold">
-                                                {member.subscription_category.replace(
-                                                    /-/g,
-                                                    " "
-                                                )}
+                                            Registration Status:{" "}
+                                            <span
+                                                className={`${
+                                                    member.registration_status ===
+                                                    "registered"
+                                                        ? "text-green-400"
+                                                        : "text-red-600"
+                                                } font-bold`}
+                                            >
+                                                {member.registration_status}
                                             </span>
                                         </h3>
-                                    )}
-                                    <h3>
-                                        Registration Status:{" "}
-                                        <span
-                                            className={`${
-                                                member.registration_status ===
-                                                "registered"
-                                                    ? "text-green-400"
-                                                    : "text-red-600"
-                                            } font-bold`}
-                                        >
-                                            {member.registration_status}
-                                        </span>
-                                    </h3>
-                                    <h3>
-                                        Subscription Status:{" "}
-                                        <span
-                                            className={`${
-                                                member.subscription_status ===
-                                                "active"
-                                                    ? "text-green-400"
-                                                    : "text-red-600"
-                                            } font-bold`}
-                                        >
-                                            {member.subscription_status}
-                                        </span>
-                                    </h3>
+                                        <h3>
+                                            Subscription Status:{" "}
+                                            <span
+                                                className={`${
+                                                    member.subscription_status ===
+                                                    "active"
+                                                        ? "text-green-400"
+                                                        : "text-red-600"
+                                                } font-bold`}
+                                            >
+                                                {member.subscription_status}
+                                            </span>
+                                        </h3>
+                                    </div>
                                 </div>
+                                {invoices.length > 0 && (
+                                    <TableData
+                                        titles={titles}
+                                        data={parseData(invoices)}
+                                    />
+                                )}
                             </div>
-                            {invoices.length > 0 && (
-                                <TableData
-                                    titles={titles}
-                                    data={parseData(invoices)}
-                                />
-                            )}
-                        </div>
-                    )}
+                        )}
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };

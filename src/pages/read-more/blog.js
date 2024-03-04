@@ -4,7 +4,11 @@ import { News } from "../../components/news";
 import { ReadMoreHeader } from "../../components/readMoreHeader";
 import { Fade } from "react-reveal";
 import { SubFooter } from "../../layouts/subFooter";
-import { apiRequest, searchPosts, searchData as searchFooterData } from "../../api/api-calls";
+import {
+    apiRequest,
+    searchPosts,
+    searchData as searchFooterData,
+} from "../../api/api-calls";
 import ReactHtmlParser from "react-html-parser";
 import { Page } from "../../layouts/page";
 
@@ -74,7 +78,9 @@ export const BlogReadMore = () => {
                     </div>
                 </section>
                 <section className="my-10">
-                    <SubFooter data={footerData[8]?.content} />
+                    {footerData[8]?.content && (
+                        <SubFooter data={footerData[8]?.content} />
+                    )}
                 </section>
             </div>
         </Page>

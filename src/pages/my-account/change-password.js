@@ -8,6 +8,7 @@ import { AuthMember } from "../../helpers/auth";
 import { changeMemberPassword, getMember } from "../../api/member-api-calls";
 import { SuccessMessage } from "../../components/forms/success";
 import { ErrorMessage } from "../../components/forms/error";
+import { NavBar } from "../../layouts/navBar";
 
 export const MyAccountChangePasswordPage = () => {
     const params = useParams();
@@ -70,64 +71,74 @@ export const MyAccountChangePasswordPage = () => {
     }, []);
 
     return (
-        <div className="pt-[3.8rem] md:pt-[6.8rem] bg-slate-100 h-screen">
-            <div className="flex flex-col md:flex-row md:space-x-8 px-6 lg:px-16">
-                <div className="md:w-3/12 py-10">
-                    <SideMenu />
-                </div>
-                <div className="w-full md:w-8/12 lg:w-5/12 bg-white mb-10 md:my-10 shadow-lg rounded-lg">
-                    <div className="space-y-6 p-5">
-                        <h3 className="font-semibold text-2xl my-5">
-                            Change Password
-                        </h3>
-                        {success && (
-                            <SuccessMessage
-                                success={success}
-                                setSuccess={setSuccess}
-                            />
-                        )}
-                        {error && (
-                            <ErrorMessage error={error} setError={setError} />
-                        )}
+        <>
+            <NavBar />
+            <div className="pt-[3.8rem] md:pt-[6.8rem] bg-slate-100 h-screen">
+                <div className="flex flex-col md:flex-row md:space-x-8 px-6 lg:px-16">
+                    <div className="md:w-3/12 py-10">
+                        <SideMenu />
+                    </div>
+                    <div className="w-full md:w-8/12 lg:w-5/12 bg-white mb-10 md:my-10 shadow-lg rounded-lg">
+                        <div className="space-y-6 p-5">
+                            <h3 className="font-semibold text-2xl my-5">
+                                Change Password
+                            </h3>
+                            {success && (
+                                <SuccessMessage
+                                    success={success}
+                                    setSuccess={setSuccess}
+                                />
+                            )}
+                            {error && (
+                                <ErrorMessage
+                                    error={error}
+                                    setError={setError}
+                                />
+                            )}
 
-                        <InputForm
-                            type="password"
-                            name="oldpassword"
-                            label="Old Password"
-                            data={data}
-                            updateData={updateData}
-                        />
-                        <InputForm
-                            type="password"
-                            name="newpassword"
-                            label="New Password"
-                            data={data}
-                            updateData={updateData}
-                        />
-                        <InputForm
-                            type="password"
-                            name="confirmpassword"
-                            label="Confirm Password"
-                            data={data}
-                            updateData={updateData}
-                        />
-                        <button
-                            type="button"
-                            disabled={disabled}
-                            className={`w-full tracking-widest ${
-                                disabled || btnLoading
-                                    ? "bg-gray-200"
-                                    : "bg-[#329E49] hover:bg-[#3ab554]"
-                            }  text-white flex justify-center font-medium rounded-lg text-sm px-5 py-3 my-5 transition duration-700 ease-in-out`}
-                            onClick={() => {
-                                changePassword();
-                            }}
-                        >
-                            {btnLoading ? <ButtonLoader /> : "CHANGE PASSWORD"}
-                        </button>
+                            <InputForm
+                                type="password"
+                                name="oldpassword"
+                                label="Old Password"
+                                data={data}
+                                updateData={updateData}
+                            />
+                            <InputForm
+                                type="password"
+                                name="newpassword"
+                                label="New Password"
+                                data={data}
+                                updateData={updateData}
+                            />
+                            <InputForm
+                                type="password"
+                                name="confirmpassword"
+                                label="Confirm Password"
+                                data={data}
+                                updateData={updateData}
+                            />
+                            <button
+                                type="button"
+                                disabled={disabled}
+                                className={`w-full tracking-widest ${
+                                    disabled || btnLoading
+                                        ? "bg-gray-200"
+                                        : "bg-[#329E49] hover:bg-[#3ab554]"
+                                }  text-white flex justify-center font-medium rounded-lg text-sm px-5 py-3 my-5 transition duration-700 ease-in-out`}
+                                onClick={() => {
+                                    changePassword();
+                                }}
+                            >
+                                {btnLoading ? (
+                                    <ButtonLoader />
+                                ) : (
+                                    "CHANGE PASSWORD"
+                                )}
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };

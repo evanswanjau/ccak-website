@@ -15,7 +15,7 @@ export const SocialHubHomePage = () => {
     const [posts, setPosts] = useState([]);
     const [search, setSearch] = useState({
         keyword: "",
-        status: "",
+        status: "active",
         page: 1,
         limit: 15,
     });
@@ -61,9 +61,13 @@ export const SocialHubHomePage = () => {
         <Page
             title="Social Hub"
             description="Welcome to the CCAK Social Hub. This is where you can find and share social posts about clean cooking and the sector."
+            data={posts}
+            updateData={setPosts}
+            readMorePage={true}
+            readMoreLoading={loading}
         >
-            <div className="pt-[3.8rem] md:pt-[6.8rem]">
-                <div className="flex flex-col md:space-x-8 md:flex-row px-6 lg:px-16 bg-slate-100">
+            <div className="pt-[3.8rem] md:pt-[6.8rem] bg-slate-100 h-screen">
+                <div className="flex flex-col md:space-x-8 md:flex-row px-6 lg:px-16 ">
                     <div className="md:w-3/12 py-10">
                         {member.id !== "" && <SideMenu />}
                     </div>

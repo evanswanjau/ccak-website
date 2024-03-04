@@ -133,7 +133,9 @@ export const EventReadMore = () => {
                     </div>
                 </div>
                 <section className="my-10">
-                    <SubFooter data={footerData[8]?.content} />
+                    {footerData[8]?.content && (
+                        <SubFooter data={footerData[8]?.content} />
+                    )}
                 </section>
             </div>
         </Page>

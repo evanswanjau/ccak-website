@@ -36,7 +36,7 @@ export const AddPostModal = ({
             enqueueSnackbar,
             null,
             setBtnLoading,
-            `Post ${isEditPost ? "updated" : "created"} successfully!}`
+            `Post ${isEditPost ? "updated" : "created"} successfully! ${!isEditPost && "Please wait for approval"}`
         ).finally(() => {
             setSelectedPost(null);
             setIsEditPost(false);

@@ -14,7 +14,8 @@ import { Page } from "../../layouts/page";
 
 export const CareerReadMore = () => {
     const params = useParams();
-    const [data, updateData] = useState([]);const [footerData, updateFooterData] = useState([]);
+    const [data, updateData] = useState([]);
+    const [footerData, updateFooterData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [recentData, updateRecentData] = useState([]);
     const searchData = {
@@ -77,7 +78,9 @@ export const CareerReadMore = () => {
                     </div>
                 </section>
                 <section className="my-10">
-                    <SubFooter data={footerData[8]?.content} />
+                    {footerData[8]?.content && (
+                        <SubFooter data={footerData[8]?.content} />
+                    )}
                 </section>
             </div>
         </Page>

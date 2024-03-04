@@ -70,7 +70,7 @@ export const Page = ({
         }
     }, []); //eslint-disable-line
 
-    console.log(data);
+    viewHeader(window.location.pathname);
 
     return (
         <div>
