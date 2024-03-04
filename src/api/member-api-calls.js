@@ -137,17 +137,16 @@ export const updateMember = (
         });
 };
 
-export const changeMemberPassword = (data, updateData) => {
+export const changeMemberPassword = (id, data) => {
     return axios({
         method: "post",
-        url: process.env.REACT_APP_API_URL + "member/update/" + data.id,
+        url: process.env.REACT_APP_API_URL + "member/" + id + "/change-password",
         data: data,
         headers: {
             "Content-Type": "application/json",
             Authorization: "Bearer " + localStorage.getItem("token"),
         },
     }).then(({ data }) => {
-        updateData(data);
         return data;
     });
 };

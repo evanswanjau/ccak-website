@@ -17,9 +17,9 @@ export const MyAccountChangePasswordPage = () => {
     const [success, setSuccess] = useState(false);
     const [member, setMember] = useState({});
     const [data, updateData] = useState({
-        oldpassword: "",
-        newpassword: "",
-        confirmpassword: "",
+        current_password: "",
+        new_password: "",
+        confirm_password: "",
     });
 
     const changePassword = () => {
@@ -27,38 +27,30 @@ export const MyAccountChangePasswordPage = () => {
         setSuccess(false);
         setBtnLoading(true);
 
-        if (data.oldpassword) {
-            if (data.newpassword.length < 8) {
-                setError("Password too short");
-            } else {
-                if (data.newpassword !== data.oldpassword) {
-                    if (data.newpassword === data.confirmpassword) {
-                        changeMemberPassword(member, setMember).finally(() => {
-                            setSuccess("Password changed successfully");
-                            setBtnLoading(false);
-                            updateData({
-                                oldpassword: "",
-                                newpassword: "",
-                                confirmpassword: "",
-                            });
-                        });
-                    } else {
-                        setError("Passwords not similar");
-                    }
-                } else {
-                    setError("New password can't be similar to old password");
-                }
-            }
+        if (data.new_password.length < 8) {
+            setError("Password too short");
         } else {
-            setError("Your old password is incorrect");
+            if (data.new_password === data.confirm_password) {
+                changeMemberPassword(member.id, data).finally(() => {
+                    setSuccess("Password changed successfully");
+                    setBtnLoading(false);
+                    updateData({
+                        current_password: "",
+                        new_password: "",
+                        confirm_password: "",
+                    });
+                });
+            } else {
+                setError("Passwords not similar");
+            }
         }
         setBtnLoading(false);
     };
 
     let disabled =
-        data.oldpassword === "" ||
-        data.newpassword === "" ||
-        data.confirmpassword === "";
+        data.current_password === "" ||
+        data.new_password === "" ||
+        data.confirm_password === "";
 
     useEffect(() => {
         if (params.token) {
@@ -80,7 +72,7 @@ export const MyAccountChangePasswordPage = () => {
                     </div>
                     <div className="w-full md:w-8/12 lg:w-5/12 bg-white mb-10 md:my-10 shadow-lg rounded-lg">
                         <div className="space-y-6 p-5">
-                            <h3 className="font-semibold text-2xl my-5">
+                            <h3 className="font-semibcurrent_ text-2xl my-5">
                                 Change Password
                             </h3>
                             {success && (
@@ -98,21 +90,21 @@ export const MyAccountChangePasswordPage = () => {
 
                             <InputForm
                                 type="password"
-                                name="oldpassword"
-                                label="Old Password"
+                                name="current_password"
+                                label="Current Password"
                                 data={data}
                                 updateData={updateData}
                             />
                             <InputForm
                                 type="password"
-                                name="newpassword"
+                                name="new_password"
                                 label="New Password"
                                 data={data}
                                 updateData={updateData}
                             />
                             <InputForm
                                 type="password"
-                                name="confirmpassword"
+                                name="confirm_password"
                                 label="Confirm Password"
                                 data={data}
                                 updateData={updateData}
