@@ -6,13 +6,19 @@ import { AddToCalendarButton } from "add-to-calendar-button-react";
 import { MapPinIcon, CursorArrowRaysIcon } from "@heroicons/react/24/outline";
 import { ReadMoreHeader } from "../../components/readMoreHeader";
 import { SubFooter } from "../../layouts/subFooter";
-import { apiRequest, searchPosts } from "../../api/api-calls";
+import {
+    apiRequest,
+    searchPosts,
+    searchData as searchFooterData,
+} from "../../api/api-calls";
 import ReactHtmlParser from "react-html-parser";
 import { Page } from "../../layouts/page";
 
 export const EventReadMore = () => {
     const params = useParams();
     const [data, updateData] = useState([]);
+    const [footerData, updateFooterData] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [upcomingEvents, updateUpcomingEvents] = useState([]);
     const searchData = {
         keyword: "",
@@ -29,8 +35,17 @@ export const EventReadMore = () => {
     };
 
     useEffect(() => {
-        apiRequest("get", "post/" + params.id, data, updateData);
+        apiRequest("get", "post/" + params.id, data, updateData).finally(() =>
+            setLoading(false)
+        );
         searchPosts(searchData, updateUpcomingEvents);
+        searchFooterData(
+            "content",
+            {
+                page: "about-us",
+            },
+            updateFooterData
+        );
     }, []); // eslint-disable-line
 
     return (
@@ -38,6 +53,10 @@ export const EventReadMore = () => {
             title={data.title}
             description={data.excerpt}
             image={process.env.REACT_APP_IMAGEKIT_URL + "events/" + data.image}
+            data={data}
+            updateData={updateData}
+            readMorePage={true}
+            readMoreLoading={loading}
         >
             <div className="pt-[3.8rem] lg:pt-[6.6rem]">
                 <ReadMoreHeader data={data} />
@@ -114,7 +133,7 @@ export const EventReadMore = () => {
                     </div>
                 </div>
                 <section className="my-10">
-                    <SubFooter />
+                    <SubFooter data={footerData[8]?.content} />
                 </section>
             </div>
         </Page>

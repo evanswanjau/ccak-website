@@ -2,25 +2,40 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { ReadMoreHeader } from "../../components/readMoreHeader";
 import { SubFooter } from "../../layouts/subFooter";
-import { apiRequest } from "../../api/api-calls";
+import {
+    apiRequest,
+    searchData as searchFooterData,
+} from "../../api/api-calls";
 import { ResearchDownload } from "../../components/research-download";
 import { Page } from "../../layouts/page";
 
 export const NewslettersReadMore = () => {
     const params = useParams();
     const [data, updateData] = useState({ files: { data: [] } });
+    const [footerData, updateFooterData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        apiRequest("get", "post/" + params.id, data, updateData);
+        apiRequest("get", "post/" + params.id, data, updateData).finally(() =>
+            setLoading(false)
+        );
+        searchFooterData(
+            "content",
+            {
+                page: "about-us",
+            },
+            updateFooterData
+        );
     }, []); // eslint-disable-line
 
     return (
         <Page
             title={data.title}
             description={data.excerpt}
-            image={
-                process.env.REACT_APP_IMAGEKIT_URL + "newsletters/" + data.image
-            }
+            data={data}
+            updateData={updateData}
+            readMorePage={true}
+            readMoreLoading={loading}
         >
             <div className="pt-[3.8rem] lg:pt-[6.6rem]">
                 <ReadMoreHeader data={data} />
@@ -43,7 +58,7 @@ export const NewslettersReadMore = () => {
                     </div>
                 </section>
                 <section className="my-10">
-                    <SubFooter />
+                    <SubFooter data={footerData[8]?.content} />
                 </section>
             </div>
         </Page>

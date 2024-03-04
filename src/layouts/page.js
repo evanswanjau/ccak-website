@@ -41,9 +41,11 @@ export const Page = ({
     page,
     data,
     updateData,
+    readMorePage = false,
+    readMoreLoading = false,
     children,
 }) => {
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(!readMorePage);
     useEffect(() => {
         ReactGA.initialize(process.env.REACT_APP_API_URL);
         ReactGA.pageview(window.location.pathname + window.location.search);
@@ -52,18 +54,23 @@ export const Page = ({
     const { enqueueSnackbar } = useSnackbar();
 
     useEffect(() => {
-        searchData(
-            "content",
-            {
-                page,
-            },
-            updateData,
-            null,
-            enqueueSnackbar,
-            null,
-            setLoading
-        );
+        if (!readMorePage) {
+            setLoading(true);
+            searchData(
+                "content",
+                {
+                    page,
+                },
+                updateData,
+                null,
+                enqueueSnackbar,
+                null,
+                setLoading
+            );
+        }
     }, []); //eslint-disable-line
+
+    console.log(data);
 
     return (
         <div>
@@ -76,13 +83,7 @@ export const Page = ({
                 />
                 <meta property="og:image" content={image} />
             </Helmet>
-            {data && data.length > 0 && !loading ? (
-                <div>
-                    {viewHeader(window.location.pathname) && <NavBar />}
-                    {children}
-                    {viewFooter(window.location.pathname) && <Footer />}
-                </div>
-            ) : (
+            {(loading || readMoreLoading) && (
                 <div className="flex justify-center items-center h-screen">
                     <img
                         src={
@@ -91,6 +92,20 @@ export const Page = ({
                         alt="The Clean Cooking Association of Kenya"
                         className="w-52 mx-auto my-5 animate-zoom"
                     />
+                </div>
+            )}
+            {data && data.length > 0 && !loading && !readMorePage && (
+                <div>
+                    {viewHeader(window.location.pathname) && <NavBar />}
+                    {children}
+                    {viewFooter(window.location.pathname) && <Footer />}
+                </div>
+            )}
+            {!readMoreLoading && readMorePage && (
+                <div>
+                    {viewHeader(window.location.pathname) && <NavBar />}
+                    {children}
+                    {viewFooter(window.location.pathname) && <Footer />}
                 </div>
             )}
         </div>

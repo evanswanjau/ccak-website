@@ -4,13 +4,19 @@ import { Fade } from "react-reveal";
 import { ReadMoreHeader } from "../../components/readMoreHeader";
 import { SubFooter } from "../../layouts/subFooter";
 import { Career } from "../../components/career";
-import { apiRequest, searchPosts } from "../../api/api-calls";
+import {
+    apiRequest,
+    searchPosts,
+    searchData as searchFooterData,
+} from "../../api/api-calls";
 import ReactHtmlParser from "react-html-parser";
 import { Page } from "../../layouts/page";
 
 export const ConsultancyReadMore = () => {
     const params = useParams();
     const [data, updateData] = useState([]);
+    const [footerData, updateFooterData] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [recentData, updateRecentData] = useState([]);
     const searchData = {
         keyword: "",
@@ -27,10 +33,18 @@ export const ConsultancyReadMore = () => {
     };
 
     useEffect(() => {
-        apiRequest("get", "post/" + params.id, data, updateData);
+        apiRequest("get", "post/" + params.id, data, updateData).finally(() =>
+            setLoading(false)
+        );
         searchPosts(searchData, updateRecentData);
+        searchFooterData(
+            "content",
+            {
+                page: "about-us",
+            },
+            updateFooterData
+        );
     }, []); // eslint-disable-line
-
     return (
         <Page
             title={data.title}
@@ -38,6 +52,10 @@ export const ConsultancyReadMore = () => {
             image={
                 process.env.REACT_APP_IMAGEKIT_URL + "consultancy/" + data.image
             }
+            data={data}
+            updateData={updateData}
+            readMorePage={true}
+            readMoreLoading={loading}
         >
             <div className="pt-[3.8rem] lg:pt-[6.6rem]">
                 <ReadMoreHeader data={data} />
@@ -61,7 +79,7 @@ export const ConsultancyReadMore = () => {
                     </div>
                 </section>
                 <section className="my-10">
-                    <SubFooter />
+                    <SubFooter data={footerData[8]?.content} />
                 </section>
             </div>
         </Page>
