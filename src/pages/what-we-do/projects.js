@@ -87,6 +87,8 @@ export const ProjectsPage = () => {
                                                             item !== "all"
                                                                 ? item
                                                                 : "",
+                                                        page: 1,
+                                                        limit: 12,
                                                     });
                                                 }}
                                             >
@@ -167,7 +169,7 @@ export const ProjectsPage = () => {
                     <div className="hidden lg:block w-4/12 pt-10 pl-10">
                         <MediaCentreSideBar
                             category="projects"
-                            searchData={searchData}
+                            searchData={{ ...searchData, page: 1, limit: 12 }}
                             updateSearchData={updateSearchData}
                         />
                     </div>

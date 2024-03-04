@@ -76,7 +76,7 @@ export const DynamicPageLayout = ({ pageData: { page, description } }) => {
                     >
                         <MediaCentreSideBar
                             category={page}
-                            searchData={searchData}
+                            searchData={{ ...searchData, page: 1, limit: 9 }}
                             updateSearchData={updateSearchData}
                         />
                     </div>

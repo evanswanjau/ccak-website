@@ -63,6 +63,7 @@ export const OurMembersPage = () => {
 
     useEffect(() => {
         window.scrollTo(0, 350);
+
         search(
             "members",
             searchData,
@@ -204,7 +205,7 @@ export const OurMembersPage = () => {
                                 type="text"
                                 name="keyword"
                                 label={`Search member`}
-                                data={searchData}
+                                data={{ ...searchData, page: 1, limit: 12 }}
                                 updateData={updateSearchData}
                             />
                         </Fade>
