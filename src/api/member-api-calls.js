@@ -137,18 +137,34 @@ export const updateMember = (
         });
 };
 
-export const changeMemberPassword = (id, data) => {
+export const changeMemberPassword = (id, data, setSuccess, setError) => {
     return axios({
         method: "post",
-        url: process.env.REACT_APP_API_URL + "member/" + id + "/change-password",
+        url:
+            process.env.REACT_APP_API_URL +
+            "member/" +
+            id +
+            "/change-password",
         data: data,
         headers: {
             "Content-Type": "application/json",
             Authorization: "Bearer " + localStorage.getItem("token"),
         },
-    }).then(({ data }) => {
-        return data;
-    });
+    })
+        .then(({ data }) => {
+            setSuccess(data.message);
+            return data;
+        })
+        .catch(({ response }) => {
+            console.log(response);
+            setError(
+                response.data.error
+                    ? response.data.error
+                    : response.data.message
+                    ? response.data.message
+                    : "Unable to change your password! Please check your internet and try again."
+            );
+        });
 };
 
 /* ----------------- INVOICE ---------------- */

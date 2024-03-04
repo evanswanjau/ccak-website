@@ -31,8 +31,12 @@ export const MyAccountChangePasswordPage = () => {
             setError("Password too short");
         } else {
             if (data.new_password === data.confirm_password) {
-                changeMemberPassword(member.id, data).finally(() => {
-                    setSuccess("Password changed successfully");
+                changeMemberPassword(
+                    member.id,
+                    data,
+                    setSuccess,
+                    setError
+                ).finally(() => {
                     setBtnLoading(false);
                     updateData({
                         current_password: "",
