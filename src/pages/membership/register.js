@@ -9,8 +9,10 @@ import { ErrorMessage } from "../../components/forms/error";
 import { ButtonLoader } from "../../components/btnLoader";
 import { registerMember } from "../../api/api-calls";
 import { Page } from "../../layouts/page";
+import { Carousel } from "../../components/carousel";
 
 export const RegisterPage = () => {
+    const [pageData, updatePageData] = useState([]);
     const [btnLoading, setBtnLoading] = useState(false);
     const [error, setError] = useState(false);
     const [data, updateData] = useState({
@@ -59,6 +61,9 @@ export const RegisterPage = () => {
                 process.env.REACT_APP_IMAGEKIT_URL +
                 "membership_registration.jpg"
             }
+            page="register"
+            data={pageData}
+            updateData={updatePageData}
         >
             <div className="h-screen flex">
                 <div
@@ -71,65 +76,41 @@ export const RegisterPage = () => {
                     }}
                     className="g-cover bg-center bg-no-repeat w-full hidden lg:block overflow-y-auto"
                 >
-                    <div className="h-full w-full bg-black bg-opacity-30 overflow-y-auto">
+                    <div className="h-full w-full bg-black bg-opacity-50 overflow-y-auto">
                         <ul className="text-lg text-white flex space-x-2">
                             <li className="m-3 hover:text-[#ED7423] transition duration-300 ease-in-out">
-                                <a href="/">Back to main site</a>
+                                <a href="/"><h3 className="font-bold text-lg">Back to main site</h3></a>
                             </li>
                             <li className="m-3 hover:text-[#ED7423] transition duration-300 ease-in-out">
                                 <a href="/membership/packages">
-                                    Member packages
+                                   <h3 className="font-bold text-lg">Member packages</h3> 
                                 </a>
                             </li>
                         </ul>
-                        <div className="py-10 px-10 lg:px-20">
-                            <h1 className="font-bold text-3xl text-white mb-10">
-                                Why Join Us?
-                            </h1>
-                            <ul>
-                                {[
-                                    <p className="font-bold">
-                                        CCAK acts as your representative,
-                                        addressing legislative, regulatory, and
-                                        tax challenges on your behalf.
-                                    </p>,
-                                    <p className="font-bold">
-                                        CCAK engages in lobbying and advocacy to
-                                        achieve policy gains for its members.
-                                    </p>,
-                                    <p className="font-bold">
-                                        CCAK conceives public-private dialogues
-                                        to influence positive changes in
-                                        policies and regulations.
-                                    </p>,
-                                    <p className="font-bold">
-                                        CCAK facilitates discussions between
-                                        members and government bodies like the
-                                        Ministry of Energy and the Council of
-                                        Governors.
-                                    </p>,
-                                    <p className="font-bold">
-                                        CCAK links members to new sources of
-                                        finance to support business growth.
-                                    </p>,
-                                ].map((item, i) => {
-                                    return (
-                                        <li className="bg-white p-5 my-2 rounded-lg flex space-x-4 items-center">
-                                            <h3 className="font-semibold text-xl w-1/12 text-center border-r">
-                                                {i + 1}
-                                            </h3>
-                                            <p className="text-sm w-11/12">
-                                                {item}
-                                            </p>
-                                        </li>
-                                    );
-                                })}
-                            </ul>
+                        <div className="px-5 flex items-center min-h-screen -mt-12">
+                            <div className=" w-full">
+                                <Carousel
+                                    items={pageData[0]?.content.map(
+                                        (item, i) => {
+                                            return (
+                                                <h3 className="font-semibold text-4xl pr-5 text-white">
+                                                    {item}
+                                                </h3>
+                                            );
+                                        }
+                                    )}
+                                    autoplay={true}
+                                    slides={1}
+                                    show={1}
+                                    reverse={false}
+                                    arrow={false}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div className="w-full p-10 bg-white overflow-y-auto flex flex-col justify-center">
-                    <h1 className="font-bold text-3xl">Register as a member</h1>
+                    <h1 className="font-bold text-4xl text-gray-800">Register as a member</h1>
                     <p className="text-gray-400">
                         Already have an account{" "}
                         <a className="text-sky-600" href="/membership/login">

@@ -31,19 +31,27 @@ export const LoginPage = () => {
                 }}
                 className="g-cover bg-center bg-no-repeat w-full"
             >
-                <a href="/">
-                    <img src="/ccak_logo.png" className="w-20 m-5" alt="Logo" />
-                </a>
+                <ul className="text-lg text-white flex space-x-2">
+                    <li className="m-3 hover:text-[#ED7423] transition duration-300 ease-in-out">
+                        <a href="/">
+                            <h3 className="font-bold text-lg">
+                                Back to main site
+                            </h3>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <div className="w-full p-10 bg-white overflow-scroll">
-                <h1 className="font-bold text-3xl">Welcome back</h1>
+            <div className="w-full p-10 bg-white overflow-y-auto flex flex-col justify-center">
+                <h1 className="font-bold text-4xl text-gray-80">
+                    Welcome back
+                </h1>
                 <p className="text-gray-400">
                     Don't have an account?{" "}
                     <a className="text-sky-600" href="/membership/register">
                         Register
                     </a>
                 </p>
-                <div className="space-y-4 my-24">
+                <div className="space-y-4 my-12">
                     {error && (
                         <ErrorMessage error={error} setError={setError} />
                     )}

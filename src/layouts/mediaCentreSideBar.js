@@ -10,7 +10,17 @@ export const MediaCentreSideBar = ({
     return (
         <div>
             <Fade>
-                <div className="lg:mb-5">
+                <div
+                    className={` lg:mb-5 ${
+                        [
+                            "external-publications",
+                            "internal-publications",
+                            "newsletters",
+                        ].includes(category)
+                            ? "mx-auto w-4/12 text-center"
+                            : "w-full"
+                    }`}
+                >
                     <InputForm
                         type="text"
                         name="keyword"
@@ -20,7 +30,15 @@ export const MediaCentreSideBar = ({
                     />
                 </div>
             </Fade>
-            <div className="hidden lg:block">
+            <div
+                className={`hidden lg:${
+                    ![
+                        "external-publications",
+                        "internal-publications",
+                        "newsletters",
+                    ].includes(category) && "block"
+                }`}
+            >
                 <TwitterEmbedd />
             </div>
         </div>

@@ -54,7 +54,6 @@ export const DonateNow = ({ setShow }) => {
                     "/checkout/invoice/" + data.id + "/" + data.invoice_number
                 );
             });
-            
         });
     };
 
@@ -96,137 +95,144 @@ export const DonateNow = ({ setShow }) => {
 
     return (
         <div className="bg-black bg-opacity-50 text-white fixed w-full h-screen z-50 -mt-[6.9em]">
-            <div
-                id="defaultModal"
-                tabindex="-1"
-                aria-hidden="true"
-                className="px-4 py-20  w-full shadow-lg overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
-            >
-                <div className="relative bg-white text-black flex w-9/12 mx-auto justify-between rounded-lg shadow">
-                    {data.step !== "checkout" && (
+            <div className="flex items-center justify-center min-h-screen">
+                <div
+                    id="defaultModal"
+                    tabindex="-1"
+                    aria-hidden="true"
+                    className="px-4 py-20  w-full shadow-lg overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full"
+                >
+                    <div className="relative bg-white text-black flex w-8/12 mx-auto justify-between rounded-lg shadow">
+                        {data.step !== "checkout" && (
+                            <div
+                                style={{
+                                    backgroundImage: `url(${
+                                        process.env.REACT_APP_IMAGEKIT_URL +
+                                        "donate_page_section_1.jpg"
+                                    })`,
+                                }}
+                                className="w-6/12 flex bg-cover bg-center bg-no-repeat rounded-l-lg"
+                            ></div>
+                        )}
+
                         <div
-                            style={{
-                                backgroundImage: `url(${
-                                    process.env.REACT_APP_IMAGEKIT_URL +
-                                    "donate_page_section_1.jpg"
-                                })`,
-                            }}
-                            className="w-5/12 flex bg-cover bg-center bg-no-repeat rounded-l-lg"
-                        ></div>
-                    )}
-
-                    <div
-                        className={`${
-                            data.step === "checkout" ? "w-full" : "w-7/12"
-                        } px-5`}
-                    >
-                        <div className="flex items-start justify-end mt-5">
-                            <button
-                                type="button"
-                                className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
-                                data-modal-hide="staticModal"
-                                onClick={() => {
-                                    setShow(false);
-                                }}
-                            >
-                                <svg
-                                    className="w-5 h-5"
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        fillRule="evenodd"
-                                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                        clipRule="evenodd"
-                                    ></path>
-                                </svg>
-                            </button>
-                        </div>
-                        {error && (
-                            <ErrorMessage error={error} setError={setError} />
-                        )}
-                        {data.step === "personal" && (
-                            <div>
-                                <h3 className="font-semibold text-lg">
-                                    Enter personal details
-                                </h3>
-                                <PersonalDetails
-                                    data={data}
-                                    updateData={updateData}
-                                />
-                            </div>
-                        )}
-
-                        {data.step === "amount" && (
-                            <div>
-                                <h3 className="font-semibold text-lg">
-                                    Choose amount
-                                </h3>
-                                <div className="flex flex-wrap my-5">
-                                    {amountOptions.map((option) => {
-                                        return (
-                                            <p
-                                                className="border p-3 pb-2 w-25 my-2 mr-3 text-lg rounded-lg cursor-pointer"
-                                                onClick={() => {
-                                                    updateData({
-                                                        ...data,
-                                                        amount: parseInt(
-                                                            option
-                                                        ),
-                                                    });
-                                                }}
-                                            >
-                                                {parseInt(
-                                                    option
-                                                ).toLocaleString("en-US")}{" "}
-                                                KES
-                                            </p>
-                                        );
-                                    })}
-                                </div>
-                                <InputForm
-                                    type="number"
-                                    name="amount"
-                                    label="Amount to donate (KSH)"
-                                    required={true}
-                                    data={data}
-                                    updateData={updateData}
-                                />
-                            </div>
-                        )}
-
-                        <div className="flex space-x-4">
-                            <button
-                                type="button"
-                                className="w-full tracking-widest bg-white hover:bg-gray-800 text-black hover:text-white border border-gray-800 flex justify-center font-medium rounded-lg text-sm px-5 py-3 my-5 transition duration-200 ease-in-out"
-                                onClick={() => {
-                                    if (data.step === "personal")
+                            className={`${
+                                data.step === "checkout" ? "w-full" : "w-6/12"
+                            } px-5`}
+                        >
+                            <div className="flex items-start justify-end mt-5">
+                                <button
+                                    type="button"
+                                    className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
+                                    data-modal-hide="staticModal"
+                                    onClick={() => {
                                         setShow(false);
+                                    }}
+                                >
+                                    <svg
+                                        className="w-5 h-5"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                            clipRule="evenodd"
+                                        ></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            {error && (
+                                <ErrorMessage
+                                    error={error}
+                                    setError={setError}
+                                />
+                            )}
+                            {data.step === "personal" && (
+                                <div>
+                                    <h3 className="font-semibold text-gray-700 mb-8 text-4xl">
+                                        Enter your details
+                                    </h3>
+                                    <PersonalDetails
+                                        data={data}
+                                        updateData={updateData}
+                                    />
+                                </div>
+                            )}
 
-                                    if (data.step === "amount")
-                                        updateData({
-                                            ...data,
-                                            step: "personal",
-                                        });
-                                }}
-                            >
-                                BACK
-                            </button>
-                            <button
-                                type="button"
-                                disabled={disabled}
-                                className={`w-full tracking-widest ${
-                                    disabled || btnLoading
-                                        ? "bg-gray-200"
-                                        : "bg-[#329E49] hover:bg-[#3ab554]"
-                                }  text-white flex justify-center font-medium rounded-lg text-sm px-5 py-3 my-5 transition duration-700 ease-in-out`}
-                                onClick={() => {
-                                    submitData();
-                                }}
-                            >
-                                {btnLoading ? <ButtonLoader /> : "CONTINUE"}
-                            </button>
+                            {data.step === "amount" && (
+                                <div>
+                                    <h3 className="font-semibold text-gray-700 mb-8 text-4xl">
+                                        Choose amount
+                                    </h3>
+                                    <div className="flex flex-wrap my-5">
+                                        {amountOptions.map((option) => {
+                                            return (
+                                                <p
+                                                    className="border p-3 pb-2 w-25 my-2 mr-3 text-lg rounded-lg cursor-pointer"
+                                                    onClick={() => {
+                                                        updateData({
+                                                            ...data,
+                                                            amount: parseInt(
+                                                                option
+                                                            ),
+                                                        });
+                                                    }}
+                                                >
+                                                    {parseInt(
+                                                        option
+                                                    ).toLocaleString(
+                                                        "en-US"
+                                                    )}{" "}
+                                                    KES
+                                                </p>
+                                            );
+                                        })}
+                                    </div>
+                                    <InputForm
+                                        type="number"
+                                        name="amount"
+                                        label="Amount to donate (KSH)"
+                                        required={true}
+                                        data={data}
+                                        updateData={updateData}
+                                    />
+                                </div>
+                            )}
+
+                            <div className="flex space-x-4">
+                                <button
+                                    type="button"
+                                    className="w-full tracking-widest bg-white hover:bg-gray-800 text-black hover:text-white border border-gray-800 flex justify-center font-medium rounded-lg text-sm px-5 py-3 my-5 transition duration-200 ease-in-out"
+                                    onClick={() => {
+                                        if (data.step === "personal")
+                                            setShow(false);
+
+                                        if (data.step === "amount")
+                                            updateData({
+                                                ...data,
+                                                step: "personal",
+                                            });
+                                    }}
+                                >
+                                    BACK
+                                </button>
+                                <button
+                                    type="button"
+                                    disabled={disabled}
+                                    className={`w-full tracking-widest ${
+                                        disabled || btnLoading
+                                            ? "bg-gray-200"
+                                            : "bg-[#329E49] hover:bg-[#3ab554]"
+                                    }  text-white flex justify-center font-medium rounded-lg text-sm px-5 py-3 my-5 transition duration-700 ease-in-out`}
+                                    onClick={() => {
+                                        submitData();
+                                    }}
+                                >
+                                    {btnLoading ? <ButtonLoader /> : "CONTINUE"}
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

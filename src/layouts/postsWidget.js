@@ -7,12 +7,16 @@ import { Event } from "../components/event";
 import { Gallery } from "../components/gallery";
 import { Career } from "../components/career";
 import { Pagination } from "../components/pagination";
+import { Carousel } from "../components/carousel";
+import { ResearchRead } from "../components/research-read";
+import { Research } from "../components/research";
 
 export const PostsWidget = ({
     category,
     searchData,
     updateSearchData,
     pagination = true,
+    carousel = false,
 }) => {
     const [loading, setLoading] = useState(true);
     const [data, updateData] = useState([]);
@@ -55,13 +59,14 @@ export const PostsWidget = ({
     };
 
     const getContent = (item) => {
-        if (category === "events") return <Event key={item.id} data={item} />;
+        if (category === "events")
+            return <Event key={item.id} data={item} carousel={carousel} />;
         if (
             category === "news" ||
             category === "blog" ||
             category === "press-release"
         )
-            return <News key={item.id} data={item} />;
+            return <News key={item.id} data={item} carousel={carousel} />;
         if (category === "photo-gallery")
             return <Gallery key={item.id} data={item} />;
 
@@ -71,6 +76,12 @@ export const PostsWidget = ({
             category === "funding-opportunities"
         )
             return <Career key={item.id} data={item} />;
+
+        if (category === "external-publications")
+            return <ResearchRead key={item.id} data={item} />;
+
+        if (category === "internal-publications" || category === "newsletters")
+            return <Research key={item.id} data={item} />;
     };
 
     return (
@@ -79,7 +90,7 @@ export const PostsWidget = ({
                 <div
                     className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-${
                         searchData.limit === 4 ? 4 : 3
-                    } gap-y-6 sm:gap-6 py-10`}
+                    } gap-6 py-10`}
                 >
                     {Array.from({ length: searchData.limit }).map((_, i) => {
                         return <SkeletonLoader key={i} type={category} />;
@@ -87,17 +98,30 @@ export const PostsWidget = ({
                 </div>
             ) : data.length < 1 ? (
                 getEmpty()
+            ) : carousel ? (
+                <div className="grid grid-cols-1 grid-auto-rows: 1fr py-10">
+                    <Carousel
+                        items={data.map((item) => {
+                            return getContent(item);
+                        })}
+                        autoplay={true}
+                        slides={1}
+                        show={3}
+                        reverse={false}
+                        arrow={true}
+                    />
+                </div>
             ) : (
                 <>
                     <div
                         className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-${
                             searchData.limit === 4 ? 4 : 3
-                        } gap-y-6 sm:gap-4 py-10`}
+                        } gap-6 py-10`}
                     >
                         {data.map((item) => {
                             return getContent(item);
                         })}
-                    </div>{" "}
+                    </div>
                     {pagination && paginationData.count > searchData.limit && (
                         <div className="my-5 text-center">
                             <Pagination

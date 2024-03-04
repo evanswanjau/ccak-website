@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Fade } from "react-reveal";
 import { PostsWidget } from "./postsWidget";
 
-export const ShortPostsLayout = ({ title, category, limit }) => {
+export const ShortPostsLayout = ({ title, category, limit, carousel }) => {
     const [searchData, updateSearchData] = useState({
         keyword: "",
         table: "posts",
@@ -29,6 +29,7 @@ export const ShortPostsLayout = ({ title, category, limit }) => {
                 searchData={searchData}
                 updateSearchData={updateSearchData}
                 pagination={false}
+                carousel={carousel}
             />
         </div>
     );

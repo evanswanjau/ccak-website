@@ -73,6 +73,52 @@ export const search = (
         });
 };
 
+export const searchData = (
+    page,
+    search,
+    updateData,
+    parseData,
+    enqueueSnackbar,
+    setPaginationData,
+    setLoading
+) => {
+    if (setLoading) setLoading(true);
+    return axios({
+        method: "post",
+        url: `${process.env.REACT_APP_API_URL}${page}/search${
+            search.page > 1 ? "?page=" + search.page : ""
+        }`,
+        data: search,
+        headers: {
+            "Content-Type": "application/json",
+        },
+    })
+        .then(({ data }) => {
+            if (parseData) {
+                updateData(parseData(page, data.results));
+            } else {
+                updateData(data.results ? data.results : data);
+            }
+
+            if (setPaginationData) {
+                delete data.results;
+                setPaginationData(data);
+            }
+        })
+        .catch(({ response }) => {
+            return enqueueSnackbar(
+                response.data.message || "Unknown error occurred",
+                {
+                    variant: "error",
+                    anchorOrigin: { vertical: "top", horizontal: "center" },
+                }
+            );
+        })
+        .finally(() => {
+            if (setLoading) setLoading(false);
+        });
+};
+
 export const subscribeUser = (data, setSuccess, setError) => {
     return axios({
         method: "post",
@@ -434,7 +480,6 @@ export const addSocialPostComment = async (
         throw error;
     }
 };
-
 
 export const storeDonation = (data) => {
     return axios({

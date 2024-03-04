@@ -24,9 +24,9 @@ export const OurMember = ({
     setMember,
 }) => {
     return (
-        <Fade bottom>
+        <Fade>
             <div
-                className="bg-[#F2F9F4] p-6 rounded-lg text-left flex flex-col"
+                className="bg-white shadow-lg p-6 rounded-lg text-left flex flex-col border-2 border-transparent cursor-pointer hover:border-[#ED7423] transition duration-500"
                 onClick={() => {
                     setMember({
                         modal: true,
@@ -48,30 +48,51 @@ export const OurMember = ({
                 }}
             >
                 <div className="text-center mb-5">
-                    <div
-                        style={{
-                            backgroundImage: `url(${
+                    {subscription_category === "individual" ||
+                    subscription_category === "student" ? (
+                        <div
+                            style={{
+                                backgroundImage: `url(${
+                                    process.env.REACT_APP_IMAGEKIT_URL +
+                                    "members/" +
+                                    logo
+                                })`,
+                            }}
+                            className={`w-32 h-32 mx-auto rounded-full bg-cover bg-center bg-no-repeat mb-10`}
+                        ></div>
+                    ) : (
+                        <img
+                            className="w-auto h-32 mx-auto mb-10"
+                            src={
                                 process.env.REACT_APP_IMAGEKIT_URL +
                                 "members/" +
                                 logo
-                            })`,
-                        }}
-                        className={`w-28 h-28 mx-auto rounded-full bg-cover bg-center bg-no-repeat`}
-                    ></div>
-                    <h4 className="capitalize font-semibold text-xl">
-                        {subscription_category === "individual"
+                            }
+                            alt={
+                                subscription_category === "individual" ||
+                                subscription_category === "student"
+                                    ? first_name + " " + last_name
+                                    : company || "-"
+                            }
+                        />
+                    )}
+
+                    <h4 className="capitalize font-bold text-xl">
+                        {subscription_category === "individual" ||
+                        subscription_category === "student"
                             ? first_name + " " + last_name
                             : company || "-"}
                     </h4>
-                    <p className="uppercase text-sm">{subscription_category}</p>
-                </div>
-                <div className="space-y-2">
+                    <p className="uppercase text-sm font-bold my-1 text-gray-700">
+                        {subscription_category}
+                    </p>
                     {technology && (
-                        <p className="my-2 capitalize">
-                            <b>Technology:</b> {technology}
+                        <p className="my-2 uppercase bg-[#ED7423] text-sm w-fit rounded-[3em] px-3 pt-1 mx-auto text-white tracking-wide">
+                            {technology}
                         </p>
                     )}
-
+                </div>
+                <div>
                     {subscription_category !== "individual" &&
                         company_phone && (
                             <a
@@ -79,8 +100,8 @@ export const OurMember = ({
                                 target="_blank"
                                 rel="noreferrer"
                             >
-                                <p className="flex">
-                                    <PhoneIcon className="w-5 mr-3 -mt-1" />
+                                <p className="flex items-start mb-4">
+                                    <PhoneIcon className="flex-none w-5 mr-3 mt-1" />
                                     {company_phone}
                                 </p>
                             </a>
@@ -92,27 +113,26 @@ export const OurMember = ({
                                 target="_blank"
                                 rel="noreferrer"
                             >
-                                <p className="flex">
-                                    <EnvelopeIcon className="w-5 mr-3 -mt-1" />
+                                <p className="flex items-start mb-4">
+                                    <EnvelopeIcon className="flex-none w-5 mr-3 mt-1" />
                                     {company_email}
                                 </p>
                             </a>
                         )}
                     {location && (
-                        <p className="flex">
-                            <MapPinIcon className="w-5 mr-3 -mt-1" />
+                        <p className="flex items-start mb-4">
+                            <MapPinIcon className="flex-none w-5 mr-3 mt-1" />
                             {location}
                         </p>
                     )}
                     {website_link && (
-                        <a
-                            href={website_link}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="flex"
-                        >
-                            <GlobeAltIcon className="w-5 mr-3 -mt-1" />
-                            {website_link}
+                        <a href={website_link} target="_blank" rel="noreferrer">
+                            <p className="flex items-start mb-4">
+                                <GlobeAltIcon className="flex-none w-5 mr-3 mt-1" />
+                                <span className="text-wrap">
+                                    {website_link}
+                                </span>
+                            </p>
                         </a>
                     )}
                 </div>

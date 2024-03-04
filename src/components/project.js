@@ -1,33 +1,40 @@
 import { Fade } from "react-reveal";
 
-export const Project = ({ data: { id, title, excerpt, image, folder } }) => {
+export const Project = ({
+    data: { id, title, excerpt, image, folder },
+    carousel = false,
+}) => {
     return (
         <Fade>
-            <a
-                href={`/what-we-do/projects/read-more/${id}/${title
-                    .replace(/ /g, "-")
-                    .replace("'", "")
-                    .toLowerCase()}`}
-            >
-                <div
-                    style={{
-                        backgroundImage: `url(${
-                            process.env.REACT_APP_IMAGEKIT_URL +
-                            folder +
-                            "/" +
-                            image
-                        })`,
-                    }}
-                    className={`relative bg-cover bg-center bg-no-repeat rounded-lg text-white group flex flex-col min-h-[300px]`}
+            <div>
+                <a
+                    href={`/what-we-do/projects/read-more/${id}/${title
+                        .replace(/ /g, "-")
+                        .replace("'", "")
+                        .toLowerCase()}`}
                 >
-                    <div className="absolute inset-0 flex flex-col justify-end h-full w-full bg-gradient-to-t from-black to-transparent px-3 pb-3 pt-28 rounded-lg group-hover:text-[#ED7423] transition duration-300 ease-in-out">
-                        <h3 className="font-semibold mb-1">{title}</h3>
-                        <p className="line-clamp-2" title={excerpt}>
-                            {excerpt}
-                        </p>
+                    <div
+                        style={{
+                            backgroundImage: `url(${
+                                process.env.REACT_APP_IMAGEKIT_URL +
+                                folder +
+                                "/" +
+                                image
+                            })`,
+                        }}
+                        className={`relative bg-cover bg-center bg-no-repeat rounded-lg text-white group flex flex-col min-h-[300px] ${
+                            carousel && "mr-3"
+                        }`}
+                    >
+                        <div className="absolute inset-0 flex flex-col justify-end h-full w-full bg-gradient-to-t from-black to-transparent px-3 pb-3 pt-28 rounded-lg group-hover:text-[#ED7423] transition duration-300 ease-in-out">
+                            <h3 className="font-semibold mb-1">{title}</h3>
+                            <p className="line-clamp-2" title={excerpt}>
+                                {excerpt}
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </Fade>
     );
 };

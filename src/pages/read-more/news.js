@@ -4,13 +4,19 @@ import { News } from "../../components/news";
 import { ReadMoreHeader } from "../../components/readMoreHeader";
 import { Fade } from "react-reveal";
 import { SubFooter } from "../../layouts/subFooter";
-import { apiRequest, searchPosts } from "../../api/api-calls";
+import {
+    apiRequest,
+    searchPosts,
+    searchData as searchFooterData,
+} from "../../api/api-calls";
 import ReactHtmlParser from "react-html-parser";
 import { Page } from "../../layouts/page";
 
 export const NewsReadMore = () => {
     const params = useParams();
     const [data, updateData] = useState([]);
+    const [footerData, updateFooterData] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [recentData, updateRecentData] = useState([]);
     const searchData = {
         keyword: "",
@@ -27,15 +33,29 @@ export const NewsReadMore = () => {
     };
 
     useEffect(() => {
-        apiRequest("get", "post/" + params.id, data, updateData);
+        apiRequest("get", "post/" + params.id, data, updateData).finally(() =>
+            setLoading(false)
+        );
         searchPosts(searchData, updateRecentData);
+        searchFooterData(
+            "content",
+            {
+                page: "about-us",
+            },
+            updateFooterData
+        );
     }, []); // eslint-disable-line
+    // eslint-disable-line
 
     return (
         <Page
             title={data.title}
             description={data.excerpt}
             image={process.env.REACT_APP_IMAGEKIT_URL + "news/" + data.image}
+            data={data}
+            updateData={updateData}
+            readMorePage={true}
+            readMoreLoading={loading}
         >
             <div className="pt-[3.8rem] lg:pt-[6.6rem]">
                 <ReadMoreHeader data={data} />
@@ -59,7 +79,7 @@ export const NewsReadMore = () => {
                     </div>
                 </section>
                 <section className="my-10">
-                    <SubFooter />
+                    <SubFooter data={footerData[8]?.content} />
                 </section>
             </div>
         </Page>

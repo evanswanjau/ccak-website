@@ -10,7 +10,7 @@ export const TextArea = ({
         <div>
             <label
                 htmlhtmlFor={type}
-                className="block uppercase mb-2 text-[0.7em] font-bold text-gray-900 font-montserrat"
+                className="block uppercase mb-2 text-[0.7em] font-bold text-gray-900 font-poppins"
             >
                 {name}
                 {required && <span className="text-red-600 text-sm">*</span>}

@@ -13,7 +13,7 @@ export const ResearchRead = ({
                     .replace(/ /g, "-")
                     .replace("'", "")
                     .toLowerCase()}`}
-                className="group flex bg-gray-50 rounded-lg p-5 space-x-4"
+                className="group flex bg-gray-50 rounded-lg p-5 space-x-4 items-center"
             >
                 <div
                     style={{
@@ -24,25 +24,13 @@ export const ResearchRead = ({
                             image
                         })`,
                     }}
-                    className={`w-3/12 bg-cover bg-center bg-no-repeat rounded-lg text-white h-40`}
+                    className={`w-[180px] h-[250px] bg-cover bg-center bg-no-repeat text-white`}
                 ></div>
-                {/* <div className="w-3/12">
-                    <img
-                        src={
-                            process.env.REACT_APP_IMAGEKIT_URL +
-                            folder +
-                            "/" +
-                            image
-                        }
-                        alt={title}
-                    ></img>
-                </div> */}
-
                 <div className="w-9/12 text-left">
-                    <p className="text-sm py-2 text-gray-400">
+                    <p className="text-sm py-2 text-gray-500">
                         {simpleDate(published)}
                     </p>
-                    <h3 className="text-black group-hover:text-[#ED7423] font-medium transition duration-300 ease-in-out">
+                    <h3 className="text-gray-700 group-hover:text-[#ED7423] text-xl font-bold transition duration-300 ease-in-out">
                         {title}
                     </h3>
                     <p className="text-gray-600 line-clamp-2" title={excerpt}>

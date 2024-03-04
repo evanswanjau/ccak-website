@@ -3,9 +3,6 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./layouts/scrollToTop";
 
-import { NavBar } from "./layouts/navBar";
-import { Footer } from "./components/footer";
-
 import { HomePage } from "./pages/home";
 import { WhatWeDoPage } from "./pages/what-we-do/what-we-do";
 import { ProjectsPage } from "./pages/what-we-do/projects";
@@ -59,38 +56,10 @@ import { ActivateEmail } from "./pages/membership/activate";
 import { PrivacyPolicyPage } from "./pages/legal/privacy-policy";
 import { TermsAndConditionsPage } from "./pages/legal/terms-and-conditions";
 
-const viewFooter = (pathname) => {
-    let footer = true;
-
-    if (pathname.split("/")[1] === "social-hub") footer = false;
-    if (pathname.split("/")[1] === "my-account") footer = false;
-    if (pathname.split("/")[2] === "register") footer = false;
-    if (pathname.split("/")[2] === "login") footer = false;
-    if (pathname.split("/")[2] === "onboarding") footer = false;
-    if (pathname.split("/")[2] === "forgot-password") footer = false;
-    if (pathname.split("/")[1] === "checkout") footer = false;
-    if (pathname.split("/")[3] === "activate") footer = false;
-
-    return footer;
-};
-
-const viewHeader = (pathname) => {
-    let footer = true;
-
-    if (pathname.split("/")[2] === "register") footer = false;
-    if (pathname.split("/")[2] === "login") footer = false;
-    if (pathname.split("/")[2] === "onboarding") footer = false;
-    if (pathname.split("/")[2] === "forgot-password") footer = false;
-    if (pathname.split("/")[1] === "checkout") footer = false;
-    if (pathname.split("/")[3] === "activate") footer = false;
-
-    return footer;
-};
 
 function App() {
     return (
         <Router>
-            {viewHeader(window.location.pathname) && <NavBar />}
             <ScrollToTop />
             <Switch>
                 <Route exact path="/" component={HomePage} />
@@ -304,7 +273,7 @@ function App() {
                     component={TermsAndConditionsPage}
                 />
             </Switch>
-            {viewFooter(window.location.pathname) && <Footer />}
+            
         </Router>
     );
 }

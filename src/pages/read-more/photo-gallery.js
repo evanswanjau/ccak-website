@@ -10,6 +10,7 @@ export const PhotoGalleryReadMore = () => {
     const [photos, updatePhotos] = useState([]);
     const [currentImage, setCurrentImage] = useState(0);
     const [viewerIsOpen, setViewerIsOpen] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     const openLightbox = useCallback((event, { photo, index }) => {
         setCurrentImage(index);
@@ -36,6 +37,7 @@ export const PhotoGalleryReadMore = () => {
             })
             .finally(() => {
                 updatePhotos(newArr);
+                setLoading(false);
             });
     }, []); // eslint-disable-line
 
@@ -46,6 +48,10 @@ export const PhotoGalleryReadMore = () => {
             image={
                 process.env.REACT_APP_IMAGEKIT_URL + "gallery/" + photos.image
             }
+            data={photos}
+            updateData={updatePhotos}
+            readMorePage={true}
+            readMoreLoading={loading}
         >
             <div className="pt-[3.8rem] lg:pt-[6.6rem]">
                 <Gallery photos={photos} onClick={openLightbox} />

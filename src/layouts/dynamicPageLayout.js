@@ -6,6 +6,7 @@ import { PostsWidget } from "./postsWidget";
 import { Page } from "./page";
 
 export const DynamicPageLayout = ({ pageData: { page, description } }) => {
+    const [data, updateData] = useState([]);
     const [searchData, updateSearchData] = useState({
         keyword: "",
         table: "posts",
@@ -23,32 +24,59 @@ export const DynamicPageLayout = ({ pageData: { page, description } }) => {
                 page.charAt(0).toUpperCase() + page.slice(1).replace(/-/, " ")
             }`}
             description={description}
+            page={page}
+            data={data}
+            updateData={updateData}
         >
             <div className="pt-[3.8rem] lg:pt-[6.6rem]">
                 <section className="text-center py-12">
                     <Slide bottom>
-                        <h1 className="text-4xl font-semibold my-5 capitalize">
-                            {page.replace(/-/, " ")} Page
+                        <h1 className="text-5xl font-bold my-5 capitalize">
+                            {page.replace(/-/, " ")}
                         </h1>
                     </Slide>
                     <Slide bottom>
                         <p className="w-full px-5 md:w-6/12 mx-auto">
-                            {description}
+                            {data[0]?.content.header}
                         </p>
                     </Slide>
                 </section>
-                <div className="flex flex-col-reverse lg:flex-row px-6 lg:px-16">
-                    <div className="w-full lg:w-9/12">
+                <div
+                    className={`flex lg:${
+                        ![
+                            "external-publications",
+                            "internal-publications",
+                            "newsletters",
+                        ].includes(searchData.category) && "flex-row"
+                    } flex-col-reverse px-6 lg:px-16`}
+                >
+                    <div
+                        className={`w-full lg:${
+                            ![
+                                "external-publications",
+                                "internal-publications",
+                                "newsletters",
+                            ].includes(searchData.category) && "w-9/12"
+                        }`}
+                    >
                         <PostsWidget
                             category={page}
                             searchData={searchData}
                             updateSearchData={updateSearchData}
                         />
                     </div>
-                    <div className="w-full lg:w-4/12 lg:pt-10 lg:pl-10">
+                    <div
+                        className={`w-full lg:${
+                            ![
+                                "external-publications",
+                                "internal-publications",
+                                "newsletters",
+                            ].includes(searchData.category) && "w-4/12"
+                        } lg:pt-10 lg:pl-10`}
+                    >
                         <MediaCentreSideBar
                             category={page}
-                            searchData={searchData}
+                            searchData={{ ...searchData, page: 1, limit: 9 }}
                             updateSearchData={updateSearchData}
                         />
                     </div>

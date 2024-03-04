@@ -2,111 +2,92 @@ import { useState } from "react";
 import { Slide, Fade } from "react-reveal";
 import { DonationStats } from "../../layouts/donationStats";
 import { DonateNow } from "../../layouts/donate";
+import { Page } from "../../layouts/page";
 
 export const DonatePage = () => {
+    const [data, updateData] = useState([]);
     const [show, setShow] = useState(false);
 
     return (
-        <div className="pt-[3.8rem] lg:pt-[6.6rem]">
-            {show && <DonateNow setShow={setShow} />}
+        <Page
+            title="Donate"
+            description="We are committed to using your donations towards the adoption of clean cooking technologies in Kenya, and we are grateful for your support in helping us achieve our goals."
+            page="donate"
+            data={data}
+            updateData={updateData}
+        >
+            <div className="pt-[3.8rem] lg:pt-[6.6rem]">
+                {show && <DonateNow setShow={setShow} />}
 
-            <section className="flex flex-col md:flex-row w-full py-6 md:py-20 px-6 md:px-12 bg-[#F2F9F4]">
-                <div className="hidden w-full lg:block md:w-1/12">
-                    <Fade>
-                        <div className="border-t-2 border-black mx-5 my-2"></div>
-                    </Fade>
-                </div>
-                <div className="w-full lg:w-6/12 md:pr-5">
-                    <Fade>
-                        <h6 className="text-black font-semibold">DONATE</h6>
-                    </Fade>
-                    <Slide bottom>
-                        <h2 className="text-black text-4xl lg:text-6xl my-8 font-bold">
-                            Donate today and support a good cause
-                        </h2>
-                    </Slide>
-                    <Slide bottom>
-                        <p className="my-5 text-gray-600">
-                            We are committed to using your donations towards the
-                            adoption of clean cooking technologies in Kenya, and
-                            we are grateful for your support in helping us
-                            achieve our goals.
-                        </p>
-                    </Slide>
-                    <Slide bottom>
-                        <button
-                            className="bg-[#ED7423] font-manjari leading-none pb-3 pt-4 px-5 text-white hover:bg-[#ce621b] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest"
-                            onClick={() => {
-                                setShow(true);
-                            }}
-                        >
-                            DONATE NOW
-                        </button>
-                    </Slide>
-                </div>
-                <div className="w-full mt-5 flex items-center md:mt-0 lg:w-5/12">
-                    <Fade>
-                        <img
-                            className="rounded-lg"
-                            src={
-                                process.env.REACT_APP_IMAGEKIT_URL +
-                                "donate_page_section_1.jpg"
-                            }
-                            alt="Importance of clean cooking"
-                        />
-                    </Fade>
-                </div>
-            </section>
-            <section className="w-full flex flex-col lg:flex-row p-6 lg:p-16 space-y-12 lg:space-y-0 lg:space-x-12">
-                <div className="lg:w-6/12">
-                    <Fade>
-                        <h5 className="font-semibold pb-5">
-                            We are committed to using every dollar donated
-                            towards our programs, and we are grateful for your
-                            support in helping us achieve our goals.
-                        </h5>
-                    </Fade>
-                    <Fade>
-                        <p className="text-gray-600">
-                            At Clean Cooking Association of Kenya we are the
-                            national clean cooking sector representative and the
-                            lead champion for sustainable universal clean and
-                            efficient cooking in Kenya. We innate and steer
-                            policy, regulation, and fiscal change that favour
-                            our members, influence standards, gather, analyse
-                            and disseminate information and offer value addition
-                            to our members. Your Donation will support the
-                            association’s effort to influence the universal
-                            access and adoption of clean and efficient cooking
-                            solutions and practices in Kenya.
-                        </p>
-                    </Fade>
-                </div>
-                <div className="lg:w-6/12">
-                    <Fade>
-                        <h5 className="font-semibold pb-5">
-                            Your contribution can make a real difference in our
-                            efforts to improve health outcomes, protect the
-                            environment, and uplift livelihoods.
-                        </h5>
-                    </Fade>
-                    <Fade>
-                        <p className="text-gray-600">
-                            Your donation can help us achieve our goal of
-                            providing access to clean cooking solutions for
-                            millions of households in Kenya, reducing the number
-                            of deaths caused by indoor air pollution and
-                            improving overall health outcomes. Your donation can
-                            also help mitigate the effects of climate change and
-                            contribute to environmental conservation. Thank you
-                            for considering a donation to our cause. Together,
-                            we can create a cleaner, healthier, and more
-                            sustainable future for all.
-                        </p>
-                    </Fade>
-                </div>
-            </section>
-            <DonationStats />
-        </div>
+                <section className="flex flex-col items-center space-x-8 md:flex-row w-full p-6 lg:p-32 bg-[#F2F9F4]">
+                    <div className="w-full lg:w-6/12">
+                        <Fade>
+                            <h6 className="text-black text-xs font-semibold">
+                                DONATE
+                            </h6>
+                        </Fade>
+                        <Slide bottom>
+                            <h2 className="text-gray-900 text-4xl lg:text-6xl mt-1 mb-8 font-bold">
+                                {data[0]?.content?.title}
+                            </h2>
+                        </Slide>
+                        <Slide bottom>
+                            <p className="my-5 text-gray-600">
+                                {data[0]?.content?.content}
+                            </p>
+                        </Slide>
+                        <Slide bottom>
+                            <button
+                                className="bg-[#ED7423] font-manjari leading-none pb-3 pt-4 px-5 text-white hover:bg-[#ce621b] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest"
+                                onClick={() => {
+                                    setShow(true);
+                                }}
+                            >
+                                DONATE NOW
+                            </button>
+                        </Slide>
+                    </div>
+                    <div className="w-full flex items-center lg:w-6/12">
+                        <Fade>
+                            <img
+                                className="rounded-lg"
+                                src={
+                                    process.env.REACT_APP_IMAGEKIT_URL +
+                                    data[0]?.content?.image
+                                }
+                                alt={data[0]?.content?.title}
+                            />
+                        </Fade>
+                    </div>
+                </section>
+                <section className="w-full flex flex-col lg:flex-row p-6 lg:p-32 space-y-12 lg:space-y-0 lg:space-x-12">
+                    <div className="lg:w-6/12">
+                        <Fade>
+                            <h5 className="font-semibold text-xl pb-5">
+                                {data[1]?.content[0]?.title}
+                            </h5>
+                        </Fade>
+                        <Fade>
+                            <p className="text-gray-600">
+                                {data[1]?.content[0]?.content}
+                            </p>
+                        </Fade>
+                    </div>
+                    <div className="lg:w-6/12">
+                        <Fade>
+                            <h5 className="font-semibold text-xl pb-5">
+                                {data[1]?.content[1]?.title}
+                            </h5>
+                        </Fade>
+                        <Fade>
+                            <p className="text-gray-600">
+                                {data[1]?.content[1]?.content}
+                            </p>
+                        </Fade>
+                    </div>
+                </section>
+                <DonationStats data={data[2]?.content} />
+            </div>
+        </Page>
     );
 };
