@@ -26,7 +26,7 @@ export const RecentProjects = ({ title }) => {
     }, []); // eslint-disable-line
 
     return (
-        <div className="px-6 py-10 lg:p-32">
+        <div className="px-6 py-10 lg:px-32 lg:py-24">
             <div className="flex flex-row w-full ">
                 <div className="lg:w-11/12">
                     <Slide bottom>

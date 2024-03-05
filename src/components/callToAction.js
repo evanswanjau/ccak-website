@@ -11,7 +11,7 @@ export const CallToAction = ({ data }) => {
                 }}
                 className="flex mb-20 mx-6 lg:mx-32 bg-cover bg-bottom bg-no-repeat rounded-lg"
             >
-                <div className="bg-black/[.3] rounded-lg px-3 py-20 lg:p-24 w-full">
+                <div className="bg-black/[.3] rounded-lg px-3 py-20 lg:p-40 w-full">
                     <h3
                         style={{ lineHeight: "50px" }}
                         className="text-white text-2xl mx-auto lg:mb-10 lg:w-10/12 sm:text-5xl text-center font-semibold capitalize-first"

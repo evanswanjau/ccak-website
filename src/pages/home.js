@@ -192,7 +192,7 @@ export const HomePage = () => {
                                 className="rounded-lg max-h-[40em] mx-auto"
                                 src={
                                     process.env.REACT_APP_IMAGEKIT_URL +
-                                    "home_section_2_promote_clean_cooking.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1678477808057"
+                                    data[5]?.content?.image
                                 }
                                 alt="Promoting clean cooking"
                             />
