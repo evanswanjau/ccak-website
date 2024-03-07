@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Slide, Fade } from "react-reveal";
 import { PlayCircleIcon } from "@heroicons/react/24/solid";
 import {
@@ -17,6 +18,20 @@ import ReactHtmlParser from "react-html-parser";
 export const AboutUsPage = () => {
     const [show, setShow] = useState(false);
     const [data, updateData] = useState([]);
+
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.hash) {
+            console.log(location.hash);
+            let elem = document.getElementById(location.hash.slice(1));
+            if (elem) {
+                elem.scrollIntoView({ behavior: "smooth" });
+            }
+        } else {
+            window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        }
+    }, [location]);
 
     return (
         <Page
@@ -59,7 +74,10 @@ export const AboutUsPage = () => {
                         </Slide>
                     </div>
                 </section>
-                <section className="p-6 lg:p-32 bg-[#dbefdf]">
+                <section
+                    id="our-mission-vision"
+                    className="p-6 lg:p-32 bg-[#dbefdf]"
+                >
                     <Slide bottom>
                         <div
                             style={{
@@ -77,7 +95,7 @@ export const AboutUsPage = () => {
                         </div>
                     </Slide>
                     <div className="flex flex-col md:flex-row justify-evenly mt-16">
-                        <div id="our-vision" className="lg:w-4/12">
+                        <div className="lg:w-4/12">
                             <Slide bottom>
                                 <h6 className="text-black text-2xl font-semibold my-5 uppercase tracking-wider">
                                     {data[2]?.content?.[0]?.title}

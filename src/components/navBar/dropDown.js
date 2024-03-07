@@ -11,6 +11,14 @@ export const DropDown = ({ dropDown: { show, category }, setDropDown }) => {
                 link: "/who-we-are/our-team",
                 name: "OUR TEAM",
             },
+            {
+                link: "/who-we-are/about-us#our-mission-vision",
+                name: "OUR MISSION",
+            },
+            {
+                link: "/who-we-are/about-us#our-mission-vision",
+                name: "OUR VISION",
+            },
         ],
         info: {
             title: "WHO WE ARE",
