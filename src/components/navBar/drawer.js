@@ -19,6 +19,14 @@ const data = [
                 link: "/who-we-are/our-team",
                 name: "OUR TEAM",
             },
+            {
+                link: "/who-we-are/about-us#our-mission-vision",
+                name: "ABOUT MISSION",
+            },
+            {
+                link: "/who-we-are/about-us#our-mission-vision",
+                name: "OUR VISION",
+            },
         ],
         info: {
             title: "WHO WE ARE",
@@ -154,6 +162,13 @@ const data = [
             link: "#",
         },
         image: "http://localhost:5173/src/assets/home/BGHomeVid.png",
+    },
+    {
+        links: [],
+        info: {
+            title: "SOCIAL HUB",
+            link: "/social-hub/",
+        },
     },
     {
         links: [],
