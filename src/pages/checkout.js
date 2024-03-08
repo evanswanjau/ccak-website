@@ -4,7 +4,7 @@ import { HiChevronRight } from "react-icons/hi";
 import { InputForm } from "../components/forms/input-form";
 import { paymentsByInvoice, activateMpesaPayment } from "../api/api-calls";
 import { ButtonLoader } from "../components/btnLoader";
-import { getMemberInvoice, getMember } from "../api/member-api-calls";
+import { getMemberInvoice } from "../api/member-api-calls";
 
 export const CheckoutInvoice = () => {
     const params = useParams();
@@ -34,7 +34,7 @@ export const CheckoutInvoice = () => {
         setSuccess("");
         setError("");
         activateMpesaPayment({
-            transaction_id: details.mpesaCode,
+            transaction_id: details.mpesaCode.toUpperCase(),
             invoice_number: params.no,
             email: invoice.email || member.email,
         })
@@ -112,7 +112,7 @@ export const CheckoutInvoice = () => {
 
     const getAllPayments = () => {
         return paymentsByInvoice(params.no).then(({ data }) => {
-            setPayments(data);
+            setPayments(data.results);
             return data;
         });
     };
@@ -135,15 +135,9 @@ export const CheckoutInvoice = () => {
     if (current === "mpesa-deposit") disabled = details.mpesaCode === "";
 
     useEffect(() => {
-        getMember(setMember).finally(() => {
-            if (member.first_name)
-                setMember({
-                    ...member,
-                    name: member.first_name + " " + member.last_name,
-                });
+        getMemberInvoice(params.id, updateInvoice).then((data) => {
+            setMember({ ...member, ...data.customer });
         });
-
-        getMemberInvoice(params.id, updateInvoice);
 
         getAllPayments();
     }, []); //eslint-disable-line
@@ -341,9 +335,9 @@ export const CheckoutInvoice = () => {
                     {invoice.invoice_number && (
                         <>
                             <ul>
-                                {invoice.items.map((item) => {
+                                {invoice.items.map((item, i) => {
                                     return (
-                                        <li className=" border-b py-5">
+                                        <li key={i} className=" border-b py-5">
                                             <div className="font-semibold flex justify-between">
                                                 <h3>
                                                     {item.quantity} x{" "}

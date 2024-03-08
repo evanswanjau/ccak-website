@@ -53,8 +53,8 @@ export const OurMembersPage = () => {
     const [searchData, updateSearchData] = useState({
         keyword: "",
         technology: technology,
-        registration_status: "registered",
-        subscription_status: "active",
+        registration_status: "",
+        subscription_status: "",
         subscription_category: category,
         status: "",
         page: 1,
