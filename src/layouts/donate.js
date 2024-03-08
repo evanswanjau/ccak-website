@@ -49,7 +49,7 @@ export const DonateNow = ({ setShow }) => {
             updateDonation({
                 ...donation,
                 invoice_number: data.invoice_number,
-            }).then(({ data }) => {
+            }).then(() => {
                 window.location.replace(
                     "/checkout/invoice/" + data.id + "/" + data.invoice_number
                 );
@@ -170,6 +170,7 @@ export const DonateNow = ({ setShow }) => {
                                         {amountOptions.map((option) => {
                                             return (
                                                 <p
+                                                    key={option}
                                                     className="border p-3 pb-2 w-25 my-2 mr-3 text-lg rounded-lg cursor-pointer"
                                                     onClick={() => {
                                                         updateData({

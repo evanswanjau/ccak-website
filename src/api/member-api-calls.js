@@ -141,10 +141,7 @@ export const changeMemberPassword = (id, data, setSuccess, setError) => {
     return axios({
         method: "post",
         url:
-            process.env.REACT_APP_API_URL +
-            "member/" +
-            id +
-            "/change-password",
+            process.env.REACT_APP_API_URL + "member/" + id + "/change-password",
         data: data,
         headers: {
             "Content-Type": "application/json",
@@ -175,7 +172,9 @@ export const getMemberInvoice = (id, updateData) => {
         url: process.env.REACT_APP_API_URL + "invoice/" + id,
         headers: {
             "Content-Type": "application/json",
-            Authorization: "Bearer " + localStorage.getItem("token"),
+            ...(localStorage.getItem("token") && {
+                Authorization: "Bearer " + localStorage.getItem("token"),
+            }),
         },
     }).then(({ data }) => {
         updateData(data);
