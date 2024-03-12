@@ -19,16 +19,16 @@ export const TopBar = ({ setDropDown }) => {
             ),
         },
         {
-            link: "/social-hub",
-            name: "SOCIAL HUB",
-        },
-        {
             link: "tel:+254707111669",
             name: "+254 707 111 669",
         },
         {
             link: "mailto:info@ccak.or.ke",
             name: "info@ccak.or.ke",
+        },
+        {
+            link: "/social-hub",
+            name: "SOCIAL HUB",
         },
     ];
 
