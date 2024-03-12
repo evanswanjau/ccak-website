@@ -23,75 +23,57 @@ export const TopBar = ({ setDropDown }) => {
             name: "SOCIAL HUB",
         },
         {
-            link: "#",
-            name: "RESOURCE CENTRE",
+            link: "tel:+254707111669",
+            name: "+254 707 111 669",
         },
         {
-            link: "#",
-            name: "MEDIA CENTRE",
+            link: "mailto:info@ccak.or.ke",
+            name: "info@ccak.or.ke",
         },
     ];
 
     return (
-        <nav className="flex flex-row p-2 w-100 font-manjari text-gray-600 bg-white items-centre lg:px-16">
+        <nav className="flex flex-row p-2 w-100 text-gray-600 bg-white items-centre lg:px-10 relative">
             <div className="w-3/12">
                 <a href="/">
                     <img
-                        className="w-10"
+                        className="w-[6.2em] absolute bg-white shadow-xl top-50"
                         src="/ccak_logo.png"
                         alt="CCAK Logo"
                     />
                 </a>
             </div>
             <div className="w-9/12">
-                <ul className="flex flex-row justify-end items-center">
-                    {links.map((link) =>
-                        link.link === "#" ? (
+                <ul className="flex flex-row space-x-8 justify-end items-center">
+                    {links.map((link) => (
+                        <a
+                            href={link.link}
+                            key={link.name}
+                            target={
+                                link.link === "tel:*789*788#"
+                                    ? "_blank"
+                                    : "_self"
+                            }
+                            rel="noreferrer"
+                        >
                             <li
-                                key={link.name}
                                 className={` ${
                                     link.link !== "tel:*789*788#" &&
                                     "border-l hover:text-[#ED7423]"
-                                }  px-5 cursor-pointer`}
+                                }  pl-5 cursor-pointer  font-poppins font-semibold text-sm tracking-wide`}
                                 onMouseEnter={() => {
                                     setDropDown({
-                                        show: true,
-                                        category: link.name,
+                                        show: false,
+                                        category: "",
                                     });
                                 }}
                             >
                                 {link.name}
                             </li>
-                        ) : (
-                            <a
-                                href={link.link}
-                                key={link.name}
-                                target={
-                                    link.link === "tel:*789*788#"
-                                        ? "_blank"
-                                        : "_self"
-                                }
-                                rel="noreferrer"
-                            >
-                                <li
-                                    className={` ${
-                                        link.link !== "tel:*789*788#" &&
-                                        "border-l hover:text-[#ED7423]"
-                                    }  px-5 cursor-pointer`}
-                                    onMouseEnter={() => {
-                                        setDropDown({
-                                            show: false,
-                                            category: "",
-                                        });
-                                    }}
-                                >
-                                    {link.name}
-                                </li>
-                            </a>
-                        )
-                    )}
+                        </a>
+                    ))}
                     <a href="/get-involved/donate">
-                        <button className="bg-[#EC7422] text-white pt-[0.3em] px-3 mx-5 hover:bg-[#ce621b] rounded-md tracking-widest">
+                        <button className="border border-[#EC7422] text-[#EC7422] py-1 px-4 font-poppins font-bold hover:bg-[#ce621b] hover:text-white rounded-md tracking-widest transition delay-75 ease-in-out">
                             DONATE
                         </button>
                     </a>
