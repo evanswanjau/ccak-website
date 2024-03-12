@@ -53,8 +53,9 @@ a {
 }
 
 #content p {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    line-height: 1.8em;
 }
 
 #content p img {
@@ -63,6 +64,16 @@ a {
 
 #content a {
     color: #3771ee;
+}
+
+#content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+#content ol {
+    list-style-type: decimal;
+    padding-left: 20px;
 }
 
 @keyframes scroll {
