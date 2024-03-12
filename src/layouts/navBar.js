@@ -41,14 +41,14 @@ export const NavBar = () => {
 
     return (
         <div className="fixed z-40 flex w-full">
-            <div className="w-full hidden md:block">
+            <div className="w-full hidden lg:block">
                 {topBar && (
                     <TopBar dropDown={dropDown} setDropDown={setDropDown} />
                 )}
                 <MenuBar dropDown={dropDown} setDropDown={setDropDown} />
                 <DropDown dropDown={dropDown} setDropDown={setDropDown} />
             </div>
-            <div className="w-full md:hidden">
+            <div className="w-full lg:hidden">
                 <HamburgerMenu setMobile={setMobile} />
                 {mobile && <Drawer mobile={mobile} setMobile={setMobile} />}
             </div>

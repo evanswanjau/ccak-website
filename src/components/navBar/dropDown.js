@@ -182,7 +182,7 @@ export const DropDown = ({ dropDown: { show, category }, setDropDown }) => {
             >
                 <div
                     id="dropdown"
-                    className="z-10 flex flex-wrap w-100 font-manjari text-gray-600 bg-white shadow-sm"
+                    className="z-10 flex flex-wrap w-100 text-gray-700 bg-white shadow-sm"
                     onMouseLeave={() => {
                         setDropDown({ show: false, category: "" });
                     }}
@@ -192,7 +192,7 @@ export const DropDown = ({ dropDown: { show, category }, setDropDown }) => {
                             {data.links.map((link, i) => (
                                 <a href={link.link} key={i}>
                                     <li
-                                        className="m-6 cursor-pointer text-lg hover:text-[#ED7423]"
+                                        className="m-6 font-poppins font-semibold tracking-wider cursor-pointer hover:text-[#ED7423]"
                                         onClick={() => {
                                             setDropDown({
                                                 show: false,
@@ -208,7 +208,7 @@ export const DropDown = ({ dropDown: { show, category }, setDropDown }) => {
                     </div>
                     <div className="w-5/12 p-3">
                         <div className="border-l p-2">
-                            <h1 className="m-5 text-2xl text-gray-800">
+                            <h1 className="m-5 text-xl font-bold text-gray-700">
                                 {data.info.title}
                             </h1>
                             <p className="m-5">{data.info.content}</p>

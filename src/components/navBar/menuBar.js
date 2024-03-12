@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { searchPosts } from "../../api/api-calls";
+import { HiOutlineSearch } from "react-icons/hi";
 
 const links = [
     {
@@ -22,6 +23,14 @@ const links = [
         link: "#",
         name: "MEMBERSHIP",
     },
+    {
+        link: "#",
+        name: "RESOURCE CENTRE",
+    },
+    {
+        link: "#",
+        name: "MEDIA CENTRE",
+    },
 ];
 
 export const MenuBar = ({ setDropDown }) => {
@@ -40,6 +49,7 @@ export const MenuBar = ({ setDropDown }) => {
         ip_address: "",
         created_by: 0,
     });
+    const [isFocused, setIsFocused] = useState(false);
 
     const getUrl = (data) => {
         let page = "";
@@ -81,14 +91,14 @@ export const MenuBar = ({ setDropDown }) => {
     }, [searchData]); // eslint-disable-line
 
     return (
-        <div className="flex flex-row px-5 items-center w-100 font-manjari text-gray-600 bg-[#329E49]">
-            <div className="lg:w-9/12">
+        <div className="flex flex-row pl-40 px-8 font-poppins font-semibold tracking-wider justify-between items-center w-100 text-gray-600 bg-[#329E49]">
+            <div className="lg:w-10/12">
                 <ul className="flex flex-row">
                     {links.map((link) =>
                         link.link === "#" ? (
                             <li
                                 key={link.name}
-                                className="pt-4 pb-3 px-5 cursor-pointer truncate text-lg text-gray-100 hover:text-white hover:bg-[#ED7423] transition duration-300 ease-in"
+                                className="pt-5 pb-4 px-5 cursor-pointer truncate text-gray-100 hover:text-white hover:bg-[#ED7423]"
                                 onMouseEnter={() => {
                                     setDropDown({
                                         show: true,
@@ -99,42 +109,50 @@ export const MenuBar = ({ setDropDown }) => {
                                 {link.name}
                             </li>
                         ) : (
-                            <a href={link.link} key={link.name}>
-                                <li
-                                    className="pt-4 pb-3 px-5 cursor-pointer truncate text-lg text-gray-100 hover:text-white hover:bg-[#ED7423] transition duration-300 ease-in"
-                                    onMouseEnter={() => {
-                                        setDropDown({
-                                            show: false,
-                                            category: "",
-                                        });
-                                    }}
-                                >
-                                    {link.name}
-                                </li>
+                            <a
+                                href={link.link}
+                                key={link.name}
+                                className="pt-4 pb-3 px-5 font-poppins font-semibold tracking-wider cursor-pointer truncate text-gray-100 hover:text-white hover:bg-[#ED7423]"
+                                onMouseEnter={() => {
+                                    setDropDown({
+                                        show: false,
+                                        category: "",
+                                    });
+                                }}
+                            >
+                                {link.name}
                             </a>
                         )
                     )}
                 </ul>
             </div>
             <div
-                className="lg:w-3/12"
+                className="flex justify-end w-2/12"
                 onMouseLeave={() => {
                     updateSearchData({ ...searchData, keyword: "" });
                 }}
             >
-                <input
-                    className="w-full placeholder-gray-300 bg-[#2e8641] text-white font-manjari outline-none rounded-md pt-2 pb-1 px-3 focus:outline-none"
-                    type="text"
-                    placeholder={`Search`}
-                    value={searchData.keyword}
-                    onChange={(event) => {
-                        updateSearchData({
-                            ...searchData,
-                            keyword: event.target.value,
-                        });
-                    }}
-                />
-                <div className="absolute right-[1em] bg-white shadow-lg  max-h-[calc(100vh-10rem)] lg:w-3/12 rounded-lg">
+                <div className="relative">
+                    <input
+                        className={`pl-10 w-${
+                            isFocused ? "full" : "32"
+                        } placeholder-gray-300 bg-[#2e8641] text-white font-manjari outline-none rounded-md pt-3 pb-1 px-3 focus:outline-none`}
+                        type="text"
+                        placeholder={`Search`}
+                        value={searchData.keyword}
+                        onFocus={() => setIsFocused(true)}
+                        onBlur={() => setIsFocused(false)}
+                        onChange={(event) => {
+                            updateSearchData({
+                                ...searchData,
+                                keyword: event.target.value,
+                            });
+                        }}
+                    />
+                    <HiOutlineSearch className="absolute left-2 top-1/2 transform -translate-y-1/2 text-white" />
+                </div>
+
+                <div className="absolute mt-12 right-[1em] bg-white shadow-lg  max-h-[calc(100vh-10rem)] lg:w-3/12 rounded-lg">
                     {loading ? (
                         <p className="p-3 text-sm text-gray-400">
                             Searching ...
