@@ -44,6 +44,7 @@ import { RegisterPage } from "./pages/membership/register";
 import { LoginPage } from "./pages/membership/login";
 import { OnboardingPage } from "./pages/membership/onboarding";
 import { ForgotPasswordPage } from "./pages/membership/forgot-password";
+import { ResetPasswordPage } from "./pages/membership/reset-password";
 
 import { SocialHubHomePage } from "./pages/social-hub";
 import { MyAccountProfilePage } from "./pages/my-account/profile";
@@ -55,7 +56,6 @@ import { CheckoutInvoice } from "./pages/checkout";
 import { ActivateEmail } from "./pages/membership/activate";
 import { PrivacyPolicyPage } from "./pages/legal/privacy-policy";
 import { TermsAndConditionsPage } from "./pages/legal/terms-and-conditions";
-
 
 function App() {
     return (
@@ -233,6 +233,10 @@ function App() {
                     component={ForgotPasswordPage}
                 />
                 <Route
+                    path="/membership/reset-password/:token"
+                    component={ResetPasswordPage}
+                />
+                <Route
                     exact
                     path="/membership/email/activate/:token"
                     component={ActivateEmail}
@@ -273,7 +277,6 @@ function App() {
                     component={TermsAndConditionsPage}
                 />
             </Switch>
-            
         </Router>
     );
 }

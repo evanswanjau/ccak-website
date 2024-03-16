@@ -43,7 +43,7 @@ export const ForgotPasswordPage = () => {
     };
 
     return (
-        <div className="h-screen p-5">
+        <div className="flex items-center justify-center h-screen p-5">
             <div className="w-full md:w-8/12 lg:w-5/12 p-10 bg-white shadow-lg mx-auto rounded-lg">
                 <a href="/">
                     <img
@@ -53,7 +53,7 @@ export const ForgotPasswordPage = () => {
                     />
                 </a>
                 <h1 className="font-bold text-xl text-center mt-8 mb-2">
-                    Reset Password
+                    Forgot Password
                 </h1>
                 <p className="text-gray-400 text-center">
                     Enter the email address you used to register and we'll send
@@ -85,10 +85,10 @@ export const ForgotPasswordPage = () => {
                         {btnLoading ? <ButtonLoader /> : "RESET PASSWORD"}
                     </button>
                 </div>
-                <div className="text-gray-600 hover:text-black flex justify-center">
-                    <a className="flex space-x-2" href="/">
-                        <FiArrowLeft className="text-sm mt-[0.1em]" />
-                        <span className="text-sm">Back to main site</span>
+                <div className="flex justify-center">
+                    <a className="flex space-x-2" href="/membership/login">
+                        <FiArrowLeft className="mt-[0.4em]" />
+                        <span>Back to login</span>
                     </a>
                 </div>
             </div>
