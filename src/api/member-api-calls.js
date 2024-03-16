@@ -153,7 +153,6 @@ export const changeMemberPassword = (id, data, setSuccess, setError) => {
             return data;
         })
         .catch(({ response }) => {
-            console.log(response);
             setError(
                 response.data.error
                     ? response.data.error
