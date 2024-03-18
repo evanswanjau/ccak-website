@@ -55,7 +55,7 @@ export const Carousel = ({ items, autoplay, slides, show, reverse, arrow }) => {
         slidesToScroll: slides,
         autoplay: autoplay,
         rtl: reverse,
-        arrows: false,
+        arrows: arrow,
         responsive: [
             {
                 breakpoint: 1024,
@@ -69,6 +69,7 @@ export const Carousel = ({ items, autoplay, slides, show, reverse, arrow }) => {
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 2,
+                    arrows: false,
                 },
             },
             {
@@ -76,6 +77,7 @@ export const Carousel = ({ items, autoplay, slides, show, reverse, arrow }) => {
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1,
+                    arrows: false,
                 },
             },
         ],
@@ -84,7 +86,6 @@ export const Carousel = ({ items, autoplay, slides, show, reverse, arrow }) => {
     if (arrow)
         settings = {
             ...settings,
-            arrows: true,
             nextArrow: <NextArrow />,
             prevArrow: <PrevArrow />,
         };

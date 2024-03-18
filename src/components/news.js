@@ -9,7 +9,7 @@ export const News = ({
         <Fade>
             <div
                 className={`group bg-white shadow-md hover:shadow-xl transition-shadow duration-300 rounded-b-xl ${
-                    carousel && "mr-3"
+                    carousel && "mx-1 md:mr-3"
                 }`}
             >
                 <a

@@ -109,6 +109,13 @@ a {
     --swiper-navigation-color: #ffffff;
 }
 
+@media (max-width: 768px) {
+    .mySwiper .swiper-button-next,
+    .mySwiper .swiper-button-prev {
+        display: none !important;
+    }
+}
+
 @keyframes modal-video {
     from {
         opacity: 0;
