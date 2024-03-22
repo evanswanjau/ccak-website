@@ -13,7 +13,21 @@ import { SubFooter } from "../../layouts/subFooter";
 import { ModalYoutubeVideo } from "../../layouts/modalVideo";
 import { Page } from "../../layouts/page";
 import { Carousel } from "../../components/carousel";
-import ReactHtmlParser from "react-html-parser";
+
+const iconComponents = {
+    UsersIcon: UsersIcon,
+    ScaleIcon: ScaleIcon,
+    Squares2X2Icon: Squares2X2Icon,
+    CubeTransparentIcon: CubeTransparentIcon,
+    WrenchScrewdriverIcon: WrenchScrewdriverIcon,
+};
+
+const getIcon = (iconString) => {
+    const match = iconString.match(/<(\w+)/);
+    const iconName = match ? match[1] : null;
+    const IconComponent = iconComponents[iconName];
+    return iconName ? <IconComponent className="w-8" /> : null;
+};
 
 export const AboutUsPage = () => {
     const [show, setShow] = useState(false);
@@ -47,7 +61,7 @@ export const AboutUsPage = () => {
                     setShow={setShow}
                     youtubeId={data[1]?.content?.youtubeId}
                 />
-                <section className="flex flex-col space-x-8 md:flex-row w-full mb-40 p-6 lg:p-32">
+                <section className="flex flex-col space-y-8 md:space-x-8 md:flex-row w-full mb-40 p-6 lg:p-32">
                     <div className="w-full lg:w-6/12">
                         <Fade>
                             <h6 className="text-black text-xs font-bold">
@@ -55,7 +69,7 @@ export const AboutUsPage = () => {
                             </h6>
                         </Fade>
                         <Slide bottom>
-                            <h2 className="text-black text-4xl lg:text-5xl font-bold">
+                            <h2 className="text-gray-800 text-4xl lg:text-6xl font-bold">
                                 {data[0]?.content?.title}
                             </h2>
                         </Slide>
@@ -81,17 +95,14 @@ export const AboutUsPage = () => {
                     <Slide bottom>
                         <div
                             style={{
-                                backgroundImage: `url(${
-                                    process.env.REACT_APP_IMAGEKIT_URL +
-                                    data[1]?.content?.image
-                                })`,
+                                backgroundImage: `url(https://img.youtube.com/vi/${data[1]?.content?.youtubeId}/maxresdefault.jpg)`,
                             }}
-                            className="md:-mt-80 mx-auto flex justify-center w-10/12 p-40 bg-cover bg-center bg-no-repeat rounded-lg group cursor-pointer"
+                            className="-mt-48 lg:-mt-80 mx-auto flex justify-center items-center w-full md:w-10/12 py-20 LG:py-40 bg-cover bg-center bg-no-repeat rounded-lg group cursor-pointer"
                             onClick={() => {
                                 setShow(true);
                             }}
                         >
-                            <PlayCircleIcon className="w-12 text-white group-hover:scale-[1.15] group-hover:text-[#ED7423] duration-300 ease-in-out" />
+                            <PlayCircleIcon className="w-16 text-white group-hover:scale-[1.15] group-hover:text-[#ED7423] duration-300 ease-in-out border-5 border-red-600" />
                         </div>
                     </Slide>
                     <div className="flex flex-col md:flex-row justify-evenly mt-16">
@@ -207,13 +218,13 @@ export const AboutUsPage = () => {
                 </section>
                 <section className="p-6 lg:px-32 py-24">
                     <Slide bottom>
-                        <h2 className="font-semibold text-4xl pb-10 flex justify-center capitalize-first">
+                        <h2 className="font-semibold text-5xl pb-10 flex justify-center capitalize-first">
                             {data[5]?.content?.title}
                         </h2>
                     </Slide>
-                    <div className="flex flex-col lg:flex-row space-y-12 lg:space-y-0 lg:space-x-12">
+                    <div className="flex flex-col lg:flex-row space-y-12 lg:space-y-0 lg:space-x-8">
                         <div className="lg:w-6/12">
-                            <p className="text-gray-600">
+                            <p className="text-gray-800">
                                 <Slide bottom>
                                     {data[5]?.content?.content[0]?.content}
                                 </Slide>
@@ -221,7 +232,7 @@ export const AboutUsPage = () => {
                         </div>
                         <div className="lg:w-6/12">
                             <Slide bottom>
-                                <p className="text-gray-600">
+                                <p className="text-gray-800">
                                     <Slide bottom>
                                         {data[5]?.content?.content[1]?.content}
                                     </Slide>
@@ -231,21 +242,21 @@ export const AboutUsPage = () => {
                     </div>
                 </section>
                 <section className="p-6 lg:p-16">
-                    <div className="flex flex-col lg:flex-row items-center bg-[#f5bb95] lg:space-x-10 p-6 lg:p-16 rounded-lg">
+                    <div className="flex flex-col-reverse lg:flex-row items-center bg-[#f5bb95] lg:space-x-10 p-6 lg:p-16 rounded-lg">
                         <div className="lg:w-6/12">
                             <Slide bottom>
-                                <h3 className="text-3xl md:text-4xl mb-10 font-bold">
+                                <h3 className="text-4xl md:text-5xl mb-10 font-bold text-gray-800">
                                     {data[6]?.content?.title}
                                 </h3>
                             </Slide>
 
                             <Slide bottom>
-                                <p className="text-lg">
+                                <p className="text-lg text-gray-800">
                                     {data[6]?.content?.content}
                                 </p>
                             </Slide>
                         </div>
-                        <div className="lg:w-6/12">
+                        <div className="lg:w-6/12 mb-5 lg:mb-0">
                             <Fade>
                                 <img
                                     className="rounded-lg mx-auto"
@@ -261,7 +272,7 @@ export const AboutUsPage = () => {
                 </section>
                 <section className="p-6 lg:px-8">
                     <Slide bottom>
-                        <h2 className="font-semibold text-3xl md:text-4xl flex justify-center">
+                        <h2 className="font-semibold text-4xl md:text-5xl flex justify-center text-gray-800">
                             {data[7]?.content?.title}
                         </h2>
                     </Slide>
@@ -271,11 +282,11 @@ export const AboutUsPage = () => {
                                 return (
                                     <Slide bottom key={i}>
                                         <div className="space-y-2">
-                                            {ReactHtmlParser(pillar.icon)}
-                                            <h6 className="font-semibold capitalize text-black">
+                                            {getIcon(pillar.icon)}
+                                            <h6 className="font-bold text-xl capitalize">
                                                 {pillar.name}
                                             </h6>
-                                            <p className="text-gray-600">
+                                            <p className="text-gray-800">
                                                 {pillar.description}
                                             </p>
                                         </div>

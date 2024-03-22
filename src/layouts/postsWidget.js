@@ -123,7 +123,7 @@ export const PostsWidget = ({
                         })}
                     </div>
                     {pagination && paginationData.count > searchData.limit && (
-                        <div className="my-5 text-center">
+                        <div className="my-5 text-center overflow-auto">
                             <Pagination
                                 paginationData={paginationData}
                                 search={searchData}

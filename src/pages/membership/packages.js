@@ -17,7 +17,7 @@ export const PackagesPage = () => {
             <div className="pt-[3.8rem] lg:pt-[6.6rem]">
                 <section className="text-center py-12">
                     <Slide bottom>
-                        <h1 className="text-5xl font-semibold my-5">
+                        <h1 className="text-gray-800 text-4xl lg:text-6xl font-semibold my-5">
                             Packages
                         </h1>
                     </Slide>

@@ -21,7 +21,7 @@ const data = [
             },
             {
                 link: "/who-we-are/about-us#our-mission-vision",
-                name: "ABOUT MISSION",
+                name: "OUR MISSION",
             },
             {
                 link: "/who-we-are/about-us#our-mission-vision",

@@ -192,7 +192,7 @@ export const ConfirmDetails = ({ data }) => {
                     )}
                 </div>
                 <div className="w-full space-y-2">
-                    {subData.name && (
+                    {subData?.name && (
                         <>
                             <h3 className="font-bold mb-4">Subscription</h3>
                             <p className="capitalize">

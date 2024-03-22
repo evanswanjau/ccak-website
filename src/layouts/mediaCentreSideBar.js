@@ -17,7 +17,7 @@ export const MediaCentreSideBar = ({
                             "internal-publications",
                             "newsletters",
                         ].includes(category)
-                            ? "mx-auto w-4/12 text-center"
+                            ? "mx-auto w-full lg:w-4/12 text-center"
                             : "w-full"
                     }`}
                 >

@@ -65,7 +65,7 @@ export const RegisterPage = () => {
             data={pageData}
             updateData={updatePageData}
         >
-            <div className="h-screen flex">
+            <div className="md:h-screen flex">
                 <div
                     style={{
                         backgroundImage: `url(${
@@ -79,11 +79,17 @@ export const RegisterPage = () => {
                     <div className="h-full w-full bg-black bg-opacity-50 overflow-y-auto">
                         <ul className="text-lg text-white flex space-x-2">
                             <li className="m-3 hover:text-[#ED7423] transition duration-300 ease-in-out">
-                                <a href="/"><h3 className="font-bold text-lg">Back to main site</h3></a>
+                                <a href="/">
+                                    <h3 className="font-bold text-lg">
+                                        Back to main site
+                                    </h3>
+                                </a>
                             </li>
                             <li className="m-3 hover:text-[#ED7423] transition duration-300 ease-in-out">
                                 <a href="/membership/packages">
-                                   <h3 className="font-bold text-lg">Member packages</h3> 
+                                    <h3 className="font-bold text-lg">
+                                        Member packages
+                                    </h3>
                                 </a>
                             </li>
                         </ul>
@@ -109,11 +115,16 @@ export const RegisterPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-full p-10 bg-white overflow-y-auto flex flex-col justify-center">
-                    <h1 className="font-bold text-4xl text-gray-800">Register as a member</h1>
+                <div className="w-full p-5 md:p-10 bg-white overflow-y-auto flex flex-col justify-center">
+                    <h1 className="font-bold text-4xl text-gray-800">
+                        Register as a member
+                    </h1>
                     <p className="text-gray-400">
                         Already have an account{" "}
-                        <a className="text-sky-600" href="/membership/login">
+                        <a
+                            className="text-blue-600 hover:text-blue-800"
+                            href="/membership/login"
+                        >
                             Login
                         </a>
                     </p>
@@ -217,7 +228,7 @@ export const RegisterPage = () => {
                                 id="link-checkbox"
                                 type="checkbox"
                                 value={data.agree_to_terms}
-                                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+                                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-600"
                                 onChange={(event) => {
                                     updateData({
                                         ...data,
@@ -232,7 +243,7 @@ export const RegisterPage = () => {
                                 <p>I agree with the</p>
                                 <a
                                     href="/legal/terms-and-conditions"
-                                    className="text-blue-600 dark:text-blue-500 hover:underline"
+                                    className="text-blue-600 hover:text-blue-800 hover:underline"
                                     target="_blank"
                                 >
                                     terms and conditions

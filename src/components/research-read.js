@@ -13,7 +13,7 @@ export const ResearchRead = ({
                     .replace(/ /g, "-")
                     .replace("'", "")
                     .toLowerCase()}`}
-                className="group flex bg-gray-50 rounded-lg p-5 space-x-4 items-center"
+                className="group flex flex-col lg:flex-row bg-gray-200 rounded-lg p-5 space-x-4 items-center"
             >
                 <div
                     style={{
@@ -26,7 +26,7 @@ export const ResearchRead = ({
                     }}
                     className={`w-[180px] h-[250px] bg-cover bg-center bg-no-repeat text-white`}
                 ></div>
-                <div className="w-9/12 text-left">
+                <div className="w-full lg:w-9/12 text-left">
                     <p className="text-sm py-2 text-gray-500">
                         {simpleDate(published)}
                     </p>

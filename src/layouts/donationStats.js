@@ -29,9 +29,9 @@ const chart = [
     },
 ];
 
-export const DonationStats = ({data}) => {
+export const DonationStats = ({ data }) => {
     return (
-        <section className="flex flex-col lg:flex-row text-white bg-gray-500 py-20 p-6 lg:p-32">
+        <section className="flex flex-col lg:flex-row text-white bg-gray-800 py-20 p-6 lg:p-32">
             <div className="lg:w-7/12 space-y-8">
                 <Slide bottom>
                     <h3 className="font-bold text-white text-5xl">
@@ -40,9 +40,7 @@ export const DonationStats = ({data}) => {
                 </Slide>
 
                 <Slide bottom>
-                    <p className="text-white">
-                        {data?.content}
-                    </p>
+                    <p className="text-white">{data?.content}</p>
                 </Slide>
 
                 <div className="grid-cols-1 md:grid-cols-2 grid gap-3">
@@ -50,7 +48,12 @@ export const DonationStats = ({data}) => {
                         <Slide bottom key={i}>
                             <div className="flex items-center space-x-2 space-y-4">
                                 <div
-                                    className={`w-5 h-5 rounded-md aspect-square mt-3 ${stat.color} `}
+                                    style={{
+                                        backgroundColor: stat.color.match(
+                                            /#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})/
+                                        )[0],
+                                    }}
+                                    className={`w-5 h-5 rounded-md aspect-square mt-3 ${stat.color}`}
                                 ></div>
                                 <p>{stat.name}</p>
                             </div>

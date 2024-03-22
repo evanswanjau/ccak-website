@@ -13,7 +13,7 @@ export const CareersPage = () => {
         access: "public",
         status: "published",
         page: 1,
-        limit: 9,
+        limit: 12,
     });
 
     return (
@@ -29,7 +29,7 @@ export const CareersPage = () => {
             updateData={updateData}
         >
             <div className="pt-[3.8rem] lg:pt-[6.6rem]">
-                <section className="flex flex-col space-x-8 items-center md:flex-row w-full p-6 md:p-32 bg-[#F2F9F4]">
+                <section className="flex flex-col lg:space-x-8 items-center lg:flex-row w-full p-6 lg:p-32 bg-[#F2F9F4]">
                     <div className="w-full lg:w-6/12">
                         <Fade>
                             <h6 className="text-black text-xs font-semibold">
@@ -55,14 +55,14 @@ export const CareersPage = () => {
                                     process.env.REACT_APP_IMAGEKIT_URL +
                                     data[0]?.content?.image
                                 }
-                                alt="Importance of clean cooking"
+                                alt={data[0]?.content?.title}
                             />
                         </Fade>
                     </div>
                 </section>
-                <section className="text-center py-12">
+                <section className="text-center py-12 lg:px-32">
                     <Slide bottom>
-                        <h1 className="text-5xl font-semibold my-5">
+                        <h1 className="text-4xl lg:text-6xl text-gray-800 font-semibold my-5">
                             {data[1]?.content?.title}
                         </h1>
                     </Slide>

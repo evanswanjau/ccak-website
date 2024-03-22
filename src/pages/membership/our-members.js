@@ -88,7 +88,9 @@ export const OurMembersPage = () => {
                 )}
                 <section className="text-center py-12">
                     <Slide bottom>
-                        <h1 className="text-5xl font-bold my-5">Members</h1>
+                        <h1 className="text-gray-800 text-4xl lg:text-6xl font-bold my-5">
+                            Members
+                        </h1>
                     </Slide>
                     <Slide bottom>
                         <p className="w-full text-gray-600 px-6 lg:w-6/12 mx-auto">
@@ -96,8 +98,8 @@ export const OurMembersPage = () => {
                         </p>
                     </Slide>
                 </section>
-                <section className="flex flex-row p-6 lg:p-16">
-                    <div className="flex flex-col w-full lg:w-9/12 md:pt-16">
+                <section className="flex flex-col-reverse lg:flex-row p-6 lg:p-16">
+                    <div className="flex flex-col w-full lg:w-9/12 lg:pt-16">
                         <ul className="flex flex-wrap font-manjari bg-">
                             <li
                                 className={`${
@@ -186,7 +188,7 @@ export const OurMembersPage = () => {
                                     })}
                                 </div>
                                 {paginationData.count > searchData.limit && (
-                                    <div className="my-5 text-center">
+                                    <div className="my-5 text-center overflow-auto">
                                         <Pagination
                                             paginationData={paginationData}
                                             search={searchData}
@@ -199,7 +201,7 @@ export const OurMembersPage = () => {
                         )}
                     </div>
 
-                    <div className="hidden lg:block w-3/12 pt-10 pl-10">
+                    <div className="w-full lg:w-3/12 pt-10 lg:pl-10 text-center lg:text-left">
                         <Fade>
                             <InputForm
                                 type="text"
@@ -210,11 +212,11 @@ export const OurMembersPage = () => {
                             />
                         </Fade>
 
-                        <div className="p-5 shadow-lg rounded-lg my-5">
-                            <h3 className="border-b pb-2 text-xl font-bold">
+                        <div className="lg:p-5 lg:shadow-lg rounded-lg my-5">
+                            <h3 className="hidden lg:block border-b pb-2 text-xl font-bold">
                                 CATEGORIES
                             </h3>
-                            <ul className="font-manjari space-y-2 my-5">
+                            <ul className="font-manjari flex flex-wrap lg:space-y-2 my-5">
                                 <li
                                     className={`${
                                         category === ""

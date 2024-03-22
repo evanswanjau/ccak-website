@@ -29,7 +29,7 @@ export const LoginPage = () => {
                     })`,
                     backgroundSize: "cover",
                 }}
-                className="g-cover bg-center bg-no-repeat w-full"
+                className="g-cover bg-center bg-no-repeat w-full hidden lg:block"
             >
                 <ul className="text-lg text-white flex space-x-2">
                     <li className="m-3 hover:text-[#ED7423] transition duration-300 ease-in-out">
@@ -41,19 +41,58 @@ export const LoginPage = () => {
                     </li>
                 </ul>
             </div>
-            <div className="w-full p-10 bg-white overflow-y-auto flex flex-col justify-center">
+            <div className="w-full p-5 md:p-10 bg-white overflow-y-auto flex flex-col justify-center">
+                <div className="lg:hidden absolute top-5 left-5">
+                    <a href="/">
+                        <h3 className="font-bold text-lg">Back to main site</h3>
+                    </a>
+                </div>
                 <h1 className="font-bold text-4xl text-gray-80">
                     Welcome back
                 </h1>
                 <p className="text-gray-400">
                     Don't have an account?{" "}
-                    <a className="text-sky-600" href="/membership/register">
+                    <a
+                        className="text-blue-600 hover:text-blue-800"
+                        href="/membership/register"
+                    >
                         Register
                     </a>
                 </p>
                 <div className="space-y-4 my-12">
                     {error && (
-                        <ErrorMessage error={error} setError={setError} />
+                        <ErrorMessage
+                            error={
+                                error ===
+                                "No account found with this email." ? (
+                                    <>
+                                        <p>{error}</p>
+                                        <p>
+                                            If you're a CCAK Member, please
+                                            contact{" "}
+                                            <a
+                                                href="mailto:info@ccak.or.ke"
+                                                className="underline"
+                                            >
+                                                info@ccak.or.ke
+                                            </a>{" "}
+                                            to be onboarded. If it's your first
+                                            time here,{" "}
+                                            <a
+                                                href="/membership/register"
+                                                className="underline"
+                                            >
+                                                register here
+                                            </a>
+                                            .
+                                        </p>
+                                    </>
+                                ) : (
+                                    error
+                                )
+                            }
+                            setError={setError}
+                        />
                     )}
                     <InputForm
                         type="email"

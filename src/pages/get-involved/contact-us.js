@@ -61,7 +61,7 @@ export const ContactUsPage = () => {
             updateData={updateData}
         >
             <div className="pt-[3.8rem] lg:pt-[6.6rem]">
-                <section className="flex flex-col space-x-12 md:flex-row w-full p-6 md:p-32 bg-[#F2F9F4]">
+                <section className="flex flex-col lg:space-x-12 lg:flex-row w-full p-6 lg:p-32 bg-[#F2F9F4]">
                     <div className="md:w-6/12 lg:w-6/12 py-5">
                         <Fade>
                             <h6 className="text-black font-semibold text-xs">
@@ -166,7 +166,7 @@ export const ContactUsPage = () => {
                             </Slide>
                         </div>
                         <Fade bottom>
-                            <div className="py-5 space-x-14 space flex">
+                            <div className="py-5 md:space-x-14 flex justify-between md:justify-start">
                                 <a
                                     href={data[0]?.content?.contact.facebook}
                                     target="_blank"

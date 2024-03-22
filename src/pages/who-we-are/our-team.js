@@ -22,7 +22,7 @@ export const OurTeamPage = () => {
                 )}
                 <section className="text-center py-12">
                     <Slide bottom>
-                        <h1 className="text-4xl font-semibold my-5">
+                        <h1 className="text-4xl lg:text-6xl text-gray-800 font font-semibold my-5">
                             Our Team
                         </h1>
                     </Slide>
@@ -36,7 +36,7 @@ export const OurTeamPage = () => {
                     return (
                         <section className="text-center px-6 lg:px-12">
                             <Slide bottom>
-                                <h3 className="text-4xl font-semibold my-5 capitalize">
+                                <h3 className="text-3xl font-semibold my-5 capitalize">
                                     {team.name}
                                 </h3>
                             </Slide>

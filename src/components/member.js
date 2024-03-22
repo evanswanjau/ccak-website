@@ -1,6 +1,9 @@
 import { Slide } from "react-reveal";
 
-export const Member = ({ data: { name, position, image, brief, bio }, setMember }) => {
+export const Member = ({
+    data: { name, position, image, brief, bio },
+    setMember,
+}) => {
     return (
         <Slide bottom>
             <div
@@ -18,7 +21,7 @@ export const Member = ({ data: { name, position, image, brief, bio }, setMember 
                             process.env.REACT_APP_IMAGEKIT_URL + image
                         })`,
                     }}
-                    className={`bg-cover bg-center bg-no-repeat mx-auto text-white h-52 w-52 rounded-2xl mb-6 cursor-pointer hover:scale-[1.05] duration-300 ease-in-out`}
+                    className={`bg-cover bg-center bg-no-repeat mx-auto text-white h-32 w-32 md:h-40 md:w-40 lg:h-52 lg:w-52 rounded-2xl mb-6 cursor-pointer hover:scale-[1.05] duration-300 ease-in-out`}
                 ></div>
                 <h6 className="text text-xl font-semibold capitalize group-hover:text-[#ED7423] duration-300 ease-in-out">
                     {name}

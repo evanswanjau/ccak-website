@@ -165,15 +165,16 @@ export const changeMemberPassword = (id, data, setSuccess, setError) => {
 
 /* ----------------- INVOICE ---------------- */
 
-export const getMemberInvoice = (id, updateData) => {
+export const getInvoice = (id, updateData, requiresAuth = true) => {
     return axios({
         method: "get",
         url: process.env.REACT_APP_API_URL + "invoice/" + id,
         headers: {
             "Content-Type": "application/json",
-            ...(localStorage.getItem("token") && {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-            }),
+            ...(requiresAuth &&
+                localStorage.getItem("token") && {
+                    Authorization: "Bearer " + localStorage.getItem("token"),
+                }),
         },
     }).then(({ data }) => {
         updateData(data);

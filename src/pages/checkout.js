@@ -4,7 +4,7 @@ import { HiChevronRight } from "react-icons/hi";
 import { InputForm } from "../components/forms/input-form";
 import { paymentsByInvoice, activateMpesaPayment } from "../api/api-calls";
 import { ButtonLoader } from "../components/btnLoader";
-import { getMemberInvoice } from "../api/member-api-calls";
+import { getInvoice } from "../api/member-api-calls";
 
 export const CheckoutInvoice = () => {
     const params = useParams();
@@ -14,7 +14,7 @@ export const CheckoutInvoice = () => {
     const [invoice, updateInvoice] = useState({});
     const [payments, setPayments] = useState([]);
     const [btnLoading, setBtnLoading] = useState(false);
-    const [current, setCurrent] = useState("mpesa-deposit");
+    const [current, setCurrent] = useState("stk-push");
     const [details, updateDetails] = useState({
         mpesaCode: "",
         mpesaNumber: "",
@@ -69,7 +69,7 @@ export const CheckoutInvoice = () => {
 
                                 return () => clearTimeout(redirectTimeout);
                             } else {
-                                getMemberInvoice(params.id, updateInvoice);
+                                getInvoice(params.id, updateInvoice);
                                 getAllPayments();
                                 setBtnLoading(false);
                             }
@@ -135,16 +135,18 @@ export const CheckoutInvoice = () => {
     if (current === "mpesa-deposit") disabled = details.mpesaCode === "";
 
     useEffect(() => {
-        getMemberInvoice(params.id, updateInvoice).then((data) => {
-            setMember({ ...member, ...data.customer });
-        });
+        getInvoice(params.id, updateInvoice, params.type !== "donation").then(
+            (data) => {
+                setMember({ ...member, ...data.customer });
+            }
+        );
 
         getAllPayments();
     }, []); //eslint-disable-line
 
     return (
         <div className="w-full lg:w-8/12 rounded-lg shadow-lg mx-auto my-5">
-            <div className="shadow-md py-2 px-10">
+            <div className="shadow-md py-2 px-6">
                 <a href="/">
                     <img
                         className="w-14"
@@ -153,22 +155,22 @@ export const CheckoutInvoice = () => {
                     />
                 </a>
             </div>
-            <div className="flex justify-between pt-10 pb-5 mx-10 border-b">
+            <div className="flex justify-between pt-10 pb-5 mx-6 border-b">
                 <h1 className="text-2xl font-semibold">
                     {invoice.description}
                 </h1>
                 <h1
-                    className={`text-xl font-semibold uppercase ${
+                    className={`flex text-xl font-semibold uppercase ${
                         invoice.status === "unpaid"
                             ? "text-red-600"
                             : "text-green-600"
                     }`}
                 >
-                    STATUS: {invoice.status}
+                    {invoice?.status}
                 </h1>
             </div>
-            <div className="flex flex-col md:flex-row">
-                <div className="w-full md:w-6/12 p-10 space-y-5">
+            <div className="flex flex-col md:flex-row md:space-x-4 lg:space-x-8 p-6">
+                <div className="w-full md:w-6/12 space-y-5">
                     <div>
                         <h2 className="font-semibold text-lg my-2">
                             Billing Details
@@ -209,6 +211,33 @@ export const CheckoutInvoice = () => {
                             Payment Method
                         </h2>
                         <div className="font-manjari my-5">
+                            <div
+                                className={`px-3 pt-4 pb-[0.7em] uppercase mt-5 rounded flex justify-between cursor-pointer text-gray-600 ${
+                                    "stk-push" === current &&
+                                    " text-white bg-gray-400"
+                                } hover:text-white hover:bg-gray-400 transition-all duration-700 ease-in-out`}
+                                onClick={() => {
+                                    setCurrent("stk-push");
+                                }}
+                            >
+                                <span className="tracking-wider font-semibold">
+                                    STK push
+                                </span>
+                                <HiChevronRight className="-mt-[0.1em] text-2xl" />
+                            </div>
+                            {current === "stk-push" && (
+                                <div className="p-3 bg-gray-100 rounded-b-lg">
+                                    <p>
+                                        1. A payment request will be been sent
+                                        to <b>{member.phone_number}</b> for
+                                        amount <b>{invoice.balance}</b>
+                                    </p>
+                                    <p>
+                                        2. Enter your mpesa pin to complete the
+                                        transaction
+                                    </p>
+                                </div>
+                            )}
                             <div
                                 className={`px-3 pt-4 pb-[0.7em] uppercase mt-2 rounded flex justify-between cursor-pointer text-gray-600 ${
                                     "mpesa-deposit" === current &&
@@ -328,7 +357,7 @@ export const CheckoutInvoice = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-full md:w-6/12 p-10">
+                <div className="w-full md:w-6/12">
                     <h2 className="font-semibold text-lg my-2">
                         Checkout Summary
                     </h2>
@@ -468,6 +497,22 @@ export const CheckoutInvoice = () => {
                                             </span>{" "}
                                             Kindly enter the Mpesa code and
                                             click continue
+                                        </div>
+                                    )}
+
+                                {current === "stk-push" &&
+                                    success === "" &&
+                                    error === "" && (
+                                        <div>
+                                            <span className="font-medium">
+                                                Info!
+                                            </span>{" "}
+                                            A payment request will be been sent
+                                            to <b>{member.phone_number}</b> for
+                                            amount{" "}
+                                            <b>
+                                                {invoice.balance.toLocaleString()}
+                                            </b>
                                         </div>
                                     )}
 
