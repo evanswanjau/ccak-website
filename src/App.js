@@ -263,7 +263,7 @@ function App() {
                 {/**--------------------- INVOICE ----------------------- */}
 
                 <Route
-                    path="/checkout/invoice/:id/:no"
+                    path="/checkout/invoice/:id/:no/:type"
                     component={CheckoutInvoice}
                 />
 

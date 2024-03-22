@@ -15,7 +15,7 @@ export const ShortPostsLayout = ({ title, category, limit, carousel }) => {
     });
 
     return (
-        <div className="w-full p-2 lg:p-9">
+        <div className="w-full px-6 lg:p-9">
             <Fade top>
                 <div className="flex flex-row">
                     <h2 className="w-full lg:w-4/12 text-2xl text-black font-bold">

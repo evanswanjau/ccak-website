@@ -6,6 +6,7 @@
 /*ScrollBar*/
 ::-webkit-scrollbar {
     width: 5px;
+    height: 5px;
 }
 
 /* Track */
@@ -107,6 +108,13 @@ a {
     --swiper-navigation-size: 32px;
     --swiper-navigation-sides-offset: 20px;
     --swiper-navigation-color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .mySwiper .swiper-button-next,
+    .mySwiper .swiper-button-prev {
+        display: none !important;
+    }
 }
 
 @keyframes modal-video {

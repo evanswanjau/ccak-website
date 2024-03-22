@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ReactHtmlParser from "react-html-parser";
 import { Slide, Fade } from "react-reveal";
 import {
     UsersIcon,
@@ -12,6 +11,20 @@ import { SubFooter } from "../../layouts/subFooter";
 import { RecentProjects } from "../../layouts/recentProjects";
 import { Page } from "../../layouts/page";
 
+const iconComponents = {
+    UsersIcon: UsersIcon,
+    ScaleIcon: ScaleIcon,
+    Squares2X2Icon: Squares2X2Icon,
+    CubeTransparentIcon: CubeTransparentIcon,
+    WrenchScrewdriverIcon: WrenchScrewdriverIcon,
+};
+
+const getIcon = (iconString) => {
+    const match = iconString.match(/<(\w+)/);
+    const iconName = match ? match[1] : null;
+    const IconComponent = iconComponents[iconName];
+    return iconName ? <IconComponent className="w-8" /> : null;
+};
 
 export const WhatWeDoPage = () => {
     const [data, updateData] = useState([]);
@@ -25,7 +38,7 @@ export const WhatWeDoPage = () => {
             updateData={updateData}
         >
             <div className="pt-[3.8rem] lg:pt-[6.6rem]">
-                <section className="flex flex-col md:flex-row w-full p-6 md:p-32 space-x-8 items-center">
+                <section className="flex flex-col lg:flex-row w-full p-6 lg:p-32 lg:space-x-8 items-center">
                     <div className="w-full lg:w-6/12">
                         <Fade>
                             <h6 className="text-black text-xs font-bold">
@@ -58,7 +71,7 @@ export const WhatWeDoPage = () => {
                 </section>
                 <section className="p-6 lg:p-32 bg-[#dbefdf]">
                     <Slide bottom>
-                        <h2 className="font-semibold text-gray-800 text-2xl lg:text-5xl mb-24 flex justify-center">
+                        <h2 className="font-semibold text-gray-800 text-4xl lg:text-6xl mb-24 flex justify-center">
                             {data[1]?.content.title}
                         </h2>
                     </Slide>
@@ -68,7 +81,7 @@ export const WhatWeDoPage = () => {
                                 <Slide bottom key={item.name}>
                                     <div className="w-full flex flex-col md:flex-row space-y-3 md:space-y-0">
                                         <div className="w-2/12">
-                                            {ReactHtmlParser(item.icon)}
+                                            {getIcon(item.icon)}
                                         </div>
                                         <div className="sm:w-10/12">
                                             <h6 className="font-bold text-xl mb-2 capitalize">

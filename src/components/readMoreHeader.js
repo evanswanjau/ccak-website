@@ -12,20 +12,20 @@ export const ReadMoreHeader = ({
     data: { title, excerpt, category, published, venue, event_date },
 }) => {
     return (
-        <section className="flex justify-center bg-[#F2F9F4] pt-24 pb-16">
-            <div className="lg:w-6/12 text-center">
+        <section className="flex justify-center bg-[#F2F9F4] pt-24 pb-16 md:px-5">
+            <div className="lg:w-8/12 text-center">
                 <Slide bottom>
-                    <h6 className="text-sm font-bold mt-5 text-gray-600 uppercase">
+                    <h6 className="text-black text-xs font-bold mt-5 uppercase">
                         {category}
                     </h6>
                 </Slide>
                 <Slide bottom>
-                    <h1 className="text-2xl md:text-3xl font-semibold mb-5">
+                    <h1 className="text-gray-800 text-2xl lg:text-5xl font-semibold mt-1 mb-5">
                         {title}
                     </h1>
                 </Slide>
                 <Slide bottom>
-                    <p className="px-5 text-gray-600">{excerpt}</p>
+                    <p className="px-2 text-gray-600">{excerpt}</p>
                 </Slide>
                 <div>
                     {category === "events" ? (
@@ -37,9 +37,7 @@ export const ReadMoreHeader = ({
                                 </p>
                                 <p className="justify-center flex flex-row space-x-1">
                                     <CalendarDaysIcon className="-mt-2 w-6 text-[#329E49]" />
-                                    <span>
-                                        {simpleDate(event_date)}
-                                    </span>
+                                    <span>{simpleDate(event_date)}</span>
                                 </p>
                             </div>
                         </Slide>

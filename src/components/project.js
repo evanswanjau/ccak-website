@@ -23,7 +23,7 @@ export const Project = ({
                             })`,
                         }}
                         className={`relative bg-cover bg-center bg-no-repeat rounded-lg text-white group flex flex-col min-h-[300px] ${
-                            carousel && "mr-3"
+                            carousel && "mx-1 md:mr-3"
                         }`}
                     >
                         <div className="absolute inset-0 flex flex-col justify-end h-full w-full bg-gradient-to-t from-black to-transparent px-3 pb-3 pt-28 rounded-lg group-hover:text-[#ED7423] transition duration-300 ease-in-out">

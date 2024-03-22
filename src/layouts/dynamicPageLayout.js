@@ -15,7 +15,7 @@ export const DynamicPageLayout = ({ pageData: { page, description } }) => {
         access: "public",
         status: "published",
         page: 1,
-        limit: 9,
+        limit: 12,
     });
 
     return (
@@ -31,12 +31,12 @@ export const DynamicPageLayout = ({ pageData: { page, description } }) => {
             <div className="pt-[3.8rem] lg:pt-[6.6rem]">
                 <section className="text-center py-12">
                     <Slide bottom>
-                        <h1 className="text-5xl font-bold my-5 capitalize">
+                        <h1 className="text-4xl lg:text-6xl text-gray-800 font-bold my-5 capitalize">
                             {page.replace(/-/, " ")}
                         </h1>
                     </Slide>
                     <Slide bottom>
-                        <p className="w-full px-5 md:w-6/12 mx-auto">
+                        <p className="w-full px-5 md:w-8/12 lg:w-6/12 mx-auto">
                             {data[0]?.content.header}
                         </p>
                     </Slide>
@@ -76,7 +76,7 @@ export const DynamicPageLayout = ({ pageData: { page, description } }) => {
                     >
                         <MediaCentreSideBar
                             category={page}
-                            searchData={{ ...searchData, page: 1, limit: 9 }}
+                            searchData={{ ...searchData, page: 1, limit: 12 }}
                             updateSearchData={updateSearchData}
                         />
                     </div>

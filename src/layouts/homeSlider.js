@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-// import { Slide } from "react-reveal";
 import { PlayCircleIcon } from "@heroicons/react/24/solid";
 
 import "swiper/css";
@@ -8,7 +7,7 @@ import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import { EffectFade, Autoplay, Pagination, Navigation } from "swiper";
+import { Autoplay, Pagination, Navigation } from "swiper";
 import { ModalYoutubeVideo } from "./modalVideo";
 
 export const HomeSlider = ({ data, youtubeId }) => {
@@ -16,21 +15,24 @@ export const HomeSlider = ({ data, youtubeId }) => {
 
     return (
         <>
-            <ModalYoutubeVideo show={show} setShow={setShow} youtubeId={youtubeId} />
+            <ModalYoutubeVideo
+                show={show}
+                setShow={setShow}
+                youtubeId={youtubeId}
+            />
             <Swiper
-                spaceBetween={30}
-                effect={"fade"}
+                spaceBetween={0}
                 navigation={true}
                 pagination={{
                     clickable: true,
                 }}
-                modules={[EffectFade, Navigation, Pagination, Autoplay]}
+                modules={[Navigation, Pagination, Autoplay]}
                 grabCursor={true}
                 autoplay={{
                     delay: 5000,
                     disableOnInteraction: false,
                 }}
-                speed={500}
+                speed={1000}
                 loop={true}
                 className="mySwiper"
             >
@@ -40,13 +42,12 @@ export const HomeSlider = ({ data, youtubeId }) => {
                             style={{
                                 backgroundImage: `url(${
                                     process.env.REACT_APP_IMAGEKIT_URL +
-                                    "sliders/slider" +
-                                    (i + 1) +
-                                    ".jpg?tr=w-1204"
+                                    "tr:w-1920,h-1080" +
+                                    item.image
                                 })`,
                                 backgroundSize: "cover",
                                 backgroundPosition: "center center",
-                                height: "calc(100vh - 6.6em)",
+                                height: "calc(100vh - 4em)",
                             }}
                         >
                             <div className="flex flex-row items-center bg-black/[.3] w-full h-full">
@@ -57,7 +58,7 @@ export const HomeSlider = ({ data, youtubeId }) => {
                                     <p className="text-xl font-bold mt-5 leading-normal">
                                         {item.content}
                                     </p>
-                                    <div className="flex space-x-3 lg:space-x-8 my-10">
+                                    <div className="flex flex-col md:flex-row space-y-8 space-x-0 md:space-x-8 md:space-y-0 my-10">
                                         <a href={"/what-we-do"}>
                                             <button className="bg-white text-gray-600 pt-3 pb-2 px-6 hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest">
                                                 WHAT WE DO
@@ -69,8 +70,10 @@ export const HomeSlider = ({ data, youtubeId }) => {
                                                 setShow(true);
                                             }}
                                         >
-                                            <PlayCircleIcon className="w-6" />
-                                            <p className="">Play Video</p>
+                                            <PlayCircleIcon className="w-10" />
+                                            <h2 className="text-xl font-semibold">
+                                                Play Video
+                                            </h2>
                                         </button>
                                     </div>
                                 </div>

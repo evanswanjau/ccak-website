@@ -237,7 +237,11 @@ export const OnboardingPage = () => {
 
         generateInvoice(invoiceData).then(({ data }) => {
             window.location.replace(
-                "/checkout/invoice/" + data.id + "/" + data.invoice_number
+                "/checkout/invoice/" +
+                    data.id +
+                    "/" +
+                    data.invoice_number +
+                    "/membership"
             );
         });
     };
@@ -266,31 +270,39 @@ export const OnboardingPage = () => {
     }
 
     return (
-        <div className="m-6 w-8/12 mx-auto rounded-lg shadow-lg">
-            <Stepper disabled={disabled} data={data} updateData={updateData} />
-            <div className="p-5">
-                {error && <ErrorMessage error={error} setError={setError} />}
-                {data.step === "personal" && (
-                    <PersonalDetails data={data} updateData={updateData} />
-                )}
-                {data.step === "company" && (
-                    <CompanyDetails
-                        data={data}
-                        updateData={updateData}
-                        setError={setError}
-                    />
-                )}
-                {data.step === "subscription" && (
-                    <Subscription data={data} updateData={updateData} />
-                )}
-                {data.step === "confirm" && <ConfirmDetails data={data} />}
-                <ActionButtons
+        <div className="flex items-center justify-center">
+            <div className="md:m-6 bg-white w-full h-full lg:w-8/12 mx-auto md:rounded-lg md:shadow-lg">
+                <Stepper
                     disabled={disabled}
                     data={data}
                     updateData={updateData}
-                    submitData={submitData}
-                    btnLoading={btnLoading}
                 />
+                <div className="p-5">
+                    {error && (
+                        <ErrorMessage error={error} setError={setError} />
+                    )}
+                    {data.step === "personal" && (
+                        <PersonalDetails data={data} updateData={updateData} />
+                    )}
+                    {data.step === "company" && (
+                        <CompanyDetails
+                            data={data}
+                            updateData={updateData}
+                            setError={setError}
+                        />
+                    )}
+                    {data.step === "subscription" && (
+                        <Subscription data={data} updateData={updateData} />
+                    )}
+                    {data.step === "confirm" && <ConfirmDetails data={data} />}
+                    <ActionButtons
+                        disabled={disabled}
+                        data={data}
+                        updateData={updateData}
+                        submitData={submitData}
+                        btnLoading={btnLoading}
+                    />
+                </div>
             </div>
         </div>
     );

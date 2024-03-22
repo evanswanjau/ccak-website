@@ -18,19 +18,15 @@ export const CallToAction = ({ data }) => {
                     >
                         {data.title}
                     </h3>
-                    <div className="flex flex-row justify-center items-center my-5 space-x-6">
+                    <div className="flex flex-col md:flex-row justify-center items-center mt-10 space-y-4 md:space-y-0 space-x-6">
                         <a href={data.buttons[0].link}>
-                            <button
-                                className="bg-[#EC7422] font-manjari leading-none pb-3 pt-4 px-5 text-white hover:bg-[#ce621b] rounded-md transition duration-300 ease-in-out tracking-widest uppercase"
-                            >
+                            <button className="bg-[#EC7422] font-manjari leading-none pb-3 pt-4 px-5 text-white hover:bg-[#ce621b] rounded-md transition duration-300 ease-in-out tracking-widest uppercase">
                                 {data.buttons[0].name}
                             </button>
                         </a>
 
                         <a href={data.buttons[1].link}>
-                            <button
-                                className="bg-white font-manjari leading-none pb-3 pt-4 px-5 hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest uppercase"
-                            >
+                            <button className="bg-white font-manjari leading-none pb-3 pt-4 px-5 hover:bg-[#ED7423] hover:text-white rounded-md transition duration-300 ease-in-out tracking-widest uppercase">
                                 {data.buttons[1].name}
                             </button>
                         </a>

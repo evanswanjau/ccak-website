@@ -19,7 +19,7 @@ export const DonatePage = () => {
             <div className="pt-[3.8rem] lg:pt-[6.6rem]">
                 {show && <DonateNow setShow={setShow} />}
 
-                <section className="flex flex-col items-center space-x-8 md:flex-row w-full p-6 lg:p-32 bg-[#F2F9F4]">
+                <section className="flex flex-col items-center lg:space-x-8 lg:flex-row w-full p-6 lg:p-32 bg-[#F2F9F4]">
                     <div className="w-full lg:w-6/12">
                         <Fade>
                             <h6 className="text-black text-xs font-semibold">
@@ -27,7 +27,7 @@ export const DonatePage = () => {
                             </h6>
                         </Fade>
                         <Slide bottom>
-                            <h2 className="text-gray-900 text-4xl lg:text-6xl mt-1 mb-8 font-bold">
+                            <h2 className="text-gray-800 text-4xl lg:text-6xl mt-1 mb-8 font-bold">
                                 {data[0]?.content?.title}
                             </h2>
                         </Slide>
@@ -47,7 +47,7 @@ export const DonatePage = () => {
                             </button>
                         </Slide>
                     </div>
-                    <div className="w-full flex items-center lg:w-6/12">
+                    <div className="w-full flex items-center lg:w-6/12 mt-5 lg:mt-0">
                         <Fade>
                             <img
                                 className="rounded-lg"

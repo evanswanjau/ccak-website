@@ -31,7 +31,7 @@ export const Event = ({
         <Fade>
             <div
                 className={`group shadow-md hover:shadow-xl transition-shadow duration-300 rounded-lg ${
-                    carousel && "mr-3"
+                    carousel && "mx-1 md:mr-3"
                 }`}
             >
                 <a

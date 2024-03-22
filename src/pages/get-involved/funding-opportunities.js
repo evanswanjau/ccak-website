@@ -13,7 +13,7 @@ export const FundingOpportunitiesPage = () => {
         access: "public",
         status: "published",
         page: 1,
-        limit: 9,
+        limit: 12,
     });
 
     return (
@@ -27,7 +27,7 @@ export const FundingOpportunitiesPage = () => {
             <div className="pt-[3.8rem] lg:pt-[6.6rem]">
                 <section className="text-center py-12">
                     <Slide bottom>
-                        <h1 className="text-5xl px-6 font-semibold my-5">
+                        <h1 className="text-gray-800 text-4xl lg:text-6xl px-6 font-semibold my-5">
                             Funding Opportunities
                         </h1>
                     </Slide>

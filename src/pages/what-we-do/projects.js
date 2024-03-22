@@ -53,7 +53,7 @@ export const ProjectsPage = () => {
             <div className="pt-[3.8rem] lg:pt-[6.6rem]">
                 <section className="text-center py-12">
                     <Slide bottom>
-                        <h1 className="text-4xl font-semibold my-5">
+                        <h1 className="text-4xl lg:text-6xl text-gray-800 font-semibold my-5">
                             Projects
                         </h1>
                     </Slide>
@@ -92,7 +92,7 @@ export const ProjectsPage = () => {
                                                     });
                                                 }}
                                             >
-                                                {item} Projects
+                                                {item}
                                             </button>
                                         </li>
                                     );
@@ -152,7 +152,7 @@ export const ProjectsPage = () => {
                                     </div>
                                     {paginationData.count >
                                         searchData.limit && (
-                                        <div className="my-5 text-center">
+                                        <div className="my-5 text-center overflow-auto">
                                             <Pagination
                                                 paginationData={paginationData}
                                                 search={searchData}

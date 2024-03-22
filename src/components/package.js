@@ -8,15 +8,21 @@ export const Package = ({ data: { name, category, price, list } }) => {
                 <h6 className="uppercase text-xl font-semibold text-gray-100">
                     {category}
                 </h6>
-                <h4 className="text-xl uppercase font-semibold text-white">{name}</h4>
-                <h3 className="text-4xl font-bold mt-5 text-white">{price}</h3>
+                <h4 className="text-xl uppercase font-semibold text-white">
+                    {name}
+                </h4>
+                <h3 className="text-4xl font-bold mt-5 text-white">
+                    KES {Number(price).toLocaleString()}
+                </h3>
                 <p className="pb-5 text-white">Per Year</p>
                 <ul className="text-left text-gray-100 my-5">
                     {list.map((item, i) => {
                         return (
                             <li className="flex my-3 text-md font-manjari">
                                 <PlayIcon className="w-4 mr-3 -mt-[5px] text-[#97DAAD]" />
-                                <span className="w-11/12 text-white">{item}</span>
+                                <span className="w-11/12 text-white">
+                                    {item}
+                                </span>
                             </li>
                         );
                     })}

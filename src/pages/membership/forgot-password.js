@@ -43,8 +43,8 @@ export const ForgotPasswordPage = () => {
     };
 
     return (
-        <div className="flex items-center justify-center h-screen p-5">
-            <div className="w-full md:w-8/12 lg:w-5/12 p-10 bg-white shadow-lg mx-auto rounded-lg">
+        <div className="flex items-center justify-center h-screen bg-white lg:bg-[#fcfcfc] lg:p-5">
+            <div className="w-full md:w-10/12 lg:w-5/12 p-5 md:p-10 bg-white lg:shadow-lg mx-auto rounded-lg">
                 <a href="/">
                     <img
                         src="/ccak_logo.png"
@@ -86,7 +86,10 @@ export const ForgotPasswordPage = () => {
                     </button>
                 </div>
                 <div className="flex justify-center">
-                    <a className="flex space-x-2" href="/membership/login">
+                    <a
+                        className="flex space-x-2 text-blue-600 hover:text-blue-800"
+                        href="/membership/login"
+                    >
                         <FiArrowLeft className="mt-[0.4em]" />
                         <span>Back to login</span>
                     </a>
