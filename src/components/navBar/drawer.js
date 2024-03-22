@@ -189,6 +189,20 @@ const data = [
             link: "tel:*789*788#",
         },
     },
+    {
+        links: [],
+        info: {
+            title: "+254 707 111 669",
+            link: "tel:+254707111669",
+        },
+    },
+    {
+        links: [],
+        info: {
+            title: "info@ccak.or.ke",
+            link: "mailto:info@ccak.or.ke",
+        },
+    },
 ];
 
 export const Drawer = ({ mobile, setMobile }) => {
