@@ -52,7 +52,7 @@ import { MyAccountBookmarksPage } from "./pages/my-account/bookmarks";
 import { MyAccountBillingPage } from "./pages/my-account/billing";
 import { MyAccountChangePasswordPage } from "./pages/my-account/change-password";
 import { BlogPage } from "./pages/media-centre/blog";
-import { CheckoutInvoice } from "./pages/checkout";
+import { CheckoutInvoice } from "./pages/checkout/checkout";
 import { ActivateEmail } from "./pages/membership/activate";
 import { PrivacyPolicyPage } from "./pages/legal/privacy-policy";
 import { TermsAndConditionsPage } from "./pages/legal/terms-and-conditions";

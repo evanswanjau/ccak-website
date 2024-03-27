@@ -64,7 +64,7 @@ export const MyAccountChangePasswordPage = () => {
             AuthMember(jwt_decode);
             getMember(setMember);
         }
-    }, []);
+    }, []); // eslint-disable-line
 
     return (
         <>
