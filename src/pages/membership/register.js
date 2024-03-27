@@ -129,7 +129,7 @@ export const RegisterPage = () => {
                         </a>
                     </p>
                     <p className="text-gray-600 my-5">
-                        Join the Clean Cooking Alliance Kenya as a member and be
+                        Join the Clean Cooking Association of Kenya as a member and be
                         part of the movement towards a healthier and sustainable
                         future.
                     </p>
