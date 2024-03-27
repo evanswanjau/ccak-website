@@ -35,7 +35,7 @@ const parseData = (invoices) => {
             <p className="text-center">
                 <a
                     className="text-blue-400 hover:text-blue-600 text-center"
-                    href={`/checkout/invoice/${invoice.id}/${invoice.invoice_number}`}
+                    href={`/checkout/invoice/${invoice.id}/${invoice.invoice_number}/membership`}
                     target="_blank"
                     rel="noreferrer noopener"
                 >

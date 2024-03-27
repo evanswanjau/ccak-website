@@ -1,6 +1,6 @@
 import { HiCheckCircle } from "react-icons/hi";
 
-export const PaymentComplete = () => {
+export const PaymentComplete = ({ toBilling }) => {
     return (
         <div className="py-24 flex flex-col justify-center items-center">
             <HiCheckCircle className="text-[8em] mx-auto text-green-600 mb-10" />
@@ -18,12 +18,21 @@ export const PaymentComplete = () => {
                 >
                     BACK TO MAIN SITE
                 </a>
-                <a
-                    className="tracking-widest border-2 border-green-600 hover:border-green-700 hover:bg-green-700 text-green-600 hover:text-white font-semibold flex justify-center rounded-lg text-sm px-5 pt-3 pb-[.5em] transition duration-700 ease-in-out"
-                    href="/membership/register"
-                >
-                    BECOME A MEMBER
-                </a>
+                {toBilling ? (
+                    <a
+                        className="tracking-widest border-2 border-green-600 hover:border-green-700 hover:bg-green-700 text-green-600 hover:text-white font-semibold flex justify-center rounded-lg text-sm px-5 pt-3 pb-[.5em] transition duration-700 ease-in-out"
+                        href="/my-account/billing"
+                    >
+                        BILLING
+                    </a>
+                ) : (
+                    <a
+                        className="tracking-widest border-2 border-green-600 hover:border-green-700 hover:bg-green-700 text-green-600 hover:text-white font-semibold flex justify-center rounded-lg text-sm px-5 pt-3 pb-[.5em] transition duration-700 ease-in-out"
+                        href="/membership/register"
+                    >
+                        BECOME A MEMBER
+                    </a>
+                )}
             </div>
         </div>
     );

@@ -220,7 +220,7 @@ export const CheckoutInvoice = () => {
     return (
         <div className="w-full lg:w-8/12 md:rounded-lg md:shadow-lg mx-auto my-5">
             {completed ? (
-                <PaymentComplete />
+                <PaymentComplete toBilling={params.type !== "donation"} />
             ) : (
                 <>
                     <div className="shadow-md py-2 px-6">
